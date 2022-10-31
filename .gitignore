@@ -2,6 +2,7 @@
 
 /dist
 /dist-ssr
+/coverage
 /node_modules
 
 logs

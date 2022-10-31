@@ -75,4 +75,11 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run test
+      - run: pnpm run test:unit
+
+      - name: Report coverage
+        uses: codecov/codecov-action@v3
+        if: success() || failure()
+        with:
+          files: coverage/lcov.info
+          flags: unit

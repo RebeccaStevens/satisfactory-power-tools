@@ -177,6 +177,10 @@ export default defineConfig(({ command, mode }) => {
       deps: {
         inline: ["@vue", "@vueuse"],
       },
+      coverage: {
+        provider: "c8",
+        reporter: ["text", "lcov"],
+      },
     },
 
     // https://github.com/antfu/vite-ssg
