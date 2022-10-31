@@ -1,18 +1,23 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "strict": true,
     "jsx": "preserve",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
-    "skipLibCheck": true,
-    "noEmit": true
+    "module": "ESNext",
+    "resolveJsonModule": true,
+    "useDefineForClassFields": true,
+    "types": [
+      "vite-plugin-pages/client",
+      "vite-plugin-pwa/client",
+      "vite-plugin-vue-layouts/client",
+      "vite/client",
+      "vitest",
+      "vue/ref-macros"
+    ]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [
+    { "path": "./tsconfig.node.json" },
+    { "path": "./tests/tsconfig.json" }
+  ]
 }

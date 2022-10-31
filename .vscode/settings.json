@@ -1,0 +1,27 @@
+{
+  "files.exclude": {
+    "coverage/": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "search.exclude": {
+    ".vscode/": true,
+    "**/.git/": true,
+    "dist/": true
+  },
+  "i18n-ally.sourceLanguage": "en-US",
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.localesPaths": "locales",
+  "i18n-ally.sortKeys": true,
+  "prettier.requireConfig": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "files.associations": {
+    ".markdownlint.json": "jsonc",
+    ".markdownlintignore": "ignore"
+  },
+  "eslint.validate": ["typescript", "vue"],
+  "vite.autoStart": true,
+  "vite.buildCommand": "pnpm build",
+  "vite.devCommand": "pnpm dev"
+}

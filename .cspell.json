@@ -1,0 +1,103 @@
+{
+  "version": "0.2",
+  "language": "en-US",
+  "ignorePaths": [
+    "**/coverage/**",
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/CHANGELOG.md",
+    "**/*.{json}",
+    ".github/workflows/**"
+  ],
+  "dictionaries": [
+    "typescript",
+    "softwareTerms",
+    "node",
+    "en_US",
+    "npm",
+    "misc",
+    "filetypes"
+  ],
+  "ignoreRegExpList": [
+    "/```[\\w\\W]*?```/",
+    "/~~~[\\w\\W]*?~~~/",
+    "/``[\\w\\W]*?``/",
+    "/`[^`]*`/",
+    "/TS[^\\s]+/",
+    "\\(#.+?\\)",
+    "// @ts-.*",
+    "/[A-Za-z0-9]{32,}/",
+    "<svg.*>.*</svg>"
+  ],
+  "words": [
+    "consts",
+    "caterium",
+    "ficsit",
+    "ficsmas",
+    "tetromino",
+    "callbag",
+    "unproject",
+    "unprojected",
+    "unprojecting",
+    "composables",
+    "esbuild",
+    "unassert",
+    "demi",
+    "iconify",
+    "intlify",
+    "pinia",
+    "pnpm",
+    "unocss",
+    "unplugin",
+    "sonarjs",
+    "Vite",
+    "vitejs",
+    "Vitesse",
+    "vitest",
+    "vueuse",
+    "emojione",
+    "litecoin",
+    "monero",
+    "foo",
+    "bar",
+    "baz",
+    "qux",
+    "quux",
+    "corge",
+    "grault",
+    "garply",
+    "waldo",
+    "fred",
+    "plugh",
+    "xyzzy",
+    "thud"
+  ],
+  "overrides": [
+    {
+      "filename": "**/*.{vue,ts,js}",
+      "ignoreRegExpList": ["/@[a-z]+/", "/#(end)?region/"],
+      "includeRegExpList": [
+        "/\\/\\*[\\s\\S]*?\\*\\/|([^\\\\:]|^)\\/\\/.*$/",
+        "/(\\/\\/[^\\n\\r]*[\\n\\r]+)/"
+      ]
+    },
+    {
+      "filename": "locales/*.yml",
+      "ignoreRegExpList": ["/([a-z0-9]|-|_|\"|')+:/ugi"],
+      "dictionaries": [],
+      "words": []
+    },
+    {
+      "filename": "locales/en.yml",
+      "language": "en"
+    },
+    {
+      "filename": "locales/en-US.yml",
+      "language": "en-US"
+    },
+    {
+      "filename": "locales/en-GB.yml",
+      "language": "en-GB"
+    }
+  ]
+}

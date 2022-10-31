@@ -1,0 +1,14 @@
+{
+  "./**/*.{md,yml}": [
+    "prettier --write"
+  ],
+  "./**/*.{ts,vue}": [
+    "eslint --fix"
+  ],
+  "./**/*.{ts,vue,md}": [
+    "cspell --config=.cspell.json"
+  ],
+  "./locales/*.yml": [
+    "cspell --config=.cspell.json"
+  ]
+}
