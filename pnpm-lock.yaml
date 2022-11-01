@@ -71,7 +71,7 @@ specifiers:
   vite-plugin-pages: 0.27.1
   vite-plugin-pwa: 0.13.1
   vite-plugin-vue-layouts: 0.7.0
-  vite-ssg: 0.21.1
+  vite-ssg: 0.21.2
   vite-ssg-sitemap: 0.4.3
   vite-tsconfig-paths: 3.5.2
   vitest: 0.24.4
@@ -86,7 +86,7 @@ dependencies:
   '@vueuse/head': 0.9.8_vue@3.2.41
   anu-vue: 0.10.0_o6cyoj7zusn5y3ontnnpzgf4om
   pinia: 2.0.23_l7r24p6nevbtlimqmqcwa3ouhu
-  vite-ssg: 0.21.1_5ousq2ai54iq5ks4u2qdqo7jjq
+  vite-ssg: 0.21.2_5ousq2ai54iq5ks4u2qdqo7jjq
   vue: 3.2.41
   vue-i18n: 9.2.2_vue@3.2.41
   vue-router: 4.1.6_vue@3.2.41
@@ -8092,8 +8092,8 @@ packages:
     resolution: {integrity: sha512-9ZIRBRCgM1Q4RtXXEBHIu8gotbx9LCnHZOZXtdSzR0DnjN9H5IYGY3yGoxI6VX8dScXiluxOODFlNlr7ydyI9A==}
     dev: true
 
-  /vite-ssg/0.21.1_5ousq2ai54iq5ks4u2qdqo7jjq:
-    resolution: {integrity: sha512-P39lT+ndBbN83SsfrDSc/uU9IHp7BUjYy7ly3I0jB0L+CvI1/R/bJTOkFikw2mS0FDkPTUN2bCqD6VTshtsO2w==}
+  /vite-ssg/0.21.2_5ousq2ai54iq5ks4u2qdqo7jjq:
+    resolution: {integrity: sha512-srcxakrqBaubPr6KuhMmkmrdm1Ye1zIClWOpV3TSk4viyy0QymZWwfPAPXjCwjzmPDY/QVHTffuMTNjoM4xkbA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     peerDependencies:

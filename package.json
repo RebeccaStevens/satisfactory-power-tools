@@ -23,7 +23,7 @@
     "@vueuse/head": "0.9.8",
     "anu-vue": "0.10.0",
     "pinia": "2.0.23",
-    "vite-ssg": "0.21.1",
+    "vite-ssg": "0.21.2",
     "vue": "3.2.41",
     "vue-i18n": "9.2.2",
     "vue-router": "4.1.6"
