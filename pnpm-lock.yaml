@@ -14,7 +14,7 @@ specifiers:
   '@typescript-eslint/parser': 5.42.0
   '@typescript-eslint/type-utils': 5.42.0
   '@unocss/core': 0.46.3
-  '@unocss/preset-attributify': 0.46.2
+  '@unocss/preset-attributify': 0.46.3
   '@unocss/preset-icons': 0.46.2
   '@unocss/preset-typography': 0.46.2
   '@unocss/preset-uno': 0.46.2
@@ -105,7 +105,7 @@ devDependencies:
   '@typescript-eslint/parser': 5.42.0_wyqvi574yv7oiwfeinomdzmc3m
   '@typescript-eslint/type-utils': 5.42.0_wyqvi574yv7oiwfeinomdzmc3m
   '@unocss/core': 0.46.3
-  '@unocss/preset-attributify': 0.46.2
+  '@unocss/preset-attributify': 0.46.3
   '@unocss/preset-icons': 0.46.2
   '@unocss/preset-typography': 0.46.2
   '@unocss/preset-uno': 0.46.2
@@ -2428,10 +2428,10 @@ packages:
       sirv: 2.0.2
     dev: true
 
-  /@unocss/preset-attributify/0.46.2:
-    resolution: {integrity: sha512-LWL+P50TrWQD50dD16PHUd4+PeiFJWhIRPRi3gfa7jAX3V9o83eEFIsVL/jGNdlMNtfkpiB6su6kJE/kkPvluA==}
+  /@unocss/preset-attributify/0.46.3:
+    resolution: {integrity: sha512-vOXHFQlSZU5QLchiGKKdwz/dDS7zH6xZlxEcwdWHxzpl+kd1RfryRFa0N7MiS/6i++ko6Whr53pUyb0etafKgw==}
     dependencies:
-      '@unocss/core': 0.46.2
+      '@unocss/core': 0.46.3
     dev: true
 
   /@unocss/preset-icons/0.46.2:
