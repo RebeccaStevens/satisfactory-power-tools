@@ -93,7 +93,7 @@
     "vite-imagetools": "4.0.11",
     "vite-plugin-inspect": "0.7.7",
     "vite-plugin-pages": "0.27.1",
-    "vite-plugin-pwa": "0.13.1",
+    "vite-plugin-pwa": "0.13.2",
     "vite-plugin-vue-layouts": "0.7.0",
     "vite-ssg-sitemap": "0.4.3",
     "vite-tsconfig-paths": "3.5.2",
