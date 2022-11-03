@@ -22,7 +22,7 @@ specifiers:
   '@unocss/reset': 0.46.3
   '@unocss/transformer-compile-class': 0.46.3
   '@unocss/transformer-directives': 0.46.3
-  '@unocss/transformer-variant-group': 0.46.2
+  '@unocss/transformer-variant-group': 0.46.3
   '@unocss/vite': 0.46.2
   '@vitejs/plugin-vue': 3.2.0
   '@vitest/coverage-c8': 0.24.5
@@ -113,7 +113,7 @@ devDependencies:
   '@unocss/reset': 0.46.3
   '@unocss/transformer-compile-class': 0.46.3
   '@unocss/transformer-directives': 0.46.3
-  '@unocss/transformer-variant-group': 0.46.2
+  '@unocss/transformer-variant-group': 0.46.3
   '@unocss/vite': 0.46.2_vite@3.2.2
   '@vitejs/plugin-vue': 3.2.0_vite@3.2.2+vue@3.2.41
   '@vitest/coverage-c8': 0.24.5_jsdom@20.0.2+sass@1.55.0
@@ -2505,10 +2505,10 @@ packages:
       css-tree: 2.2.1
     dev: true
 
-  /@unocss/transformer-variant-group/0.46.2:
-    resolution: {integrity: sha512-fJf4pWvUDy3ZO0rpRGXiFNWOm7HQi6+lw37Ik9YMlNGAmsa+pS4q24r/RbBHML2H7boRlnrzubTh/8/PaTh7EQ==}
+  /@unocss/transformer-variant-group/0.46.3:
+    resolution: {integrity: sha512-OdOREPMEo0D2tKaJa53CYoriKUIhjNCaBwr/0XGOamDwfYclt3+YyZ92AhpQIfqrdNbzlaBArjWGXMLjGLI1OA==}
     dependencies:
-      '@unocss/core': 0.46.2
+      '@unocss/core': 0.46.3
     dev: true
 
   /@unocss/vite/0.46.2_vite@3.2.2:
