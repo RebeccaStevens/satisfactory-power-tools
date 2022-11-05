@@ -61,7 +61,7 @@ specifiers:
   prettier-plugin-packagejson: 2.3.0
   rollup-plugin-unassert: 0.5.0
   sass: 1.56.0
-  type-fest: 3.1.0
+  type-fest: 3.2.0
   typescript: 4.8.4
   unplugin-auto-import: 0.11.4
   unplugin-vue-components: 0.22.9
@@ -148,7 +148,7 @@ devDependencies:
   prettier-plugin-packagejson: 2.3.0_prettier@2.7.1
   rollup-plugin-unassert: 0.5.0
   sass: 1.56.0
-  type-fest: 3.1.0
+  type-fest: 3.2.0
   typescript: 4.8.4
   unplugin-auto-import: 0.11.4_@vueuse+core@9.4.0
   unplugin-vue-components: 0.22.9_vue@3.2.41
@@ -7775,8 +7775,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /type-fest/3.1.0:
-    resolution: {integrity: sha512-StmrZmK3eD9mDF9Vt7UhqthrDSk66O9iYl5t5a0TSoVkHjl0XZx/xuc/BRz4urAXXGHOY5OLsE0RdJFIApSFmw==}
+  /type-fest/3.2.0:
+    resolution: {integrity: sha512-Il3wdLRzWvbAEtocgxGQA9YOoRVeVUGOMBtel5LdEpNeEAol6GJTLw8GbX6Z8EIMfvfhoOXs2bwOijtAZdK5og==}
     engines: {node: '>=14.16'}
     dev: true
 
