@@ -19,7 +19,7 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@vueuse/core": "9.4.0",
+    "@vueuse/core": "9.5.0",
     "@vueuse/head": "0.9.8",
     "anu-vue": "0.10.0",
     "pinia": "2.0.23",
