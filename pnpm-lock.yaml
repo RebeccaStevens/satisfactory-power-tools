@@ -20,7 +20,7 @@ specifiers:
   '@unocss/preset-uno': 0.46.5
   '@unocss/preset-web-fonts': 0.46.5
   '@unocss/reset': 0.46.5
-  '@unocss/transformer-compile-class': 0.46.4
+  '@unocss/transformer-compile-class': 0.46.5
   '@unocss/transformer-directives': 0.46.4
   '@unocss/transformer-variant-group': 0.46.4
   '@unocss/vite': 0.46.4
@@ -111,7 +111,7 @@ devDependencies:
   '@unocss/preset-uno': 0.46.5
   '@unocss/preset-web-fonts': 0.46.5
   '@unocss/reset': 0.46.5
-  '@unocss/transformer-compile-class': 0.46.4
+  '@unocss/transformer-compile-class': 0.46.5
   '@unocss/transformer-directives': 0.46.4
   '@unocss/transformer-variant-group': 0.46.4
   '@unocss/vite': 0.46.4_vite@3.2.3
@@ -2532,10 +2532,10 @@ packages:
     resolution: {integrity: sha512-wNgFxvUzoqGyzW7dJCPLdIgbtcLulyIYBbVOSXEJ3fy+j8rjcF23HAZF/mh3hIRYbci8gm8XmG4+BKPlG3D7Aw==}
     dev: true
 
-  /@unocss/transformer-compile-class/0.46.4:
-    resolution: {integrity: sha512-T0m8vsymnUClhXMBulSIs8iIuNhvkys28UpIR6mnobI/cZV/+FKo+2w8r2vKyNkSlKd+yXZm+/RzF6q6S7Z5AQ==}
+  /@unocss/transformer-compile-class/0.46.5:
+    resolution: {integrity: sha512-ntE+CJ2XzUyXKzT2MklM1GcVxLlJFpi6fYl0GqGqXMxvPdKHUaX9f4zASjuAUFr/od1MKhjHkujy8pyr6y2Q4g==}
     dependencies:
-      '@unocss/core': 0.46.4
+      '@unocss/core': 0.46.5
     dev: true
 
   /@unocss/transformer-directives/0.46.4:
