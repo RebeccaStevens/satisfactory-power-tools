@@ -56,7 +56,7 @@ specifiers:
   jsdom: 20.0.2
   lint-staged: 13.0.3
   pinia: 2.0.23
-  pnpm: 7.15.0
+  pnpm: 7.16.0
   prettier: 2.7.1
   prettier-plugin-packagejson: 2.3.0
   rollup-plugin-unassert: 0.5.0
@@ -143,7 +143,7 @@ devDependencies:
   husky: 8.0.2
   jsdom: 20.0.2
   lint-staged: 13.0.3
-  pnpm: 7.15.0
+  pnpm: 7.16.0
   prettier: 2.7.1
   prettier-plugin-packagejson: 2.3.0_prettier@2.7.1
   rollup-plugin-unassert: 0.5.0
@@ -6778,8 +6778,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /pnpm/7.15.0:
-    resolution: {integrity: sha512-GGQ5+MCwD0bpq+65uitpgO1+ZusZ1keO5ebG/CH6ciu1ohnZj5Y3X374Ow/CBApa+Jw2/NUifVRz2fW4JChftA==}
+  /pnpm/7.16.0:
+    resolution: {integrity: sha512-jGDe7kz6wmoJiiEn+zQBwV+h0PazsvkeXGS5RnM0bEAD2rTxMR+oOfhWfuEDXddiBocCDNuuo1PL4ChuvR0t/g==}
     engines: {node: '>=14.6'}
     hasBin: true
     dev: true
