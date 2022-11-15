@@ -30,7 +30,7 @@ specifiers:
   '@vue/eslint-config-typescript': 11.0.2
   '@vue/test-utils': 2.2.3
   '@vueuse/core': 9.5.0
-  '@vueuse/head': 1.0.12
+  '@vueuse/head': 1.0.13
   anu-vue: 0.10.0
   commitizen: 4.2.5
   critters: 0.0.16
@@ -83,10 +83,10 @@ specifiers:
 
 dependencies:
   '@vueuse/core': 9.5.0_vue@3.2.45
-  '@vueuse/head': 1.0.12_vue@3.2.45
+  '@vueuse/head': 1.0.13_vue@3.2.45
   anu-vue: 0.10.0_6eslmrfliaawptddcfwbxlcnya
   pinia: 2.0.23_zwu2zepfy3m6u2gunxlolp35gi
-  vite-ssg: 0.21.2_ag6medfjbponczevs4ual5vsqe
+  vite-ssg: 0.21.2_zm3ymkvxxympxmt5rnis2g5ad4
   vue: 3.2.45
   vue-i18n: 9.2.2_vue@3.2.45
   vue-router: 4.1.6_vue@3.2.45
@@ -2481,31 +2481,31 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@unhead/dom/0.6.6:
-    resolution: {integrity: sha512-iKKv6s+oRvsvF3EeHE1n5xVf2oKtED1M4q0ECzFmM+oSihGUGzZJAn+UgN5MOcx1ilJQcHxBQQwzO9pppW/3aQ==}
+  /@unhead/dom/0.6.7:
+    resolution: {integrity: sha512-HUp8ygfQ7VfpEouy26nLsuk6Y5ii5UldoC1NdTuzHSxkYwlq0v4rMpiO1f7T/0i9D7RJDpAp8LdhsHKgcEmRiA==}
     dependencies:
-      '@unhead/schema': 0.6.6
+      '@unhead/schema': 0.6.7
     dev: false
 
-  /@unhead/schema/0.6.6:
-    resolution: {integrity: sha512-hcJLBTW7LlS1KzaUZ4nxBFaQmx3g7SxfJyX37/UET2JlH+8ycQgojFCZbnrHn5QIJz7zU1VcWv9gGfeS9i2lSQ==}
+  /@unhead/schema/0.6.7:
+    resolution: {integrity: sha512-wVf3Zu7deua63J/HYKoUXUkG0wZLPnKws1DNpSJkhNrjbpdzvsfI08lPIkW1ISqddQiLFXOgcnbhYrhcD7ZZYw==}
     dependencies:
       '@zhead/schema': 1.0.0-beta.13
       hookable: 5.4.1
     dev: false
 
-  /@unhead/ssr/0.6.6:
-    resolution: {integrity: sha512-Dmt6E5BqJ3HRLh5fSlICCJ1YtYoyijl1jXdJ+D6jXHN8ut21/65qiwGPNPQOXAwBtBLLRRX3yvvDvTtlWN+zLQ==}
+  /@unhead/ssr/0.6.7:
+    resolution: {integrity: sha512-jvEJER7dMSEtI6u60OrEz4gwhmQDGbo086HXdIYoT7RoaJ/YQa/CUAHRfLTO6F657iYs42VPFM3yRCVUbexZhA==}
     dependencies:
-      '@unhead/schema': 0.6.6
+      '@unhead/schema': 0.6.7
     dev: false
 
-  /@unhead/vue/0.6.6_vue@3.2.45:
-    resolution: {integrity: sha512-oXkWEbW8astq5xhIS7HS+q6Q9vT/HGYM/gaHUpHQlXVFwc2t7KcBcDoFQMONLLw/eEovMudnwUGXRi6/8kwz8Q==}
+  /@unhead/vue/0.6.7_vue@3.2.45:
+    resolution: {integrity: sha512-9qQ90WtOoQpXihM/MzDHiLWZ53HcZg9Xynf8PhY+004wLfj9e2cE2jSms1mjdP+BC7wVoeENQ9NCv4fOa6l6MQ==}
     peerDependencies:
       vue: '>=2.7 || >=3'
     dependencies:
-      '@unhead/schema': 0.6.6
+      '@unhead/schema': 0.6.7
       hookable: 5.4.1
       vue: 3.2.45
     dev: false
@@ -2879,15 +2879,15 @@ packages:
       - '@vue/composition-api'
       - vue
 
-  /@vueuse/head/1.0.12_vue@3.2.45:
-    resolution: {integrity: sha512-ra2mnr8doC+ZmlKir3Jv2H0b9zkjxcBlkdb7Hi7kXpjXJ2E5U5S/c3QF3tNyO4WnxTjV/hEw2Is0wkfX924szg==}
+  /@vueuse/head/1.0.13_vue@3.2.45:
+    resolution: {integrity: sha512-QJ69f+V0blbroHPuOAYBQZek31kMmFttgUj+QmL+rnXgFUfRXj5rqIDC2chFBSsjHcWl6KfzwPbou5mjCVJAgw==}
     peerDependencies:
       vue: '>=2.7 || >=3'
     dependencies:
-      '@unhead/dom': 0.6.6
-      '@unhead/schema': 0.6.6
-      '@unhead/ssr': 0.6.6
-      '@unhead/vue': 0.6.6_vue@3.2.45
+      '@unhead/dom': 0.6.7
+      '@unhead/schema': 0.6.7
+      '@unhead/ssr': 0.6.7
+      '@unhead/vue': 0.6.7_vue@3.2.45
       vue: 3.2.45
     dev: false
 
@@ -8242,7 +8242,7 @@ packages:
     resolution: {integrity: sha512-9ZIRBRCgM1Q4RtXXEBHIu8gotbx9LCnHZOZXtdSzR0DnjN9H5IYGY3yGoxI6VX8dScXiluxOODFlNlr7ydyI9A==}
     dev: true
 
-  /vite-ssg/0.21.2_ag6medfjbponczevs4ual5vsqe:
+  /vite-ssg/0.21.2_zm3ymkvxxympxmt5rnis2g5ad4:
     resolution: {integrity: sha512-srcxakrqBaubPr6KuhMmkmrdm1Ye1zIClWOpV3TSk4viyy0QymZWwfPAPXjCwjzmPDY/QVHTffuMTNjoM4xkbA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
@@ -8258,7 +8258,7 @@ packages:
       vue-router:
         optional: true
     dependencies:
-      '@vueuse/head': 1.0.12_vue@3.2.45
+      '@vueuse/head': 1.0.13_vue@3.2.45
       critters: 0.0.16
       fs-extra: 10.1.0
       html-minifier: 4.0.0

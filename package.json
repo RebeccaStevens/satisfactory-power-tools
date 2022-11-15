@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@vueuse/core": "9.5.0",
-    "@vueuse/head": "1.0.12",
+    "@vueuse/head": "1.0.13",
     "anu-vue": "0.10.0",
     "pinia": "2.0.23",
     "vite-ssg": "0.21.2",
