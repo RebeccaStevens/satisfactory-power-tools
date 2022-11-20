@@ -78,7 +78,7 @@
     "eslint-plugin-unicorn": "44.0.2",
     "eslint-plugin-vue": "9.7.0",
     "husky": "8.0.2",
-    "jsdom": "20.0.2",
+    "jsdom": "20.0.3",
     "lint-staged": "13.0.3",
     "pnpm": "7.16.1",
     "prettier": "2.7.1",
