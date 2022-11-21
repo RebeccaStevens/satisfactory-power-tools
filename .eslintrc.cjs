@@ -43,9 +43,21 @@ module.exports = {
       },
     ],
     "unicorn/no-array-for-each": "off",
+    "unicorn/no-array-method-this-argument": "off",
     "import/default": "off",
     "import/no-relative-parent-imports": "off",
     "import/no-unassigned-import": "off",
+    "functional/prefer-immutable-types": [
+      "warn",
+      {
+        enforcement: "None",
+        ignoreInferredTypes: true,
+        parameters: {
+          enforcement: "ReadonlyShallow",
+        },
+        ignoreNamePattern: ["^m_"],
+      },
+    ],
   },
   overrides: [
     {
@@ -88,13 +100,6 @@ module.exports = {
       files: ["**/*.vue", "**/*.tests.ts"],
       rules: {
         "unicorn/filename-case": "off",
-      },
-    },
-    {
-      files: ["src/assert/**"],
-      rules: {
-        "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/no-unsafe-assignment": "off",
       },
     },
     {
@@ -179,6 +184,15 @@ module.exports = {
       typescript: {
         project,
       },
+    },
+    immutability: {
+      overrides: [
+        {
+          name: "Readonly",
+          to: "ReadonlyShallow",
+          from: "Mutable",
+        },
+      ],
     },
   },
 };

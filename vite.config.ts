@@ -11,7 +11,6 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { defineConfig } from "vite";
 import Inspect from "vite-plugin-inspect";
-// eslint-disable-next-line import/no-deprecated, import/no-named-as-default-member -- Something is going wrong with eslint here.
 import Pages from "vite-plugin-pages";
 import { VitePWA } from "vite-plugin-pwa";
 import Layouts from "vite-plugin-vue-layouts";
@@ -58,15 +57,7 @@ export default defineConfig(({ command, mode }) => {
         plugins: [
           rollupUnassert({
             include: ["**/*.ts"],
-            importPatterns: [
-              'import assert from "assert"',
-              'import * as assert from "assert"',
-              'import * as assert from "~/assert"',
-            ],
-            requirePatterns: [
-              'assert = require("assert")',
-              'assert = require("~/assert")',
-            ],
+            importPatterns: ['import { strict as assert } from "node:assert";'],
           }),
         ],
       },
@@ -74,6 +65,10 @@ export default defineConfig(({ command, mode }) => {
 
     worker: {
       format: "es",
+    },
+
+    server: {
+      port: 3000,
     },
 
     plugins: [
@@ -91,7 +86,7 @@ export default defineConfig(({ command, mode }) => {
 
       // https://github.com/hannoeru/vite-plugin-pages
       Pages({
-        exclude: ["**/components/**/*"],
+        exclude: ["**/pages/**/!(pages)/!(pages)/*"],
       }),
 
       // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
@@ -119,6 +114,9 @@ export default defineConfig(({ command, mode }) => {
       Components({
         resolvers: [AnuComponentResolver()],
         dts: "src/components.d.ts",
+        directoryAsNamespace: true,
+        collapseSamePrefixes: true,
+        dirs: ["src/**/components/"],
       }),
 
       // https://github.com/antfu/unocss
