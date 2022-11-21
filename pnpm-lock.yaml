@@ -50,7 +50,7 @@ specifiers:
   eslint-plugin-prettier: 4.2.1
   eslint-plugin-promise: 6.1.1
   eslint-plugin-sonarjs: 0.16.0
-  eslint-plugin-unicorn: 44.0.2
+  eslint-plugin-unicorn: 45.0.0
   eslint-plugin-vue: 9.7.0
   husky: 8.0.2
   jsdom: 20.0.3
@@ -99,7 +99,7 @@ devDependencies:
   '@iconify/utils': 2.0.2
   '@intlify/vite-plugin-vue-i18n': 6.0.3_vite@3.2.4+vue-i18n@9.2.2
   '@kidonng/daisyui': 2.31.0
-  '@rebeccastevens/eslint-config': 1.4.5_7vo2zvys6l25oqvmjhvyey467m
+  '@rebeccastevens/eslint-config': 1.4.5_xnioutpfamnae6scyktbicxooq
   '@types/node': 18.11.9
   '@typescript-eslint/eslint-plugin': 5.43.0_nqj4bdx4ekws7aecttskpih4py
   '@typescript-eslint/parser': 5.43.0_hsf322ms6xhhd4b5ne6lb74y4a
@@ -138,7 +138,7 @@ devDependencies:
   eslint-plugin-prettier: 4.2.1_pgxuib4rd7wiymfktharf5ydt4
   eslint-plugin-promise: 6.1.1_eslint@8.28.0
   eslint-plugin-sonarjs: 0.16.0_eslint@8.28.0
-  eslint-plugin-unicorn: 44.0.2_eslint@8.28.0
+  eslint-plugin-unicorn: 45.0.0_eslint@8.28.0
   eslint-plugin-vue: 9.7.0_eslint@8.28.0
   husky: 8.0.2
   jsdom: 20.0.3
@@ -2041,7 +2041,7 @@ packages:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
 
-  /@rebeccastevens/eslint-config/1.4.5_7vo2zvys6l25oqvmjhvyey467m:
+  /@rebeccastevens/eslint-config/1.4.5_xnioutpfamnae6scyktbicxooq:
     resolution: {integrity: sha512-1ySI7hkcW3/5ruYpQCYlau/s6q0q12wuzpTaXbHQHS2pPwla3PNnRXyLTYCPpVhbuT6xuCdPxqmKB47SEdJb4A==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -2074,7 +2074,7 @@ packages:
       eslint-plugin-optimize-regex: 1.2.1
       eslint-plugin-promise: 6.1.1_eslint@8.28.0
       eslint-plugin-sonarjs: 0.16.0_eslint@8.28.0
-      eslint-plugin-unicorn: 44.0.2_eslint@8.28.0
+      eslint-plugin-unicorn: 45.0.0_eslint@8.28.0
     dev: true
 
   /@rollup/plugin-babel/5.3.1_vyv4jbhmcriklval33ak5sngky:
@@ -3320,8 +3320,9 @@ packages:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
     dev: true
 
-  /ci-info/3.5.0:
-    resolution: {integrity: sha512-yH4RezKOGlOhxkmhbeNuC4eYZKAUsEaGtBuBzDDP1eFUKiccDWzBABxBfOx31IDwDIXMTxWuwAxUGModvkbuVw==}
+  /ci-info/3.6.1:
+    resolution: {integrity: sha512-up5ggbaDqOqJ4UqLKZ2naVkyqSJQgJi5lwD6b6mM748ysrghDBX0bx/qJTUHzw7zu6Mq4gycviSF5hJnwceD8w==}
+    engines: {node: '>=8'}
     dev: true
 
   /clean-css/4.2.4:
@@ -4624,24 +4625,26 @@ packages:
       eslint: 8.28.0
     dev: true
 
-  /eslint-plugin-unicorn/44.0.2_eslint@8.28.0:
-    resolution: {integrity: sha512-GLIDX1wmeEqpGaKcnMcqRvMVsoabeF0Ton0EX4Th5u6Kmf7RM9WBl705AXFEsns56ESkEs0uyelLuUTvz9Tr0w==}
+  /eslint-plugin-unicorn/45.0.0_eslint@8.28.0:
+    resolution: {integrity: sha512-iP8cMRxXKHonKioOhnCoCcqVhoqhAp6rB+nsoLjXFDxTHz3btWMAp8xwzjHA0B1K6YV/U/Yvqn1bUXZt8sJPuQ==}
     engines: {node: '>=14.18'}
     peerDependencies:
-      eslint: '>=8.23.1'
+      eslint: '>=8.28.0'
     dependencies:
       '@babel/helper-validator-identifier': 7.19.1
-      ci-info: 3.5.0
+      ci-info: 3.6.1
       clean-regexp: 1.0.0
       eslint: 8.28.0
       eslint-utils: 3.0.0_eslint@8.28.0
       esquery: 1.4.0
       indent-string: 4.0.0
       is-builtin-module: 3.2.0
+      jsesc: 3.0.2
       lodash: 4.17.21
       pluralize: 8.0.0
       read-pkg-up: 7.0.1
       regexp-tree: 0.1.24
+      regjsparser: 0.9.1
       safe-regex: 2.1.1
       semver: 7.3.8
       strip-indent: 3.0.0
@@ -5940,6 +5943,12 @@ packages:
   /jsesc/2.5.2:
     resolution: {integrity: sha512-OYu7XEzjkCQ3C5Ps3QIZsQfNpqoJyZZA99wd9aWd05NCtC5pWOkShK2mkL6HXQR6/Cy2lbNdPlZBpuQHXE63gA==}
     engines: {node: '>=4'}
+    hasBin: true
+    dev: true
+
+  /jsesc/3.0.2:
+    resolution: {integrity: sha512-xKqzzWXDttJuOcawBt4KnKHHIf5oQ/Cxax+0PWFG+DFDgHNAdi+TXECADI+RYiFUMmx8792xsMbbgXj4CwnP4g==}
+    engines: {node: '>=6'}
     hasBin: true
     dev: true
 
