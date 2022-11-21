@@ -2,3 +2,8 @@ language: english
 
 site:
   title: "Satisfactory Power Tools"
+
+pages:
+  home:
+    label: home
+    title: Home

@@ -1,7 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { t } = useI18n();
+
+useHead({
+  title: t("site.title"),
+});
+</script>
 
 <template>
-  <div></div>
+  <div>{{ t("pages.home.title") }}</div>
 </template>
 
 <route lang="yaml">
