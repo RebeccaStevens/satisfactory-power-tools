@@ -29,9 +29,7 @@ const config: UserConfig<PresetUnoTheme> = {
   ],
   presets: [
     presetUno(),
-    presetAttributify({
-      strict: true,
-    }),
+    presetAttributify(),
     presetIcons({
       warn: true,
       scale: 1.2,
