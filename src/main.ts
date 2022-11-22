@@ -7,6 +7,7 @@ import type { UserModule } from "./types";
 import generatedRoutes from "~pages";
 
 import "uno.css";
+// import "virtual:unocss-devtools";
 import "anu-vue/dist/style.css";
 
 const routes = setupLayouts(generatedRoutes);

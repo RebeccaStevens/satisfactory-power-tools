@@ -60,6 +60,8 @@ const config: UserConfig<PresetUnoTheme> = {
     transformerDirectives(),
     transformerVariantGroup(),
   ],
+  include: ["./**/*.vue", "./**/*.html", /.*\/anu-vue\.js(.*)?$/u],
+  exclude: [],
 };
 
 export default config;
