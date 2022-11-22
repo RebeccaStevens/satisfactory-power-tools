@@ -3,6 +3,11 @@ language: english
 site:
   title: "Satisfactory Power Tools"
 
+donate:
+  ko-fi:
+    message: support me
+    image-alt: Ko-fi logo
+
 pages:
   home:
     label: home

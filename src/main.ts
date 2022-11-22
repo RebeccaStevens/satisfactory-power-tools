@@ -9,6 +9,7 @@ import generatedRoutes from "~pages";
 import "uno.css";
 // import "virtual:unocss-devtools";
 import "anu-vue/dist/style.css";
+import "~/styles/index.scss";
 
 const routes = setupLayouts(generatedRoutes);
 
