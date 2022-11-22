@@ -9,7 +9,9 @@ specifiers:
   '@intlify/vite-plugin-vue-i18n': 6.0.3
   '@kidonng/daisyui': 2.31.0
   '@rebeccastevens/eslint-config': 1.4.5
+  '@types/dedent': ^0.7.0
   '@types/node': 18.11.9
+  '@types/sharp': ^0.31.0
   '@typescript-eslint/eslint-plugin': 5.44.0
   '@typescript-eslint/parser': 5.44.0
   '@typescript-eslint/type-utils': 5.44.0
@@ -35,6 +37,7 @@ specifiers:
   commitizen: 4.2.5
   critters: 0.0.16
   cspell: 6.14.3
+  dedent: ^0.7.0
   esbuild: 0.15.15
   eslint: 8.28.0
   eslint-config-prettier: 8.5.0
@@ -61,6 +64,7 @@ specifiers:
   prettier-plugin-packagejson: 2.3.0
   rollup-plugin-unassert: 0.5.0
   sass: 1.56.1
+  sharp: ^0.31.2
   type-fest: 3.2.0
   typescript: 4.9.3
   unplugin-auto-import: 0.11.4
@@ -100,7 +104,9 @@ devDependencies:
   '@intlify/vite-plugin-vue-i18n': 6.0.3_vite@3.2.4+vue-i18n@9.2.2
   '@kidonng/daisyui': 2.31.0
   '@rebeccastevens/eslint-config': 1.4.5_33sdirmi3qklmrx2asvnnjkuhm
+  '@types/dedent': 0.7.0
   '@types/node': 18.11.9
+  '@types/sharp': 0.31.0
   '@typescript-eslint/eslint-plugin': 5.44.0_fnsv2sbzcckq65bwfk7a5xwslu
   '@typescript-eslint/parser': 5.44.0_hsf322ms6xhhd4b5ne6lb74y4a
   '@typescript-eslint/type-utils': 5.44.0_hsf322ms6xhhd4b5ne6lb74y4a
@@ -123,6 +129,7 @@ devDependencies:
   commitizen: 4.2.5
   critters: 0.0.16
   cspell: 6.14.3
+  dedent: 0.7.0
   esbuild: 0.15.15
   eslint: 8.28.0
   eslint-config-prettier: 8.5.0_eslint@8.28.0
@@ -148,6 +155,7 @@ devDependencies:
   prettier-plugin-packagejson: 2.3.0_prettier@2.7.1
   rollup-plugin-unassert: 0.5.0
   sass: 1.56.1
+  sharp: 0.31.2
   type-fest: 3.2.0
   typescript: 4.9.3
   unplugin-auto-import: 0.11.4_@vueuse+core@9.5.0
@@ -2214,6 +2222,10 @@ packages:
       '@types/ms': 0.7.31
     dev: true
 
+  /@types/dedent/0.7.0:
+    resolution: {integrity: sha512-EGlKlgMhnLt/cM4DbUSafFdrkeJoC9Mvnj0PUCU7tFmTjMjNRT957kXCx0wYm3JuEq4o4ZsS5vG+NlkM2DMd2A==}
+    dev: true
+
   /@types/estree/0.0.39:
     resolution: {integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==}
     dev: true
@@ -2282,6 +2294,12 @@ packages:
 
   /@types/semver/7.3.13:
     resolution: {integrity: sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==}
+    dev: true
+
+  /@types/sharp/0.31.0:
+    resolution: {integrity: sha512-nwivOU101fYInCwdDcH/0/Ru6yIRXOpORx25ynEOc6/IakuCmjOAGpaO5VfUl4QkDtUC6hj+Z2eCQvgXOioknw==}
+    dependencies:
+      '@types/node': 18.11.9
     dev: true
 
   /@types/trusted-types/2.0.2:
@@ -5211,7 +5229,7 @@ packages:
     dev: true
 
   /github-from-package/0.0.0:
-    resolution: {integrity: sha512-SyHy3T1v2NUXn29OsWdxmK6RwHD+vkj3v8en8AOBZ1wBQ/hCAQ5bAQTD02kW4W9tUp/3Qh6J8r9EvntiyCmOOw==}
+    resolution: {integrity: sha1-l/tdlr/eiXMxPyDoKI75oWf6ZM4=}
     dev: true
 
   /glob-parent/5.1.2:
@@ -5534,7 +5552,7 @@ packages:
     resolution: {integrity: sha512-YbZhedg/zja34yV6iRDhfo4cmAYSwxaErkuzc/RpMMAELgszpDKf3MLH6VlsR+QkenPUEGkGAVpJAM2GbUls9Q==}
     engines: {node: '>=12.0.0'}
     dependencies:
-      sharp: 0.31.1
+      sharp: 0.31.2
     dev: true
 
   /immutable/4.1.0:
@@ -7354,8 +7372,8 @@ packages:
       randombytes: 2.1.0
     dev: true
 
-  /sharp/0.31.1:
-    resolution: {integrity: sha512-GR8M1wBwOiFKLkm9JPun27OQnNRZdHfSf9VwcdZX6UrRmM1/XnOrLFTF0GAil+y/YK4E6qcM/ugxs80QirsHxg==}
+  /sharp/0.31.2:
+    resolution: {integrity: sha512-DUdNVEXgS5A97cTagSLIIp8dUZ/lZtk78iNVZgHdHbx1qnQR7JAHY0BnXnwwH39Iw+VKhO08CTYhIg0p98vQ5Q==}
     engines: {node: '>=14.15.0'}
     requiresBuild: true
     dependencies:

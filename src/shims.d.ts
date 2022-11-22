@@ -5,6 +5,11 @@ declare module "*.vue" {
   export default component;
 }
 
+declare module "*&imagetools" {
+  const src: string;
+  export default src;
+}
+
 interface ObjectConstructor {
   hasOwn<ObjectType, Key extends PropertyKey>(
     object: ObjectType,

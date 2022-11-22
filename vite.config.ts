@@ -1,3 +1,5 @@
+import type { Dirent } from "node:fs";
+import { promises as fs } from "node:fs";
 import path from "node:path";
 import url from "node:url";
 
@@ -6,10 +8,14 @@ import VueI18n from "@intlify/vite-plugin-vue-i18n";
 import Unocss from "@unocss/vite";
 import Vue from "@vitejs/plugin-vue";
 import { AnuComponentResolver } from "anu-vue";
+import dedent from "dedent";
 import rollupUnassert from "rollup-plugin-unassert";
+import type { FormatEnum } from "sharp";
+import sharp from "sharp";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { defineConfig } from "vite";
+import { imagetools } from "vite-imagetools";
 import Inspect from "vite-plugin-inspect";
 import Pages from "vite-plugin-pages";
 import { VitePWA } from "vite-plugin-pwa";
@@ -27,6 +33,7 @@ export default defineConfig(({ command, mode }) => {
   return {
     resolve: {
       alias: {
+        "~/images/": `${path.resolve(dirname, "images")}/`,
         "~/": `${path.resolve(dirname, "src")}/`,
       },
     },
@@ -163,6 +170,10 @@ export default defineConfig(({ command, mode }) => {
         include: [path.resolve(dirname, "locales/**")],
       }),
 
+      imagetools(),
+
+      autoImageIndex(),
+
       // https://github.com/antfu/vite-plugin-inspect
       // Visit http://localhost:3333/__inspect/ to see the inspector
       Inspect(),
@@ -196,3 +207,138 @@ export default defineConfig(({ command, mode }) => {
     },
   };
 });
+
+/**
+ * Get the list of image formats we support.
+ */
+function getImageFormats(): Array<keyof FormatEnum> {
+  // return process.env.NODE_ENV === "production" ? ["png", "webp"] : ["webp"];
+  return ["webp"];
+}
+
+/**
+ * Automatically create the index files for all the images.
+ */
+function autoImageIndex() {
+  const imageFormats = getImageFormats();
+
+  const getIndexContent = async (
+    dirContent: Readonly<Dirent[]>,
+    baseDir: string,
+  ) => {
+    const content = await Promise.all(
+      dirContent.map(async (dirent) => {
+        if (dirent.isDirectory()) {
+          const { name } = path.parse(dirent.name);
+          return dedent`
+            // import ${name} from "./${name}";
+            // for (const [name, image] of ${name}) {
+            //   images.set(name, image);
+            // }
+            export * as ${name} from "./${name}";
+          `;
+        }
+        if (dirent.isFile()) {
+          const { name, ext, dir, base } = path.parse(dirent.name);
+
+          if (ext === ".ts") {
+            return undefined;
+          }
+
+          const imageMetaData = await sharp(
+            path.join(baseDir, dir, base),
+          ).metadata();
+          const nativeWidth = imageMetaData.width;
+
+          const widths = [
+            ...new Set([32, 64, 128, 256, nativeWidth]).values(),
+          ].filter(
+            (width): width is number =>
+              width !== undefined &&
+              width <= (nativeWidth ?? Number.POSITIVE_INFINITY),
+          );
+
+          const importsData = imageFormats.flatMap((format: string) =>
+            widths.map((size) => {
+              const queryString = `${new URLSearchParams({
+                format,
+                width: String(size),
+              })
+                .toString()
+                .replaceAll("=&", "&")}&imagetools`;
+
+              return {
+                fullName: `${name}_${format}_${size}`,
+                relPath: `./${dirent.name}?${queryString}`,
+                format,
+                size,
+              };
+            }),
+          );
+
+          const imports = importsData.map(
+            ({ fullName, relPath }) =>
+              dedent`
+                import ${fullName} from "${relPath}";
+              `,
+          );
+
+          const exports = dedent`
+            export const ${name} = createSrcset([${importsData
+            .map(
+              ({ fullName, size, format }) =>
+                `{ src: ${fullName}, size: ${size}, format: "${format}" }`,
+            )
+            .join(", ")}]);
+          `;
+
+          return dedent`
+            ${imports.join("\n")}
+            ${exports}
+            // images.set("${name}", ${name})
+          `;
+        }
+        return undefined;
+      }),
+    );
+
+    const safeContent = content.filter(
+      <T>(i: T | undefined): i is T => i !== undefined,
+    );
+
+    return dedent`
+      import { createSrcset } from "~/utils";
+
+      // const images = new Map<string, string>();
+      // export default images;
+
+      ${safeContent.join("\n")}
+    `;
+  };
+
+  const createForDir = async (dir: string) => {
+    const dirContent = await fs.readdir(dir, {
+      withFileTypes: true,
+    });
+
+    const subDirs = dirContent
+      .filter((dirent) => dirent.isDirectory())
+      .map((dirent) => dirent.name);
+
+    const indexContent = await getIndexContent(dirContent, dir);
+
+    const indexPath = path.join(dir, "index.ts");
+    await fs.writeFile(indexPath, indexContent, { encoding: "utf8" });
+    await Promise.all(
+      subDirs.map((subDir) => createForDir(path.join(dir, subDir))),
+    );
+  };
+
+  return {
+    name: "auto-image-index",
+
+    async buildStart() {
+      await createForDir(path.resolve(dirname, "images"));
+    },
+  };
+}

@@ -12,6 +12,7 @@
     "rootDir": "./",
     "baseUrl": "./",
     "paths": {
+      "~/images/*": ["images/*"],
       "~/*": ["src/*"]
     }
   },

@@ -25,6 +25,7 @@ module.exports = {
   ignorePatterns: [
     "/coverage/",
     "/dist/",
+    "/images/**/index.ts",
     "/public/",
     "/src/auto-imports.d.ts",
     "/src/components.d.ts",

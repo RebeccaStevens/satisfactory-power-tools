@@ -10,5 +10,6 @@ logs
 pnpm-debug.log*
 
 /.eslintrc-auto-import.json
+/images/**/index.ts
 /src/auto-imports.d.ts
 /src/components.d.ts

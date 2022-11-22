@@ -16,7 +16,13 @@
       "vue/ref-macros"
     ]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": [
+    "images/**/*.ts",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ],
   "references": [
     { "path": "./tsconfig.node.json" },
     { "path": "./tests/tsconfig.json" }
