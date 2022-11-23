@@ -59,7 +59,7 @@ export default defineConfig(({ command, mode }) => {
     build: {
       outDir: path.resolve(dirname, "dist"),
       emptyOutDir: true,
-      target: "es2020",
+      target: "es2022",
       rollupOptions: {
         output: {
           inlineDynamicImports: false,
@@ -79,6 +79,10 @@ export default defineConfig(({ command, mode }) => {
 
     server: {
       port: 3000,
+    },
+
+    preview: {
+      port: 4173,
     },
 
     plugins: [
