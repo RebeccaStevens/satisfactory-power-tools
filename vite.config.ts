@@ -65,10 +65,11 @@ export default defineConfig(({ command, mode }) => {
           inlineDynamicImports: false,
         },
         plugins: [
-          rollupUnassert({
-            include: ["**/*.ts"],
-            importPatterns: ['import { strict as assert } from "node:assert";'],
-          }),
+          // TODO: enable when it doesn't cause issues.
+          // @see https://github.com/unassert-js/rollup-plugin-unassert/issues/9
+          // rollupUnassert({
+          //   include: ["**/*.ts"],
+          // }),
         ],
       },
     },

@@ -3,9 +3,6 @@ declare module "rollup-plugin-unassert" {
     include?: string[];
     exclude?: string[];
     sourcemap?: boolean;
-    assertionPatterns?: string[];
-    requirePatterns?: string[];
-    importPatterns?: string[];
   }): {
     name: string;
     transform(code: string, id: string): any;
