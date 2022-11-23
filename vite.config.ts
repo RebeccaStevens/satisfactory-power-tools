@@ -27,7 +27,10 @@ const dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
-  console.log(`Command: ${command}\nMode:    ${mode}`);
+  console.log(dedent`
+    Command: ${command}
+    Mode:    ${mode}
+  `);
   process.env.NODE_ENV = mode;
 
   return {
