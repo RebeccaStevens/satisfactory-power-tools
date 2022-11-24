@@ -22,6 +22,8 @@
     "@vueuse/core": "9.5.0",
     "@vueuse/head": "1.0.17",
     "anu-vue": "0.10.0",
+    "change-case": "^4.1.2",
+    "iter-ops": "^2.6.0",
     "pinia": "2.0.25",
     "vite-ssg": "0.22.0",
     "vue": "3.2.45",

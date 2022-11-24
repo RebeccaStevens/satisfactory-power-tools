@@ -104,6 +104,12 @@ module.exports = {
       },
     },
     {
+      files: "raw-collection-parser.ts",
+      rules: {
+        "eslint-comments/no-unlimited-disable": "off",
+      },
+    },
+    {
       files: ["*.md/**"],
       extends: ["plugin:markdown/recommended"],
     },
