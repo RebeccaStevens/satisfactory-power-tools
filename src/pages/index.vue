@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { usePageTitle } from "~/composables/page";
+
 const { t } = useI18n();
 
 useHead({
-  title: t("site.title"),
+  title: usePageTitle("home"),
 });
 </script>
 
