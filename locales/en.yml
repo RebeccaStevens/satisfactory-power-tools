@@ -12,3 +12,7 @@ pages:
   home:
     label: home
     title: Home
+
+  optimizer:
+    label: optimizer
+    title: Optimizer

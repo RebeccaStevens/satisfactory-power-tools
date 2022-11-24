@@ -1,1 +1,6 @@
 language: english (GB)
+
+pages:
+  optimizer:
+    label: optimiser
+    title: Optimiser

@@ -28,6 +28,11 @@ export function useMainMenu() {
       label: t("pages.home.label"),
       link: "/",
     },
+    {
+      type: "link",
+      label: t("pages.optimizer.label"),
+      link: "/optimizer",
+    },
   ];
 
   return menu;
