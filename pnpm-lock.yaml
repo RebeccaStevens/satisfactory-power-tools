@@ -9,9 +9,9 @@ specifiers:
   '@intlify/vite-plugin-vue-i18n': 6.0.3
   '@kidonng/daisyui': 2.31.0
   '@rebeccastevens/eslint-config': 1.4.5
-  '@types/dedent': ^0.7.0
+  '@types/dedent': 0.7.0
   '@types/node': 18.11.9
-  '@types/sharp': ^0.31.0
+  '@types/sharp': 0.31.0
   '@typescript-eslint/eslint-plugin': 5.44.0
   '@typescript-eslint/parser': 5.44.0
   '@typescript-eslint/type-utils': 5.44.0
@@ -34,11 +34,11 @@ specifiers:
   '@vueuse/core': 9.5.0
   '@vueuse/head': 1.0.17
   anu-vue: 0.10.0
-  change-case: ^4.1.2
+  change-case: 4.1.2
   commitizen: 4.2.5
   critters: 0.0.16
   cspell: 6.14.3
-  dedent: ^0.7.0
+  dedent: 0.7.0
   esbuild: 0.15.15
   eslint: 8.28.0
   eslint-config-prettier: 8.5.0
@@ -57,7 +57,7 @@ specifiers:
   eslint-plugin-unicorn: 45.0.0
   eslint-plugin-vue: 9.7.0
   husky: 8.0.2
-  iter-ops: ^2.6.0
+  iter-ops: 2.6.0
   jsdom: 20.0.3
   lint-staged: 13.0.3
   pinia: 2.0.25
@@ -66,7 +66,7 @@ specifiers:
   prettier-plugin-packagejson: 2.3.0
   rollup-plugin-unassert: 0.5.0
   sass: 1.56.1
-  sharp: ^0.31.2
+  sharp: 0.31.2
   type-fest: 3.2.0
   typescript: 4.9.3
   unplugin-auto-import: 0.11.4
@@ -5280,7 +5280,7 @@ packages:
     dev: true
 
   /github-from-package/0.0.0:
-    resolution: {integrity: sha1-l/tdlr/eiXMxPyDoKI75oWf6ZM4=}
+    resolution: {integrity: sha512-SyHy3T1v2NUXn29OsWdxmK6RwHD+vkj3v8en8AOBZ1wBQ/hCAQ5bAQTD02kW4W9tUp/3Qh6J8r9EvntiyCmOOw==}
     dev: true
 
   /glob-parent/5.1.2:
