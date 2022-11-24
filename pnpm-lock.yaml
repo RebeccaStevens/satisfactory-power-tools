@@ -47,7 +47,7 @@ specifiers:
   eslint-plugin-eslint-comments: 3.2.0
   eslint-plugin-functional: 5.0.0-beta.14
   eslint-plugin-import: 2.26.0
-  eslint-plugin-jsdoc: 39.6.3
+  eslint-plugin-jsdoc: 39.6.4
   eslint-plugin-markdown: 3.0.0
   eslint-plugin-node: 11.1.0
   eslint-plugin-optimize-regex: 1.2.1
@@ -107,7 +107,7 @@ devDependencies:
   '@iconify/utils': 2.0.2
   '@intlify/vite-plugin-vue-i18n': 6.0.3_vite@3.2.4+vue-i18n@9.2.2
   '@kidonng/daisyui': 2.31.0
-  '@rebeccastevens/eslint-config': 1.4.5_gbd3bhpxuabuknnd35724unnmq
+  '@rebeccastevens/eslint-config': 1.4.5_mxylpf47myt53726ko363mwluq
   '@types/dedent': 0.7.0
   '@types/node': 18.11.9
   '@types/sharp': 0.31.0
@@ -142,7 +142,7 @@ devDependencies:
   eslint-plugin-eslint-comments: 3.2.0_eslint@8.28.0
   eslint-plugin-functional: 5.0.0-beta.14_d5t4mueyspmpnfnovmheocf3eu
   eslint-plugin-import: 2.26.0_vc54pluhgv7booofyyjouvuf74
-  eslint-plugin-jsdoc: 39.6.3_eslint@8.28.0
+  eslint-plugin-jsdoc: 39.6.4_eslint@8.28.0
   eslint-plugin-markdown: 3.0.0_eslint@8.28.0
   eslint-plugin-node: 11.1.0_eslint@8.28.0
   eslint-plugin-optimize-regex: 1.2.1
@@ -2059,7 +2059,7 @@ packages:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
 
-  /@rebeccastevens/eslint-config/1.4.5_gbd3bhpxuabuknnd35724unnmq:
+  /@rebeccastevens/eslint-config/1.4.5_mxylpf47myt53726ko363mwluq:
     resolution: {integrity: sha512-1ySI7hkcW3/5ruYpQCYlau/s6q0q12wuzpTaXbHQHS2pPwla3PNnRXyLTYCPpVhbuT6xuCdPxqmKB47SEdJb4A==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -2086,7 +2086,7 @@ packages:
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.28.0
       eslint-plugin-functional: 5.0.0-beta.14_d5t4mueyspmpnfnovmheocf3eu
       eslint-plugin-import: 2.26.0_vc54pluhgv7booofyyjouvuf74
-      eslint-plugin-jsdoc: 39.6.3_eslint@8.28.0
+      eslint-plugin-jsdoc: 39.6.4_eslint@8.28.0
       eslint-plugin-markdown: 3.0.0_eslint@8.28.0
       eslint-plugin-node: 11.1.0_eslint@8.28.0
       eslint-plugin-optimize-regex: 1.2.1
@@ -4675,8 +4675,8 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-jsdoc/39.6.3_eslint@8.28.0:
-    resolution: {integrity: sha512-omyUBTh0Wvn7NI62PI3zgfTHb5EUvbq0NFdMHw5kgkhgwVFKY50MOwpv1GDQVD7aL307463kZZmrEWSM8o1DOA==}
+  /eslint-plugin-jsdoc/39.6.4_eslint@8.28.0:
+    resolution: {integrity: sha512-fskvdLCfwmPjHb6e+xNGDtGgbF8X7cDwMtVLAP2WwSf9Htrx68OAx31BESBM1FAwsN2HTQyYQq7m4aW4Q4Nlag==}
     engines: {node: ^14 || ^16 || ^17 || ^18 || ^19}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0
