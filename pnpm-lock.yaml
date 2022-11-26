@@ -57,7 +57,7 @@ specifiers:
   eslint-plugin-unicorn: 45.0.0
   eslint-plugin-vue: 9.8.0
   husky: 8.0.2
-  iter-ops: 2.6.0
+  iter-ops: 2.6.1
   jsdom: 20.0.3
   lint-staged: 13.0.4
   pinia: 2.0.26
@@ -92,7 +92,7 @@ dependencies:
   '@vueuse/head': 1.0.18_vue@3.2.45
   anu-vue: 0.10.0_jsxvpu3kpuoe7pkobzodw7rqwu
   change-case: 4.1.2
-  iter-ops: 2.6.0
+  iter-ops: 2.6.1
   pinia: 2.0.26_mgnvym7yiazkylwwogi5r767ue
   vite-ssg: 0.22.0_btsslyppnm7dvf4lyxme2fuxdq
   vue: 3.2.45
@@ -6004,8 +6004,8 @@ packages:
       istanbul-lib-report: 3.0.0
     dev: true
 
-  /iter-ops/2.6.0:
-    resolution: {integrity: sha512-lX+S6j0nhftg/CkE6zD/7Vsa0S/3aPf2xxOuj3RKS5C/gNsRYd/bU73UZT50kTkg6BXAuHS2c/LwBqFkEg0HLA==}
+  /iter-ops/2.6.1:
+    resolution: {integrity: sha512-dB4OS9F+FgrIHcTW0p58QJiIDIPNUmLjFUjxfTyNgqypNM8WUFzDHhyzQ3i9rTvcHYg0CEMuCVUwp2qT2JZh8g==}
     engines: {node: '>=14'}
     dev: false
 
