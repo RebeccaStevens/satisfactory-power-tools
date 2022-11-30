@@ -47,7 +47,7 @@
     "@typescript-eslint/type-utils": "5.45.0",
     "@unocss/core": "0.47.3",
     "@unocss/preset-attributify": "0.47.3",
-    "@unocss/preset-icons": "0.47.1",
+    "@unocss/preset-icons": "0.47.3",
     "@unocss/preset-typography": "0.46.5",
     "@unocss/preset-uno": "0.46.5",
     "@unocss/preset-web-fonts": "0.46.5",
