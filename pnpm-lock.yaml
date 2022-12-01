@@ -18,7 +18,7 @@ specifiers:
   '@unocss/core': 0.47.4
   '@unocss/preset-attributify': 0.47.4
   '@unocss/preset-icons': 0.47.4
-  '@unocss/preset-typography': 0.47.3
+  '@unocss/preset-typography': 0.47.4
   '@unocss/preset-uno': 0.47.3
   '@unocss/preset-web-fonts': 0.47.3
   '@unocss/reset': 0.46.5
@@ -117,7 +117,7 @@ devDependencies:
   '@unocss/core': 0.47.4
   '@unocss/preset-attributify': 0.47.4
   '@unocss/preset-icons': 0.47.4
-  '@unocss/preset-typography': 0.47.3
+  '@unocss/preset-typography': 0.47.4
   '@unocss/preset-uno': 0.47.3
   '@unocss/preset-web-fonts': 0.47.3
   '@unocss/reset': 0.46.5
@@ -2614,10 +2614,10 @@ packages:
       '@unocss/core': 0.47.3
     dev: true
 
-  /@unocss/preset-typography/0.47.3:
-    resolution: {integrity: sha512-I5TE0ueRECeMARgD11IfaJgCFLy1fR/IKNdAiej7G4ma/Upnv8s1ORkgjpcImn+bgkJWtWNb7O+Kht0pzpNfWQ==}
+  /@unocss/preset-typography/0.47.4:
+    resolution: {integrity: sha512-MwMohvf6m2rLOqvC91DCF3E0L+5BFMyG486ZR2R8FbwxsrZ5ezI0roRl/E4kBUmCi5OFmiaDs/jYzWl4u0csyA==}
     dependencies:
-      '@unocss/core': 0.47.3
+      '@unocss/core': 0.47.4
     dev: true
 
   /@unocss/preset-uno/0.47.3:
