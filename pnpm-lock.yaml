@@ -19,7 +19,7 @@ specifiers:
   '@unocss/preset-attributify': 0.47.4
   '@unocss/preset-icons': 0.47.4
   '@unocss/preset-typography': 0.47.4
-  '@unocss/preset-uno': 0.47.3
+  '@unocss/preset-uno': 0.47.4
   '@unocss/preset-web-fonts': 0.47.3
   '@unocss/reset': 0.46.5
   '@unocss/transformer-compile-class': 0.46.5
@@ -118,7 +118,7 @@ devDependencies:
   '@unocss/preset-attributify': 0.47.4
   '@unocss/preset-icons': 0.47.4
   '@unocss/preset-typography': 0.47.4
-  '@unocss/preset-uno': 0.47.3
+  '@unocss/preset-uno': 0.47.4
   '@unocss/preset-web-fonts': 0.47.3
   '@unocss/reset': 0.46.5
   '@unocss/transformer-compile-class': 0.46.5
@@ -2608,10 +2608,10 @@ packages:
       - supports-color
     dev: true
 
-  /@unocss/preset-mini/0.47.3:
-    resolution: {integrity: sha512-3H2HpOeEQLcKH0KB50UCTvIs3NjxlyJ4GbsBOYel5/EESfVuuMOPH4Hu0ukueeHtKaT5psJalvGUUeoUm66ulg==}
+  /@unocss/preset-mini/0.47.4:
+    resolution: {integrity: sha512-bReqL5Pycn5SmdNRv9ZZqJCM8Gte2lqWAa+RAT/67/ymXlionsup6AweMfuCoJN1cZwlOXoEhOcqTjbMm+/TJQ==}
     dependencies:
-      '@unocss/core': 0.47.3
+      '@unocss/core': 0.47.4
     dev: true
 
   /@unocss/preset-typography/0.47.4:
@@ -2620,12 +2620,12 @@ packages:
       '@unocss/core': 0.47.4
     dev: true
 
-  /@unocss/preset-uno/0.47.3:
-    resolution: {integrity: sha512-ka/yQREYU0EDmZnEMMsiHeH/dYYmIDUckMM//mPXNhzSu9enjQ43T9kSBeeiXTH2Qrv7h92ENwF8EIZTKwTR7A==}
+  /@unocss/preset-uno/0.47.4:
+    resolution: {integrity: sha512-DcBOdZPCA5xNHasrUZOZmWFzkRaB+k2qmFMzEikbWEQDgq1TpAktBV8PZTIJyJiGwSsge3FilGMvghl6mY74AQ==}
     dependencies:
-      '@unocss/core': 0.47.3
-      '@unocss/preset-mini': 0.47.3
-      '@unocss/preset-wind': 0.47.3
+      '@unocss/core': 0.47.4
+      '@unocss/preset-mini': 0.47.4
+      '@unocss/preset-wind': 0.47.4
     dev: true
 
   /@unocss/preset-web-fonts/0.47.3:
@@ -2635,11 +2635,11 @@ packages:
       ohmyfetch: 0.4.21
     dev: true
 
-  /@unocss/preset-wind/0.47.3:
-    resolution: {integrity: sha512-9SiY7Z4sYGK1eYRIrbjA0632477sLYdOUSRssThbEW53/o0lnB7/3JoDfc+yHJHjn87IudS2qPGnCufB3SGQdQ==}
+  /@unocss/preset-wind/0.47.4:
+    resolution: {integrity: sha512-+inc8H2fNWeOh/Xf/7+1rx4s8+XaB/DA3IBDzNE7KW4KilfNTyWYk8jGbMJoc12NtCG9iTk2C+I9uN1cVLjcsQ==}
     dependencies:
-      '@unocss/core': 0.47.3
-      '@unocss/preset-mini': 0.47.3
+      '@unocss/core': 0.47.4
+      '@unocss/preset-mini': 0.47.4
     dev: true
 
   /@unocss/reset/0.46.5:
