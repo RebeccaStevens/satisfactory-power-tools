@@ -17,7 +17,7 @@ specifiers:
   '@typescript-eslint/type-utils': 5.45.0
   '@unocss/core': 0.47.5
   '@unocss/preset-attributify': 0.47.5
-  '@unocss/preset-icons': 0.47.4
+  '@unocss/preset-icons': 0.47.5
   '@unocss/preset-typography': 0.47.4
   '@unocss/preset-uno': 0.47.4
   '@unocss/preset-web-fonts': 0.47.4
@@ -116,7 +116,7 @@ devDependencies:
   '@typescript-eslint/type-utils': 5.45.0_hsf322ms6xhhd4b5ne6lb74y4a
   '@unocss/core': 0.47.5
   '@unocss/preset-attributify': 0.47.5
-  '@unocss/preset-icons': 0.47.4
+  '@unocss/preset-icons': 0.47.5
   '@unocss/preset-typography': 0.47.4
   '@unocss/preset-uno': 0.47.4
   '@unocss/preset-web-fonts': 0.47.4
@@ -2598,11 +2598,11 @@ packages:
       '@unocss/core': 0.47.5
     dev: true
 
-  /@unocss/preset-icons/0.47.4:
-    resolution: {integrity: sha512-TbAmBSAqVIr6I6dald0urtrevwQSPXRMIwqzE1odavked35Q61haUbl9lC2p/HQm8ilO6o6tOlqt/RYRSgXJ/w==}
+  /@unocss/preset-icons/0.47.5:
+    resolution: {integrity: sha512-32aclwItH6pCnhDwvF3wS5L+vB43zkZJs6EeLAcNXRdTYdUQUlR5vpTFQZprfnbq9Q4ESFyBnxQWkgGNcW7hhw==}
     dependencies:
       '@iconify/utils': 2.0.2
-      '@unocss/core': 0.47.4
+      '@unocss/core': 0.47.5
       ohmyfetch: 0.4.21
     transitivePeerDependencies:
       - supports-color
