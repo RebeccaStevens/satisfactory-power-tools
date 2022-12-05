@@ -30,7 +30,7 @@ specifiers:
   '@vitest/coverage-c8': 0.25.3
   '@vue/eslint-config-prettier': 7.0.0
   '@vue/eslint-config-typescript': 11.0.2
-  '@vue/test-utils': 2.2.5
+  '@vue/test-utils': 2.2.6
   '@vueuse/core': 9.6.0
   '@vueuse/head': 1.0.20
   anu-vue: 0.10.0
@@ -129,7 +129,7 @@ devDependencies:
   '@vitest/coverage-c8': 0.25.3_jsdom@20.0.3+sass@1.56.1
   '@vue/eslint-config-prettier': 7.0.0_yz7jvh5l5mgl5xhpwlgtkgcccy
   '@vue/eslint-config-typescript': 11.0.2_sb3redb42nwkq4q6vnqovjecl4
-  '@vue/test-utils': 2.2.5_vue@3.2.45
+  '@vue/test-utils': 2.2.6_vue@3.2.45
   commitizen: 4.2.5
   critters: 0.0.16
   cspell: 6.16.0
@@ -2909,8 +2909,8 @@ packages:
   /@vue/shared/3.2.45:
     resolution: {integrity: sha512-Ewzq5Yhimg7pSztDV+RH1UDKBzmtqieXQlpTVm2AwraoRL/Rks96mvd8Vgi7Lj+h+TH8dv7mXD3FRZR3TUvbSg==}
 
-  /@vue/test-utils/2.2.5_vue@3.2.45:
-    resolution: {integrity: sha512-iKEbu/VRO53qXJlAupL7d4v+SdaypQuRDxwGO3dgYT7biPh+gJsa+0Z9dnaHIE752nPc/ueAoNd6KAKx6fD+Tw==}
+  /@vue/test-utils/2.2.6_vue@3.2.45:
+    resolution: {integrity: sha512-64zHtJZdG7V/U2L0j/z3Pt5bSygccI3xs+Kl7LB73AZK4MQ8WONJhqDQPK8leUFFA9CmmoJygeky7zcl2hX10A==}
     peerDependencies:
       vue: ^3.0.1
     dependencies:
