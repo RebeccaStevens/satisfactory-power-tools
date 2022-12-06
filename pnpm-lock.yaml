@@ -27,7 +27,7 @@ specifiers:
   '@unocss/transformer-variant-group': 0.47.5
   '@unocss/vite': 0.47.5
   '@vitejs/plugin-vue': 3.2.0
-  '@vitest/coverage-c8': 0.25.3
+  '@vitest/coverage-c8': 0.25.4
   '@vue/eslint-config-prettier': 7.0.0
   '@vue/eslint-config-typescript': 11.0.2
   '@vue/test-utils': 2.2.6
@@ -80,7 +80,7 @@ specifiers:
   vite-ssg: 0.22.0
   vite-ssg-sitemap: 0.4.3
   vite-tsconfig-paths: 3.6.0
-  vitest: 0.25.3
+  vitest: 0.25.4
   vue: 3.2.45
   vue-eslint-parser: 9.1.0
   vue-i18n: 9.2.2
@@ -126,7 +126,7 @@ devDependencies:
   '@unocss/transformer-variant-group': 0.47.5
   '@unocss/vite': 0.47.5_vite@3.2.5
   '@vitejs/plugin-vue': 3.2.0_vite@3.2.5+vue@3.2.45
-  '@vitest/coverage-c8': 0.25.3_jsdom@20.0.3+sass@1.56.1
+  '@vitest/coverage-c8': 0.25.4_jsdom@20.0.3+sass@1.56.1
   '@vue/eslint-config-prettier': 7.0.0_yz7jvh5l5mgl5xhpwlgtkgcccy
   '@vue/eslint-config-typescript': 11.0.2_sb3redb42nwkq4q6vnqovjecl4
   '@vue/test-utils': 2.2.6_vue@3.2.45
@@ -172,7 +172,7 @@ devDependencies:
   vite-plugin-vue-layouts: 0.7.0_3nkpb5yzbuphqhegz2uv6y4s3u
   vite-ssg-sitemap: 0.4.3
   vite-tsconfig-paths: 3.6.0_vite@3.2.5
-  vitest: 0.25.3_jsdom@20.0.3+sass@1.56.1
+  vitest: 0.25.4_jsdom@20.0.3+sass@1.56.1
   vue-eslint-parser: 9.1.0_eslint@8.29.0
   vue-tsc: 1.0.11_typescript@4.9.3
 
@@ -2689,11 +2689,11 @@ packages:
       vue: 3.2.45
     dev: true
 
-  /@vitest/coverage-c8/0.25.3_jsdom@20.0.3+sass@1.56.1:
-    resolution: {integrity: sha512-+tmrB3E7pZTSM+aWKzLk0FpyyaQOoRQf0594hHp+E3Kk0tiFONiEFYf7+9a1Z+C2ffU/0w6KvyBjpNPdashMrg==}
+  /@vitest/coverage-c8/0.25.4_jsdom@20.0.3+sass@1.56.1:
+    resolution: {integrity: sha512-3ozqZUr3x8woBCBXJRzt1P8DRGKsIxajfzRu3ySKJE0bCkIl2hofzHYzkHBZafhfhMOt+hR6L395Io7gyMmpUQ==}
     dependencies:
       c8: 7.12.0
-      vitest: 0.25.3_jsdom@20.0.3+sass@1.56.1
+      vitest: 0.25.4_jsdom@20.0.3+sass@1.56.1
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -7807,12 +7807,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /strip-literal/0.4.2:
-    resolution: {integrity: sha512-pv48ybn4iE1O9RLgCAN0iU4Xv7RlBTiit6DKmMiErbs9x1wH6vXBs45tWc0H5wUIF6TLTrKweqkmYF/iraQKNw==}
-    dependencies:
-      acorn: 8.8.1
-    dev: true
-
   /strip-literal/1.0.0:
     resolution: {integrity: sha512-5o4LsH1lzBzO9UFH63AJ2ad2/S2AVx6NtjOcaz+VTT2h1RiRvbipW72z8M/lxEhcPHDBQwpDrnTF7sXy/7OwCQ==}
     dependencies:
@@ -8568,8 +8562,8 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
 
-  /vitest/0.25.3_jsdom@20.0.3+sass@1.56.1:
-    resolution: {integrity: sha512-/UzHfXIKsELZhL7OaM2xFlRF8HRZgAHtPctacvNK8H4vOcbJJAMEgbWNGSAK7Y9b1NBe5SeM7VTuz2RsTHFJJA==}
+  /vitest/0.25.4_jsdom@20.0.3+sass@1.56.1:
+    resolution: {integrity: sha512-v/qoSEYPrf8qa1CbKIKYK+1GGmPPEJyXFbkuD6jhh080cfNBsuUDAdMu6hV2h9Uv34EMiUrVETL/wB+EHxFtbA==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
@@ -8600,7 +8594,7 @@ packages:
       jsdom: 20.0.3
       local-pkg: 0.4.2
       source-map: 0.6.1
-      strip-literal: 0.4.2
+      strip-literal: 1.0.0
       tinybench: 2.3.1
       tinypool: 0.3.0
       tinyspy: 1.0.2
