@@ -53,7 +53,7 @@ specifiers:
   eslint-plugin-optimize-regex: 1.2.1
   eslint-plugin-prettier: 4.2.1
   eslint-plugin-promise: 6.1.1
-  eslint-plugin-sonarjs: 0.16.0
+  eslint-plugin-sonarjs: 0.17.0
   eslint-plugin-unicorn: 45.0.1
   eslint-plugin-vue: 9.8.0
   husky: 8.0.2
@@ -107,7 +107,7 @@ devDependencies:
   '@iconify/utils': 2.0.2
   '@intlify/vite-plugin-vue-i18n': 6.0.3_vite@3.2.5+vue-i18n@9.2.2
   '@kidonng/daisyui': 2.31.0
-  '@rebeccastevens/eslint-config': 1.4.5_t7b3bqzxx3zgtgodwdjfjfemxq
+  '@rebeccastevens/eslint-config': 1.4.5_cuwrhbgcfq3hi4vabu6zccl62u
   '@types/dedent': 0.7.0
   '@types/node': 18.11.11
   '@types/sharp': 0.31.0
@@ -148,7 +148,7 @@ devDependencies:
   eslint-plugin-optimize-regex: 1.2.1
   eslint-plugin-prettier: 4.2.1_nrhoyyjffvfyk4vtlt5destxgm
   eslint-plugin-promise: 6.1.1_eslint@8.29.0
-  eslint-plugin-sonarjs: 0.16.0_eslint@8.29.0
+  eslint-plugin-sonarjs: 0.17.0_eslint@8.29.0
   eslint-plugin-unicorn: 45.0.1_eslint@8.29.0
   eslint-plugin-vue: 9.8.0_eslint@8.29.0
   husky: 8.0.2
@@ -2074,7 +2074,7 @@ packages:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
 
-  /@rebeccastevens/eslint-config/1.4.5_t7b3bqzxx3zgtgodwdjfjfemxq:
+  /@rebeccastevens/eslint-config/1.4.5_cuwrhbgcfq3hi4vabu6zccl62u:
     resolution: {integrity: sha512-1ySI7hkcW3/5ruYpQCYlau/s6q0q12wuzpTaXbHQHS2pPwla3PNnRXyLTYCPpVhbuT6xuCdPxqmKB47SEdJb4A==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -2106,7 +2106,7 @@ packages:
       eslint-plugin-node: 11.1.0_eslint@8.29.0
       eslint-plugin-optimize-regex: 1.2.1
       eslint-plugin-promise: 6.1.1_eslint@8.29.0
-      eslint-plugin-sonarjs: 0.16.0_eslint@8.29.0
+      eslint-plugin-sonarjs: 0.17.0_eslint@8.29.0
       eslint-plugin-unicorn: 45.0.1_eslint@8.29.0
     dev: true
 
@@ -4772,8 +4772,8 @@ packages:
       eslint: 8.29.0
     dev: true
 
-  /eslint-plugin-sonarjs/0.16.0_eslint@8.29.0:
-    resolution: {integrity: sha512-al8ojAzcQW8Eu0tWn841ldhPpPcjrJ59TzzTfAVWR45bWvdAASCmrGl8vK0MWHyKVDdC0i17IGbtQQ1KgxLlVA==}
+  /eslint-plugin-sonarjs/0.17.0_eslint@8.29.0:
+    resolution: {integrity: sha512-jtGtxI49UbJJeJj7CVRLI3+LLH+y+hkR3GOOwM7vBbci9DEFIRGCWvEd2BJScrzltZ6D6iubukTAfc9cyG7sdw==}
     engines: {node: '>=14'}
     peerDependencies:
       eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
