@@ -23,7 +23,7 @@
     "@vueuse/head": "1.0.22",
     "anu-vue": "0.10.0",
     "change-case": "4.1.2",
-    "iter-ops": "3.0.1",
+    "iter-ops": "3.0.4",
     "pinia": "2.0.28",
     "vite-ssg": "0.22.0",
     "vue": "3.2.45",
