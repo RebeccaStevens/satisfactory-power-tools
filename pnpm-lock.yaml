@@ -54,7 +54,7 @@ specifiers:
   eslint-plugin-prettier: 4.2.1
   eslint-plugin-promise: 6.1.1
   eslint-plugin-sonarjs: 0.17.0
-  eslint-plugin-unicorn: 45.0.1
+  eslint-plugin-unicorn: 45.0.2
   eslint-plugin-vue: 9.8.0
   husky: 8.0.2
   iter-ops: 3.0.4
@@ -107,7 +107,7 @@ devDependencies:
   '@iconify/utils': 2.0.3
   '@intlify/vite-plugin-vue-i18n': 6.0.3_vite@4.0.0+vue-i18n@9.2.2
   '@kidonng/daisyui': 2.31.0
-  '@rebeccastevens/eslint-config': 1.4.5_tmnwqflywvwxxec3rtaiuixic4
+  '@rebeccastevens/eslint-config': 1.4.5_bbyc3ylgm36ayrl52t3pzqqlga
   '@types/dedent': 0.7.0
   '@types/node': 18.11.14
   '@types/sharp': 0.31.0
@@ -149,7 +149,7 @@ devDependencies:
   eslint-plugin-prettier: 4.2.1_5dgjrgoi64tgrv3zzn3walur3u
   eslint-plugin-promise: 6.1.1_eslint@8.29.0
   eslint-plugin-sonarjs: 0.17.0_eslint@8.29.0
-  eslint-plugin-unicorn: 45.0.1_eslint@8.29.0
+  eslint-plugin-unicorn: 45.0.2_eslint@8.29.0
   eslint-plugin-vue: 9.8.0_eslint@8.29.0
   husky: 8.0.2
   jsdom: 20.0.3
@@ -2230,7 +2230,7 @@ packages:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
 
-  /@rebeccastevens/eslint-config/1.4.5_tmnwqflywvwxxec3rtaiuixic4:
+  /@rebeccastevens/eslint-config/1.4.5_bbyc3ylgm36ayrl52t3pzqqlga:
     resolution: {integrity: sha512-1ySI7hkcW3/5ruYpQCYlau/s6q0q12wuzpTaXbHQHS2pPwla3PNnRXyLTYCPpVhbuT6xuCdPxqmKB47SEdJb4A==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -2263,7 +2263,7 @@ packages:
       eslint-plugin-optimize-regex: 1.2.1
       eslint-plugin-promise: 6.1.1_eslint@8.29.0
       eslint-plugin-sonarjs: 0.17.0_eslint@8.29.0
-      eslint-plugin-unicorn: 45.0.1_eslint@8.29.0
+      eslint-plugin-unicorn: 45.0.2_eslint@8.29.0
     dev: true
 
   /@rollup/plugin-babel/5.3.1_vyv4jbhmcriklval33ak5sngky:
@@ -4768,8 +4768,8 @@ packages:
       eslint: 8.29.0
     dev: true
 
-  /eslint-plugin-unicorn/45.0.1_eslint@8.29.0:
-    resolution: {integrity: sha512-tLnIw5oDJJc3ILYtlKtqOxPP64FZLTkZkgeuoN6e7x6zw+rhBjOxyvq2c7577LGxXuIhBYrwisZuKNqOOHp3BA==}
+  /eslint-plugin-unicorn/45.0.2_eslint@8.29.0:
+    resolution: {integrity: sha512-Y0WUDXRyGDMcKLiwgL3zSMpHrXI00xmdyixEGIg90gHnj0PcHY4moNv3Ppje/kDivdAy5vUeUr7z211ImPv2gw==}
     engines: {node: '>=14.18'}
     peerDependencies:
       eslint: '>=8.28.0'
