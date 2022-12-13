@@ -10,7 +10,7 @@ specifiers:
   '@kidonng/daisyui': 2.31.0
   '@rebeccastevens/eslint-config': 1.4.5
   '@types/dedent': 0.7.0
-  '@types/node': 18.11.13
+  '@types/node': 18.11.14
   '@types/sharp': 0.31.0
   '@typescript-eslint/eslint-plugin': 5.46.0
   '@typescript-eslint/parser': 5.46.0
@@ -109,7 +109,7 @@ devDependencies:
   '@kidonng/daisyui': 2.31.0
   '@rebeccastevens/eslint-config': 1.4.5_tmnwqflywvwxxec3rtaiuixic4
   '@types/dedent': 0.7.0
-  '@types/node': 18.11.13
+  '@types/node': 18.11.14
   '@types/sharp': 0.31.0
   '@typescript-eslint/eslint-plugin': 5.46.0_5mle7isnkfgjmrghnnczirv6iy
   '@typescript-eslint/parser': 5.46.0_ha6vam6werchizxrnqvarmz2zu
@@ -164,7 +164,7 @@ devDependencies:
   typescript: 4.9.4
   unplugin-auto-import: 0.12.0_@vueuse+core@9.6.0
   unplugin-vue-components: 0.22.11_vue@3.2.45
-  vite: 4.0.0_q6swpjbreachjowkqq6ci4femq
+  vite: 4.0.0_nkf6vitvxbrj2nkewbtva4gfee
   vite-imagetools: 4.0.11
   vite-plugin-inspect: 0.7.9_vite@4.0.0
   vite-plugin-pages: 0.27.1_vite@4.0.0
@@ -2119,7 +2119,7 @@ packages:
       debug: 4.3.4
       fast-glob: 3.2.12
       source-map: 0.6.1
-      vite: 4.0.0_q6swpjbreachjowkqq6ci4femq
+      vite: 4.0.0_nkf6vitvxbrj2nkewbtva4gfee
       vue-i18n: 9.2.2_vue@3.2.45
     transitivePeerDependencies:
       - supports-color
@@ -2413,7 +2413,7 @@ packages:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 18.11.13
+      '@types/node': 18.11.14
     dev: true
 
   /@types/istanbul-lib-coverage/2.0.4:
@@ -2450,8 +2450,8 @@ packages:
     resolution: {integrity: sha512-qelS/Ra6sacc4loe/3MSjXNL1dNQ/GjxNHVzuChwMfmk7HuycRLVQN2qNY3XahK+fZc5E2szqQSKUyAF0E+2bg==}
     dev: true
 
-  /@types/node/18.11.13:
-    resolution: {integrity: sha512-IASpMGVcWpUsx5xBOrxMj7Bl8lqfuTY7FKAnPmu5cHkfQVWF8GulWS1jbRqA934qZL35xh5xN/+Xe/i26Bod4w==}
+  /@types/node/18.11.14:
+    resolution: {integrity: sha512-0KXV57tENYmmJMl+FekeW9V3O/rlcqGQQJ/hNh9r8pKIj304pskWuEd8fCyNT86g/TpO0gcOTiLzsHLEURFMIQ==}
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -2464,7 +2464,7 @@ packages:
   /@types/resolve/1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
-      '@types/node': 18.11.13
+      '@types/node': 18.11.14
     dev: true
 
   /@types/semver/7.3.13:
@@ -2474,7 +2474,7 @@ packages:
   /@types/sharp/0.31.0:
     resolution: {integrity: sha512-nwivOU101fYInCwdDcH/0/Ru6yIRXOpORx25ynEOc6/IakuCmjOAGpaO5VfUl4QkDtUC6hj+Z2eCQvgXOioknw==}
     dependencies:
-      '@types/node': 18.11.13
+      '@types/node': 18.11.14
     dev: true
 
   /@types/trusted-types/2.0.2:
@@ -2833,7 +2833,7 @@ packages:
       '@unocss/scope': 0.47.5
       '@unocss/transformer-directives': 0.47.5
       magic-string: 0.26.7
-      vite: 4.0.0_q6swpjbreachjowkqq6ci4femq
+      vite: 4.0.0_nkf6vitvxbrj2nkewbtva4gfee
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -2845,7 +2845,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.0.0_q6swpjbreachjowkqq6ci4femq
+      vite: 4.0.0_nkf6vitvxbrj2nkewbtva4gfee
       vue: 3.2.45
     dev: true
 
@@ -6009,7 +6009,7 @@ packages:
     resolution: {integrity: sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 18.11.13
+      '@types/node': 18.11.14
       merge-stream: 2.0.0
       supports-color: 7.2.0
     dev: true
@@ -8348,7 +8348,7 @@ packages:
       kolorist: 1.6.0
       sirv: 2.0.2
       ufo: 1.0.0
-      vite: 4.0.0_q6swpjbreachjowkqq6ci4femq
+      vite: 4.0.0_nkf6vitvxbrj2nkewbtva4gfee
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -8371,7 +8371,7 @@ packages:
       json5: 2.2.1
       local-pkg: 0.4.2
       picocolors: 1.0.0
-      vite: 4.0.0_q6swpjbreachjowkqq6ci4femq
+      vite: 4.0.0_nkf6vitvxbrj2nkewbtva4gfee
       yaml: 2.1.3
     transitivePeerDependencies:
       - supports-color
@@ -8387,7 +8387,7 @@ packages:
       fast-glob: 3.2.12
       pretty-bytes: 6.0.0
       rollup: 2.79.1
-      vite: 4.0.0_q6swpjbreachjowkqq6ci4femq
+      vite: 4.0.0_nkf6vitvxbrj2nkewbtva4gfee
       workbox-build: 6.5.4
       workbox-window: 6.5.4
     transitivePeerDependencies:
@@ -8405,7 +8405,7 @@ packages:
       '@vue/compiler-sfc': 3.2.41
       debug: 4.3.4
       fast-glob: 3.2.12
-      vite: 4.0.0_q6swpjbreachjowkqq6ci4femq
+      vite: 4.0.0_nkf6vitvxbrj2nkewbtva4gfee
       vue: 3.2.45
       vue-router: 4.1.6_vue@3.2.45
     transitivePeerDependencies:
@@ -8441,7 +8441,7 @@ packages:
       jsdom: 20.0.3
       kolorist: 1.6.0
       prettier: 2.8.1
-      vite: 4.0.0_q6swpjbreachjowkqq6ci4femq
+      vite: 4.0.0_nkf6vitvxbrj2nkewbtva4gfee
       vue: 3.2.45
       vue-router: 4.1.6_vue@3.2.45
       yargs: 17.6.2
@@ -8460,13 +8460,13 @@ packages:
       debug: 4.3.4
       globrex: 0.1.2
       tsconfck: 2.0.1_typescript@4.9.4
-      vite: 4.0.0_q6swpjbreachjowkqq6ci4femq
+      vite: 4.0.0_nkf6vitvxbrj2nkewbtva4gfee
     transitivePeerDependencies:
       - supports-color
       - typescript
     dev: true
 
-  /vite/4.0.0_q6swpjbreachjowkqq6ci4femq:
+  /vite/4.0.0_nkf6vitvxbrj2nkewbtva4gfee:
     resolution: {integrity: sha512-ynad+4kYs8Jcnn8J7SacS9vAbk7eMy0xWg6E7bAhS1s79TK+D7tVFGXVZ55S7RNLRROU1rxoKlvZ/qjaB41DGA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -8491,7 +8491,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 18.11.13
+      '@types/node': 18.11.14
       esbuild: 0.16.4
       postcss: 8.4.19
       resolve: 1.22.1
@@ -8524,7 +8524,7 @@ packages:
     dependencies:
       '@types/chai': 4.3.3
       '@types/chai-subset': 1.3.3
-      '@types/node': 18.11.13
+      '@types/node': 18.11.14
       acorn: 8.8.1
       acorn-walk: 8.2.0
       chai: 4.3.6
@@ -8536,7 +8536,7 @@ packages:
       tinybench: 2.3.1
       tinypool: 0.3.0
       tinyspy: 1.0.2
-      vite: 4.0.0_q6swpjbreachjowkqq6ci4femq
+      vite: 4.0.0_nkf6vitvxbrj2nkewbtva4gfee
     transitivePeerDependencies:
       - less
       - sass
