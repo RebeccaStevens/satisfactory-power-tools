@@ -21,7 +21,7 @@ specifiers:
   '@unocss/preset-typography': 0.47.6
   '@unocss/preset-uno': 0.47.6
   '@unocss/preset-web-fonts': 0.47.6
-  '@unocss/reset': 0.47.5
+  '@unocss/reset': 0.47.6
   '@unocss/transformer-compile-class': 0.47.5
   '@unocss/transformer-directives': 0.47.5
   '@unocss/transformer-variant-group': 0.47.5
@@ -90,7 +90,7 @@ specifiers:
 dependencies:
   '@vueuse/core': 9.6.0_vue@3.2.45
   '@vueuse/head': 1.0.22_vue@3.2.45
-  anu-vue: 0.10.0_y646jzvrwd7um5qrfchdzabzba
+  anu-vue: 0.10.0_oqfzueun4xbrgf2ovbiso3szpi
   change-case: 4.1.2
   iter-ops: 3.0.4
   pinia: 2.0.28_prq2uz4lho2pwp6irk4cfkrxwu
@@ -120,7 +120,7 @@ devDependencies:
   '@unocss/preset-typography': 0.47.6
   '@unocss/preset-uno': 0.47.6
   '@unocss/preset-web-fonts': 0.47.6
-  '@unocss/reset': 0.47.5
+  '@unocss/reset': 0.47.6
   '@unocss/transformer-compile-class': 0.47.5
   '@unocss/transformer-directives': 0.47.5
   '@unocss/transformer-variant-group': 0.47.5
@@ -2794,8 +2794,8 @@ packages:
       '@unocss/preset-mini': 0.47.6
     dev: true
 
-  /@unocss/reset/0.47.5:
-    resolution: {integrity: sha512-UmAeVMlcGPyrZJdQMGDX7EMVA4UieUyR9f3l6a3B/AcUNPQtcISLIlzzRqcUg2c/SkkA5sHZdXDa+l48b5+rGA==}
+  /@unocss/reset/0.47.6:
+    resolution: {integrity: sha512-bdc2dbuDg+CzgeLowEwO1URRIMdzmCE4RH4IKpCpT1Xoa+92RRubdtzK4N/9ZiSo8d4vvfWcc8fvhZko/6smPQ==}
 
   /@unocss/scope/0.47.5:
     resolution: {integrity: sha512-vSYOyps6rJGcQztE4IsNkmFWIK06+3A780v+8PAn0wRbjqBoKZ1jCYL3NZ1ykCZBYPCXHcErlA2znIfb3ECbcw==}
@@ -3240,7 +3240,7 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /anu-vue/0.10.0_y646jzvrwd7um5qrfchdzabzba:
+  /anu-vue/0.10.0_oqfzueun4xbrgf2ovbiso3szpi:
     resolution: {integrity: sha512-kdM84+fXIgLhppgboa91aUnUgeQuTdOwnCTHtAugiIui54HMDhPwfmajNXY94RN7i+KpUc8uwbf3Ub/WM/eweg==}
     peerDependencies:
       '@unocss/reset': ^0.41.1
@@ -3248,7 +3248,7 @@ packages:
       vue-router: '4'
     dependencies:
       '@floating-ui/dom': 1.0.4
-      '@unocss/reset': 0.47.5
+      '@unocss/reset': 0.47.6
       '@vueuse/core': 9.6.0_vue@3.2.45
       defu: 6.1.0
       vue: 3.2.45
