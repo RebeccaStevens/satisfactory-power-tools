@@ -79,7 +79,7 @@ specifiers:
   vite-plugin-vue-layouts: 0.7.0
   vite-ssg: 0.22.0
   vite-ssg-sitemap: 0.4.3
-  vite-tsconfig-paths: 4.0.2
+  vite-tsconfig-paths: 4.0.3
   vitest: 0.25.7
   vue: 3.2.45
   vue-eslint-parser: 9.1.0
@@ -171,7 +171,7 @@ devDependencies:
   vite-plugin-pwa: 0.13.3_vite@4.0.1
   vite-plugin-vue-layouts: 0.7.0_vbqgr7kaflb6tdlm6lscnalo3e
   vite-ssg-sitemap: 0.4.3
-  vite-tsconfig-paths: 4.0.2_rftvpiefqgupx5rdsozqbqx3tq
+  vite-tsconfig-paths: 4.0.3_rftvpiefqgupx5rdsozqbqx3tq
   vitest: 0.25.7_jsdom@20.0.3+sass@1.56.2
   vue-eslint-parser: 9.1.0_eslint@8.29.0
   vue-tsc: 1.0.13_typescript@4.9.4
@@ -8464,8 +8464,8 @@ packages:
       - utf-8-validate
     dev: false
 
-  /vite-tsconfig-paths/4.0.2_rftvpiefqgupx5rdsozqbqx3tq:
-    resolution: {integrity: sha512-UzU8zwbCQrdUkj/Z0tnh293n4ScRcjJLoS8nPme2iB2FHoU5q8rhilb7AbhLlUC1uv4t6jSzVWnENjPnyGseeQ==}
+  /vite-tsconfig-paths/4.0.3_rftvpiefqgupx5rdsozqbqx3tq:
+    resolution: {integrity: sha512-gRO2Q/tOkV+9kMht5tz90+IaEKvW2zCnvwJV3tp2ruPNZOTM5rF+yXorJT4ggmAMYEaJ3nyXjx5P5jY5FwiZ+A==}
     peerDependencies:
       vite: '>2.0.0-0'
     dependencies:
