@@ -75,7 +75,7 @@ specifiers:
   vite-imagetools: 4.0.11
   vite-plugin-inspect: 0.7.10
   vite-plugin-pages: 0.28.0
-  vite-plugin-pwa: 0.13.3
+  vite-plugin-pwa: 0.14.0
   vite-plugin-vue-layouts: 0.7.0
   vite-ssg: 0.22.1
   vite-ssg-sitemap: 0.4.3
@@ -168,7 +168,7 @@ devDependencies:
   vite-imagetools: 4.0.11
   vite-plugin-inspect: 0.7.10_vite@4.0.1
   vite-plugin-pages: 0.28.0_vite@4.0.1
-  vite-plugin-pwa: 0.13.3_vite@4.0.1
+  vite-plugin-pwa: 0.14.0_vite@4.0.1
   vite-plugin-vue-layouts: 0.7.0_vbqgr7kaflb6tdlm6lscnalo3e
   vite-ssg-sitemap: 0.4.3
   vite-tsconfig-paths: 4.0.3_rftvpiefqgupx5rdsozqbqx3tq
@@ -2308,14 +2308,18 @@ packages:
       rollup: 2.79.1
     dev: true
 
-  /@rollup/plugin-replace/4.0.0_rollup@2.79.1:
-    resolution: {integrity: sha512-+rumQFiaNac9y64OHtkHGmdjm7us9bo1PlbgQfdihQtuNxzjpaB064HbRnewUOggLQxVCCyINfStkgmBeQpv1g==}
+  /@rollup/plugin-replace/5.0.1_rollup@3.7.4:
+    resolution: {integrity: sha512-Z3MfsJ4CK17BfGrZgvrcp/l6WXoKb0kokULO+zt/7bmcyayokDaQ2K3eDJcRLCTAlp5FPI4/gz9MHAsosz4Rag==}
+    engines: {node: '>=14.0.0'}
     peerDependencies:
-      rollup: ^1.20.0 || ^2.0.0
+      rollup: ^1.20.0||^2.0.0||^3.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.79.1
-      magic-string: 0.25.9
-      rollup: 2.79.1
+      '@rollup/pluginutils': 5.0.2_rollup@3.7.4
+      magic-string: 0.26.7
+      rollup: 3.7.4
     dev: true
 
   /@rollup/pluginutils/3.1.0_rollup@2.79.1:
@@ -2350,6 +2354,21 @@ packages:
       '@types/estree': 1.0.0
       estree-walker: 2.0.2
       picomatch: 2.3.1
+    dev: true
+
+  /@rollup/pluginutils/5.0.2_rollup@3.7.4:
+    resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      '@types/estree': 1.0.0
+      estree-walker: 2.0.2
+      picomatch: 2.3.1
+      rollup: 3.7.4
     dev: true
 
   /@surma/rollup-plugin-off-main-thread/2.2.3:
@@ -6363,6 +6382,13 @@ packages:
     dependencies:
       sourcemap-codec: 1.4.8
 
+  /magic-string/0.26.7:
+    resolution: {integrity: sha512-hX9XH3ziStPoPhJxLq1syWuZMxbDvGNbVchfrdCtanC7D13888bMFow61x8axrx+GfHLtVeAx2kxL7tTGRl+Ow==}
+    engines: {node: '>=12'}
+    dependencies:
+      sourcemap-codec: 1.4.8
+    dev: true
+
   /magic-string/0.27.0:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
     engines: {node: '>=12'}
@@ -7331,6 +7357,7 @@ packages:
 
   /rollup-plugin-terser/7.0.2_rollup@2.79.1:
     resolution: {integrity: sha512-w3iIaU4OxcF52UUXiZNsNeuXIMDvFrr+ZXK6bFZ0Q60qyVfq4uLptoS4bbq3paG3x216eQllFZX7zt6TIImguQ==}
+    deprecated: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-terser
     peerDependencies:
       rollup: ^2.0.0
     dependencies:
@@ -7366,6 +7393,14 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
+
+  /rollup/3.7.4:
+    resolution: {integrity: sha512-jN9rx3k5pfg9H9al0r0y1EYKSeiRANZRYX32SuNXAnKzh6cVyf4LZVto1KAuDnbHT03E1CpsgqDKaqQ8FZtgxw==}
+    engines: {node: '>=14.18.0', npm: '>=8.0.0'}
+    hasBin: true
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
 
   /run-async/2.4.1:
     resolution: {integrity: sha512-tvVnVv01b8c1RrA6Ep7JkStj85Guv/YrMcwqYQnwjsAS2cTmmPGBBjAjpCW7RrSodNSoE2/qg9O4bceNvUuDgQ==}
@@ -8381,16 +8416,16 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-pwa/0.13.3_vite@4.0.1:
-    resolution: {integrity: sha512-cjWXpZ7slAY14OKz7M8XdgTIi9wjf6OD6NkhiMAc+ogxnbUrecUwLdRtfGPCPsN2ftut5gaN1jTghb11p6IQAA==}
+  /vite-plugin-pwa/0.14.0_vite@4.0.1:
+    resolution: {integrity: sha512-3wZx47PLWTckOQhc8Y6YZjAbNZ89Ovh4TdCT97MGhgl7aFd2LUekVnAmIgFwgMqyxzJ93nmkPF/ALpEW/i2qCg==}
     peerDependencies:
-      vite: ^3.1.0
+      vite: ^3.1.0 || ^4.0.0
     dependencies:
-      '@rollup/plugin-replace': 4.0.0_rollup@2.79.1
+      '@rollup/plugin-replace': 5.0.1_rollup@3.7.4
       debug: 4.3.4
       fast-glob: 3.2.12
       pretty-bytes: 6.0.0
-      rollup: 2.79.1
+      rollup: 3.7.4
       vite: 4.0.1_o2iixvyklpce477lkpnahelma4
       workbox-build: 6.5.4
       workbox-window: 6.5.4
