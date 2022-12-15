@@ -74,7 +74,7 @@ specifiers:
   vite: 4.0.1
   vite-imagetools: 4.0.11
   vite-plugin-inspect: 0.7.10
-  vite-plugin-pages: 0.27.1
+  vite-plugin-pages: 0.28.0
   vite-plugin-pwa: 0.13.3
   vite-plugin-vue-layouts: 0.7.0
   vite-ssg: 0.22.1
@@ -167,7 +167,7 @@ devDependencies:
   vite: 4.0.1_o2iixvyklpce477lkpnahelma4
   vite-imagetools: 4.0.11
   vite-plugin-inspect: 0.7.10_vite@4.0.1
-  vite-plugin-pages: 0.27.1_vite@4.0.1
+  vite-plugin-pages: 0.28.0_vite@4.0.1
   vite-plugin-pwa: 0.13.3_vite@4.0.1
   vite-plugin-vue-layouts: 0.7.0_vbqgr7kaflb6tdlm6lscnalo3e
   vite-ssg-sitemap: 0.4.3
@@ -4178,8 +4178,8 @@ packages:
       type-detect: 4.0.8
     dev: true
 
-  /deep-equal/2.0.5:
-    resolution: {integrity: sha512-nPiRgmbAtm1a3JsnLCf6/SLfXcjyN5v8L1TXzdCmHrXJ4hx+gW/w1YCcn7z8gJtSiDArZCgYtbao3QqLm/N1Sw==}
+  /deep-equal/2.1.0:
+    resolution: {integrity: sha512-2pxgvWu3Alv1PoWEyVg7HS8YhGlUFUV7N5oOvfL6d+7xAmLSemMwv/c8Zv/i9KFzxV5Kt5CAvQc70fLwVuf4UA==}
     dependencies:
       call-bind: 1.0.2
       es-get-iterator: 1.1.2
@@ -8358,18 +8358,18 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-pages/0.27.1_vite@4.0.1:
-    resolution: {integrity: sha512-KXfeG9aQSNsSXBs1mPeeuC0rwkLti+MgoJ3GknrwRDNrdrojb9czcFAVlnoPNVdfuvTHcWdf5zqN7+vuvz2JZQ==}
+  /vite-plugin-pages/0.28.0_vite@4.0.1:
+    resolution: {integrity: sha512-yncDncFVnjUzhqJnwCgGDZoZ/wO6MEOMe93f2MQjplKXm1MpmHCrTkFCPnQyYGZTVKPAN+y7BQcIpNWPFLQ4+w==}
     peerDependencies:
       '@vue/compiler-sfc': ^2.7.0 || ^3.0.0
-      vite: ^2.0.0 || ^3.0.0-0
+      vite: ^2.0.0 || ^3.0.0-0 || ^4.0.0
     peerDependenciesMeta:
       '@vue/compiler-sfc':
         optional: true
     dependencies:
       '@types/debug': 4.1.7
       debug: 4.3.4
-      deep-equal: 2.0.5
+      deep-equal: 2.1.0
       extract-comments: 1.1.0
       fast-glob: 3.2.12
       json5: 2.2.1
