@@ -77,7 +77,7 @@ specifiers:
   vite-plugin-pages: 0.27.1
   vite-plugin-pwa: 0.13.3
   vite-plugin-vue-layouts: 0.7.0
-  vite-ssg: 0.22.0
+  vite-ssg: 0.22.1
   vite-ssg-sitemap: 0.4.3
   vite-tsconfig-paths: 4.0.3
   vitest: 0.25.8
@@ -94,7 +94,7 @@ dependencies:
   change-case: 4.1.2
   iter-ops: 3.0.4
   pinia: 2.0.28_prq2uz4lho2pwp6irk4cfkrxwu
-  vite-ssg: 0.22.0_nzlvm5kxl5zpo3pmfsg6sv7ase
+  vite-ssg: 0.22.1_nzlvm5kxl5zpo3pmfsg6sv7ase
   vue: 3.2.45
   vue-i18n: 9.2.2_vue@3.2.45
   vue-router: 4.1.6_vue@3.2.45
@@ -2685,10 +2685,10 @@ packages:
       '@unhead/schema': 1.0.10
     dev: false
 
-  /@unhead/dom/1.0.2:
-    resolution: {integrity: sha512-AAiYzDmwTTePJu5ZBypPIJidQMDS2WrCXQfe6KJIJtgLss0oXNllve4XVjPEDVh31lfAna89KfVPb/2z0g71pg==}
+  /@unhead/dom/1.0.13:
+    resolution: {integrity: sha512-ErfhK3Nwk3kpxnPEOrkruKAdS3/TrNlKs0nYtKgFJ1ywJYg+uNwRFDe82v4JdUMhnfmbgL/qcO3PTx3Dv09IEQ==}
     dependencies:
-      '@unhead/schema': 1.0.2
+      '@unhead/schema': 1.0.13
     dev: false
 
   /@unhead/schema/1.0.10:
@@ -2698,11 +2698,11 @@ packages:
       hookable: 5.4.2
     dev: false
 
-  /@unhead/schema/1.0.2:
-    resolution: {integrity: sha512-/LyNATQ6zHxZBgnTvTQwYJTZLJjx69/2DvaCcikyEj+y6rjhd77osqUb4Qmt2GxYPbVjuL6J5i5wIyES51RZhw==}
+  /@unhead/schema/1.0.13:
+    resolution: {integrity: sha512-K8SiAEkM8G7GaF1QvsKlthLmRqGB8R9SvZXMCucZqb2VQ6bU4IFSs/4q6dKxmV0fXb5AHdKUL9+rX/4rQ6FsZg==}
     dependencies:
-      '@zhead/schema': 1.0.3
-      hookable: 5.4.1
+      '@zhead/schema': 1.0.7
+      hookable: 5.4.2
     dev: false
 
   /@unhead/ssr/1.0.10:
@@ -3106,10 +3106,6 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
-
-  /@zhead/schema/1.0.3:
-    resolution: {integrity: sha512-hpG+fENrSV82trtmtO7sAdPTQLnfhZIGtqvgN4fIUfEuyILF1GwAYjgFT/FdUaZ8yBSsYt5U47O35tOE2Ts1HA==}
-    dev: false
 
   /@zhead/schema/1.0.7:
     resolution: {integrity: sha512-jN2ipkz39YrHd8uulgw/Y7x8iOxvR/cTkin/E9zRQVP5JBIrrJMiGyFFj6JBW4Q029xJ5dKtpwy/3RZWpz+dkQ==}
@@ -5178,6 +5174,7 @@ packages:
       graceful-fs: 4.2.10
       jsonfile: 6.1.0
       universalify: 2.0.0
+    dev: true
 
   /fs-extra/11.1.0:
     resolution: {integrity: sha512-0rcTq621PD5jM/e0a3EJoGC/1TC5ZBCERW82LQuwfGnCa1V8w7dpYH1yNu+SLb6E5dkeCBzKEyLGlFrnr+dUyw==}
@@ -5186,7 +5183,6 @@ packages:
       graceful-fs: 4.2.10
       jsonfile: 6.1.0
       universalify: 2.0.0
-    dev: true
 
   /fs-extra/9.1.0:
     resolution: {integrity: sha512-hcg3ZmepS30/7BSFqRvoo3DOMQu7IjqxO5nCDt+zM9XWjb33Wg7ziNT+Qvqbuc3+gWpzO02JubVyk2G4Zvo1OQ==}
@@ -5495,10 +5491,6 @@ packages:
     dependencies:
       parse-passwd: 1.0.0
     dev: true
-
-  /hookable/5.4.1:
-    resolution: {integrity: sha512-i808BglQ1OuSIcgPSZoWsDapCMLXKe5wLS6XZvIXpaBWdWLUZARM8vOLayu6cXewj5TSbaZaMzKnq+pRnfscEQ==}
-    dev: false
 
   /hookable/5.4.2:
     resolution: {integrity: sha512-6rOvaUiNKy9lET1X0ECnyZ5O5kSV0PJbtA5yZUgdEF7fGJEVwSLSislltyt7nFwVVALYHQJtfGeAR2Y0A0uJkg==}
@@ -8428,14 +8420,14 @@ packages:
     resolution: {integrity: sha512-9ZIRBRCgM1Q4RtXXEBHIu8gotbx9LCnHZOZXtdSzR0DnjN9H5IYGY3yGoxI6VX8dScXiluxOODFlNlr7ydyI9A==}
     dev: true
 
-  /vite-ssg/0.22.0_nzlvm5kxl5zpo3pmfsg6sv7ase:
-    resolution: {integrity: sha512-GW8hARA4lT4fEAfxfnSEplV5JKQEM15yTVI8SZefYW69xfBVfujZrlqKqory+kHi7rgm7ZEhH8Uv82pdWETiSQ==}
+  /vite-ssg/0.22.1_nzlvm5kxl5zpo3pmfsg6sv7ase:
+    resolution: {integrity: sha512-aiFbedElOR/amu0VPfWNj2oR7V9zX6oS4jzWEkOe5fJuZIV2+FnUyiupoyoo3lv3njgS2GENNpmxijN6tpJsTA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     peerDependencies:
       '@vueuse/head': ^1.0.0
       critters: ^0.0.16
-      vite: ^2.0.0 || ^3.0.0-0
+      vite: ^2.0.0 || ^3.0.0 || ^4.0.0
       vue: ^3.2.10
       vue-router: ^4.0.1
     peerDependenciesMeta:
@@ -8444,10 +8436,10 @@ packages:
       vue-router:
         optional: true
     dependencies:
-      '@unhead/dom': 1.0.2
+      '@unhead/dom': 1.0.13
       '@vueuse/head': 1.0.22_vue@3.2.45
       critters: 0.0.16
-      fs-extra: 10.1.0
+      fs-extra: 11.1.0
       html-minifier: 4.0.0
       html5parser: 2.0.2
       jsdom: 20.0.3
