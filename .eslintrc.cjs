@@ -59,6 +59,8 @@ module.exports = {
         ignoreNamePattern: ["^m_"],
       },
     ],
+    "jsdoc/require-jsdoc": "off",
+    "unicorn/no-empty-file": "warn",
   },
   overrides: [
     {
@@ -101,6 +103,13 @@ module.exports = {
       files: ["**/*.vue", "**/*.tests.ts"],
       rules: {
         "unicorn/filename-case": "off",
+      },
+    },
+    {
+      files: "src/data/core/**/*",
+      rules: {
+        "@typescript-eslint/naming-convention": "off",
+        "sonarjs/no-identical-functions": "warn",
       },
     },
     {

@@ -1,10 +1,11 @@
 import assert from "node:assert/strict";
 
 /**
- * Type guard for object.
+ * Assertion to test if the given value is not undefined.
  */
-export function isObject<T>(value: T): value is T & object {
-  return value !== null && typeof value === "object";
+export function assertNotUndefined<T>(value: T | undefined): value is T {
+  assert(value !== undefined);
+  return true;
 }
 
 /**
@@ -15,9 +16,8 @@ export function isNotNull<T>(value: T | null): value is T {
 }
 
 /**
- * Assertion to test if the given value is not undefined.
+ * Type guard for object.
  */
-export function assertNotUndefined<T>(value: T | undefined): value is T {
-  assert(value !== undefined);
-  return true;
+export function isObject<T>(value: T): value is T & object {
+  return value !== null && typeof value === "object";
 }

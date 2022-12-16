@@ -30,6 +30,10 @@
     "<svg.*>.*</svg>"
   ],
   "words": [
+    "buildable",
+    "buildables",
+    "scannable",
+    "scannables",
     "imagetools",
     "kofi",
     "ko-fi",

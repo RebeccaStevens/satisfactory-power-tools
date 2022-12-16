@@ -1,3 +1,5 @@
+import "~/polyfills";
+
 import { setupLayouts } from "virtual:generated-layouts";
 import { ViteSSG } from "vite-ssg";
 

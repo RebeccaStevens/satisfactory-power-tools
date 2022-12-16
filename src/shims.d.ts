@@ -31,20 +31,22 @@ interface ObjectConstructor {
   values<T>(o: T): T extends ArrayLike<infer U> ? U[] : Array<T[keyof T]>;
 }
 
-interface ReadonlyArray<T> {
-  includes(searchElement: unknown, fromIndex?: number): boolean;
-}
-
 interface ArrayConstructor {
   isArray(arg: unknown): arg is unknown[] | ReadonlyArray<unknown>;
 }
 
 interface Array<T> {
   at(index: number): T | undefined;
+  includes(searchElement: unknown, fromIndex?: number): boolean;
+  indexOf(searchElement: unknown, fromIndex?: number): number;
+  lastIndexOf(searchElement: unknown, fromIndex?: number): number;
 }
 
 interface ReadonlyArray<T> {
   at(index: number): T | undefined;
+  includes(searchElement: unknown, fromIndex?: number): boolean;
+  indexOf(searchElement: unknown, fromIndex?: number): number;
+  lastIndexOf(searchElement: unknown, fromIndex?: number): number;
 }
 
 interface Map<K, V> {

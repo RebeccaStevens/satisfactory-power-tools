@@ -7,6 +7,57 @@ import {
 import { loadMapData } from "./map";
 import type { GameData } from "./types";
 
+export {
+  type AppliedRecipe,
+  type AppliedRecipeBase,
+  type AppliedResourceNodeRecipe,
+  type AppliedResourceWellRecipe,
+  type AppliedSinkRecipe,
+  type ItemAmount,
+  type PartRecipe,
+  type Recipe,
+  type RecipeBase,
+  type ResourceNodeRecipe,
+  type ResourceWellRecipe,
+  type SinkRecipe,
+} from "./docs/recipes";
+
+export { type GameData as Data, type Ided, type Named } from "./types";
+
+export {
+  type FrackingActivatorMachine,
+  type FrackingExtractorMachine,
+  type ItemSinkMachine,
+  type Machine,
+  type ManufacturingMachine,
+  type ManufacturingVariablePowerMachine,
+  type NodeExtractingMachine,
+  type PowerProducingMachine,
+} from "./docs/machines";
+
+export {
+  type Geysers,
+  type Purities,
+  type Purity,
+  type PurityCollection,
+  ResourceNodeExtractorType,
+  type ResourceNodes,
+  type ResourceWell,
+  type ResourceWellSatellites,
+} from "./map/types";
+
+export {
+  type Item,
+  type NonPhysicalItem,
+  type PartItem,
+  type ResourceItem,
+} from "./docs/items";
+
+export { ItemType, TransferType } from "./docs/items";
+
+export { MachineType } from "./docs/machines";
+
+export { RecipeType } from "./docs/recipes";
 /**
  * Load all the game data.
  */
@@ -36,48 +87,3 @@ export function loadData(): GameData {
     resourceWells,
   };
 }
-
-export { type GameData as Data, type Ided, type Named } from "./types";
-export {
-  type Item,
-  type NonPhysicalItem,
-  type PartItem,
-  type ResourceItem,
-} from "./docs/items";
-export { ItemType, TransferType } from "./docs/items";
-export {
-  type Machine,
-  type ManufacturingMachine,
-  type ManufacturingVariablePowerMachine,
-  type NodeExtractingMachine,
-  type FrackingExtractorMachine,
-  type PowerProducingMachine,
-  type ItemSinkMachine,
-  type FrackingActivatorMachine,
-} from "./docs/machines";
-export { MachineType } from "./docs/machines";
-export {
-  type ItemAmount,
-  type Recipe,
-  type RecipeBase,
-  type PartRecipe,
-  type ResourceNodeRecipe,
-  type ResourceWellRecipe,
-  type SinkRecipe,
-  type AppliedRecipe,
-  type AppliedRecipeBase,
-  type AppliedResourceNodeRecipe,
-  type AppliedResourceWellRecipe,
-  type AppliedSinkRecipe,
-} from "./docs/recipes";
-export { RecipeType } from "./docs/recipes";
-export {
-  type Purities,
-  type Purity,
-  type PurityCollection,
-  type ResourceNodes,
-  type ResourceWell,
-  type ResourceWellSatellites,
-  type Geysers,
-  ResourceNodeExtractorType,
-} from "./map/types";
