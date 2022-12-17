@@ -9,6 +9,7 @@ import Unocss from "@unocss/vite";
 import Vue from "@vitejs/plugin-vue";
 import { AnuComponentResolver } from "anu-vue";
 import dedent from "dedent";
+import { execa } from "execa";
 import rollupUnassert from "rollup-plugin-unassert";
 import type { FormatEnum } from "sharp";
 import sharp from "sharp";
@@ -178,6 +179,8 @@ export default defineConfig(({ command, mode }) => {
         include: [path.resolve(dirname, "locales/**")],
       }),
 
+      runScripts(),
+
       imagetools(),
 
       autoImageIndex(),
@@ -215,6 +218,19 @@ export default defineConfig(({ command, mode }) => {
     },
   };
 });
+
+/**
+ * Run custom scripts that need to be executed for the build.
+ */
+function runScripts() {
+  return {
+    name: "run-scripts",
+
+    async buildStart() {
+      await execa("pnpm", ["run", "parse-raw-game-data"]);
+    },
+  };
+}
 
 /**
  * Get the list of image formats we support.

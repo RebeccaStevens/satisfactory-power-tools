@@ -3,7 +3,8 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "composite": true,
-    "module": "ESNext"
+    "module": "ESNext",
+    "lib": ["ESNext"]
   },
-  "include": ["*.ts", "typings/**/*.d.ts"]
+  "include": ["**/*.ts", "scripts/**/*.json"]
 }

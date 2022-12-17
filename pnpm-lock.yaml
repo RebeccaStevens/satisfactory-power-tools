@@ -56,6 +56,7 @@ specifiers:
   eslint-plugin-sonarjs: 0.17.0
   eslint-plugin-unicorn: 45.0.2
   eslint-plugin-vue: 9.8.0
+  execa: ^6.1.0
   husky: 8.0.2
   iterator-helpers-polyfill: 2.2.8
   jsdom: 20.0.3
@@ -157,6 +158,7 @@ devDependencies:
   eslint-plugin-sonarjs: 0.17.0_eslint@8.29.0
   eslint-plugin-unicorn: 45.0.2_eslint@8.29.0
   eslint-plugin-vue: 9.8.0_eslint@8.29.0
+  execa: 6.1.0
   husky: 8.0.2
   jsdom: 20.0.3
   lint-staged: 13.1.0
