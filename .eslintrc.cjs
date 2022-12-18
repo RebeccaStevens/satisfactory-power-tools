@@ -106,7 +106,7 @@ module.exports = {
       },
     },
     {
-      files: "src/data/core/**/*",
+      files: "scripts/parse-raw-game-data/**/*",
       rules: {
         "@typescript-eslint/naming-convention": "off",
         "sonarjs/no-identical-functions": "warn",

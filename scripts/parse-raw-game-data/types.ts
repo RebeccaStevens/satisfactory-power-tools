@@ -162,6 +162,12 @@ export enum ResourceNodeType {
   FrackingCore = "FrackingCore",
 }
 
+export enum ResourcePurity {
+  Impure = "RP_Impure",
+  Normal = "RP_Normal",
+  Pure = "RP_Pure",
+}
+
 export type Rotation3D = {
   pitch: number;
   yaw: number;

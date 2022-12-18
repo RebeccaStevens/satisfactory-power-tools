@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 
-import { parseRawCollection } from "~/scripts/parse-raw-game-data/raw-collection-parser";
+import { parseRawCollection } from "~/scripts/parse-raw-game-data/docs/raw-collection-parser";
 import {
   ItemTransferringStage,
   ScannableType,
@@ -25,6 +25,7 @@ import {
   PlatformDockingStatus,
   HoverMode,
   StairDirection,
+  ResourcePurity,
 } from "~/scripts/parse-raw-game-data/types";
 import type {
   AttachmentPoint,
@@ -49,6 +50,7 @@ import type {
   LightControlData,
   Translation3D,
 } from "~/scripts/parse-raw-game-data/types";
+import { isNotNull } from "~/utils";
 
 export function parseAmounts(value: unknown): Record<string, number> {
   assert(
@@ -69,11 +71,10 @@ export function parseAmounts(value: unknown): Record<string, number> {
       assert(itemAmountEnts.type === "map");
       const itemAmount = Object.fromEntries(itemAmountEnts.data);
       const amount = itemAmount.Amount;
+      const itemClass = parseClass(itemAmount.ItemClass);
+      assert(isNotNull(itemClass));
       return [
-        [
-          parseString(itemAmount.ItemClass),
-          amount === undefined ? 1 : parseNumber(amount),
-        ] as const,
+        [itemClass, amount === undefined ? 1 : parseNumber(amount)] as const,
       ];
     }),
   );
@@ -143,7 +144,23 @@ export function parseClasses(value: unknown): string[] {
 
   const list = parseRawCollection(value);
   assert(list.type === "list");
-  return list.data;
+  return list.data.map(parseClass).filter(isNotNull);
+}
+
+export function parseClass(value: unknown): string | null {
+  assert(
+    typeof value === "string",
+    `expected type: string, actual type: ${typeof value}`,
+  );
+
+  if (value === "None") {
+    return null;
+  }
+
+  const path = value.replace(/^[\dA-Za-z]+'"(.+)"'$/u, "$1");
+  assert(path.startsWith("/"));
+
+  return path.slice(path.lastIndexOf(".") + 1);
 }
 
 export function parseColor(value: unknown): Color {
@@ -491,6 +508,10 @@ export function parseResourceForms(value: unknown): ResourceForm[] {
   return collection.data.map((raw) => parseResourceForm(raw));
 }
 
+export function parseResourcePurity(value: unknown): ResourcePurity {
+  return parseEnum(ResourcePurity, value);
+}
+
 export function parseRotation3D(value: unknown): Rotation3D {
   assert(
     typeof value === "string",
@@ -644,12 +665,23 @@ function parseEnum<T>(enumObject: StandardEnum<T>, value: unknown): T {
     `expected type: string, actual type: ${typeof value}`,
   );
   assert(Object.values(enumObject).includes(value), `Invalid value: ${value}`);
-  return Object.keys(enumObject)[
-    Object.values(enumObject).indexOf(value)
-  ] as unknown as T;
+  return value as T;
 }
 
 type StandardEnum<T> = {
   [id: string]: T | string;
   [nu: number]: string;
 };
+
+export function quaternionToAttitude({
+  x,
+  y,
+  z,
+  w,
+}: Readonly<{ x: number; y: number; z: number; w: number }>) {
+  const roll = Math.atan2(2 * (x * y + z * w), 1 - 2 * (y ** 2 + z ** 2));
+  const pitch = Math.asin(2 * (x * z - w * y));
+  const yaw = Math.atan2(2 * (x * w + y * z), 1 - 2 * (z ** 2 + w ** 2));
+
+  return { roll, pitch, yaw };
+}

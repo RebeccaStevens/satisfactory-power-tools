@@ -4,27 +4,26 @@ import * as url from "node:url";
 
 import "~/polyfills";
 
-import { loadStaticGameData } from "./load";
+import { getDocsData } from "./docs";
+import { getResourcesData } from "./resources";
 
 const gameDataFile = path.join(
   path.dirname(url.fileURLToPath(import.meta.url)),
   "../../src/data/game-data.json",
 );
-const staticGameData = loadStaticGameData();
 
-// TODO:
-const filteredItems = staticGameData.items;
-const filteredMachines = staticGameData.machines;
-const filteredRecipes = staticGameData.recipes;
+const { items, machines, recipes } = getDocsData();
+const { nodes, geysers, wells } = getResourcesData();
 
-const filteredGameData = {
-  items: filteredItems,
-  machines: filteredMachines,
-  recipes: filteredRecipes,
+const gameData = {
+  items,
+  machines,
+  recipes,
+  nodes,
+  geysers,
+  wells,
 };
 
-console.log(gameDataFile);
-
-await fsp.writeFile(gameDataFile, JSON.stringify(filteredGameData), {
+await fsp.writeFile(gameDataFile, JSON.stringify(gameData), {
   encoding: "utf8",
 });

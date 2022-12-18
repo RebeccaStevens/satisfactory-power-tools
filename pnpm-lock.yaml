@@ -57,10 +57,13 @@ specifiers:
   eslint-plugin-unicorn: 45.0.2
   eslint-plugin-vue: 9.8.0
   execa: ^6.1.0
+  fp-ts: ^2.13.1
   husky: 8.0.2
   iterator-helpers-polyfill: 2.2.8
   jsdom: 20.0.3
   lint-staged: 13.1.0
+  monocle-ts: ^2.3.13
+  newtype-ts: ^0.3.5
   pinia: 2.0.28
   pnpm: 7.18.2
   prettier: 2.8.1
@@ -98,7 +101,10 @@ dependencies:
   '@vueuse/head': 1.0.22_vue@3.2.45
   anu-vue: 0.11.0_oqfzueun4xbrgf2ovbiso3szpi
   change-case: 4.1.2
+  fp-ts: 2.13.1
   iterator-helpers-polyfill: 2.2.8
+  monocle-ts: 2.3.13_fp-ts@2.13.1
+  newtype-ts: 0.3.5_y4ecnzjsatnzoei5elwf4wjeqa
   pinia: 2.0.28_prq2uz4lho2pwp6irk4cfkrxwu
   pretty-format: 29.3.1
   vite-ssg: 0.22.1_nzlvm5kxl5zpo3pmfsg6sv7ase
@@ -5211,6 +5217,10 @@ packages:
       combined-stream: 1.0.8
       mime-types: 2.1.35
 
+  /fp-ts/2.13.1:
+    resolution: {integrity: sha512-0eu5ULPS2c/jsa1lGFneEFFEdTbembJv8e4QKXeVJ3lm/5hyve06dlKZrpxmMwJt6rYen7sxmHHK2CLaXvWuWQ==}
+    dev: false
+
   /fs-constants/1.0.0:
     resolution: {integrity: sha512-y6OAwoSIf7FyjMIv94u+b5rdheZEjzR63GTyZJm5qh4Bi+2YgwLCcI/fPFZkL5PSixOt6ZNKm+w+Hfp/Bciwow==}
     dev: true
@@ -6597,6 +6607,14 @@ packages:
       ufo: 1.0.1
     dev: true
 
+  /monocle-ts/2.3.13_fp-ts@2.13.1:
+    resolution: {integrity: sha512-D5Ygd3oulEoAm3KuGO0eeJIrhFf1jlQIoEVV2DYsZUMz42j4tGxgct97Aq68+F8w4w4geEnwFa8HayTS/7lpKQ==}
+    peerDependencies:
+      fp-ts: ^2.5.0
+    dependencies:
+      fp-ts: 2.13.1
+    dev: false
+
   /mrmime/1.0.1:
     resolution: {integrity: sha512-hzzEagAgDyoU1Q6yg5uI+AorQgdvMCur3FcKf7NhMKWsaYg+RnbTyHRa/9IlLF9rf455MOCtcqqrQQ83pPP7Uw==}
     engines: {node: '>=10'}
@@ -6643,6 +6661,16 @@ packages:
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
+
+  /newtype-ts/0.3.5_y4ecnzjsatnzoei5elwf4wjeqa:
+    resolution: {integrity: sha512-v83UEQMlVR75yf1OUdoSFssjitxzjZlqBAjiGQ4WJaML8Jdc68LJ+BaSAXUmKY4bNzp7hygkKLYTsDi14PxI2g==}
+    peerDependencies:
+      fp-ts: ^2.0.0
+      monocle-ts: ^2.0.0
+    dependencies:
+      fp-ts: 2.13.1
+      monocle-ts: 2.3.13_fp-ts@2.13.1
+    dev: false
 
   /no-case/2.3.2:
     resolution: {integrity: sha512-rmTZ9kz+f3rCvK2TD1Ue/oZlns7OGoIWP4fc3llxxRXlOkHKoWPPWJOfFYpITabSow43QJbRIoHQXtt10VldyQ==}
