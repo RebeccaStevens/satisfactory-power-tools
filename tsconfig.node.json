@@ -6,5 +6,5 @@
     "module": "ESNext",
     "lib": ["ESNext"]
   },
-  "include": ["**/*.ts", "scripts/**/*.json"]
+  "include": ["**/*.ts", "scripts/**/*"]
 }

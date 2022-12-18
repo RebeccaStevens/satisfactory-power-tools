@@ -7,7 +7,7 @@
     "resolveJsonModule": true,
     "useDefineForClassFields": true,
     "types": [
-      // "anu-vue/volar",
+      "anu-vue/volar",
       "vite-plugin-pages/client",
       "vite-plugin-pwa/client",
       "vite-plugin-vue-layouts/client",
@@ -16,15 +16,5 @@
       "vue/ref-macros"
     ]
   },
-  "include": [
-    "images/**/*.ts",
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
-  ],
-  "references": [
-    { "path": "./tsconfig.node.json" },
-    { "path": "./tests/tsconfig.json" }
-  ]
+  "include": ["images/**/*.ts", "src/**/*"]
 }

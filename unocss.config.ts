@@ -1,6 +1,7 @@
 import path from "node:path";
 import url from "node:url";
 
+import { presetThemeDefault } from "@anu-vue/preset-theme-default";
 import { FileSystemIconLoader } from "@iconify/utils/lib/loader/node-loaders";
 import { type UserConfig } from "@unocss/core";
 import presetAttributify from "@unocss/preset-attributify";
@@ -11,7 +12,7 @@ import presetWebFonts from "@unocss/preset-web-fonts";
 import transformerCompileClass from "@unocss/transformer-compile-class";
 import transformerDirectives from "@unocss/transformer-directives";
 import transformerVariantGroup from "@unocss/transformer-variant-group";
-import { presetCore, presetThemeDefault } from "anu-vue";
+import { presetAnu } from "anu-vue";
 
 const dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
@@ -50,7 +51,7 @@ const config: UserConfig<PresetUnoTheme> = {
         mono: "Fira Code",
       },
     }),
-    presetCore(),
+    presetAnu(),
     presetThemeDefault(),
   ],
   transformers: [

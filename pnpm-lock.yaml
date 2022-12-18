@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@anu-vue/preset-theme-default': ^0.11.0
   '@commitlint/cli': 17.3.0
   '@commitlint/config-conventional': 17.3.0
   '@esbuild-plugins/node-globals-polyfill': 0.1.1
@@ -113,6 +114,7 @@ dependencies:
   vue-router: 4.1.6_vue@3.2.45
 
 devDependencies:
+  '@anu-vue/preset-theme-default': 0.11.0
   '@commitlint/cli': 17.3.0
   '@commitlint/config-conventional': 17.3.0
   '@esbuild-plugins/node-globals-polyfill': 0.1.1_esbuild@0.16.7
@@ -217,6 +219,12 @@ packages:
 
   /@antfu/utils/0.7.2:
     resolution: {integrity: sha512-vy9fM3pIxZmX07dL+VX1aZe7ynZ+YyB0jY+jE6r3hOK6GNY2t6W8rzpFC4tgpbXUYABkFQwgJq2XYXlxbXAI0g==}
+    dev: true
+
+  /@anu-vue/preset-theme-default/0.11.0:
+    resolution: {integrity: sha512-Geon+wQ76+eQMs1uR1XmFecJTwy5yb09QHHExyOLiOegcDp9fRxXyIh9QxtO6C4E/IvizQRDgv6ugfDITjmz7Q==}
+    dependencies:
+      defu: 6.1.1
     dev: true
 
   /@apideck/better-ajv-errors/0.3.6_ajv@8.11.0:
@@ -4289,6 +4297,10 @@ packages:
 
   /defu/6.1.0:
     resolution: {integrity: sha512-pOFYRTIhoKujrmbTRhcW5lYQLBXw/dlTwfI8IguF1QCDJOcJzNH1w+YFjxqy6BAuJrClTy6MUE8q+oKJ2FLsIw==}
+    dev: true
+
+  /defu/6.1.1:
+    resolution: {integrity: sha512-aA964RUCsBt0FGoNIlA3uFgo2hO+WWC0fiC6DBps/0SFzkKcYoM/3CzVLIa5xSsrFjdioMdYgAIbwo80qp2MoA==}
     dev: true
 
   /delayed-stream/1.0.0:
