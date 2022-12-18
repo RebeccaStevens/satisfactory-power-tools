@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@anu-vue/preset-theme-default': ^0.11.0
+  '@anu-vue/preset-theme-default': 0.11.0
   '@commitlint/cli': 17.3.0
   '@commitlint/config-conventional': 17.3.0
   '@esbuild-plugins/node-globals-polyfill': 0.1.1
@@ -57,14 +57,14 @@ specifiers:
   eslint-plugin-sonarjs: 0.17.0
   eslint-plugin-unicorn: 45.0.2
   eslint-plugin-vue: 9.8.0
-  execa: ^6.1.0
-  fp-ts: ^2.13.1
+  execa: 6.1.0
+  fp-ts: 2.13.1
   husky: 8.0.2
   iterator-helpers-polyfill: 2.2.8
   jsdom: 20.0.3
   lint-staged: 13.1.0
-  monocle-ts: ^2.3.13
-  newtype-ts: ^0.3.5
+  monocle-ts: 2.3.13
+  newtype-ts: 0.3.5
   pinia: 2.0.28
   pnpm: 7.18.2
   prettier: 2.8.1
@@ -4295,10 +4295,6 @@ packages:
       object-keys: 1.1.1
     dev: true
 
-  /defu/6.1.0:
-    resolution: {integrity: sha512-pOFYRTIhoKujrmbTRhcW5lYQLBXw/dlTwfI8IguF1QCDJOcJzNH1w+YFjxqy6BAuJrClTy6MUE8q+oKJ2FLsIw==}
-    dev: true
-
   /defu/6.1.1:
     resolution: {integrity: sha512-aA964RUCsBt0FGoNIlA3uFgo2hO+WWC0fiC6DBps/0SFzkKcYoM/3CzVLIa5xSsrFjdioMdYgAIbwo80qp2MoA==}
     dev: true
@@ -8301,7 +8297,7 @@ packages:
     resolution: {integrity: sha512-1589b7oGa8ILBYpta7TndM5mLHLzHUqBfhszeZxuUBrjO/RoQ52VGVWsS3w0C0GLNxO9RPmqkf6BmIvBApaRdA==}
     dependencies:
       '@antfu/utils': 0.5.2
-      defu: 6.1.0
+      defu: 6.1.1
       jiti: 1.16.0
     dev: true
 
