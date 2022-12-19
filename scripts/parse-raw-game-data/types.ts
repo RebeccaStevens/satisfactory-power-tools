@@ -163,7 +163,7 @@ export enum ResourceNodeType {
 }
 
 export enum ResourcePurity {
-  Impure = "RP_Impure",
+  Impure = "RP_Inpure",
   Normal = "RP_Normal",
   Pure = "RP_Pure",
 }
