@@ -12,7 +12,7 @@ import presetWebFonts from "@unocss/preset-web-fonts";
 import transformerCompileClass from "@unocss/transformer-compile-class";
 import transformerDirectives from "@unocss/transformer-directives";
 import transformerVariantGroup from "@unocss/transformer-variant-group";
-import { presetAnu } from "anu-vue";
+import { presetAnu, presetIconExtraProperties } from "anu-vue";
 
 const dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
@@ -34,11 +34,7 @@ const config: UserConfig<PresetUnoTheme> = {
     presetIcons({
       warn: true,
       scale: 1.2,
-      extraProperties: {
-        height: "1.5em",
-        "flex-shrink": "0",
-        display: "inline-block",
-      },
+      extraProperties: presetIconExtraProperties,
       collections: {
         custom: FileSystemIconLoader(iconDirectory),
       },

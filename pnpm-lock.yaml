@@ -1,5 +1,10 @@
 lockfileVersion: 5.4
 
+patchedDependencies:
+  '@anu-vue/preset-theme-default@0.11.0':
+    hash: fru67vfri3e6wpa7u2kvlajqde
+    path: patches/@anu-vue__preset-theme-default@0.11.0.patch
+
 specifiers:
   '@anu-vue/preset-theme-default': 0.11.0
   '@commitlint/cli': 17.3.0
@@ -114,7 +119,7 @@ dependencies:
   vue-router: 4.1.6_vue@3.2.45
 
 devDependencies:
-  '@anu-vue/preset-theme-default': 0.11.0
+  '@anu-vue/preset-theme-default': 0.11.0_fru67vfri3e6wpa7u2kvlajqde
   '@commitlint/cli': 17.3.0
   '@commitlint/config-conventional': 17.3.0
   '@esbuild-plugins/node-globals-polyfill': 0.1.1_esbuild@0.16.9
@@ -221,11 +226,12 @@ packages:
     resolution: {integrity: sha512-vy9fM3pIxZmX07dL+VX1aZe7ynZ+YyB0jY+jE6r3hOK6GNY2t6W8rzpFC4tgpbXUYABkFQwgJq2XYXlxbXAI0g==}
     dev: true
 
-  /@anu-vue/preset-theme-default/0.11.0:
+  /@anu-vue/preset-theme-default/0.11.0_fru67vfri3e6wpa7u2kvlajqde:
     resolution: {integrity: sha512-Geon+wQ76+eQMs1uR1XmFecJTwy5yb09QHHExyOLiOegcDp9fRxXyIh9QxtO6C4E/IvizQRDgv6ugfDITjmz7Q==}
     dependencies:
       defu: 6.1.1
     dev: true
+    patched: true
 
   /@apideck/better-ajv-errors/0.3.6_ajv@8.11.0:
     resolution: {integrity: sha512-P+ZygBLZtkp0qqOAJJVX4oX/sFo5JR3eBWwwuqHHhK0GIgQOKWrAfiAaWX0aArHkRWHMuggFEgAZNxVPwPZYaA==}
@@ -3001,7 +3007,7 @@ packages:
       '@vue/shared': 3.2.41
       estree-walker: 2.0.2
       magic-string: 0.25.9
-      postcss: 8.4.18
+      postcss: 8.4.20
       source-map: 0.6.1
     dev: true
 
@@ -3016,7 +3022,7 @@ packages:
       '@vue/shared': 3.2.45
       estree-walker: 2.0.2
       magic-string: 0.25.9
-      postcss: 8.4.18
+      postcss: 8.4.20
       source-map: 0.6.1
 
   /@vue/compiler-ssr/3.2.41:
@@ -3968,7 +3974,7 @@ packages:
       css-select: 4.3.0
       parse5: 6.0.1
       parse5-htmlparser2-tree-adapter: 6.0.1
-      postcss: 8.4.18
+      postcss: 8.4.20
       pretty-bytes: 5.6.0
 
   /cross-spawn/7.0.3:
@@ -7104,14 +7110,6 @@ packages:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
     dev: true
-
-  /postcss/8.4.18:
-    resolution: {integrity: sha512-Wi8mWhncLJm11GATDaQKobXSNEYGUHeQLiQqDFG1qQ5UTDPTEvKw0Xt5NsTpktGTwLps3ByrWsBrG0rB8YQ9oA==}
-    engines: {node: ^10 || ^12 || >=14}
-    dependencies:
-      nanoid: 3.3.4
-      picocolors: 1.0.0
-      source-map-js: 1.0.2
 
   /postcss/8.4.20:
     resolution: {integrity: sha512-6Q04AXR1212bXr5fh03u8aAwbLxAQNGQ/Q1LNa0VfOI06ZAlhPHtQvE4OIdpj4kLThXilalPnmDSOD65DcHt+g==}

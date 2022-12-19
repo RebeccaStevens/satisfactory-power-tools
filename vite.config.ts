@@ -3,7 +3,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import url from "node:url";
 
-import { NodeGlobalsPolyfillPlugin } from "@esbuild-plugins/node-globals-polyfill";
+// import { NodeGlobalsPolyfillPlugin } from "@esbuild-plugins/node-globals-polyfill";
 import VueI18n from "@intlify/vite-plugin-vue-i18n";
 import Unocss from "@unocss/vite";
 import Vue from "@vitejs/plugin-vue";
@@ -50,9 +50,9 @@ export default defineConfig(({ command, mode }) => {
         },
         // Enable esbuild polyfill plugins
         plugins: [
-          NodeGlobalsPolyfillPlugin({
-            process: true,
-          }),
+          // NodeGlobalsPolyfillPlugin({
+          //   process: true,
+          // }),
         ],
       },
     },

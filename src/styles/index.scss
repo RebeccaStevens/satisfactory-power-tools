@@ -1,1 +1,4 @@
-@import url("./_ko-fi.scss");
+@use "anu-vue/dist/style.css";
+@use "@anu-vue/preset-theme-default/dist/styles.scss";
+
+@use "./_ko-fi.scss";
