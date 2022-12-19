@@ -301,7 +301,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -331,7 +331,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -421,7 +421,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -451,7 +451,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -481,7 +481,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -511,7 +511,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -541,7 +541,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -661,7 +661,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreGold_C",
@@ -721,7 +721,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -811,7 +811,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -901,7 +901,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -931,7 +931,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -961,7 +961,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -991,7 +991,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -1021,7 +1021,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -1351,7 +1351,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreGold_C",
@@ -1621,7 +1621,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -1711,7 +1711,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -1771,7 +1771,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -1801,7 +1801,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -1951,7 +1951,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -1981,7 +1981,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -2011,7 +2011,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -2071,7 +2071,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -2101,7 +2101,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -2131,7 +2131,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -2161,7 +2161,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -2251,7 +2251,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreGold_C",
@@ -2371,7 +2371,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -2401,7 +2401,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -2431,7 +2431,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -2461,7 +2461,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreGold_C",
@@ -2551,7 +2551,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -2581,7 +2581,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -2611,7 +2611,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -2641,7 +2641,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -2671,7 +2671,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -2791,7 +2791,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -2851,7 +2851,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -2881,7 +2881,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -2941,7 +2941,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -3031,7 +3031,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -3151,7 +3151,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -3181,7 +3181,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -3241,7 +3241,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -3271,7 +3271,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -3361,7 +3361,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -3421,7 +3421,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -3451,7 +3451,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -3481,7 +3481,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -3541,7 +3541,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -3571,7 +3571,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -3601,7 +3601,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -3661,7 +3661,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -3691,7 +3691,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -3751,7 +3751,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -3781,7 +3781,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -3811,7 +3811,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -3841,7 +3841,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -3901,7 +3901,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -3931,7 +3931,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -3961,7 +3961,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -3991,7 +3991,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -4201,7 +4201,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -4231,7 +4231,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -4291,7 +4291,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -4321,7 +4321,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -4351,7 +4351,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -4381,7 +4381,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -4411,7 +4411,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreGold_C",
@@ -4441,7 +4441,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -4471,7 +4471,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -4501,7 +4501,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -4531,7 +4531,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -4651,7 +4651,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -4681,7 +4681,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -4831,7 +4831,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -4861,7 +4861,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -4921,7 +4921,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -4951,7 +4951,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -5011,7 +5011,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -5041,7 +5041,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -5071,7 +5071,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -5101,7 +5101,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -5161,7 +5161,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -5311,7 +5311,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -5341,7 +5341,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -5371,7 +5371,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -5431,7 +5431,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -5491,7 +5491,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -5521,7 +5521,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -5551,7 +5551,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -5611,7 +5611,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -5641,7 +5641,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -5731,7 +5731,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -5791,7 +5791,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -5821,7 +5821,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -6001,7 +6001,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -6211,7 +6211,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreBauxite_C",
@@ -6241,7 +6241,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreBauxite_C",
@@ -6271,7 +6271,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_SAM_C",
@@ -6331,7 +6331,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreBauxite_C",
@@ -6451,7 +6451,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreBauxite_C",
@@ -6541,7 +6541,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -6571,7 +6571,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -6601,7 +6601,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -6631,7 +6631,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -6661,7 +6661,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -6691,7 +6691,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -6721,7 +6721,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -6751,7 +6751,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -6781,7 +6781,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -7171,7 +7171,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -7231,7 +7231,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Sulfur_C",
@@ -7321,7 +7321,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -7351,7 +7351,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -7381,7 +7381,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -7411,7 +7411,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -7441,7 +7441,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -7471,7 +7471,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -7501,7 +7501,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_SAM_C",
@@ -7531,7 +7531,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_RawQuartz_C",
@@ -7561,7 +7561,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -7591,7 +7591,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_RawQuartz_C",
@@ -7831,7 +7831,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_SAM_C",
@@ -7861,7 +7861,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -7891,7 +7891,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -7921,7 +7921,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -7951,7 +7951,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -7981,7 +7981,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -8011,7 +8011,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -8041,7 +8041,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -8071,7 +8071,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -8101,7 +8101,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -8131,7 +8131,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -8161,7 +8161,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -8221,7 +8221,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -8251,7 +8251,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -8491,7 +8491,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -8611,7 +8611,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -8671,7 +8671,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -8701,7 +8701,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -8731,7 +8731,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -8821,7 +8821,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -8881,7 +8881,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -8911,7 +8911,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -8941,7 +8941,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -8971,7 +8971,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -9001,7 +9001,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -9031,7 +9031,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreBauxite_C",
@@ -9061,7 +9061,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -9091,7 +9091,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreBauxite_C",
@@ -9121,7 +9121,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -9151,7 +9151,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_RawQuartz_C",
@@ -9181,7 +9181,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreGold_C",
@@ -9211,7 +9211,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -9331,7 +9331,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -9391,7 +9391,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -9421,7 +9421,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -9451,7 +9451,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -9481,7 +9481,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_RawQuartz_C",
@@ -9511,7 +9511,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -9571,7 +9571,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Sulfur_C",
@@ -9601,7 +9601,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -9691,7 +9691,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -9721,7 +9721,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -9751,7 +9751,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_RawQuartz_C",
@@ -9841,7 +9841,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -9871,7 +9871,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -9901,7 +9901,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -9991,7 +9991,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreBauxite_C",
@@ -10021,7 +10021,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreBauxite_C",
@@ -10111,7 +10111,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -10321,7 +10321,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -10351,7 +10351,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -10411,7 +10411,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_SAM_C",
@@ -10441,7 +10441,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_SAM_C",
@@ -10531,7 +10531,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -10561,7 +10561,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -10591,7 +10591,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -10621,7 +10621,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Sulfur_C",
@@ -10651,7 +10651,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -10831,7 +10831,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -10861,7 +10861,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -10891,7 +10891,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -10921,7 +10921,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -10951,7 +10951,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -10981,7 +10981,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Sulfur_C",
@@ -11011,7 +11011,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -11041,7 +11041,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreUranium_C",
@@ -11101,7 +11101,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreBauxite_C",
@@ -11131,7 +11131,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreBauxite_C",
@@ -11161,7 +11161,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreBauxite_C",
@@ -11191,7 +11191,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -11311,7 +11311,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -11371,7 +11371,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreGold_C",
@@ -11431,7 +11431,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreGold_C",
@@ -11521,7 +11521,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -11551,7 +11551,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -11611,7 +11611,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_SAM_C",
@@ -11641,7 +11641,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_SAM_C",
@@ -11701,7 +11701,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -11731,7 +11731,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -11761,7 +11761,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -11791,7 +11791,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -11821,7 +11821,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -11851,7 +11851,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -11911,7 +11911,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -11971,7 +11971,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -12091,7 +12091,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Stone_C",
@@ -12151,7 +12151,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreIron_C",
@@ -12241,7 +12241,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -12271,7 +12271,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_SAM_C",
@@ -12301,7 +12301,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Coal_C",
@@ -12331,7 +12331,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_OreCopper_C",
@@ -12453,7 +12453,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Geyser_C",
@@ -12483,7 +12483,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Geyser_C",
@@ -12513,7 +12513,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Geyser_C",
@@ -12543,7 +12543,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Geyser_C",
@@ -12573,7 +12573,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Geyser_C",
@@ -12693,7 +12693,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Geyser_C",
@@ -12783,7 +12783,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Geyser_C",
@@ -12843,7 +12843,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Geyser_C",
@@ -12873,7 +12873,7 @@
 			}
 		},
 		{
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Geyser_C",
@@ -13372,7 +13372,7 @@
 	"frackingSatellites": [
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore2",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -13403,7 +13403,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore15",
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -13434,7 +13434,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore15",
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -13465,7 +13465,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore11",
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -13527,7 +13527,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore17",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -13558,7 +13558,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore17",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -13589,7 +13589,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore2",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -13620,7 +13620,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore17",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -13651,7 +13651,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore17",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -13682,7 +13682,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore17",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -13713,7 +13713,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore17",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -13744,7 +13744,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore18",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -13775,7 +13775,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore18",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -13806,7 +13806,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore18",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -13837,7 +13837,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore18",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -13868,7 +13868,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore18",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -13899,7 +13899,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore18",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -13930,7 +13930,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore2",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -13961,7 +13961,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore18",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -14023,7 +14023,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore2",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14054,7 +14054,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore3",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14085,7 +14085,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore3",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14147,7 +14147,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore3",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14209,7 +14209,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore3",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14240,7 +14240,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore_8",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14271,7 +14271,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore3",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14302,7 +14302,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore4",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14333,7 +14333,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore4",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14395,7 +14395,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore4",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14457,7 +14457,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore4",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14488,7 +14488,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore4",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14519,7 +14519,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore5",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14550,7 +14550,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore5",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14612,7 +14612,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore5",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14643,7 +14643,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore5",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14674,7 +14674,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore5",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14705,7 +14705,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore5",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14736,7 +14736,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore5",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14767,7 +14767,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore6",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14798,7 +14798,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore6",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14829,7 +14829,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore6",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14860,7 +14860,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore6",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14891,7 +14891,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore6",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14922,7 +14922,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore_8",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14953,7 +14953,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore6",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -14984,7 +14984,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore6",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -15015,7 +15015,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore6",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -15046,7 +15046,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore6",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -15077,7 +15077,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore6",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -15108,7 +15108,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore7",
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -15139,7 +15139,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore7",
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -15170,7 +15170,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore7",
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -15201,7 +15201,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore7",
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -15232,7 +15232,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore7",
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -15263,7 +15263,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore_8",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -15294,7 +15294,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore7",
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -15325,7 +15325,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore4",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -15387,7 +15387,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore10",
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -15449,7 +15449,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore2",
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -15511,7 +15511,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore9",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -15542,7 +15542,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore9",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -15573,7 +15573,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore9",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_LiquidOil_C",
@@ -15604,7 +15604,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore10",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -15635,7 +15635,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore10",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -15666,7 +15666,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore10",
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -15697,7 +15697,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore10",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -15728,7 +15728,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore10",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -15759,7 +15759,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore11",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -15790,7 +15790,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore2",
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
@@ -15821,7 +15821,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore11",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -15883,7 +15883,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore11",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -15945,7 +15945,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore11",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -15976,7 +15976,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore12",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -16007,7 +16007,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore12",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -16038,7 +16038,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore12",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -16069,7 +16069,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore12",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -16193,7 +16193,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore13",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -16224,7 +16224,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore13",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -16255,7 +16255,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore13",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -16286,7 +16286,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore13",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -16317,7 +16317,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore13",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -16348,7 +16348,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore13",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -16441,7 +16441,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore14",
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -16503,7 +16503,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore14",
-			"purity": "RP_Normal",
+			"purity": "RP_Inpure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -16658,7 +16658,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore15",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -16689,7 +16689,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore15",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -16720,7 +16720,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore15",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -16751,7 +16751,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore15",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -16782,7 +16782,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore15",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_Water_C",
@@ -16813,7 +16813,7 @@
 		},
 		{
 			"frackingCore": "Persistent_Exploration_2:PersistentLevel.BP_FrackingCore_8",
-			"purity": "RP_Normal",
+			"purity": "RP_Pure",
 			"item":
 			{
 				"class": "Desc_NitrogenGas_C",
