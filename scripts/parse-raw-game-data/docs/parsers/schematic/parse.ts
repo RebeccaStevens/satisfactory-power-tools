@@ -17,22 +17,24 @@ import { isObject } from "~/utils/object";
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const base = parseBase(data);
 
-  assert(Object.hasOwn(data, "mType"));
-  assert(Object.hasOwn(data, "mDescription"));
-  assert(Object.hasOwn(data, "mSubCategories"));
-  assert(Object.hasOwn(data, "mMenuPriority"));
-  assert(Object.hasOwn(data, "mTechTier"));
-  assert(Object.hasOwn(data, "mCost"));
-  assert(Object.hasOwn(data, "mTimeToComplete"));
-  assert(Object.hasOwn(data, "mRelevantShopSchematics"));
-  assert(Object.hasOwn(data, "mUnlocks"));
-  assert(Object.hasOwn(data, "mSchematicIcon"));
-  assert(Object.hasOwn(data, "mSmallSchematicIcon"));
-  assert(Object.hasOwn(data, "mSchematicDependencies"));
-  assert(Object.hasOwn(data, "mDependenciesBlocksSchematicAccess"));
-  assert(Object.hasOwn(data, "mHiddenUntilDependenciesMet"));
+  assert("mType" in data);
+  assert("mDescription" in data);
+  assert("mSubCategories" in data);
+  assert("mMenuPriority" in data);
+  assert("mTechTier" in data);
+  assert("mCost" in data);
+  assert("mTimeToComplete" in data);
+  assert("mRelevantShopSchematics" in data);
+  assert("mUnlocks" in data);
+  assert("mSchematicIcon" in data);
+  assert("mSmallSchematicIcon" in data);
+  assert("mSchematicDependencies" in data);
+  assert("mDependenciesBlocksSchematicAccess" in data);
+  assert("mHiddenUntilDependenciesMet" in data);
 
   return {
     ...base,
@@ -62,7 +64,7 @@ function parseUnlocks(data: unknown) {
   assert(Array.isArray(data));
   return data.map((value) => {
     assert(isObject(value));
-    assert(Object.hasOwn(value, "Class"));
+    assert("Class" in value);
     return {
       Class: parseString(value.Class),
     };
@@ -73,17 +75,17 @@ function parseSchematicDependencies(data: unknown) {
   assert(Array.isArray(data));
   return data.map((value) => {
     assert(isObject(value));
-    assert(Object.hasOwn(value, "Class"));
+    assert("Class" in value);
 
-    if (Object.hasOwn(value, "mGamePhase")) {
+    if ("mGamePhase" in value) {
       return {
         Class: parseString(value.Class),
         mGamePhase: parseGamePhase(value.mGamePhase),
       };
     }
 
-    assert(Object.hasOwn(value, "mSchematics"));
-    assert(Object.hasOwn(value, "mRequireAllSchematicsToBePurchased"));
+    assert("mSchematics" in value);
+    assert("mRequireAllSchematicsToBePurchased" in value);
 
     return {
       Class: parseString(value.Class),

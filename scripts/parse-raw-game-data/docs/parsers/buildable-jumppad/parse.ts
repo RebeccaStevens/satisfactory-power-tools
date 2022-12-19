@@ -7,27 +7,30 @@ import {
   parseScale3D,
   parseBoolean,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert(Object.hasOwn(data, "mPowerBankCapacity"));
-  assert(Object.hasOwn(data, "mLaunchPowerCost"));
-  assert(Object.hasOwn(data, "mChargeRateMultiplier"));
-  assert(Object.hasOwn(data, "mCurrentPowerLevel"));
-  assert(Object.hasOwn(data, "mLaunchVelocity"));
-  assert(Object.hasOwn(data, "mLaunchAngle"));
-  assert(Object.hasOwn(data, "mPlayerChainJumpResetTime"));
-  assert(Object.hasOwn(data, "mHasPowerForLaunch"));
-  assert(Object.hasOwn(data, "mTrajectoryData"));
-  assert(Object.hasOwn(data, "mTrajectoryMeshScale"));
-  assert(Object.hasOwn(data, "mTrajectoryMeshRotation"));
-  assert(Object.hasOwn(data, "mDestinationMeshHeightOffset"));
-  assert(Object.hasOwn(data, "mNumArrows"));
-  assert(Object.hasOwn(data, "mTrajectoryGravityMultiplier"));
-  assert(Object.hasOwn(data, "mShowTrajectoryCounter"));
+  assert("mPowerBankCapacity" in data);
+  assert("mLaunchPowerCost" in data);
+  assert("mChargeRateMultiplier" in data);
+  assert("mCurrentPowerLevel" in data);
+  assert("mLaunchVelocity" in data);
+  assert("mLaunchAngle" in data);
+  assert("mPlayerChainJumpResetTime" in data);
+  assert("mHasPowerForLaunch" in data);
+  assert("mTrajectoryData" in data);
+  assert("mTrajectoryMeshScale" in data);
+  assert("mTrajectoryMeshRotation" in data);
+  assert("mDestinationMeshHeightOffset" in data);
+  assert("mNumArrows" in data);
+  assert("mTrajectoryGravityMultiplier" in data);
+  assert("mShowTrajectoryCounter" in data);
 
   return {
     ...buildableBuilding,

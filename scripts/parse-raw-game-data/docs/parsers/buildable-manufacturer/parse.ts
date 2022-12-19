@@ -6,17 +6,20 @@ import {
   parseBeltConnections,
   parsePipeConnections,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert(Object.hasOwn(data, "mManufacturingSpeed"));
-  assert(Object.hasOwn(data, "mFactoryInputConnections"));
-  assert(Object.hasOwn(data, "mPipeInputConnections"));
-  assert(Object.hasOwn(data, "mFactoryOutputConnections"));
-  assert(Object.hasOwn(data, "mPipeOutputConnections"));
+  assert("mManufacturingSpeed" in data);
+  assert("mFactoryInputConnections" in data);
+  assert("mPipeInputConnections" in data);
+  assert("mFactoryOutputConnections" in data);
+  assert("mPipeOutputConnections" in data);
 
   return {
     ...buildableBuilding,

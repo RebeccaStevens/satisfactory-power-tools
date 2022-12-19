@@ -7,17 +7,20 @@ import {
   parseNullableString,
   parseResourceForms,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert(Object.hasOwn(data, "mAllowedResourceForms"));
-  assert(Object.hasOwn(data, "mOnlyAllowCertainResources"));
-  assert(Object.hasOwn(data, "mAllowedResources"));
-  assert(Object.hasOwn(data, "mExtractorTypeName"));
-  assert(Object.hasOwn(data, "mTryFindMissingResource"));
+  assert("mAllowedResourceForms" in data);
+  assert("mOnlyAllowCertainResources" in data);
+  assert("mAllowedResources" in data);
+  assert("mExtractorTypeName" in data);
+  assert("mTryFindMissingResource" in data);
 
   return {
     ...buildableBuilding,

@@ -6,26 +6,30 @@ import {
   parseNumber,
   parseStackSize,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
-  assert(Object.hasOwn(data, "mPowerConsumption"));
-  assert(Object.hasOwn(data, "mPowerConsumptionExponent"));
-  assert(Object.hasOwn(data, "mDoesHaveShutdownAnimation"));
-  assert(Object.hasOwn(data, "mMinimumProducingTime"));
-  assert(Object.hasOwn(data, "mMinimumStoppedTime"));
-  assert(Object.hasOwn(data, "mCanEverMonitorProductivity"));
-  assert(Object.hasOwn(data, "mCanChangePotential"));
-  assert(Object.hasOwn(data, "mMinPotential"));
-  assert(Object.hasOwn(data, "mMaxPotential"));
-  assert(Object.hasOwn(data, "mMaxPotentialIncreasePerCrystal"));
-  assert(Object.hasOwn(data, "mFluidStackSizeDefault"));
-  assert(Object.hasOwn(data, "mFluidStackSizeMultiplier"));
-  assert(Object.hasOwn(data, "mEffectUpdateInterval"));
-  assert(Object.hasOwn(data, "mAddToSignificanceManager"));
-  assert(Object.hasOwn(data, "mSignificanceRange"));
+
+  assert("mPowerConsumption" in data);
+  assert("mPowerConsumptionExponent" in data);
+  assert("mDoesHaveShutdownAnimation" in data);
+  assert("mMinimumProducingTime" in data);
+  assert("mMinimumStoppedTime" in data);
+  assert("mCanEverMonitorProductivity" in data);
+  assert("mCanChangePotential" in data);
+  assert("mMinPotential" in data);
+  assert("mMaxPotential" in data);
+  assert("mMaxPotentialIncreasePerCrystal" in data);
+  assert("mFluidStackSizeDefault" in data);
+  assert("mFluidStackSizeMultiplier" in data);
+  assert("mEffectUpdateInterval" in data);
+  assert("mAddToSignificanceManager" in data);
+  assert("mSignificanceRange" in data);
 
   return {
     ...buildable,

@@ -5,14 +5,19 @@ import {
   parseNumber,
   parseMinMaxNumber,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
+  assert(isObject(data));
+
   const ammo = parseBaseAmmoType(data);
 
-  assert(Object.hasOwn(data, "mNumShots"));
-  assert(Object.hasOwn(data, "mSpreadAngleDegrees"));
+  assert("mNumShots" in data);
+  assert("mSpreadAngleDegrees" in data);
 
   return {
     ...ammo,

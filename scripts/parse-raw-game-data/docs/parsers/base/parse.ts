@@ -7,12 +7,11 @@ import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
   assert(isObject(data));
-  assert(Object.hasOwn(data, "ClassName"));
+  assert("ClassName" in data);
 
   return {
     ClassName: parseString(data.ClassName),
-    mDisplayName: Object.hasOwn(data, "mDisplayName")
-      ? parseString(data.mDisplayName)
-      : "N/A",
+    mDisplayName:
+      "mDisplayName" in data ? parseString(data.mDisplayName) : "N/A",
   };
 }

@@ -6,15 +6,18 @@ import {
   parseString,
   parseResearchState,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mOccupiedText"));
-  assert(Object.hasOwn(data, "mCurrentResearchState"));
-  assert(Object.hasOwn(data, "mSignificanceRange"));
+  assert("mOccupiedText" in data);
+  assert("mCurrentResearchState" in data);
+  assert("mSignificanceRange" in data);
 
   return {
     ...buildable,

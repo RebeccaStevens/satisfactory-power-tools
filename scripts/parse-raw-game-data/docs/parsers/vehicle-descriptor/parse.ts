@@ -5,20 +5,23 @@ import {
   parseMinMaxNumber,
   parseNumber,
 } from "~/scripts/parse-raw-game-data/utils";
-import { isNotNull } from "~/utils";
+import { isNotNull, isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const baseItem = parseBaseItem(data);
+
   const conditionalProps = [
-    Object.hasOwn(data, "mFuelConsumption")
+    "mFuelConsumption" in data
       ? ["mFuelConsumption", parseNumber(data.mFuelConsumption)]
       : null,
-    Object.hasOwn(data, "mPowerConsumption")
+    "mPowerConsumption" in data
       ? ["mPowerConsumption", parseMinMaxNumber(data.mPowerConsumption)]
       : null,
-    Object.hasOwn(data, "mInventorySize")
+    "mInventorySize" in data
       ? ["mInventorySize", parseNumber(data.mInventorySize)]
       : null,
   ].filter(isNotNull);

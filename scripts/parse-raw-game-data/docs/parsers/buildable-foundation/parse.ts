@@ -6,18 +6,21 @@ import {
   parseBoolean,
   parseDirectionBooleanMap,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mWidth"));
-  assert(Object.hasOwn(data, "mDepth"));
-  assert(Object.hasOwn(data, "mHeight"));
-  assert(Object.hasOwn(data, "mElevation"));
-  assert(Object.hasOwn(data, "mIsFrame"));
-  assert(Object.hasOwn(data, "mDisableSnapOn"));
+  assert("mWidth" in data);
+  assert("mDepth" in data);
+  assert("mHeight" in data);
+  assert("mElevation" in data);
+  assert("mIsFrame" in data);
+  assert("mDisableSnapOn" in data);
 
   return {
     ...buildable,

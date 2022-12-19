@@ -9,26 +9,28 @@ import {
   parseBoolean,
   parsePipeConnections,
 } from "~/scripts/parse-raw-game-data/utils";
-import { isNotNull } from "~/utils";
+import { isNotNull, isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mRadius"));
-  assert(Object.hasOwn(data, "mFlowLimit"));
-  assert(Object.hasOwn(data, "mFlowIndicatorMinimumPipeLength"));
-  assert(Object.hasOwn(data, "mPipeConnections"));
-  assert(Object.hasOwn(data, "mMaxIndicatorTurnAngle"));
-  assert(Object.hasOwn(data, "mFluidNames"));
-  assert(Object.hasOwn(data, "mCurrentFluid"));
-  assert(Object.hasOwn(data, "mLastContentForSound"));
-  assert(Object.hasOwn(data, "mLastFlowForSound"));
-  assert(Object.hasOwn(data, "mRattleLimit"));
-  assert(Object.hasOwn(data, "mIsRattling"));
-  assert(Object.hasOwn(data, "mMeshLength"));
-  assert(Object.hasOwn(data, "mSplineData"));
+  assert("mRadius" in data);
+  assert("mFlowLimit" in data);
+  assert("mFlowIndicatorMinimumPipeLength" in data);
+  assert("mPipeConnections" in data);
+  assert("mMaxIndicatorTurnAngle" in data);
+  assert("mFluidNames" in data);
+  assert("mCurrentFluid" in data);
+  assert("mLastContentForSound" in data);
+  assert("mLastFlowForSound" in data);
+  assert("mRattleLimit" in data);
+  assert("mIsRattling" in data);
+  assert("mMeshLength" in data);
+  assert("mSplineData" in data);
 
   return {
     ...buildable,

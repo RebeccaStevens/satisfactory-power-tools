@@ -5,14 +5,17 @@ import {
   parseNumber,
   parseGameEvent,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert(Object.hasOwn(data, "mTimeToProduceItem"));
-  assert(Object.hasOwn(data, "mEventType"));
+  assert("mTimeToProduceItem" in data);
+  assert("mEventType" in data);
 
   return {
     ...buildableBuilding,

@@ -6,15 +6,18 @@ import {
   parsePoint3D,
   parseSpline,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mExitOffset"));
-  assert(Object.hasOwn(data, "mMeshLength"));
-  assert(Object.hasOwn(data, "mSplineData"));
+  assert("mExitOffset" in data);
+  assert("mMeshLength" in data);
+  assert("mSplineData" in data);
 
   return {
     ...buildable,

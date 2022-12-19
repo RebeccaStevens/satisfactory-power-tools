@@ -16,20 +16,22 @@ import { isObject } from "~/utils";
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert(Object.hasOwn(data, "mFuelClasses"));
-  assert(Object.hasOwn(data, "mDefaultFuelClasses"));
-  assert(Object.hasOwn(data, "mFuel"));
-  assert(Object.hasOwn(data, "mAvailableFuelClasses"));
-  assert(Object.hasOwn(data, "mFuelResourceForm"));
-  assert(Object.hasOwn(data, "mFuelLoadAmount"));
-  assert(Object.hasOwn(data, "mRequiresSupplementalResource"));
-  assert(Object.hasOwn(data, "mSupplementalLoadAmount"));
-  assert(Object.hasOwn(data, "mSupplementalToPowerRatio"));
-  assert(Object.hasOwn(data, "mIsFullBlast"));
-  assert(Object.hasOwn(data, "mPowerProduction"));
-  assert(Object.hasOwn(data, "mLoadPercentage"));
+  assert("mFuelClasses" in data);
+  assert("mDefaultFuelClasses" in data);
+  assert("mFuel" in data);
+  assert("mAvailableFuelClasses" in data);
+  assert("mFuelResourceForm" in data);
+  assert("mFuelLoadAmount" in data);
+  assert("mRequiresSupplementalResource" in data);
+  assert("mSupplementalLoadAmount" in data);
+  assert("mSupplementalToPowerRatio" in data);
+  assert("mIsFullBlast" in data);
+  assert("mPowerProduction" in data);
+  assert("mLoadPercentage" in data);
 
   return {
     ...buildableBuilding,
@@ -58,10 +60,10 @@ function parseFuel(values: unknown): FuelAmount[] {
 
   return values.map((value) => {
     assert(isObject(value));
-    assert(Object.hasOwn(value, "mFuelClass"));
-    assert(Object.hasOwn(value, "mSupplementalResourceClass"));
-    assert(Object.hasOwn(value, "mByproduct"));
-    assert(Object.hasOwn(value, "mByproductAmount"));
+    assert("mFuelClass" in value);
+    assert("mSupplementalResourceClass" in value);
+    assert("mByproduct" in value);
+    assert("mByproductAmount" in value);
 
     const mFuelClass = parseString(value.mFuelClass);
     const mSupplementalResourceClass = parseString(

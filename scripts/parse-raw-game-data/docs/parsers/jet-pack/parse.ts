@@ -6,18 +6,21 @@ import {
   parseNumber,
   parseClasses,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const equipment = parseConsumableEquipment(data);
 
-  assert(Object.hasOwn(data, "mDefaultAirControl"));
-  assert(Object.hasOwn(data, "mRTPCInterval"));
-  assert(Object.hasOwn(data, "mThrustCooldown"));
-  assert(Object.hasOwn(data, "mCurrentFuel"));
-  assert(Object.hasOwn(data, "mIsThrusting"));
-  assert(Object.hasOwn(data, "mFuelTypes"));
+  assert("mDefaultAirControl" in data);
+  assert("mRTPCInterval" in data);
+  assert("mThrustCooldown" in data);
+  assert("mCurrentFuel" in data);
+  assert("mIsThrusting" in data);
+  assert("mFuelTypes" in data);
 
   return {
     ...equipment,

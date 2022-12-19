@@ -6,24 +6,27 @@ import {
   parseBoolean,
   parseString,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert(Object.hasOwn(data, "mWorkBenchOccupied"));
-  assert(Object.hasOwn(data, "mWorkBenchFree"));
-  assert(Object.hasOwn(data, "mShipUpgradeLevel"));
-  assert(Object.hasOwn(data, "mStorageText"));
-  assert(Object.hasOwn(data, "mMamFreeText"));
-  assert(Object.hasOwn(data, "mMamOccupiedText"));
-  assert(Object.hasOwn(data, "mStorageInventorySize"));
-  assert(Object.hasOwn(data, "mStorageVisibilityLevel"));
-  assert(Object.hasOwn(data, "mSpawningGroundZOffset"));
-  assert(Object.hasOwn(data, "mGroundSearchZDistance"));
-  assert(Object.hasOwn(data, "mNeedPlayingBuildEffectNotification"));
-  assert(Object.hasOwn(data, "mRepresentationText"));
+  assert("mWorkBenchOccupied" in data);
+  assert("mWorkBenchFree" in data);
+  assert("mShipUpgradeLevel" in data);
+  assert("mStorageText" in data);
+  assert("mMamFreeText" in data);
+  assert("mMamOccupiedText" in data);
+  assert("mStorageInventorySize" in data);
+  assert("mStorageVisibilityLevel" in data);
+  assert("mSpawningGroundZOffset" in data);
+  assert("mGroundSearchZDistance" in data);
+  assert("mNeedPlayingBuildEffectNotification" in data);
+  assert("mRepresentationText" in data);
 
   return {
     ...buildableBuilding,

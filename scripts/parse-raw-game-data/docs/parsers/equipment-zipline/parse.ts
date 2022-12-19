@@ -2,21 +2,24 @@ import assert from "node:assert/strict";
 
 import { parseConsumableEquipment } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { parseBoolean, parseNumber } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const base = parseConsumableEquipment(data);
 
-  assert(Object.hasOwn(data, "mShouldPlayDeactivateSound"));
-  assert(Object.hasOwn(data, "mZiplineJumpLaunchVelocity"));
-  assert(Object.hasOwn(data, "mMaxZiplineAngle"));
-  assert(Object.hasOwn(data, "mTraceDistance"));
-  assert(Object.hasOwn(data, "mTraceStartOffset"));
-  assert(Object.hasOwn(data, "mTraceRadius"));
-  assert(Object.hasOwn(data, "mVisualizeTraceDistance"));
-  assert(Object.hasOwn(data, "mActiveNoiseFrequency"));
-  assert(Object.hasOwn(data, "mZiplineReattachCooldown"));
+  assert("mShouldPlayDeactivateSound" in data);
+  assert("mZiplineJumpLaunchVelocity" in data);
+  assert("mMaxZiplineAngle" in data);
+  assert("mTraceDistance" in data);
+  assert("mTraceStartOffset" in data);
+  assert("mTraceRadius" in data);
+  assert("mVisualizeTraceDistance" in data);
+  assert("mActiveNoiseFrequency" in data);
+  assert("mZiplineReattachCooldown" in data);
 
   return {
     ...base,

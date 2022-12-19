@@ -2,16 +2,19 @@ import assert from "node:assert/strict";
 
 import { parseBuildable } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { parseNumber } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mMaxNumSortRules"));
-  assert(Object.hasOwn(data, "mCurrentOutputIndex"));
-  assert(Object.hasOwn(data, "mLastOutputIndex"));
-  assert(Object.hasOwn(data, "mCurrentInventoryIndex"));
+  assert("mMaxNumSortRules" in data);
+  assert("mCurrentOutputIndex" in data);
+  assert("mLastOutputIndex" in data);
+  assert("mCurrentInventoryIndex" in data);
 
   return {
     ...buildable,

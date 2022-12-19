@@ -6,25 +6,24 @@ import {
   parseNumber,
   parseRotation3D,
 } from "~/scripts/parse-raw-game-data/utils";
-import { assertNever } from "~/utils";
+import { assertNever, isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const item = parseItem(data);
 
-  assert(
-    Object.hasOwn(data, "mHealthGain") ||
-      Object.hasOwn(data, "mCustomHandsMeshScale"),
-  );
-  assert(Object.hasOwn(data, "mCustomHandsMeshScale"));
-  assert(Object.hasOwn(data, "mCustomRotation"));
-  assert(Object.hasOwn(data, "mCustomLocation"));
+  assert("mHealthGain" in data || "mCustomHandsMeshScale" in data);
+  assert("mCustomHandsMeshScale" in data);
+  assert("mCustomRotation" in data);
+  assert("mCustomLocation" in data);
 
   const conditionalProps = Object.fromEntries([
-    Object.hasOwn(data, "mHealthGain")
+    "mHealthGain" in data
       ? ["mHealthGain", parseNumber(data.mHealthGain)]
-      : Object.hasOwn(data, "mCustomHandsMeshScale")
+      : "mCustomHandsMeshScale" in data
       ? ["mCustomHandsMeshScale", parseNumber(data.mCustomHandsMeshScale)]
       : assertNever(),
   ]);

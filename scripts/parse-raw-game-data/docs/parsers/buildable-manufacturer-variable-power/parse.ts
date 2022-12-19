@@ -2,17 +2,20 @@ import assert from "node:assert/strict";
 
 import { parseBuildableManufacturer } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { parseNumber } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildableManufacturer = parseBuildableManufacturer(data);
 
-  assert(Object.hasOwn(data, "mSequenceDuration"));
-  assert(Object.hasOwn(data, "mGameTimeAtProducing"));
-  assert(Object.hasOwn(data, "mCurrentProducingSeekTime"));
-  assert(Object.hasOwn(data, "mEstimatedMininumPowerConsumption"));
-  assert(Object.hasOwn(data, "mEstimatedMaximumPowerConsumption"));
+  assert("mSequenceDuration" in data);
+  assert("mGameTimeAtProducing" in data);
+  assert("mCurrentProducingSeekTime" in data);
+  assert("mEstimatedMininumPowerConsumption" in data);
+  assert("mEstimatedMaximumPowerConsumption" in data);
 
   return {
     ...buildableManufacturer,

@@ -101,9 +101,9 @@ function rawGameDataByNativeClass() {
     docsJsonData.map((group): [string, ReadonlyArray<unknown>] => {
       assert(
         isObject(group) &&
-          Object.hasOwn(group, "NativeClass") &&
+          "NativeClass" in group &&
           typeof group.NativeClass === "string" &&
-          Object.hasOwn(group, "Classes") &&
+          "Classes" in group &&
           Array.isArray(group.Classes),
       );
       return [group.NativeClass, group.Classes];
@@ -506,7 +506,7 @@ function getItems(staticData: Readonly<StaticData>) {
       .flatMap(([nativeClass, set]) => {
         assert(
           set.values().every((item) => {
-            if (Object.hasOwn(item, "mResourceSinkPoints")) {
+            if ("mResourceSinkPoints" in item) {
               return true;
             }
             console.log("Not an Item Class:", nativeClass);
@@ -520,7 +520,7 @@ function getItems(staticData: Readonly<StaticData>) {
   assert(
     staticData.entries().every(([nativeClass, itemSet]) => {
       return itemSet.values().every((item) => {
-        if (!items.has(item) && Object.hasOwn(item, "mResourceSinkPoints")) {
+        if (!items.has(item) && "mResourceSinkPoints" in item) {
           console.log("Missing Item Class:", nativeClass);
           return false;
         }
@@ -548,7 +548,7 @@ function getMachines(staticData: Readonly<StaticData>) {
       .flatMap(([nativeClass, set]) => {
         assert(
           set.values().every((item) => {
-            if (Object.hasOwn(item, "mManufacturingSpeed")) {
+            if ("mManufacturingSpeed" in item) {
               return true;
             }
             console.log("Not an Machine Class:", nativeClass);
@@ -562,10 +562,7 @@ function getMachines(staticData: Readonly<StaticData>) {
   assert(
     staticData.entries().every(([nativeClass, machineSet]) =>
       machineSet.values().every((machine) => {
-        if (
-          !machines.has(machine) &&
-          Object.hasOwn(machine, "mManufacturingSpeed")
-        ) {
+        if (!machines.has(machine) && "mManufacturingSpeed" in machine) {
           console.log("Missing Machine Class:", nativeClass);
           return false;
         }
@@ -593,7 +590,7 @@ function getRecipes(staticData: Readonly<StaticData>) {
       .flatMap(([nativeClass, set]) => {
         assert(
           set.values().every((item) => {
-            if (Object.hasOwn(item, "mProducedIn")) {
+            if ("mProducedIn" in item) {
               return true;
             }
             console.log("Not an Recipe Class:", nativeClass);
@@ -607,7 +604,7 @@ function getRecipes(staticData: Readonly<StaticData>) {
   assert(
     staticData.entries().every(([nativeClass, recipeSet]) =>
       recipeSet.values().every((recipe) => {
-        if (!recipes.has(recipe) && Object.hasOwn(recipe, "mProducedIn")) {
+        if (!recipes.has(recipe) && "mProducedIn" in recipe) {
           console.log("Missing Recipe Class:", nativeClass);
           return false;
         }

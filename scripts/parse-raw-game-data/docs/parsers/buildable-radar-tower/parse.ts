@@ -6,15 +6,18 @@ import {
   parseString,
   parseClasses,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mMapText"));
-  assert(Object.hasOwn(data, "mRevealRadius"));
-  assert(Object.hasOwn(data, "mScannableDescriptors"));
+  assert("mMapText" in data);
+  assert("mRevealRadius" in data);
+  assert("mScannableDescriptors" in data);
 
   return {
     ...buildable,

@@ -8,41 +8,44 @@ import {
   parseFreightCargoType,
   parseBoolean,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildableTrainPlatformEmpty = parseBuildableTrainPlatformEmpty(data);
 
-  assert(Object.hasOwn(data, "mFreightCargoType"));
-  assert(Object.hasOwn(data, "mStorageSizeX"));
-  assert(Object.hasOwn(data, "mStorageSizeY"));
-  assert(Object.hasOwn(data, "mCanUnloadAny"));
-  assert(Object.hasOwn(data, "mIsFullUnload"));
-  assert(Object.hasOwn(data, "mCanLoadAny"));
-  assert(Object.hasOwn(data, "mIsFullLoad"));
-  assert(Object.hasOwn(data, "mTimeToCompleteLoad"));
-  assert(Object.hasOwn(data, "mTimeToSwapLoadVisibility"));
-  assert(Object.hasOwn(data, "mTimeToCompleteUnload"));
-  assert(Object.hasOwn(data, "mTimeToSwapUnloadVisibility"));
-  assert(Object.hasOwn(data, "mWaitForConditionUpdatePeriod"));
-  assert(Object.hasOwn(data, "mStorageInputConnections"));
-  assert(Object.hasOwn(data, "mPipeInputConnections"));
-  assert(Object.hasOwn(data, "mPipeOutputConnections"));
-  assert(Object.hasOwn(data, "mHasFullyLoadUnloadRule"));
-  assert(Object.hasOwn(data, "mDockForDuration"));
-  assert(Object.hasOwn(data, "mMustDockForDuration"));
-  assert(Object.hasOwn(data, "mCurrentDockForDuration"));
-  assert(Object.hasOwn(data, "mHasAnyRelevantStacksToMove"));
-  assert(Object.hasOwn(data, "mAllowDepartureNoValidItemsToTransfer"));
-  assert(Object.hasOwn(data, "mShouldExecuteLoadOrUnload"));
-  assert(Object.hasOwn(data, "mRanCompleteBeforeNone"));
-  assert(Object.hasOwn(data, "mTimeSinceLastLoadTransferUpdate"));
-  assert(Object.hasOwn(data, "mTimeSinceLastUnloadTransferUpdate"));
-  assert(Object.hasOwn(data, "mSmoothedLoadRate"));
-  assert(Object.hasOwn(data, "mSmoothedUnloadRate"));
-  assert(Object.hasOwn(data, "mReplicatedOutflowRate"));
-  assert(Object.hasOwn(data, "mReplicatedInflowRate"));
+  assert("mFreightCargoType" in data);
+  assert("mStorageSizeX" in data);
+  assert("mStorageSizeY" in data);
+  assert("mCanUnloadAny" in data);
+  assert("mIsFullUnload" in data);
+  assert("mCanLoadAny" in data);
+  assert("mIsFullLoad" in data);
+  assert("mTimeToCompleteLoad" in data);
+  assert("mTimeToSwapLoadVisibility" in data);
+  assert("mTimeToCompleteUnload" in data);
+  assert("mTimeToSwapUnloadVisibility" in data);
+  assert("mWaitForConditionUpdatePeriod" in data);
+  assert("mStorageInputConnections" in data);
+  assert("mPipeInputConnections" in data);
+  assert("mPipeOutputConnections" in data);
+  assert("mHasFullyLoadUnloadRule" in data);
+  assert("mDockForDuration" in data);
+  assert("mMustDockForDuration" in data);
+  assert("mCurrentDockForDuration" in data);
+  assert("mHasAnyRelevantStacksToMove" in data);
+  assert("mAllowDepartureNoValidItemsToTransfer" in data);
+  assert("mShouldExecuteLoadOrUnload" in data);
+  assert("mRanCompleteBeforeNone" in data);
+  assert("mTimeSinceLastLoadTransferUpdate" in data);
+  assert("mTimeSinceLastUnloadTransferUpdate" in data);
+  assert("mSmoothedLoadRate" in data);
+  assert("mSmoothedUnloadRate" in data);
+  assert("mReplicatedOutflowRate" in data);
+  assert("mReplicatedInflowRate" in data);
 
   return {
     ...buildableTrainPlatformEmpty,

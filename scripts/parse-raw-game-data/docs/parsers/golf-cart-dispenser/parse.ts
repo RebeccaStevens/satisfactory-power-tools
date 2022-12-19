@@ -6,17 +6,20 @@ import {
   parseBoolean,
   parseNumber,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const equipment = parseConsumableEquipment(data);
 
-  assert(Object.hasOwn(data, "mMaxSpawnDistance"));
-  assert(Object.hasOwn(data, "mSpawningClearance"));
-  assert(Object.hasOwn(data, "mBuildDisqualifierText"));
-  assert(Object.hasOwn(data, "canDisplayDisqualifier"));
-  assert(Object.hasOwn(data, "mPlaceDistanceMax"));
+  assert("mMaxSpawnDistance" in data);
+  assert("mSpawningClearance" in data);
+  assert("mBuildDisqualifierText" in data);
+  assert("canDisplayDisqualifier" in data);
+  assert("mPlaceDistanceMax" in data);
 
   return {
     ...equipment,

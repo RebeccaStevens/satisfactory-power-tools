@@ -7,15 +7,18 @@ import {
   parseNumber,
   parseString,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const base = parseBaseGasMask(data);
 
-  assert(Object.hasOwn(data, "mImmunity"));
-  assert(Object.hasOwn(data, "mIsBurningFuel"));
-  assert(Object.hasOwn(data, "mSuit1PMeshMaterials"));
+  assert("mImmunity" in data);
+  assert("mIsBurningFuel" in data);
+  assert("mSuit1PMeshMaterials" in data);
 
   return {
     ...base,

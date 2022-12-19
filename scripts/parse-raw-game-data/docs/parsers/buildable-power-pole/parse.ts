@@ -6,15 +6,18 @@ import {
   parsePowerPoleType,
   parseBoolean,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mPowerConnections"));
-  assert(Object.hasOwn(data, "mPowerPoleType"));
-  assert(Object.hasOwn(data, "mHasPower"));
+  assert("mPowerConnections" in data);
+  assert("mPowerPoleType" in data);
+  assert("mHasPower" in data);
 
   return {
     ...buildable,

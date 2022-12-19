@@ -4,7 +4,7 @@ import type { Data } from "./types";
 
 export function isVariablePower(data: BuildableManufacturer): data is Data {
   return (
-    Object.hasOwn(data, "mEstimatedMininumPowerConsumption") &&
-    Object.hasOwn(data, "mEstimatedMaximumPowerConsumption")
+    "mEstimatedMininumPowerConsumption" in data &&
+    "mEstimatedMaximumPowerConsumption" in data
   );
 }

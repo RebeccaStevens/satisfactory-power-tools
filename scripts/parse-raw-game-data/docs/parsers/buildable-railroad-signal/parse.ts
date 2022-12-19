@@ -8,19 +8,22 @@ import {
   parseBoolean,
   parseNumber,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mGuardedConnections"));
-  assert(Object.hasOwn(data, "mObservedConnections"));
-  assert(Object.hasOwn(data, "mAspect"));
-  assert(Object.hasOwn(data, "mBlockValidation"));
-  assert(Object.hasOwn(data, "mIsPathSignal"));
-  assert(Object.hasOwn(data, "mIsBiDirectional"));
-  assert(Object.hasOwn(data, "mVisualState"));
+  assert("mGuardedConnections" in data);
+  assert("mObservedConnections" in data);
+  assert("mAspect" in data);
+  assert("mBlockValidation" in data);
+  assert("mIsPathSignal" in data);
+  assert("mIsBiDirectional" in data);
+  assert("mVisualState" in data);
 
   return {
     ...buildable,

@@ -6,17 +6,20 @@ import {
   parseBoolean,
   parseLightControlData,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mIsEnabled"));
-  assert(Object.hasOwn(data, "mLightControlData"));
-  assert(Object.hasOwn(data, "mPowerConsumption"));
-  assert(Object.hasOwn(data, "mHasPower"));
-  assert(Object.hasOwn(data, "mIsDay"));
+  assert("mIsEnabled" in data);
+  assert("mLightControlData" in data);
+  assert("mPowerConsumption" in data);
+  assert("mHasPower" in data);
+  assert("mIsDay" in data);
 
   return {
     ...buildable,

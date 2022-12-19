@@ -2,19 +2,22 @@ import assert from "node:assert/strict";
 
 import { parseBuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { parseNumber, parseBoolean } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert(Object.hasOwn(data, "mAudioTimerCounter"));
-  assert(Object.hasOwn(data, "mOpeningOffset"));
-  assert(Object.hasOwn(data, "mInitialMinSpeedFactor"));
-  assert(Object.hasOwn(data, "mLength"));
-  assert(Object.hasOwn(data, "mCanStack"));
-  assert(Object.hasOwn(data, "mStackHeight"));
-  assert(Object.hasOwn(data, "mUseStaticHeight"));
+  assert("mAudioTimerCounter" in data);
+  assert("mOpeningOffset" in data);
+  assert("mInitialMinSpeedFactor" in data);
+  assert("mLength" in data);
+  assert("mCanStack" in data);
+  assert("mStackHeight" in data);
+  assert("mUseStaticHeight" in data);
 
   return {
     ...buildableBuilding,

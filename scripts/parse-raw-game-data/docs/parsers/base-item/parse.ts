@@ -12,35 +12,38 @@ import {
   parseScannableType,
   parseSubCategories,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const base = parseBase(data);
 
-  assert(Object.hasOwn(data, "mDisplayName"));
-  assert(Object.hasOwn(data, "mDescription"));
-  assert(Object.hasOwn(data, "mAbbreviatedDisplayName"));
-  assert(Object.hasOwn(data, "mStackSize"));
-  assert(Object.hasOwn(data, "mCanBeDiscarded"));
-  assert(Object.hasOwn(data, "mRememberPickUp"));
-  assert(Object.hasOwn(data, "mEnergyValue"));
-  assert(Object.hasOwn(data, "mRadioactiveDecay"));
-  assert(Object.hasOwn(data, "mForm"));
-  assert(Object.hasOwn(data, "mSmallIcon"));
-  assert(Object.hasOwn(data, "mPersistentBigIcon"));
-  assert(Object.hasOwn(data, "mCrosshairMaterial"));
-  assert(Object.hasOwn(data, "mDescriptorStatBars"));
-  assert(Object.hasOwn(data, "mSubCategories"));
-  assert(Object.hasOwn(data, "mMenuPriority"));
-  assert(Object.hasOwn(data, "mFluidColor"));
-  assert(Object.hasOwn(data, "mGasColor"));
-  assert(Object.hasOwn(data, "mCompatibleItemDescriptors"));
-  assert(Object.hasOwn(data, "mClassToScanFor"));
-  assert(Object.hasOwn(data, "mScannableType"));
-  assert(Object.hasOwn(data, "mShouldOverrideScannerDisplayText"));
-  assert(Object.hasOwn(data, "mScannerDisplayText"));
-  assert(Object.hasOwn(data, "mScannerLightColor"));
+  assert("mDisplayName" in data);
+  assert("mDescription" in data);
+  assert("mAbbreviatedDisplayName" in data);
+  assert("mStackSize" in data);
+  assert("mCanBeDiscarded" in data);
+  assert("mRememberPickUp" in data);
+  assert("mEnergyValue" in data);
+  assert("mRadioactiveDecay" in data);
+  assert("mForm" in data);
+  assert("mSmallIcon" in data);
+  assert("mPersistentBigIcon" in data);
+  assert("mCrosshairMaterial" in data);
+  assert("mDescriptorStatBars" in data);
+  assert("mSubCategories" in data);
+  assert("mMenuPriority" in data);
+  assert("mFluidColor" in data);
+  assert("mGasColor" in data);
+  assert("mCompatibleItemDescriptors" in data);
+  assert("mClassToScanFor" in data);
+  assert("mScannableType" in data);
+  assert("mShouldOverrideScannerDisplayText" in data);
+  assert("mScannerDisplayText" in data);
+  assert("mScannerLightColor" in data);
 
   return {
     ...base,

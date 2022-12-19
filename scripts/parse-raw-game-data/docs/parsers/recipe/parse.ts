@@ -7,21 +7,24 @@ import {
   parseClasses,
   parseGameEvents,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const base = parseBase(data);
 
-  assert(Object.hasOwn(data, "mIngredients"));
-  assert(Object.hasOwn(data, "mProduct"));
-  assert(Object.hasOwn(data, "mManufacturingMenuPriority"));
-  assert(Object.hasOwn(data, "mManufactoringDuration"));
-  assert(Object.hasOwn(data, "mManualManufacturingMultiplier"));
-  assert(Object.hasOwn(data, "mProducedIn"));
-  assert(Object.hasOwn(data, "mRelevantEvents"));
-  assert(Object.hasOwn(data, "mVariablePowerConsumptionConstant"));
-  assert(Object.hasOwn(data, "mVariablePowerConsumptionFactor"));
+  assert("mIngredients" in data);
+  assert("mProduct" in data);
+  assert("mManufacturingMenuPriority" in data);
+  assert("mManufactoringDuration" in data);
+  assert("mManualManufacturingMultiplier" in data);
+  assert("mProducedIn" in data);
+  assert("mRelevantEvents" in data);
+  assert("mVariablePowerConsumptionConstant" in data);
+  assert("mVariablePowerConsumptionFactor" in data);
 
   return {
     ...base,

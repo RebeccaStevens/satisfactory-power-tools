@@ -7,17 +7,20 @@ import {
   parseBoolean,
   parseTransform3D,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mMeshHeight"));
-  assert(Object.hasOwn(data, "mTopTransform"));
-  assert(Object.hasOwn(data, "mIsReversed"));
-  assert(Object.hasOwn(data, "mSpeed"));
-  assert(Object.hasOwn(data, "mItems"));
+  assert("mMeshHeight" in data);
+  assert("mTopTransform" in data);
+  assert("mIsReversed" in data);
+  assert("mSpeed" in data);
+  assert("mItems" in data);
 
   return {
     ...buildable,

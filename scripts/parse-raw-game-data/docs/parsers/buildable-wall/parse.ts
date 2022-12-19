@@ -6,18 +6,23 @@ import {
   parseNumber,
   parseWallType,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mWidth"));
-  assert(Object.hasOwn(data, "mHeight"));
-  assert(Object.hasOwn(data, "mElevation"));
-  assert(Object.hasOwn(data, "mAngularDepth"));
-  assert(Object.hasOwn(data, "mWallType"));
-  assert(Object.hasOwn(data, "mAngledVariants"));
+  assert("mWidth" in data);
+  assert("mHeight" in data);
+  assert("mElevation" in data);
+  assert("mAngularDepth" in data);
+  assert("mWallType" in data);
+  assert("mAngledVariants" in data);
 
   return {
     ...buildable,

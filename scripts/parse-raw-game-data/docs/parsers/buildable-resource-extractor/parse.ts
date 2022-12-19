@@ -9,23 +9,26 @@ import {
   parsePipeConnections,
   parseResourceForms,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert(Object.hasOwn(data, "mExtractStartupTime"));
-  assert(Object.hasOwn(data, "mExtractStartupTimer"));
-  assert(Object.hasOwn(data, "mExtractCycleTime"));
-  assert(Object.hasOwn(data, "mItemsPerCycle"));
-  assert(Object.hasOwn(data, "mPipeOutputConnections"));
-  assert(Object.hasOwn(data, "mReplicatedFlowRate"));
-  assert(Object.hasOwn(data, "mAllowedResourceForms"));
-  assert(Object.hasOwn(data, "mOnlyAllowCertainResources"));
-  assert(Object.hasOwn(data, "mAllowedResources"));
-  assert(Object.hasOwn(data, "mExtractorTypeName"));
-  assert(Object.hasOwn(data, "mTryFindMissingResource"));
+  assert("mExtractStartupTime" in data);
+  assert("mExtractStartupTimer" in data);
+  assert("mExtractCycleTime" in data);
+  assert("mItemsPerCycle" in data);
+  assert("mPipeOutputConnections" in data);
+  assert("mReplicatedFlowRate" in data);
+  assert("mAllowedResourceForms" in data);
+  assert("mOnlyAllowCertainResources" in data);
+  assert("mAllowedResources" in data);
+  assert("mExtractorTypeName" in data);
+  assert("mTryFindMissingResource" in data);
 
   return {
     ...buildableBuilding,

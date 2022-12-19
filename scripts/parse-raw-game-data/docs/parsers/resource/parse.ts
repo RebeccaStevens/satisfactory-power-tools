@@ -6,16 +6,19 @@ import {
   parseNumber,
   parseColor,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const item = parseItem(data);
 
-  assert(Object.hasOwn(data, "mDecalSize"));
-  assert(Object.hasOwn(data, "mPingColor"));
-  assert(Object.hasOwn(data, "mCollectSpeedMultiplier"));
-  assert(Object.hasOwn(data, "mManualMiningAudioName"));
+  assert("mDecalSize" in data);
+  assert("mPingColor" in data);
+  assert("mCollectSpeedMultiplier" in data);
+  assert("mManualMiningAudioName" in data);
 
   return {
     ...item,

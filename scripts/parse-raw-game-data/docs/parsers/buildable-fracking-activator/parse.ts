@@ -2,18 +2,21 @@ import assert from "node:assert/strict";
 
 import { parseBaseBuildableFracking } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { parseNumber, parseBoolean } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const baseBuildableFracking = parseBaseBuildableFracking(data);
 
-  assert(Object.hasOwn(data, "mActivationStartupTime"));
-  assert(Object.hasOwn(data, "mActivationStartupTimer"));
-  assert(Object.hasOwn(data, "mSatelliteActivationComplete"));
-  assert(Object.hasOwn(data, "mSatelliteNodeCount"));
-  assert(Object.hasOwn(data, "mConnectedExtractorCount"));
-  assert(Object.hasOwn(data, "mDefaultPotentialExtractionPerMinute"));
+  assert("mActivationStartupTime" in data);
+  assert("mActivationStartupTimer" in data);
+  assert("mSatelliteActivationComplete" in data);
+  assert("mSatelliteNodeCount" in data);
+  assert("mConnectedExtractorCount" in data);
+  assert("mDefaultPotentialExtractionPerMinute" in data);
 
   return {
     ...baseBuildableFracking,

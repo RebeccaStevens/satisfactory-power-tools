@@ -13,37 +13,40 @@ import {
   parseString,
   parseVector3D,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const base = parseBase(data);
 
-  assert(Object.hasOwn(data, "mDescription"));
-  assert(Object.hasOwn(data, "mHighlightVector"));
-  assert(Object.hasOwn(data, "mAlternativeMaterialRecipes"));
-  assert(Object.hasOwn(data, "mContainsComponents"));
-  assert(Object.hasOwn(data, "mBuildEffectSpeed"));
-  assert(Object.hasOwn(data, "mAllowColoring"));
-  assert(Object.hasOwn(data, "mAllowPatterning"));
-  assert(Object.hasOwn(data, "mSkipBuildEffect"));
-  assert(Object.hasOwn(data, "mForceNetUpdateOnRegisterPlayer"));
-  assert(Object.hasOwn(data, "mToggleDormancyOnInteraction"));
-  assert(Object.hasOwn(data, "mIsMultiSpawnedBuildable"));
-  assert(Object.hasOwn(data, "mShouldShowHighlight"));
-  assert(Object.hasOwn(data, "mShouldShowAttachmentPointVisuals"));
-  assert(Object.hasOwn(data, "mCreateClearanceMeshRepresentation"));
-  assert(Object.hasOwn(data, "mCanContainLightweightInstances"));
-  assert(Object.hasOwn(data, "mAffectsOcclusion"));
-  assert(Object.hasOwn(data, "mOcclusionShape"));
-  assert(Object.hasOwn(data, "mScaleCustomOffset"));
-  assert(Object.hasOwn(data, "mCustomScaleType"));
-  assert(Object.hasOwn(data, "mOcclusionBoxInfo"));
-  assert(Object.hasOwn(data, "mAttachmentPoints"));
-  assert(Object.hasOwn(data, "mIsUseable"));
-  assert(Object.hasOwn(data, "mHideOnBuildEffectStart"));
-  assert(Object.hasOwn(data, "mShouldModifyWorldGrid"));
-  assert(Object.hasOwn(data, "mBlueprintBuildEffectID"));
+  assert("mDescription" in data);
+  assert("mHighlightVector" in data);
+  assert("mAlternativeMaterialRecipes" in data);
+  assert("mContainsComponents" in data);
+  assert("mBuildEffectSpeed" in data);
+  assert("mAllowColoring" in data);
+  assert("mAllowPatterning" in data);
+  assert("mSkipBuildEffect" in data);
+  assert("mForceNetUpdateOnRegisterPlayer" in data);
+  assert("mToggleDormancyOnInteraction" in data);
+  assert("mIsMultiSpawnedBuildable" in data);
+  assert("mShouldShowHighlight" in data);
+  assert("mShouldShowAttachmentPointVisuals" in data);
+  assert("mCreateClearanceMeshRepresentation" in data);
+  assert("mCanContainLightweightInstances" in data);
+  assert("mAffectsOcclusion" in data);
+  assert("mOcclusionShape" in data);
+  assert("mScaleCustomOffset" in data);
+  assert("mCustomScaleType" in data);
+  assert("mOcclusionBoxInfo" in data);
+  assert("mAttachmentPoints" in data);
+  assert("mIsUseable" in data);
+  assert("mHideOnBuildEffectStart" in data);
+  assert("mShouldModifyWorldGrid" in data);
+  assert("mBlueprintBuildEffectID" in data);
 
   return {
     ...base,

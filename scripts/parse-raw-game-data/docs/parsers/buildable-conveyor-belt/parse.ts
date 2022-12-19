@@ -6,17 +6,20 @@ import {
   parseClasses,
   parseNumber,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mCustomSkins"));
-  assert(Object.hasOwn(data, "mMeshLength"));
-  assert(Object.hasOwn(data, "mSplineData"));
-  assert(Object.hasOwn(data, "mSpeed"));
-  assert(Object.hasOwn(data, "mItems"));
+  assert("mCustomSkins" in data);
+  assert("mMeshLength" in data);
+  assert("mSplineData" in data);
+  assert("mSpeed" in data);
+  assert("mItems" in data);
 
   return {
     ...buildable,

@@ -7,36 +7,39 @@ import {
   parseHoverMode,
   parsePoint3D,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const base = parseConsumableEquipment(data);
 
-  assert(Object.hasOwn(data, "mCurrentPlayerVelocity"));
-  assert(Object.hasOwn(data, "mCurrentMouseDelta"));
-  assert(Object.hasOwn(data, "mCurrentBatteryPowerLevel"));
-  assert(Object.hasOwn(data, "mHoverSpeed"));
-  assert(Object.hasOwn(data, "mHoverAccelerationSpeed"));
-  assert(Object.hasOwn(data, "mHoverSprintMultiplier"));
-  assert(Object.hasOwn(data, "mHoverFriction"));
-  assert(Object.hasOwn(data, "mJumpKeyHoldActivationTime"));
-  assert(Object.hasOwn(data, "mFallSpeedLimitWhenPowered"));
-  assert(Object.hasOwn(data, "mPowerConnectionSearchRadius"));
-  assert(Object.hasOwn(data, "mPowerConnectionSearchTickRate"));
-  assert(Object.hasOwn(data, "mPowerConnectionDisconnectionTime"));
-  assert(Object.hasOwn(data, "mPowerCapacity"));
-  assert(Object.hasOwn(data, "mPowerDrainRate"));
-  assert(Object.hasOwn(data, "mPowerConsumption"));
-  assert(Object.hasOwn(data, "mCurrentPowerLevel"));
-  assert(Object.hasOwn(data, "mRangeWarningNormalizedDistanceThreshold"));
-  assert(Object.hasOwn(data, "mCurrentHoverMode"));
-  assert(Object.hasOwn(data, "mHasConnection"));
-  assert(Object.hasOwn(data, "mShouldAutomaticallyHoverWhenConnected"));
-  assert(Object.hasOwn(data, "mCrouchHoverCancelTime"));
-  assert(Object.hasOwn(data, "mCharacterUseDistanceWhenActive"));
-  assert(Object.hasOwn(data, "mActiveNoiseFrequency"));
-  assert(Object.hasOwn(data, "mCurrentConnectionLocation"));
+  assert("mCurrentPlayerVelocity" in data);
+  assert("mCurrentMouseDelta" in data);
+  assert("mCurrentBatteryPowerLevel" in data);
+  assert("mHoverSpeed" in data);
+  assert("mHoverAccelerationSpeed" in data);
+  assert("mHoverSprintMultiplier" in data);
+  assert("mHoverFriction" in data);
+  assert("mJumpKeyHoldActivationTime" in data);
+  assert("mFallSpeedLimitWhenPowered" in data);
+  assert("mPowerConnectionSearchRadius" in data);
+  assert("mPowerConnectionSearchTickRate" in data);
+  assert("mPowerConnectionDisconnectionTime" in data);
+  assert("mPowerCapacity" in data);
+  assert("mPowerDrainRate" in data);
+  assert("mPowerConsumption" in data);
+  assert("mCurrentPowerLevel" in data);
+  assert("mRangeWarningNormalizedDistanceThreshold" in data);
+  assert("mCurrentHoverMode" in data);
+  assert("mHasConnection" in data);
+  assert("mShouldAutomaticallyHoverWhenConnected" in data);
+  assert("mCrouchHoverCancelTime" in data);
+  assert("mCharacterUseDistanceWhenActive" in data);
+  assert("mActiveNoiseFrequency" in data);
+  assert("mCurrentConnectionLocation" in data);
 
   return {
     ...base,

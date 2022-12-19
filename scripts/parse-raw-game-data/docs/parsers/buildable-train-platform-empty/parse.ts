@@ -6,17 +6,20 @@ import {
   parseBoolean,
   parseClasses,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert(Object.hasOwn(data, "mPlatformConnections"));
-  assert(Object.hasOwn(data, "mIsOrientationReversed"));
-  assert(Object.hasOwn(data, "mPlatformDockingStatus"));
-  assert(Object.hasOwn(data, "mSavedDockingStatus"));
-  assert(Object.hasOwn(data, "mDockWasCancelled"));
+  assert("mPlatformConnections" in data);
+  assert("mIsOrientationReversed" in data);
+  assert("mPlatformDockingStatus" in data);
+  assert("mSavedDockingStatus" in data);
+  assert("mDockWasCancelled" in data);
 
   return {
     ...buildableBuilding,

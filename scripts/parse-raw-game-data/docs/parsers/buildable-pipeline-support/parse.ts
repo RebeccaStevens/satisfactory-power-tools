@@ -2,17 +2,20 @@ import assert from "node:assert/strict";
 
 import { parseBuildable } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { parseBoolean, parseNumber } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mLength"));
-  assert(Object.hasOwn(data, "mVerticalAngle"));
-  assert(Object.hasOwn(data, "mUseStaticHeight"));
-  assert(Object.hasOwn(data, "mCanStack"));
-  assert(Object.hasOwn(data, "mStackHeight"));
+  assert("mLength" in data);
+  assert("mVerticalAngle" in data);
+  assert("mUseStaticHeight" in data);
+  assert("mCanStack" in data);
+  assert("mStackHeight" in data);
 
   return {
     ...buildable,

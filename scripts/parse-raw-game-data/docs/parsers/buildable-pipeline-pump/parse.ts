@@ -5,25 +5,28 @@ import {
   parseNumber,
   parsePipeConnections,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert(Object.hasOwn(data, "mLastFlowUpdate"));
-  assert(Object.hasOwn(data, "mUpdateFlowTime"));
-  assert(Object.hasOwn(data, "mAnimSpeed"));
-  assert(Object.hasOwn(data, "mLastFlowValue"));
-  assert(Object.hasOwn(data, "mTimeScaleOffset"));
-  assert(Object.hasOwn(data, "mMaxPressure"));
-  assert(Object.hasOwn(data, "mDesignPressure"));
-  assert(Object.hasOwn(data, "mDefaultFlowLimit"));
-  assert(Object.hasOwn(data, "mUserFlowLimit"));
-  assert(Object.hasOwn(data, "mMinimumFlowPercentForStandby"));
-  assert(Object.hasOwn(data, "mRadius"));
-  assert(Object.hasOwn(data, "mFluidBoxVolume"));
-  assert(Object.hasOwn(data, "mPipeConnections"));
+  assert("mLastFlowUpdate" in data);
+  assert("mUpdateFlowTime" in data);
+  assert("mAnimSpeed" in data);
+  assert("mLastFlowValue" in data);
+  assert("mTimeScaleOffset" in data);
+  assert("mMaxPressure" in data);
+  assert("mDesignPressure" in data);
+  assert("mDefaultFlowLimit" in data);
+  assert("mUserFlowLimit" in data);
+  assert("mMinimumFlowPercentForStandby" in data);
+  assert("mRadius" in data);
+  assert("mFluidBoxVolume" in data);
+  assert("mPipeConnections" in data);
 
   return {
     ...buildableBuilding,

@@ -5,21 +5,24 @@ import {
   parseNumber,
   parseBatteryStatus,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert(Object.hasOwn(data, "m_PreviousBatteryStatus"));
-  assert(Object.hasOwn(data, "mCurrentGameTimeSinceStateChange"));
-  assert(Object.hasOwn(data, "mActivationEventID"));
-  assert(Object.hasOwn(data, "mBatteryStatus"));
-  assert(Object.hasOwn(data, "mPowerStore"));
-  assert(Object.hasOwn(data, "mPowerStoreCapacity"));
-  assert(Object.hasOwn(data, "mPowerInputCapacity"));
-  assert(Object.hasOwn(data, "mIndicatorLevelMax"));
-  assert(Object.hasOwn(data, "mIndicatorLevel"));
+  assert("m_PreviousBatteryStatus" in data);
+  assert("mCurrentGameTimeSinceStateChange" in data);
+  assert("mActivationEventID" in data);
+  assert("mBatteryStatus" in data);
+  assert("mPowerStore" in data);
+  assert("mPowerStoreCapacity" in data);
+  assert("mPowerInputCapacity" in data);
+  assert("mIndicatorLevelMax" in data);
+  assert("mIndicatorLevel" in data);
 
   return {
     ...buildableBuilding,

@@ -7,19 +7,22 @@ import {
   parseNumber,
   parsePowerConnections,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mTextRenderers"));
-  assert(Object.hasOwn(data, "bIsSignificant"));
-  assert(Object.hasOwn(data, "mMaxCharacters"));
-  assert(Object.hasOwn(data, "mIsSwitchOn"));
-  assert(Object.hasOwn(data, "mHasBuildingTag"));
-  assert(Object.hasOwn(data, "mIsBridgeConnected"));
-  assert(Object.hasOwn(data, "mConnections"));
+  assert("mTextRenderers" in data);
+  assert("bIsSignificant" in data);
+  assert("mMaxCharacters" in data);
+  assert("mIsSwitchOn" in data);
+  assert("mHasBuildingTag" in data);
+  assert("mIsBridgeConnected" in data);
+  assert("mConnections" in data);
 
   return {
     ...buildable,

@@ -8,29 +8,32 @@ import {
   parseTransform3D,
   parseColor,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const item = parseItem(data);
 
-  assert(Object.hasOwn(data, "mFiringTransform"));
-  assert(Object.hasOwn(data, "mFiringDirection"));
-  assert(Object.hasOwn(data, "mMagazineSize"));
-  assert(Object.hasOwn(data, "mMaxAmmoEffectiveRange"));
-  assert(Object.hasOwn(data, "mReloadTimeMultiplier"));
-  assert(Object.hasOwn(data, "mFireRate"));
-  assert(Object.hasOwn(data, "mFiringTransformIgnoresDispersion"));
-  assert(Object.hasOwn(data, "mDispersionFireRateMultiplier"));
-  assert(Object.hasOwn(data, "mDispersionPerShot"));
-  assert(Object.hasOwn(data, "mRestingDispersion"));
-  assert(Object.hasOwn(data, "mFiringDispersion"));
-  assert(Object.hasOwn(data, "mDispersionRecoveryTime"));
-  assert(Object.hasOwn(data, "mHasBeenInitialized"));
-  assert(Object.hasOwn(data, "mWeaponDamageMultiplier"));
-  assert(Object.hasOwn(data, "mMuzzleFlashScale"));
-  assert(Object.hasOwn(data, "mAmmoColor"));
-  assert(Object.hasOwn(data, "mAmmoScale"));
+  assert("mFiringTransform" in data);
+  assert("mFiringDirection" in data);
+  assert("mMagazineSize" in data);
+  assert("mMaxAmmoEffectiveRange" in data);
+  assert("mReloadTimeMultiplier" in data);
+  assert("mFireRate" in data);
+  assert("mFiringTransformIgnoresDispersion" in data);
+  assert("mDispersionFireRateMultiplier" in data);
+  assert("mDispersionPerShot" in data);
+  assert("mRestingDispersion" in data);
+  assert("mFiringDispersion" in data);
+  assert("mDispersionRecoveryTime" in data);
+  assert("mHasBeenInitialized" in data);
+  assert("mWeaponDamageMultiplier" in data);
+  assert("mMuzzleFlashScale" in data);
+  assert("mAmmoColor" in data);
+  assert("mAmmoScale" in data);
 
   return {
     ...item,

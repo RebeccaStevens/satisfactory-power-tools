@@ -7,24 +7,28 @@ import {
   parseAttachmentSocket,
   parseAmounts,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const base = parseBase(data);
 
-  assert(Object.hasOwn(data, "mEquipmentSlot"));
-  assert(Object.hasOwn(data, "mAttachSocket"));
-  assert(Object.hasOwn(data, "mCostToUse"));
-  assert(Object.hasOwn(data, "mHasPersistentOwner"));
-  assert(Object.hasOwn(data, "mOnlyVisibleToOwner"));
-  assert(Object.hasOwn(data, "mUseDefaultPrimaryFire"));
+  assert("mEquipmentSlot" in data);
+  assert("mAttachSocket" in data);
+  assert("mCostToUse" in data);
+  assert("mHasPersistentOwner" in data);
+  assert("mOnlyVisibleToOwner" in data);
+  assert("mUseDefaultPrimaryFire" in data);
 
-  const conditionalProps = Object.hasOwn(data, "mCanPress")
-    ? {
-        mCanPress: parseBoolean(data.mCanPress),
-      }
-    : {};
+  const conditionalProps =
+    "mCanPress" in data
+      ? {
+          mCanPress: parseBoolean(data.mCanPress),
+        }
+      : {};
 
   return {
     ...base,

@@ -5,14 +5,17 @@ import {
   parseBoolean,
   parsePoint3D,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mSize"));
-  assert(Object.hasOwn(data, "mIsSupport"));
+  assert("mSize" in data);
+  assert("mIsSupport" in data);
 
   return {
     ...buildable,

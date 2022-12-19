@@ -6,25 +6,28 @@ import {
   parsePoint2D,
   parseBoolean,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert(Object.hasOwn(data, "mDockPosition"));
-  assert(Object.hasOwn(data, "mMinimumDockingTime"));
-  assert(Object.hasOwn(data, "mStorageSizeX"));
-  assert(Object.hasOwn(data, "mStorageSizeY"));
-  assert(Object.hasOwn(data, "mFuelInventorySizeX"));
-  assert(Object.hasOwn(data, "mFuelInventorySizeY"));
-  assert(Object.hasOwn(data, "mTransferSpeed"));
-  assert(Object.hasOwn(data, "mFuelTransferSpeed"));
-  assert(Object.hasOwn(data, "mStackTransferSize"));
-  assert(Object.hasOwn(data, "mForceSignificance"));
-  assert(Object.hasOwn(data, "mVehicleFuelConsumptionRate"));
-  assert(Object.hasOwn(data, "mItemTransferRate"));
-  assert(Object.hasOwn(data, "mMaximumStackTransferRate"));
+  assert("mDockPosition" in data);
+  assert("mMinimumDockingTime" in data);
+  assert("mStorageSizeX" in data);
+  assert("mStorageSizeY" in data);
+  assert("mFuelInventorySizeX" in data);
+  assert("mFuelInventorySizeY" in data);
+  assert("mTransferSpeed" in data);
+  assert("mFuelTransferSpeed" in data);
+  assert("mStackTransferSize" in data);
+  assert("mForceSignificance" in data);
+  assert("mVehicleFuelConsumptionRate" in data);
+  assert("mItemTransferRate" in data);
+  assert("mMaximumStackTransferRate" in data);
 
   return {
     ...buildableBuilding,

@@ -9,32 +9,35 @@ import {
   parseClasses,
   parseString,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert(Object.hasOwn(data, "mStoppedProducingAnimationSounds"));
-  assert(Object.hasOwn(data, "mDroneDockingStartLocationLocal"));
-  assert(Object.hasOwn(data, "mDroneDockingLocationLocal"));
-  assert(Object.hasOwn(data, "mBatteryClasses"));
-  assert(Object.hasOwn(data, "mStationHasDronesInQueue"));
-  assert(Object.hasOwn(data, "mItemTransferringStage"));
-  assert(Object.hasOwn(data, "mTransferProgress"));
-  assert(Object.hasOwn(data, "mTransferSpeed"));
-  assert(Object.hasOwn(data, "mStackTransferSize"));
-  assert(Object.hasOwn(data, "mDroneQueueRadius"));
-  assert(Object.hasOwn(data, "mDroneQueueSeparationRadius"));
-  assert(Object.hasOwn(data, "mDroneQueueVerticalSeparation"));
-  assert(Object.hasOwn(data, "mTripPowerCost"));
-  assert(Object.hasOwn(data, "mTripPowerPerMeterCost"));
-  assert(Object.hasOwn(data, "mTripInformationSampleCount"));
-  assert(Object.hasOwn(data, "mStorageSizeX"));
-  assert(Object.hasOwn(data, "mStorageSizeY"));
-  assert(Object.hasOwn(data, "mBatteryStorageSizeX"));
-  assert(Object.hasOwn(data, "mBatteryStorageSizeY"));
-  assert(Object.hasOwn(data, "mMapText"));
+  assert("mStoppedProducingAnimationSounds" in data);
+  assert("mDroneDockingStartLocationLocal" in data);
+  assert("mDroneDockingLocationLocal" in data);
+  assert("mBatteryClasses" in data);
+  assert("mStationHasDronesInQueue" in data);
+  assert("mItemTransferringStage" in data);
+  assert("mTransferProgress" in data);
+  assert("mTransferSpeed" in data);
+  assert("mStackTransferSize" in data);
+  assert("mDroneQueueRadius" in data);
+  assert("mDroneQueueSeparationRadius" in data);
+  assert("mDroneQueueVerticalSeparation" in data);
+  assert("mTripPowerCost" in data);
+  assert("mTripPowerPerMeterCost" in data);
+  assert("mTripInformationSampleCount" in data);
+  assert("mStorageSizeX" in data);
+  assert("mStorageSizeY" in data);
+  assert("mBatteryStorageSizeX" in data);
+  assert("mBatteryStorageSizeY" in data);
+  assert("mMapText" in data);
 
   return {
     ...buildableBuilding,

@@ -7,17 +7,20 @@ import {
   parseRailroadConnections,
   parseFalsableNumber,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mMeshLength"));
-  assert(Object.hasOwn(data, "mConnections"));
-  assert(Object.hasOwn(data, "mIsOwnedByPlatform"));
-  assert(Object.hasOwn(data, "mTrackGraphID"));
-  assert(Object.hasOwn(data, "mSignalBlockID"));
+  assert("mMeshLength" in data);
+  assert("mConnections" in data);
+  assert("mIsOwnedByPlatform" in data);
+  assert("mTrackGraphID" in data);
+  assert("mSignalBlockID" in data);
 
   return {
     ...buildable,

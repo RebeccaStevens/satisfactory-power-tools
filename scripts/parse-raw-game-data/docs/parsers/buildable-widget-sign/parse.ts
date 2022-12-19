@@ -7,23 +7,26 @@ import {
   parsePoint2D,
   parsePoint3D,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mGainSignificanceDistance"));
-  assert(Object.hasOwn(data, "mForegroundColor"));
-  assert(Object.hasOwn(data, "mBackgroundColor"));
-  assert(Object.hasOwn(data, "mAuxilaryColor"));
-  assert(Object.hasOwn(data, "mEmissive"));
-  assert(Object.hasOwn(data, "mGlossiness"));
-  assert(Object.hasOwn(data, "mDataVersion"));
-  assert(Object.hasOwn(data, "mWorldDimensions"));
-  assert(Object.hasOwn(data, "mPoleOffset"));
-  assert(Object.hasOwn(data, "mPoleScale"));
-  assert(Object.hasOwn(data, "mSignToSignOffset"));
+  assert("mGainSignificanceDistance" in data);
+  assert("mForegroundColor" in data);
+  assert("mBackgroundColor" in data);
+  assert("mAuxilaryColor" in data);
+  assert("mEmissive" in data);
+  assert("mGlossiness" in data);
+  assert("mDataVersion" in data);
+  assert("mWorldDimensions" in data);
+  assert("mPoleOffset" in data);
+  assert("mPoleScale" in data);
+  assert("mSignToSignOffset" in data);
 
   return {
     ...buildable,

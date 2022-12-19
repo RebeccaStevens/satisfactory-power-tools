@@ -6,17 +6,20 @@ import {
   parseNumber,
   parseFalsableNumber,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mHeight"));
-  assert(Object.hasOwn(data, "mSelectedPoleVersion"));
-  assert(Object.hasOwn(data, "mUseStaticHeight"));
-  assert(Object.hasOwn(data, "mCanStack"));
-  assert(Object.hasOwn(data, "mStackHeight"));
+  assert("mHeight" in data);
+  assert("mSelectedPoleVersion" in data);
+  assert("mUseStaticHeight" in data);
+  assert("mCanStack" in data);
+  assert("mStackHeight" in data);
 
   return {
     ...buildable,

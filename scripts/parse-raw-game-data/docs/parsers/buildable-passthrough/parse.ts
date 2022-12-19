@@ -7,21 +7,24 @@ import {
   parseRotation3D,
   parseTranslation3D,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mSnappedBuildingThickness"));
-  assert(Object.hasOwn(data, "mMidMeshLength"));
-  assert(Object.hasOwn(data, "mGenerateTunnelCollision"));
-  assert(Object.hasOwn(data, "mEndCapRotation"));
-  assert(Object.hasOwn(data, "mMidMeshRotation"));
-  assert(Object.hasOwn(data, "mEndCapTranslation"));
-  assert(Object.hasOwn(data, "mClearanceHeightMin"));
-  assert(Object.hasOwn(data, "mClearanceThickness"));
-  assert(Object.hasOwn(data, "mUseSoftClearance"));
+  assert("mSnappedBuildingThickness" in data);
+  assert("mMidMeshLength" in data);
+  assert("mGenerateTunnelCollision" in data);
+  assert("mEndCapRotation" in data);
+  assert("mMidMeshRotation" in data);
+  assert("mEndCapTranslation" in data);
+  assert("mClearanceHeightMin" in data);
+  assert("mClearanceThickness" in data);
+  assert("mUseSoftClearance" in data);
 
   return {
     ...buildable,

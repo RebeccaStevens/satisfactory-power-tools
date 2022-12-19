@@ -5,15 +5,18 @@ import {
   parseNumber,
   parseStairDirection,
 } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const buildable = parseBuildable(data);
 
-  assert(Object.hasOwn(data, "mStairDirection"));
-  assert(Object.hasOwn(data, "mHeight"));
-  assert(Object.hasOwn(data, "mSize"));
+  assert("mStairDirection" in data);
+  assert("mHeight" in data);
+  assert("mSize" in data);
 
   return {
     ...buildable,

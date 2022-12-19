@@ -2,22 +2,25 @@ import assert from "node:assert/strict";
 
 import { parseConsumableEquipment } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { parseNumber, parseBoolean } from "~/scripts/parse-raw-game-data/utils";
+import { isObject } from "~/utils";
 
 import type { Data } from "./types";
 
 export function parse(data: unknown): Data {
+  assert(isObject(data));
+
   const consumableEquipment = parseConsumableEquipment(data);
 
-  assert(Object.hasOwn(data, "mMontageLength"));
-  assert(Object.hasOwn(data, "mInterpSawProgress"));
-  assert(Object.hasOwn(data, "mWasSawing"));
-  assert(Object.hasOwn(data, "mPlayingSound"));
-  assert(Object.hasOwn(data, "mCurrentOutputDataSFX"));
-  assert(Object.hasOwn(data, "mEnergyConsumption"));
-  assert(Object.hasOwn(data, "mSawDownTreeTime"));
-  assert(Object.hasOwn(data, "mCollateralPickupRadius"));
-  assert(Object.hasOwn(data, "mExcludeChainsawableFoliage"));
-  assert(Object.hasOwn(data, "mEnergyStored"));
+  assert("mMontageLength" in data);
+  assert("mInterpSawProgress" in data);
+  assert("mWasSawing" in data);
+  assert("mPlayingSound" in data);
+  assert("mCurrentOutputDataSFX" in data);
+  assert("mEnergyConsumption" in data);
+  assert("mSawDownTreeTime" in data);
+  assert("mCollateralPickupRadius" in data);
+  assert("mExcludeChainsawableFoliage" in data);
+  assert("mEnergyStored" in data);
 
   return {
     ...consumableEquipment,
