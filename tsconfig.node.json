@@ -2,9 +2,8 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "composite": true,
     "module": "ESNext",
     "lib": ["ESNext"]
   },
-  "include": ["**/*.ts", "scripts/**/*"]
+  "include": ["*.ts", "scripts/**/*", "src/shims.d.ts"]
 }

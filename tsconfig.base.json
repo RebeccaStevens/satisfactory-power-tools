@@ -16,7 +16,8 @@
       "~/images/*": ["images/*"],
       "~/scripts/*": ["scripts/*"],
       "~/*": ["src/*"]
-    }
+    },
+    "typeRoots": ["node_modules/@types", "typings"]
   },
   "exclude": ["dist", "node_modules"]
 }

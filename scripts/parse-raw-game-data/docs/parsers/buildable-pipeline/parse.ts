@@ -66,7 +66,6 @@ function parseFluidNames(
   assert(list.type === "list");
 
   return list.data
-    .values()
     .map((raw) => {
       const mapEnts = parseRawCollection(raw);
       assert(mapEnts.type === "map");

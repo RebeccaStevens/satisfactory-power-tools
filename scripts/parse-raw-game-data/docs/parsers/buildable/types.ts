@@ -11,7 +11,7 @@ import type {
 export type Data = Base & {
   mDescription: string;
   mHighlightVector: Vector3D;
-  mAlternativeMaterialRecipes: Array<Material["id"]>;
+  mAlternativeMaterialRecipes: Material[];
   mContainsComponents: boolean;
   mBuildEffectSpeed: number;
   mAllowColoring: boolean;

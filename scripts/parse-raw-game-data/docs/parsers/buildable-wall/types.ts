@@ -1,7 +1,7 @@
-import type { BaseBuildable } from "~/scripts/parse-raw-game-data/docs/parsers";
+import type { Buildable } from "~/scripts/parse-raw-game-data/docs/parsers";
 import type { WallType } from "~/scripts/parse-raw-game-data/types";
 
-export type Data = BaseBuildable & {
+export type Data = Buildable & {
   mWidth: number;
   mHeight: number;
   mElevation: number;

@@ -31,7 +31,7 @@ export type Data = Base & {
   }>;
   mSchematicIcon: string;
   mSmallSchematicIcon: string | null;
-  mSchematicDependencies: Set<
+  mSchematicDependencies: Array<
     | {
         Class: string;
         mSchematics: string[];

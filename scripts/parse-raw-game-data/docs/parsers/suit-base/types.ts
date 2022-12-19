@@ -1,4 +1,4 @@
-import type { BaseGasMask } from "~/scripts/parse-raw-game-data/types";
+import type { BaseGasMask } from "~/scripts/parse-raw-game-data/docs/parsers";
 
 export type Data = BaseGasMask & {
   mImmunity: number;

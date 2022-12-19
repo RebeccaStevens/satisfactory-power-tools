@@ -17,7 +17,9 @@
     "spell-check": "cspell --config=.cspell.json \"{**/*.{md,ts,vue},locales/*.yml}\"",
     "test": "vitest",
     "test:unit": "vitest run --coverage",
-    "typecheck": "vue-tsc --noEmit"
+    "typecheck": "pnpm run typecheck:app && pnpm run typecheck:scripts",
+    "typecheck:app": "vue-tsc --noEmit",
+    "typecheck:scripts": "tsc -p tsconfig.node.json --noEmit"
   },
   "dependencies": {
     "@vueuse/core": "9.7.0",

@@ -11,6 +11,7 @@ import {
   AttachmentSocket,
   EquipmentSlot,
   GamePhase,
+  GeneratorNuclearWarning,
   WallType,
   GameEvent,
   ResourceForm,
@@ -252,6 +253,12 @@ export function parseGameEvents(value: unknown): GameEvent[] {
 
 export function parseGamePhase(value: unknown): GamePhase {
   return parseEnum(GamePhase, value);
+}
+
+export function parseGeneratorNuclearWarning(
+  value: unknown,
+): GeneratorNuclearWarning {
+  return parseEnum(GeneratorNuclearWarning, value);
 }
 
 export function parseHoverMode(value: unknown): HoverMode {
