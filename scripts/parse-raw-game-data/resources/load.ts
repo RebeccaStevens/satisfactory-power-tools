@@ -34,7 +34,8 @@ function parseNodeData(nodes: Readonly<typeof resourceJsonData.nodes>) {
   return nodeEntries.reduce<
     Record<string, Array<typeof nodeEntries[number][1]>>
   >((c, [resource, data]) => {
-    const node = c[resource] ?? [];
+    // eslint-disable-next-line no-multi-assign -- easiest way to do this.
+    const node = (c[resource] ??= []);
     node.push(data);
     return c;
   }, {});
@@ -93,7 +94,8 @@ function parseWellData(
       >
     >
   >((c, [resource, coreId, data]) => {
-    const core = c[resource] ?? [];
+    // eslint-disable-next-line no-multi-assign -- easiest way to do this.
+    const core = (c[resource] ??= []);
     const satellites = satellitesByCore.get(coreId);
     assert(satellites !== undefined);
     core.push({ ...data, satellites });
