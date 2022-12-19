@@ -31,10 +31,6 @@ interface ObjectConstructor {
   values<T>(o: T): T extends ArrayLike<infer U> ? U[] : Array<T[keyof T]>;
 }
 
-interface ArrayConstructor {
-  isArray(arg: unknown): arg is unknown[] | ReadonlyArray<unknown>;
-}
-
 interface Array<T> {
   at(index: number): T | undefined;
   includes(searchElement: unknown, fromIndex?: number): boolean;

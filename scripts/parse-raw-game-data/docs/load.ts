@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { isObject, assertNever } from "~/utils";
 
 import docsJsonData from "../data/Docs.json" assert { type: "json" };
+import samJsonData from "../data/Sam.json" assert { type: "json" };
 
 import type { Base, BuildableManufacturer, Item, Recipe } from "./parsers";
 import {
@@ -97,8 +98,15 @@ import {
  * Group the raw data class data by their native class name.
  */
 function rawGameDataByNativeClass() {
+  const data = docsJsonData;
+  const items = data.find(
+    (c) => c.NativeClass === "Class'/Script/FactoryGame.FGItemDescriptor'",
+  ) as unknown;
+  assert(isObject(items) && "Classes" in items && Array.isArray(items.Classes));
+  items.Classes.push(samJsonData);
+
   return new Map(
-    docsJsonData.map((group): [string, ReadonlyArray<unknown>] => {
+    data.map((group): [string, ReadonlyArray<unknown>] => {
       assert(
         isObject(group) &&
           "NativeClass" in group &&
