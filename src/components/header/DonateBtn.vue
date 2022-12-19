@@ -16,7 +16,10 @@ const { t } = useI18n();
       ></iframe>
     </AMenu>
 
-    <img :srcset="kofi" :alt="t('donate.ko-fi.image-alt')" />
+    <picture>
+      <source :srcset="kofi.srcset" />
+      <img :src="kofi.src" :alt="t('donate.ko-fi.image-alt')" />
+    </picture>
     {{ t("donate.ko-fi.message") }}
   </ABtn>
 </template>
@@ -26,7 +29,8 @@ const { t } = useI18n();
   text-transform: capitalize;
   background-color: var(--kofi-blue);
 }
-img {
+picture {
+  aspect-ratio: 1;
   height: 100%;
 }
 </style>

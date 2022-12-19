@@ -277,7 +277,7 @@ function autoImageIndex() {
           const nativeWidth = imageMetaData.width;
 
           const widths = [
-            ...new Set([32, 64, 128, 256, nativeWidth]).values(),
+            ...new Set([nativeWidth, 32, 64, 128, 256]).values(),
           ].filter(
             (width): width is number =>
               width !== undefined &&
@@ -310,12 +310,15 @@ function autoImageIndex() {
           );
 
           const exports = dedent`
-            export const ${name} = createSrcset([${importsData
-            .map(
-              ({ fullName, size, format }) =>
-                `{ src: ${fullName}, size: ${size}, format: "${format}" }`,
-            )
-            .join(", ")}]);
+            export const ${name} = {
+              srcset: createSrcset([${importsData
+                .map(
+                  ({ fullName, size, format }) =>
+                    `{ src: ${fullName}, size: ${size}, format: "${format}" }`,
+                )
+                .join(", ")}]),
+                src: ${importsData[0].fullName}
+            };
           `;
 
           return dedent`
