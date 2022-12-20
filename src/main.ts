@@ -8,6 +8,7 @@ import type { UserModule } from "./types";
 
 import generatedRoutes from "~pages";
 
+import "quasar/src/css/index.sass";
 import "uno.css";
 // import "virtual:unocss-devtools";
 import "~/styles/index.scss";

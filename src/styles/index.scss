@@ -1,4 +1,5 @@
-@use "anu-vue/dist/style.css";
-@use "@anu-vue/preset-theme-default/dist/styles.scss";
+@use "@unocss/reset/tailwind.css";
 
-@use "./_ko-fi.scss";
+@use "./quasar.components.scss";
+@use "./common.scss";
+@use "./ko-fi.scss";

@@ -1,0 +1,14 @@
+html {
+  --color-scheme: light;
+  color-scheme: var(--color-scheme);
+  accent-color: var(--q-accent);
+
+  &.dark {
+    --color-scheme: dark;
+  }
+}
+
+picture img {
+  width: 100%;
+  height: 100%;
+}

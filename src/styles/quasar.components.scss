@@ -1,0 +1,24 @@
+.q-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.q-btn-icon {
+  @extend .q-pa-xs !optional;
+}
+
+.q-btn-icon.q-btn-dropdown--simple * + .q-btn-dropdown__arrow {
+  margin-left: 0.125rem;
+}
+
+.q-btn,
+.q-item,
+.q-tab,
+.q-toggle {
+  text-transform: capitalize;
+}
+
+.q-tab-panels {
+  background-color: transparent;
+}

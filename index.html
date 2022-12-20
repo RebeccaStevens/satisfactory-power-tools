@@ -11,9 +11,8 @@
         "(prefers-color-scheme: dark)",
       )?.matches;
       const setting = localStorage.getItem("vueuse-color-scheme") ?? "auto";
-      if (setting === "dark" || (prefersDark && setting !== "light")) {
-        document.documentElement.classList.toggle("dark", true);
-      }
+      const dark = setting === "dark" || (prefersDark && setting !== "light");
+      document.documentElement.classList.toggle("dark", dark);
     </script>
   </head>
   <body class="font-sans">

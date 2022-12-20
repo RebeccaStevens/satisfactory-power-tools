@@ -5,9 +5,9 @@ import url from "node:url";
 
 // import { NodeGlobalsPolyfillPlugin } from "@esbuild-plugins/node-globals-polyfill";
 import VueI18n from "@intlify/vite-plugin-vue-i18n";
+import { quasar, transformAssetUrls } from "@quasar/vite-plugin";
 import Unocss from "@unocss/vite";
 import Vue from "@vitejs/plugin-vue";
-import { AnuComponentResolver } from "anu-vue";
 import { camelCase, snakeCase } from "change-case";
 import dedent from "dedent";
 import { execa } from "execa";
@@ -15,6 +15,7 @@ import rollupUnassert from "rollup-plugin-unassert";
 import type { FormatEnum } from "sharp";
 import sharp from "sharp";
 import AutoImport from "unplugin-auto-import/vite";
+import { QuasarResolver } from "unplugin-vue-components/resolvers";
 import Components from "unplugin-vue-components/vite";
 import { defineConfig } from "vite";
 import { imagetools } from "vite-imagetools";
@@ -88,6 +89,20 @@ export default defineConfig(({ command, mode }) => {
       port: 4173,
     },
 
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: (content: string, loaderContext: string) => {
+            if (loaderContext.endsWith(".vue")) {
+              return `@import "src/styles/quasar.helper.scss";\n${content}`;
+            }
+
+            return content;
+          },
+        },
+      },
+    },
+
     plugins: [
       TsConfigPaths({
         projects: [path.resolve(dirname, "tsconfig.json")],
@@ -99,6 +114,11 @@ export default defineConfig(({ command, mode }) => {
         script: {
           babelParserPlugins: ["importAssertions"],
         },
+        template: { transformAssetUrls },
+      }),
+
+      quasar({
+        sassVariables: "src/styles/quasar.variables.scss",
       }),
 
       // https://github.com/hannoeru/vite-plugin-pages
@@ -129,7 +149,7 @@ export default defineConfig(({ command, mode }) => {
 
       // https://github.com/antfu/unplugin-vue-components
       Components({
-        resolvers: [AnuComponentResolver()],
+        resolvers: [QuasarResolver()],
         dts: "src/components.d.ts",
         directoryAsNamespace: true,
         collapseSamePrefixes: true,

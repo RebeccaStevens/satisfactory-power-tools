@@ -7,7 +7,6 @@
     "resolveJsonModule": true,
     "useDefineForClassFields": true,
     "types": [
-      "anu-vue/volar",
       "vite-plugin-pages/client",
       "vite-plugin-pwa/client",
       "vite-plugin-vue-layouts/client",
