@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
 
+import { snakeCase } from "change-case";
+
 import { isVariablePower } from "~/scripts/parse-raw-game-data/docs/parsers/buildable-manufacturer-variable-power";
 
 import type { Color } from "../types";
@@ -14,7 +16,6 @@ export function getDocsData() {
     data.items.map((item) => [
       item.ClassName,
       {
-        name: item.mDisplayName,
         energy: item.mEnergyValue,
         transporter:
           item.mForm === ResourceForm.Liquid || item.mForm === ResourceForm.Gas
@@ -28,6 +29,10 @@ export function getDocsData() {
             : null,
         sinkable: item.mCanBeDiscarded,
         points: item.mResourceSinkPoints,
+        icon:
+          item.mPersistentBigIcon === null
+            ? null
+            : `items/${getIconPath(item.mPersistentBigIcon)}`,
       },
     ]),
   );
@@ -38,7 +43,6 @@ export function getDocsData() {
       return [
         machine.ClassName,
         {
-          name: machine.mDisplayName,
           manufacturingSpeed: machine.mManufacturingSpeed,
           powerConsumption: variablePower
             ? (machine.mEstimatedMininumPowerConsumption +
@@ -68,7 +72,6 @@ export function getDocsData() {
       return [
         recipe.ClassName,
         {
-          name: recipe.mDisplayName,
           ingredients: recipe.mIngredients,
           products: recipe.mProduct,
           duration: recipe.mManufactoringDuration,
@@ -99,4 +102,13 @@ function stringifyColor({ red, green, blue, alpha }: Readonly<Color>): string {
       return value.toString(16).padStart(2, "0");
     })
     .join("");
+}
+
+export function getIconPath(path: string) {
+  return snakeCase(
+    path
+      .slice(path.lastIndexOf("/") + 1)
+      .replace(/^Icon/u, "")
+      .replace(/_\d*$/u, ""),
+  );
 }

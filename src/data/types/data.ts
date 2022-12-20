@@ -8,6 +8,9 @@ const isoId = iso<Id>();
 export function asId(value: string) {
   return isoId.from(value);
 }
+export function unwrapId(value: Id) {
+  return isoId.unwrap(value);
+}
 
 export type Name = Newtype<{ readonly Name: unique symbol }, string>;
 const isoName = iso<Name>();

@@ -19,6 +19,7 @@ export function getItems(rawItems: Readonly<typeof RawGameData["items"]>) {
       const points = asPoints(data.points);
       const transporter = asItemTransporter(data.transporter);
       const color = asColorString(data.color);
+      const { icon } = data;
       return [
         id,
         {
@@ -28,6 +29,7 @@ export function getItems(rawItems: Readonly<typeof RawGameData["items"]>) {
           points,
           transporter,
           color,
+          icon,
         },
       ];
     }),

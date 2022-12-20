@@ -5,6 +5,8 @@
 /coverage
 /node_modules
 
+/exported-game-data
+
 logs
 *.log
 pnpm-debug.log*

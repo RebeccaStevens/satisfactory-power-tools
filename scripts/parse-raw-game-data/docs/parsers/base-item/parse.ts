@@ -11,6 +11,7 @@ import {
   parseNullableString,
   parseScannableType,
   parseSubCategories,
+  parseIcon,
 } from "~/scripts/parse-raw-game-data/utils";
 import { isObject } from "~/utils";
 
@@ -55,8 +56,8 @@ export function parse(data: unknown): Data {
     mEnergyValue: parseNumber(data.mEnergyValue),
     mRadioactiveDecay: parseNumber(data.mRadioactiveDecay),
     mForm: parseResourceForm(data.mForm),
-    mSmallIcon: parseString(data.mSmallIcon),
-    mPersistentBigIcon: parseString(data.mPersistentBigIcon),
+    mSmallIcon: parseIcon(data.mSmallIcon),
+    mPersistentBigIcon: parseIcon(data.mPersistentBigIcon),
     mCrosshairMaterial: parseNullableString(data.mCrosshairMaterial),
     mDescriptorStatBars: parseString(data.mDescriptorStatBars),
     mSubCategories: parseSubCategories(data.mSubCategories),

@@ -8,6 +8,7 @@ import VueI18n from "@intlify/vite-plugin-vue-i18n";
 import Unocss from "@unocss/vite";
 import Vue from "@vitejs/plugin-vue";
 import { AnuComponentResolver } from "anu-vue";
+import { camelCase, snakeCase } from "change-case";
 import dedent from "dedent";
 import { execa } from "execa";
 import rollupUnassert from "rollup-plugin-unassert";
@@ -253,13 +254,14 @@ function autoImageIndex() {
     const content = await Promise.all(
       dirContent.map(async (dirent) => {
         if (dirent.isDirectory()) {
-          const { name } = path.parse(dirent.name);
+          const { name: file } = path.parse(dirent.name);
+          const name = camelCase(file);
           return dedent`
-            // import ${name} from "./${name}";
-            // for (const [name, image] of ${name}) {
+            // import ${name} from "./${file}";
+            // for (const [name, image] of ${file}) {
             //   images.set(name, image);
             // }
-            export * as ${name} from "./${name}";
+            export * as ${name} from "./${file}";
           `;
         }
         if (dirent.isFile()) {
@@ -292,7 +294,7 @@ function autoImageIndex() {
                 .replaceAll("=&", "&")}&imagetools`;
 
               return {
-                fullName: `${name}_${format}_${size}`,
+                fullName: `${snakeCase(name)}_${format}_${size}`,
                 relPath: `./${dirent.name}?${queryString}`,
                 format,
                 size,

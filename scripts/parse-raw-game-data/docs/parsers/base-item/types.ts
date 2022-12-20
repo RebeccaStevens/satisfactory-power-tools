@@ -17,8 +17,8 @@ export type Data = Base & {
   mEnergyValue: number;
   mRadioactiveDecay: number;
   mForm: ResourceForm;
-  mSmallIcon: string;
-  mPersistentBigIcon: string;
+  mSmallIcon: string | null;
+  mPersistentBigIcon: string | null;
   mCrosshairMaterial: string | null;
   mDescriptorStatBars: string;
   mSubCategories: SubCategory[];

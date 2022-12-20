@@ -164,6 +164,20 @@ export function parseClass(value: unknown): string | null {
   return path.slice(path.lastIndexOf(".") + 1);
 }
 
+export function parseIcon(value: unknown): string | null {
+  assert(
+    typeof value === "string",
+    `expected type: string, actual type: ${typeof value}`,
+  );
+
+  if (value === "" || value === "None") {
+    return null;
+  }
+  assert(value.startsWith("Texture2D /"));
+
+  return value.slice(value.indexOf("/") + 1, value.lastIndexOf("."));
+}
+
 export function parseColor(value: unknown): Color {
   assert(
     typeof value === "string",

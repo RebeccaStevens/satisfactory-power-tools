@@ -10,6 +10,7 @@
   "scripts": {
     "build": "vite-ssg build",
     "dev": "vite",
+    "get-game-images": "node --loader=ts-paths-esm-loader/transpile-only --experimental-specifier-resolution=node  ./scripts/get-game-images/index.ts",
     "lint": "eslint .",
     "parse-raw-game-data": "node --loader=ts-paths-esm-loader/transpile-only --experimental-specifier-resolution=node  ./scripts/parse-raw-game-data/index.ts",
     "prepare": "husky install",

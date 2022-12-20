@@ -106,6 +106,12 @@ module.exports = {
       },
     },
     {
+      files: "scripts/**/*",
+      rules: {
+        "no-await-in-loop": "off",
+      },
+    },
+    {
       files: "scripts/parse-raw-game-data/**/*",
       rules: {
         "@typescript-eslint/naming-convention": "off",
