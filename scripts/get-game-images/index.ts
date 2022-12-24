@@ -9,7 +9,7 @@ import { isNotNull } from "~/utils";
 
 // Windows powershell command to export game data.
 //
-// .\umodel.exe -path="path\to\game" -out=".\exported-game-data" -nomesh -noanim -nostat -novert -nomorph -nolightmap
+// `.\umodel.exe -path="path\to\game" -out=".\exported-game-data" -nomesh -noanim -nostat -novert -nomorph -nolightmap`
 
 const rootDir = path.join(
   path.dirname(url.fileURLToPath(import.meta.url)),
