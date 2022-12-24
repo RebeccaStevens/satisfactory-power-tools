@@ -9,5 +9,11 @@
   "platformAutomerge": true,
   "semanticCommits": "enabled",
   "prHourlyLimit": 0,
-  "prConcurrentLimit": 0
+  "prConcurrentLimit": 0,
+  "packageRules": [
+    {
+      "matchPackageNames": ["sass"],
+      "allowedVersions": "<1.33"
+    }
+  ]
 }
