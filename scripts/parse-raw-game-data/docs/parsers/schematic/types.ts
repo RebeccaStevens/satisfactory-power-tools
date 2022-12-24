@@ -29,7 +29,7 @@ export type Data = Base & {
     }>;
     mNumInventorySlotsToUnlock?: number;
   }>;
-  mSchematicIcon: string;
+  mSchematicIcon: string | null;
   mSmallSchematicIcon: string | null;
   mSchematicDependencies: Array<
     | {

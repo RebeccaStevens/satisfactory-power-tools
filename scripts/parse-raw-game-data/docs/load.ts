@@ -5,7 +5,13 @@ import { isObject, assertNever } from "~/utils";
 import docsJsonData from "../data/Docs.json" assert { type: "json" };
 import samJsonData from "../data/Sam.json" assert { type: "json" };
 
-import type { Base, BuildableManufacturer, Item, Recipe } from "./parsers";
+import type {
+  Base,
+  BuildableManufacturer,
+  Item,
+  Recipe,
+  Schematic,
+} from "./parsers";
 import {
   parseAmmoTypeInstantHit,
   parseAmmoTypeProjectile,
@@ -624,15 +630,56 @@ function getRecipes(staticData: Readonly<StaticData>) {
   return [...recipes.values()];
 }
 
+function getSchematics(staticData: Readonly<StaticData>) {
+  const schematicClasses = new Set(["Class'/Script/FactoryGame.FGSchematic'"]);
+
+  const schematics = new Set(
+    staticData
+      .entries()
+      .filter((data): data is [string, Set<Schematic>] => {
+        const [nativeClass] = data;
+        return schematicClasses.has(nativeClass);
+      })
+      .flatMap(([nativeClass, set]) => {
+        assert(
+          set.values().every((item) => {
+            if ("mTechTier" in item) {
+              return true;
+            }
+            console.log("Not an Schematic Class:", nativeClass);
+            return false;
+          }),
+        );
+        return set.values();
+      }),
+  );
+
+  assert(
+    staticData.entries().every(([nativeClass, schematicSet]) =>
+      schematicSet.values().every((schematic) => {
+        if (!schematics.has(schematic) && "mTechTier" in schematic) {
+          console.log("Missing Schematic Class:", nativeClass);
+          return false;
+        }
+        return true;
+      }),
+    ),
+  );
+
+  return [...schematics.values()];
+}
+
 export function loadData() {
   const staticData = parseRawGameData(rawGameDataByNativeClass());
   const items = getItems(staticData);
   const machines = getMachines(staticData);
   const recipes = getRecipes(staticData);
+  const schematics = getSchematics(staticData);
 
   return {
     items,
     machines,
     recipes,
+    schematics,
   };
 }

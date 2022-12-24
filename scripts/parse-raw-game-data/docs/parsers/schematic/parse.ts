@@ -5,12 +5,12 @@ import {
   parseString,
   parseBoolean,
   parseNumber,
-  parseNullableString,
   parseSubCategories,
   parseAmounts,
   parseSchematicType,
   parseClasses,
   parseGamePhase,
+  parseIcon,
 } from "~/scripts/parse-raw-game-data/utils";
 import { isObject } from "~/utils/object";
 
@@ -47,8 +47,8 @@ export function parse(data: unknown): Data {
     mTimeToComplete: parseNumber(data.mTimeToComplete),
     mRelevantShopSchematics: parseClasses(data.mRelevantShopSchematics),
     mUnlocks: parseUnlocks(data.mUnlocks),
-    mSchematicIcon: parseString(data.mSchematicIcon),
-    mSmallSchematicIcon: parseNullableString(data.mSmallSchematicIcon),
+    mSchematicIcon: parseIcon(data.mSchematicIcon),
+    mSmallSchematicIcon: parseIcon(data.mSmallSchematicIcon),
     mSchematicDependencies: parseSchematicDependencies(
       data.mSchematicDependencies,
     ),
