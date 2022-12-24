@@ -1,17 +1,12 @@
-import type {
-  Id,
-  Name,
-  MegaJoules,
-  Points,
-  ColorString,
-  ItemTransporter,
-} from "~/data/types";
+import type { MegaJoules, ColorString, ItemTransporter } from "~/data/types";
 
 export type Item = {
-  id: Id;
-  name: Name;
+  id: string;
   energy: MegaJoules;
-  points: Points;
+  points: number;
   transporter: ItemTransporter;
   color: ColorString;
+  icon: string | null;
+  tier: number | null;
+  typeId: string | null;
 };

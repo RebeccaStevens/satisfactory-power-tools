@@ -1,7 +1,5 @@
-import type { Id, Machine } from "~/data/types";
+import type { Machine } from "~/data/types";
 import {
-  asId,
-  asName,
   asHz,
   asMegaWatts,
   asPowerExponent,
@@ -15,9 +13,7 @@ export function getMachines(
   rawMachines: Readonly<typeof RawGameData["machines"]>,
 ) {
   return new Map(
-    Object.entries(rawMachines).map(([rawId, data]): [Id, Machine] => {
-      const id = asId(rawId);
-      const name = asName(data.name);
+    Object.entries(rawMachines).map(([id, data]): [string, Machine] => {
       const manufacturingSpeed = asHz(data.manufacturingSpeed);
       const powerConsumption = asMegaWatts(data.powerConsumption);
       const minPowerConsumption = asMegaWatts(data.minPowerConsumption);
@@ -35,7 +31,6 @@ export function getMachines(
         id,
         {
           id,
-          name,
           manufacturingSpeed,
           powerConsumption,
           minPowerConsumption,

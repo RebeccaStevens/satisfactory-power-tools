@@ -1,6 +1,4 @@
 import type {
-  Id,
-  Name,
   Hz,
   MegaWatts,
   PowerExponent,
@@ -9,8 +7,7 @@ import type {
 } from "~/data/types";
 
 export type Machine = {
-  id: Id;
-  name: Name;
+  id: string;
   manufacturingSpeed: Hz;
   powerConsumption: MegaWatts;
   minPowerConsumption: MegaWatts;

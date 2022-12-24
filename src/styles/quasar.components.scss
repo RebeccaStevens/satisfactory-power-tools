@@ -22,3 +22,11 @@
 .q-tab-panels {
   background-color: transparent;
 }
+
+button.q-icon[class*="i-"] {
+  background-color: #000000;
+
+  .dark & {
+    background-color: #ffffff;
+  }
+}

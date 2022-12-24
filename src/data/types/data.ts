@@ -3,27 +3,6 @@ import assert from "node:assert/strict";
 import type { Newtype } from "newtype-ts";
 import { iso } from "newtype-ts";
 
-export type Id = Newtype<{ readonly Id: unique symbol }, string>;
-const isoId = iso<Id>();
-export function asId(value: string) {
-  return isoId.from(value);
-}
-export function unwrapId(value: Id) {
-  return isoId.unwrap(value);
-}
-
-export type Name = Newtype<{ readonly Name: unique symbol }, string>;
-const isoName = iso<Name>();
-export function asName(value: string) {
-  return isoName.from(value);
-}
-
-export type Points = Newtype<{ readonly Points: unique symbol }, number>;
-const isoPoints = iso<Points>();
-export function asPoints(value: number) {
-  return isoPoints.from(value);
-}
-
 export type ColorString = Newtype<
   { readonly ColorString: unique symbol },
   string

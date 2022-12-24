@@ -173,9 +173,23 @@ export function parseIcon(value: unknown): string | null {
   if (value === "" || value === "None") {
     return null;
   }
-  assert(value.startsWith("Texture2D /"));
 
-  return value.slice(value.indexOf("/") + 1, value.lastIndexOf("."));
+  if (value.startsWith("(")) {
+    const mapEnts = parseRawCollection(value);
+    assert(mapEnts.type === "map");
+    const map = Object.fromEntries(mapEnts.data);
+    if (map.ResourceObject === undefined) {
+      return null;
+    }
+    return parseIcon(map.ResourceObject);
+  }
+
+  const macth = /^Texture2D[ "']*\/(.*)\..*$/u.exec(value);
+  assert(macth !== null);
+  const v = macth[1];
+  assert(v !== undefined);
+
+  return v;
 }
 
 export function parseColor(value: unknown): Color {

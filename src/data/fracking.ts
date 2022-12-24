@@ -1,8 +1,7 @@
 import assert from "node:assert/strict";
 
-import type { Id, Item, FrackingCore } from "~/data/types";
+import type { Item, FrackingCore } from "~/data/types";
 import {
-  asId,
   asLocation3D,
   asRotation3D,
   asScale3D,
@@ -13,7 +12,7 @@ import type RawGameData from "./game-data.json";
 
 export function getWells(
   rawWellGroups: Readonly<typeof RawGameData["wells"]>,
-  items: ReadonlyMap<Id, Item>,
+  items: ReadonlyMap<string, Item>,
 ) {
   return new Map(
     Object.entries(rawWellGroups).map(
@@ -25,13 +24,13 @@ export function getWells(
           resource,
           new Set(
             rawWells.map((data): FrackingCore => {
-              const id = asId(data.id);
+              const { id } = data;
               const location = asLocation3D(data.location);
               const rotation = asRotation3D(data.rotation);
               const scale = asScale3D(data.scale);
               const satellites = new Set(
                 data.satellites.map((satellite) => {
-                  const id = asId(satellite.id);
+                  const { id } = satellite;
                   const location = asLocation3D(satellite.location);
                   const rotation = asRotation3D(satellite.rotation);
                   const scale = asScale3D(satellite.scale);

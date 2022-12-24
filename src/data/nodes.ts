@@ -1,8 +1,7 @@
 import assert from "node:assert/strict";
 
-import type { Id, Item, Node } from "~/data/types";
+import type { Item, Node } from "~/data/types";
 import {
-  asId,
   asLocation3D,
   asRotation3D,
   asScale3D,
@@ -13,7 +12,7 @@ import type RawGameData from "./game-data.json";
 
 export function getNodes(
   rawNodeGroups: Readonly<typeof RawGameData["nodes"]>,
-  items: ReadonlyMap<Id, Item>,
+  items: ReadonlyMap<string, Item>,
 ) {
   return new Map(
     Object.entries(rawNodeGroups).map(
@@ -25,7 +24,7 @@ export function getNodes(
           resource,
           new Set(
             rawNodes.map((data): Node => {
-              const id = asId(data.id);
+              const { id } = data;
               const location = asLocation3D(data.location);
               const rotation = asRotation3D(data.rotation);
               const scale = asScale3D(data.scale);

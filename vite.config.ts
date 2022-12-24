@@ -11,6 +11,7 @@ import Vue from "@vitejs/plugin-vue";
 import { camelCase, snakeCase } from "change-case";
 import dedent from "dedent";
 import { execa } from "execa";
+import rollupNodePolyFill from "rollup-plugin-node-polyfills";
 import rollupUnassert from "rollup-plugin-unassert";
 import type { FormatEnum } from "sharp";
 import sharp from "sharp";
@@ -41,6 +42,10 @@ export default defineConfig(({ command, mode }) => {
       alias: {
         "~/images/": `${path.resolve(dirname, "images")}/`,
         "~/": `${path.resolve(dirname, "src")}/`,
+        "node:assert/strict": "rollup-plugin-node-polyfills/polyfills/assert",
+        "assert/strict": "rollup-plugin-node-polyfills/polyfills/assert",
+        "node:util": "rollup-plugin-node-polyfills/polyfills/util",
+        util: "rollup-plugin-node-polyfills/polyfills/util",
       },
     },
 
@@ -200,6 +205,8 @@ export default defineConfig(({ command, mode }) => {
         include: [path.resolve(dirname, "locales/**")],
       }),
 
+      rollupNodePolyFill(),
+
       runScripts(),
 
       imagetools(),
@@ -337,7 +344,7 @@ function autoImageIndex() {
                     `{ src: ${fullName}, size: ${size}, format: "${format}" }`,
                 )
                 .join(", ")}]),
-                src: ${importsData[0].fullName}
+              src: ${importsData[0]!.fullName}
             };
           `;
 

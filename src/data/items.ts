@@ -1,35 +1,29 @@
-import type { Id, Item } from "~/data/types";
-import {
-  asId,
-  asName,
-  asMegaJoules,
-  asPoints,
-  asItemTransporter,
-  asColorString,
-} from "~/data/types";
+import type { Item } from "~/data/types";
+import { asMegaJoules, asItemTransporter, asColorString } from "~/data/types";
 
 import type RawGameData from "./game-data.json";
 
 export function getItems(rawItems: Readonly<typeof RawGameData["items"]>) {
   return new Map(
-    Object.entries(rawItems).map(([rawId, data]): [Id, Item] => {
-      const id = asId(rawId);
-      const name = asName(data.name);
+    Object.entries(rawItems).map(([id, data]): [string, Item] => {
       const energy = asMegaJoules(data.energy);
-      const points = asPoints(data.points);
+      const { points, icon } = data;
       const transporter = asItemTransporter(data.transporter);
       const color = asColorString(data.color);
-      const { icon } = data;
+      const typeId = data.type;
+      const tier = data.tier < 0 ? null : data.tier;
+
       return [
         id,
         {
           id,
-          name,
           energy,
           points,
           transporter,
           color,
           icon,
+          tier,
+          typeId,
         },
       ];
     }),

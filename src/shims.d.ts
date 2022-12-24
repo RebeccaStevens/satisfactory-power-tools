@@ -33,6 +33,8 @@ interface ObjectConstructor {
 
 interface Array<T> {
   at(index: number): T | undefined;
+  group<K extends PropertyKey>(func: (x: T) => K): Record<K, T[]>;
+  groupToMap<K>(func: (x: T) => K): Map<K, T[]>;
   includes(searchElement: unknown, fromIndex?: number): boolean;
   indexOf(searchElement: unknown, fromIndex?: number): number;
   lastIndexOf(searchElement: unknown, fromIndex?: number): number;
@@ -40,6 +42,8 @@ interface Array<T> {
 
 interface ReadonlyArray<T> {
   at(index: number): T | undefined;
+  group<K extends PropertyKey>(func: (x: T) => K): Record<K, T[]>;
+  groupToMap<K>(func: (x: T) => K): Map<K, T[]>;
   includes(searchElement: unknown, fromIndex?: number): boolean;
   indexOf(searchElement: unknown, fromIndex?: number): number;
   lastIndexOf(searchElement: unknown, fromIndex?: number): number;

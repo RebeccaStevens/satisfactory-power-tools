@@ -1,8 +1,6 @@
-import type { Id, Item, Machine, Recipe } from "~/data/types";
+import type { Item, Machine, Recipe } from "~/data/types";
 import {
   asQuantity,
-  asId,
-  asName,
   asSeconds,
   asVariablePowerConsumptionConstant,
   asVariablePowerConsumptionFactor,
@@ -13,14 +11,14 @@ import type RawGameData from "./game-data.json";
 
 export function getRecipes(
   rawRecipes: Readonly<typeof RawGameData["recipes"]>,
-  items: ReadonlyMap<Id, Item>,
-  machines: ReadonlyMap<Id, Machine>,
+  items: ReadonlyMap<string, Item>,
+  machines: ReadonlyMap<string, Machine>,
 ) {
   function linkAmounts(data: Record<string, number>) {
     return new Map(
       Object.entries(data)
         .map(([id, amount]) => {
-          const item = items.get(asId(id));
+          const item = items.get(id);
           if (item === undefined) {
             return null;
           }
@@ -31,14 +29,14 @@ export function getRecipes(
   }
 
   return new Map(
-    Object.entries(rawRecipes).map(([rawId, data]): [Id, Recipe] => {
-      const id = asId(rawId);
-      const name = asName(data.name);
+    Object.entries(rawRecipes).map(([id, data]): [string, Recipe] => {
       const ingredients = linkAmounts(data.ingredients);
       const products = linkAmounts(data.products);
       const duration = asSeconds(data.duration);
       const producedIn = new Set(
-        data.producedIn.map((id) => machines.get(id) ?? null).filter(isNotNull),
+        data.producedIn
+          .map((machineId) => machines.get(machineId) ?? null)
+          .filter(isNotNull),
       );
       const variablePowerConsumptionConstant =
         asVariablePowerConsumptionConstant(
@@ -51,7 +49,6 @@ export function getRecipes(
         id,
         {
           id,
-          name,
           ingredients,
           products,
           duration,

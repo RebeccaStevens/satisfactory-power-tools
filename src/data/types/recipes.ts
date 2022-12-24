@@ -1,6 +1,4 @@
 import type {
-  Id,
-  Name,
   Seconds,
   Quantity,
   VariablePowerConsumptionConstant,
@@ -10,8 +8,7 @@ import type {
 import type { Machine } from "~/data/types/machines";
 
 export type Recipe = {
-  id: Id;
-  name: Name;
+  id: string;
   ingredients: Map<Item, Quantity>;
   products: Map<Item, Quantity>;
   duration: Seconds;

@@ -61,6 +61,8 @@ module.exports = {
     ],
     "jsdoc/require-jsdoc": "off",
     "unicorn/no-empty-file": "warn",
+    // @see https://github.com/sindresorhus/eslint-plugin-unicorn/issues/2018
+    "unicorn/no-useless-spread": "off",
   },
   overrides: [
     {

@@ -16,3 +16,345 @@ pages:
   optimizer:
     label: optimizer
     title: Optimizer
+
+game-data:
+  BP_EqDescZipLine_C:
+    name: Zipline
+  BP_EquipmentDescriptorBeacon_C:
+    name: Beacon
+  BP_EquipmentDescriptorCandyCane_C:
+    name: Candy Cane Basher
+  BP_EquipmentDescriptorGasmask_C:
+    name: Gas Mask
+  BP_EquipmentDescriptorHazmatSuit_C:
+    name: Hazmat Suit
+  BP_EquipmentDescriptorHoverPack_C:
+    name: Hover Pack
+  BP_EquipmentDescriptorJetPack_C:
+    name: Jetpack
+  BP_EquipmentDescriptorJumpingStilts_C:
+    name: Blade Runners
+  BP_EquipmentDescriptorNobeliskDetonator_C:
+    name: Nobelisk Detonator
+  BP_EquipmentDescriptorObjectScanner_C:
+    name: Object Scanner
+  BP_EquipmentDescriptorRifle_C:
+    name: Rifle
+  BP_EquipmentDescriptorShockShank_C:
+    name: Xeno-Zapper
+  BP_EquipmentDescriptorStunSpear_C:
+    name: Xeno-Basher
+  BP_ItemDescriptorPortableMiner_C:
+    name: Portable Miner
+  Desc_AlienDNACapsule_C:
+    name: Alien DNA Capsule
+  Desc_AlienProtein_C:
+    name: Alien Protein
+  Desc_AluminaSolution_C:
+    name: Alumina Solution
+  Desc_AluminumCasing_C:
+    name: Aluminum Casing
+  Desc_AluminumIngot_C:
+    name: Aluminum Ingot
+  Desc_AluminumPlate_C:
+    name: Alclad Aluminum Sheet
+  Desc_AluminumPlateReinforced_C:
+    name: Heat Sink
+  Desc_AluminumScrap_C:
+    name: Aluminum Scrap
+  Desc_Battery_C:
+    name: Battery
+  Desc_Berry_C:
+    name: Paleberry
+  Desc_Biofuel_C:
+    name: Solid Biofuel
+  Desc_Cable_C:
+    name: Cable
+  Desc_CandyCane_C:
+    name: Candy Cane
+  Desc_CartridgeChaos_C:
+    name: Turbo Rifle Ammo
+  Desc_CartridgeSmartProjectile_C:
+    name: Homing Rifle Ammo
+  Desc_CartridgeStandard_C:
+    name: Rifle Ammo
+  Desc_Cement_C:
+    name: Concrete
+  Desc_Chainsaw_C:
+    name: Chainsaw
+  Desc_CircuitBoard_C:
+    name: Circuit Board
+  Desc_CircuitBoardHighSpeed_C:
+    name: AI Limiter
+  Desc_Coal_C:
+    name: Coal
+  Desc_ColorCartridge_C:
+    name: Color Cartridge
+  Desc_CompactedCoal_C:
+    name: Compacted Coal
+  Desc_Computer_C:
+    name: Computer
+  Desc_ComputerSuper_C:
+    name: Supercomputer
+  Desc_CoolingSystem_C:
+    name: Cooling System
+  Desc_CopperDust_C:
+    name: Copper Powder
+  Desc_CopperIngot_C:
+    name: Copper Ingot
+  Desc_CopperSheet_C:
+    name: Copper Sheet
+  Desc_Crystal_C:
+    name: Blue Power Slug
+  Desc_Crystal_mk2_C:
+    name: Yellow Power Slug
+  Desc_Crystal_mk3_C:
+    name: Purple Power Slug
+  Desc_CrystalOscillator_C:
+    name: Crystal Oscillator
+  Desc_CrystalShard_C:
+    name: Power Shard
+  Desc_ElectromagneticControlRod_C:
+    name: Electromagnetic Control Rod
+  Desc_Fabric_C:
+    name: Fabric
+  Desc_Filter_C:
+    name: Gas Filter
+  Desc_Fireworks_Projectile_01_C:
+    name: Sweet Fireworks
+  Desc_Fireworks_Projectile_02_C:
+    name: Fancy Fireworks
+  Desc_Fireworks_Projectile_03_C:
+    name: Sparkly Fireworks
+  Desc_FlowerPetals_C:
+    name: Flower Petals
+  Desc_FluidCanister_C:
+    name: Empty Canister
+  Desc_Fuel_C:
+    name: Packaged Fuel
+  Desc_GasTank_C:
+    name: Empty Fluid Tank
+  Desc_GenericBiomass_C:
+    name: Biomass
+  Desc_Gift_C:
+    name: FICSMAS Gift
+  Desc_GoldIngot_C:
+    name: Caterium Ingot
+  Desc_GolfCart_C:
+    name: Factory Cart™
+  Desc_GolfCartGold_C:
+    name: Golden Factory Cart™
+  Desc_Gunpowder_C:
+    name: Black Powder
+  Desc_GunpowderMK2_C:
+    name: Smokeless Powder
+  Desc_HatcherParts_C:
+    name: Hatcher Remains
+  Desc_HazmatFilter_C:
+    name: Iodine Infused Filter
+  Desc_HeavyOilResidue_C:
+    name: Heavy Oil Residue
+  Desc_HighSpeedConnector_C:
+    name: High-Speed Connector
+  Desc_HighSpeedWire_C:
+    name: Quickwire
+  Desc_HogParts_C:
+    name: Hog Remains
+  Desc_HUBParts_C:
+    name: HUB Parts
+  Desc_IronIngot_C:
+    name: Iron Ingot
+  Desc_IronPlate_C:
+    name: Iron Plate
+  Desc_IronPlateReinforced_C:
+    name: Reinforced Iron Plate
+  Desc_IronRod_C:
+    name: Iron Rod
+  Desc_IronScrew_C:
+    name: Screw
+  Desc_Leaves_C:
+    name: Leaves
+  Desc_LiquidBiofuel_C:
+    name: Liquid Biofuel
+  Desc_LiquidFuel_C:
+    name: Fuel
+  Desc_LiquidOil_C:
+    name: Crude Oil
+  Desc_LiquidTurboFuel_C:
+    name: Turbofuel
+  Desc_Medkit_C:
+    name: Medicinal Inhaler
+  Desc_ModularFrame_C:
+    name: Modular Frame
+  Desc_ModularFrameFused_C:
+    name: Fused Modular Frame
+  Desc_ModularFrameHeavy_C:
+    name: Heavy Modular Frame
+  Desc_ModularFrameLightweight_C:
+    name: Radio Control Unit
+  Desc_Motor_C:
+    name: Motor
+  Desc_MotorLightweight_C:
+    name: Turbo Motor
+  Desc_Mycelia_C:
+    name: Mycelia
+  Desc_NitricAcid_C:
+    name: Nitric Acid
+  Desc_NitrogenGas_C:
+    name: Nitrogen Gas
+  Desc_NobeliskCluster_C:
+    name: Cluster Nobelisk
+  Desc_NobeliskExplosive_C:
+    name: Nobelisk
+  Desc_NobeliskGas_C:
+    name: Gas Nobelisk
+  Desc_NobeliskNuke_C:
+    name: Nuke Nobelisk
+  Desc_NobeliskShockwave_C:
+    name: Pulse Nobelisk
+  Desc_NonFissibleUranium_C:
+    name: Non-fissile Uranium
+  Desc_NuclearFuelRod_C:
+    name: Uranium Fuel Rod
+  Desc_NuclearWaste_C:
+    name: Uranium Waste
+  Desc_Nut_C:
+    name: Beryl Nut
+  Desc_OreBauxite_C:
+    name: Bauxite
+  Desc_OreCopper_C:
+    name: Copper Ore
+  Desc_OreGold_C:
+    name: Caterium Ore
+  Desc_OreIron_C:
+    name: Iron Ore
+  Desc_OreUranium_C:
+    name: Uranium
+  Desc_PackagedAlumina_C:
+    name: Packaged Alumina Solution
+  Desc_PackagedBiofuel_C:
+    name: Packaged Liquid Biofuel
+  Desc_PackagedNitricAcid_C:
+    name: Packaged Nitric Acid
+  Desc_PackagedNitrogenGas_C:
+    name: Packaged Nitrogen Gas
+  Desc_PackagedOil_C:
+    name: Packaged Oil
+  Desc_PackagedOilResidue_C:
+    name: Packaged Heavy Oil Residue
+  Desc_PackagedSulfuricAcid_C:
+    name: Packaged Sulfuric Acid
+  Desc_PackagedWater_C:
+    name: Packaged Water
+  Desc_Parachute_C:
+    name: Parachute
+  Desc_PetroleumCoke_C:
+    name: Petroleum Coke
+  Desc_Plastic_C:
+    name: Plastic
+  Desc_PlutoniumCell_C:
+    name: Encased Plutonium Cell
+  Desc_PlutoniumFuelRod_C:
+    name: Plutonium Fuel Rod
+  Desc_PlutoniumPellet_C:
+    name: Plutonium Pellet
+  Desc_PlutoniumWaste_C:
+    name: Plutonium Waste
+  Desc_PolymerResin_C:
+    name: Polymer Resin
+  Desc_PressureConversionCube_C:
+    name: Pressure Conversion Cube
+  Desc_QuartzCrystal_C:
+    name: Quartz Crystal
+  Desc_RawQuartz_C:
+    name: Raw Quartz
+  Desc_Rebar_Explosive_C:
+    name: Explosive Rebar
+  Desc_Rebar_Spreadshot_C:
+    name: Shatter Rebar
+  Desc_Rebar_Stunshot_C:
+    name: Stun Rebar
+  Desc_RebarGunProjectile_C:
+    name: Rebar Gun
+  Desc_Rotor_C:
+    name: Rotor
+  Desc_Rubber_C:
+    name: Rubber
+  Desc_SAM_C:
+    name: S.A.M. Ore
+  Desc_Shroom_C:
+    name: Bacon Agaric
+  Desc_Silica_C:
+    name: Silica
+  Desc_Snow_C:
+    name: Actual Snow
+  Desc_SnowballProjectile_C:
+    name: Snowball
+  Desc_SpaceElevatorPart_1_C:
+    name: Smart Plating
+  Desc_SpaceElevatorPart_2_C:
+    name: Versatile Framework
+  Desc_SpaceElevatorPart_3_C:
+    name: Automated Wiring
+  Desc_SpaceElevatorPart_4_C:
+    name: Modular Engine
+  Desc_SpaceElevatorPart_5_C:
+    name: Adaptive Control Unit
+  Desc_SpaceElevatorPart_6_C:
+    name: Magnetic Field Generator
+  Desc_SpaceElevatorPart_7_C:
+    name: Assembly Director System
+  Desc_SpaceElevatorPart_8_C:
+    name: Thermal Propulsion Rocket
+  Desc_SpaceElevatorPart_9_C:
+    name: Nuclear Pasta
+  Desc_SpikedRebar_C:
+    name: Iron Rebar
+  Desc_SpitterParts_C:
+    name: Plasma Spitter Remains
+  Desc_Stator_C:
+    name: Stator
+  Desc_SteelIngot_C:
+    name: Steel Ingot
+  Desc_SteelPipe_C:
+    name: Steel Pipe
+  Desc_SteelPlate_C:
+    name: Steel Beam
+  Desc_SteelPlateReinforced_C:
+    name: Encased Industrial Beam
+  Desc_StingerParts_C:
+    name: Stinger Remains
+  Desc_Stone_C:
+    name: Limestone
+  Desc_Sulfur_C:
+    name: Sulfur
+  Desc_SulfuricAcid_C:
+    name: Sulfuric Acid
+  Desc_TurboFuel_C:
+    name: Packaged Turbofuel
+  Desc_UraniumCell_C:
+    name: Encased Uranium Cell
+  Desc_Water_C:
+    name: Water
+  Desc_Wire_C:
+    name: Wire
+  Desc_Wood_C:
+    name: Wood
+  Desc_XmasBall1_C:
+    name: Red FICSMAS Ornament
+  Desc_XmasBall2_C:
+    name: Blue FICSMAS Ornament
+  Desc_XmasBall3_C:
+    name: Copper FICSMAS Ornament
+  Desc_XmasBall4_C:
+    name: Iron FICSMAS Ornament
+  Desc_XmasBallCluster_C:
+    name: FICSMAS Ornament Bundle
+  Desc_XmasBow_C:
+    name: FICSMAS Bow
+  Desc_XmasBranch_C:
+    name: FICSMAS Tree Branch
+  Desc_XmasStar_C:
+    name: FICSMAS Wonder Star
+  Desc_XmasWreath_C:
+    name: FICSMAS Decoration

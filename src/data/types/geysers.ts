@@ -1,5 +1,4 @@
 import type {
-  Id,
   Location3D,
   ResourcePurity,
   Rotation3D,
@@ -7,7 +6,7 @@ import type {
 } from "~/data/types";
 
 export type Geyser = {
-  id: Id;
+  id: string;
   location: Location3D;
   rotation: Rotation3D;
   scale: Scale3D;

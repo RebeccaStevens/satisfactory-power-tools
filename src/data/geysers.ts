@@ -1,6 +1,5 @@
 import type { Geyser } from "~/data/types";
 import {
-  asId,
   asLocation3D,
   asRotation3D,
   asScale3D,
@@ -14,7 +13,7 @@ export function getGeysers(
 ) {
   return new Set(
     rawGeysers.map((data): Geyser => {
-      const id = asId(data.id);
+      const { id } = data;
       const location = asLocation3D(data.location);
       const rotation = asRotation3D(data.rotation);
       const scale = asScale3D(data.scale);
