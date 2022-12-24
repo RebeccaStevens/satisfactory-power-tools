@@ -63,7 +63,7 @@ specifiers:
   execa: 6.1.0
   fp-ts: 2.13.1
   husky: 8.0.2
-  imagetools-core: ^3.2.3
+  imagetools-core: 3.2.3
   iterator-helpers-polyfill: 2.2.8
   jsdom: 20.0.3
   lint-staged: 13.1.0
