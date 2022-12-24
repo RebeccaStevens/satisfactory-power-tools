@@ -8,7 +8,9 @@
   },
   "type": "module",
   "scripts": {
-    "build": "vite-ssg build",
+    "build": "pnpm run build-client-only",
+    "build-client-only": "vite build",
+    "build-with-ssr": "vite-ssg build",
     "dev": "vite",
     "get-game-images": "node --loader=ts-paths-esm-loader/transpile-only --experimental-specifier-resolution=node  ./scripts/get-game-images/index.ts",
     "lint": "eslint .",
