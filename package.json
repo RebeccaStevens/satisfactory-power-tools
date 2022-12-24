@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.15.8",
-    "@vueuse/core": "9.7.0",
+    "@vueuse/core": "9.9.0",
     "@vueuse/head": "1.0.22",
     "array.prototype.group": "^1.1.2",
     "array.prototype.grouptomap": "^1.1.2",
