@@ -4,6 +4,7 @@
 /dist-ssr
 /coverage
 /node_modules
+.vite-ssg-temp
 
 /exported-game-data
 
