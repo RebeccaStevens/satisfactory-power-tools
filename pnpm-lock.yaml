@@ -23,7 +23,7 @@ specifiers:
   '@unocss/preset-icons': 0.47.6
   '@unocss/preset-typography': 0.47.6
   '@unocss/preset-uno': 0.47.6
-  '@unocss/preset-web-fonts': 0.47.6
+  '@unocss/preset-web-fonts': 0.48.0
   '@unocss/reset': 0.47.6
   '@unocss/transformer-compile-class': 0.47.6
   '@unocss/transformer-directives': 0.47.6
@@ -143,7 +143,7 @@ devDependencies:
   '@unocss/preset-icons': 0.47.6
   '@unocss/preset-typography': 0.47.6
   '@unocss/preset-uno': 0.47.6
-  '@unocss/preset-web-fonts': 0.47.6
+  '@unocss/preset-web-fonts': 0.48.0
   '@unocss/reset': 0.47.6
   '@unocss/transformer-compile-class': 0.47.6
   '@unocss/transformer-directives': 0.47.6
@@ -2809,6 +2809,10 @@ packages:
     resolution: {integrity: sha512-Pjg/NdpuTwZk2Ns3bzI/3XVPuXU+AQ78Sw+9QJyMgA56dArd3TlpNDN6UTOD9XAK6mxdPUu7rNSKpNTLpBW2og==}
     dev: true
 
+  /@unocss/core/0.48.0:
+    resolution: {integrity: sha512-WvAvChbJ65l97mHismyApeFVgNeGR4uSZl1BzVY+E/fRmyooE4QxiCm3g2akox6mQryzxvBvgSpP9aPzH676ZQ==}
+    dev: true
+
   /@unocss/inspector/0.47.6:
     resolution: {integrity: sha512-enYQJo7+/UtSbgzpyKzL4vZU9Tz3QyoPGDmuKoHXSIt6sAtB+DQelW7vMWjcmwA19uaISxIGXx9BJPj5XV67UA==}
     dependencies:
@@ -2852,10 +2856,10 @@ packages:
       '@unocss/preset-wind': 0.47.6
     dev: true
 
-  /@unocss/preset-web-fonts/0.47.6:
-    resolution: {integrity: sha512-TkN/etSSl61TtqxQJSVG/zfJUccdpgIuvqYrJOf4OZMj2rLwNHU2kOJEPFCfDyHTS+UjQ7LibfnE6snFDJ3pgQ==}
+  /@unocss/preset-web-fonts/0.48.0:
+    resolution: {integrity: sha512-eH2tcr2ax1EWKVnT8lZWPGMZDur70UNhyyhF1qZaBdGmbRG4qxEhro9TB70FaNJ/ggHEpvUE8g/t1ZZ5IgwtdQ==}
     dependencies:
-      '@unocss/core': 0.47.6
+      '@unocss/core': 0.48.0
       ohmyfetch: 0.4.21
     dev: true
 
