@@ -87,7 +87,7 @@ specifiers:
   unplugin-auto-import: 0.12.1
   unplugin-vue-components: 0.22.12
   vite: 4.0.2
-  vite-imagetools: 4.0.11
+  vite-imagetools: 4.0.12
   vite-plugin-inspect: 0.7.10
   vite-plugin-pages: 0.28.0
   vite-plugin-pwa: 0.14.0
@@ -195,7 +195,7 @@ devDependencies:
   unplugin-auto-import: 0.12.1_@vueuse+core@9.7.0
   unplugin-vue-components: 0.22.12_vue@3.2.45
   vite: 4.0.2_whpwockfeyvclybuxgxy42v42m
-  vite-imagetools: 4.0.11
+  vite-imagetools: 4.0.12
   vite-plugin-inspect: 0.7.10_vite@4.0.2
   vite-plugin-pages: 0.28.0_vite@4.0.2
   vite-plugin-pwa: 0.14.0_vite@4.0.2
@@ -5679,13 +5679,6 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
-  /imagetools-core/3.2.3:
-    resolution: {integrity: sha512-YbZhedg/zja34yV6iRDhfo4cmAYSwxaErkuzc/RpMMAELgszpDKf3MLH6VlsR+QkenPUEGkGAVpJAM2GbUls9Q==}
-    engines: {node: '>=12.0.0'}
-    dependencies:
-      sharp: 0.31.2
-    dev: true
-
   /import-fresh/3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -8493,12 +8486,11 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite-imagetools/4.0.11:
-    resolution: {integrity: sha512-S6+vzsd/6kSBdPIdjJFGeZ4+UV/aIK09V7oLb/Z9soV3jNwKh60WBi6jF+RnKtY7F9FMU3W6xPbln+VPHI0icA==}
+  /vite-imagetools/4.0.12:
+    resolution: {integrity: sha512-zdh38mbVisv+8xpD00MRblaXqq/PZXCQi4HqOZILlEO78HxXAoB36KoytmcFqhX9G5BTV2j4LJnRTgebhPaGmg==}
     engines: {node: '>=12.0.0'}
     dependencies:
       '@rollup/pluginutils': 5.0.2
-      imagetools-core: 3.2.3
     transitivePeerDependencies:
       - rollup
     dev: true
