@@ -68,7 +68,7 @@
     "@unocss/transformer-compile-class": "0.47.6",
     "@unocss/transformer-directives": "0.47.6",
     "@unocss/transformer-variant-group": "0.47.6",
-    "@unocss/vite": "0.47.6",
+    "@unocss/vite": "0.48.0",
     "@vitejs/plugin-vue": "4.0.0",
     "@vitest/coverage-c8": "0.26.0",
     "@vue/eslint-config-prettier": "7.0.0",
