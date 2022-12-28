@@ -6,7 +6,7 @@ specifiers:
   '@esbuild-plugins/node-globals-polyfill': 0.1.1
   '@iconify-json/bx': 1.1.5
   '@iconify/json': 2.1.157
-  '@iconify/utils': 2.0.5
+  '@iconify/utils': 2.0.6
   '@intlify/vite-plugin-vue-i18n': 6.0.3
   '@kidonng/daisyui': 2.31.0
   '@quasar/extras': 1.15.8
@@ -128,7 +128,7 @@ devDependencies:
   '@esbuild-plugins/node-globals-polyfill': 0.1.1_esbuild@0.16.11
   '@iconify-json/bx': 1.1.5
   '@iconify/json': 2.1.157
-  '@iconify/utils': 2.0.5
+  '@iconify/utils': 2.0.6
   '@intlify/vite-plugin-vue-i18n': 6.0.3_vite@4.0.3+vue-i18n@9.2.2
   '@kidonng/daisyui': 2.31.0
   '@quasar/vite-plugin': 1.3.0_vg2xkeeq6uqpr662lsllsccfy4
@@ -2065,11 +2065,11 @@ packages:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
     dev: true
 
-  /@iconify/utils/2.0.5:
-    resolution: {integrity: sha512-UMT1WhBkr7oYggc69dFl/1RHE9XDisCrWaKXXQLpIccLCytHWZEX3247b/wR+sexYIKBSWs8YIKmMBe3g4oGCw==}
+  /@iconify/utils/2.0.6:
+    resolution: {integrity: sha512-XVC4T1gKbtKBjwvWdTthYkRWNNiGDfsbyuTvFdbcOux77KIF2w03hQMxKcMTtFwezzW/DV5CC3DNZfY3Tcs0hA==}
     dependencies:
       '@antfu/install-pkg': 0.1.1
-      '@antfu/utils': 0.5.2
+      '@antfu/utils': 0.7.2
       '@iconify/types': 2.0.0
       debug: 4.3.4
       kolorist: 1.6.0
@@ -2837,7 +2837,7 @@ packages:
   /@unocss/preset-icons/0.48.0:
     resolution: {integrity: sha512-3vro36gTkjEic5rO9BcUudby8tQ9ZRCduKZ1+4CKP0hKoB58nDm1QZM+kvWQ8RVN2xoSU9vWkHhx1RLl8miE0g==}
     dependencies:
-      '@iconify/utils': 2.0.5
+      '@iconify/utils': 2.0.6
       '@unocss/core': 0.48.0
       ohmyfetch: 0.4.21
     transitivePeerDependencies:
