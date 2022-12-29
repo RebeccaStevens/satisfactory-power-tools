@@ -77,7 +77,7 @@
     "@vue/test-utils": "2.2.6",
     "commitizen": "4.2.6",
     "critters": "0.0.16",
-    "cspell": "6.18.0",
+    "cspell": "6.18.1",
     "dedent": "0.7.0",
     "esbuild": "0.16.12",
     "eslint": "8.30.0",
