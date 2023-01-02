@@ -79,7 +79,7 @@
     "critters": "0.0.16",
     "cspell": "6.18.1",
     "dedent": "0.7.0",
-    "esbuild": "0.16.12",
+    "esbuild": "0.16.13",
     "eslint": "8.31.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-import-resolver-typescript": "3.5.2",
