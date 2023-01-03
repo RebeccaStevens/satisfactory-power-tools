@@ -88,7 +88,7 @@ specifiers:
   unplugin-auto-import: 0.12.1
   unplugin-vue-components: 0.22.12
   vite: 4.0.3
-  vite-imagetools: 4.0.12
+  vite-imagetools: 4.0.13
   vite-plugin-inspect: 0.7.12
   vite-plugin-pages: 0.28.0
   vite-plugin-pwa: 0.14.0
@@ -197,7 +197,7 @@ devDependencies:
   unplugin-auto-import: 0.12.1_@vueuse+core@9.9.0
   unplugin-vue-components: 0.22.12_vue@3.2.45
   vite: 4.0.3_2t5zzertvgx7nxfmkolltgmm7i
-  vite-imagetools: 4.0.12
+  vite-imagetools: 4.0.13
   vite-plugin-inspect: 0.7.12_vite@4.0.3
   vite-plugin-pages: 0.28.0_vite@4.0.3
   vite-plugin-pwa: 0.14.0_vite@4.0.3
@@ -8513,11 +8513,12 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite-imagetools/4.0.12:
-    resolution: {integrity: sha512-zdh38mbVisv+8xpD00MRblaXqq/PZXCQi4HqOZILlEO78HxXAoB36KoytmcFqhX9G5BTV2j4LJnRTgebhPaGmg==}
+  /vite-imagetools/4.0.13:
+    resolution: {integrity: sha512-DeMAhDwvWATzBa5Qu9Fv6rtOuHZFONrv5Z5a95jd/oBDDCdyTKYVqxIurS5ox9A/sH8bhVF7r++Yww0DKpjKFQ==}
     engines: {node: '>=12.0.0'}
     dependencies:
       '@rollup/pluginutils': 5.0.2
+      imagetools-core: 3.2.3
     transitivePeerDependencies:
       - rollup
     dev: true
