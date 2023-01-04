@@ -74,7 +74,7 @@
     "@vitest/coverage-c8": "0.26.3",
     "@vue/eslint-config-prettier": "7.0.0",
     "@vue/eslint-config-typescript": "11.0.2",
-    "@vue/test-utils": "2.2.6",
+    "@vue/test-utils": "2.2.7",
     "commitizen": "4.2.6",
     "critters": "0.0.16",
     "cspell": "6.18.1",
