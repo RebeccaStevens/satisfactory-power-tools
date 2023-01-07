@@ -65,7 +65,7 @@ specifiers:
   husky: 8.0.3
   imagetools-core: 3.2.3
   iterator-helpers-polyfill: 2.2.8
-  jsdom: 20.0.3
+  jsdom: 21.0.0
   lint-staged: 13.1.0
   monocle-ts: 2.3.13
   newtype-ts: 0.3.5
@@ -151,7 +151,7 @@ devDependencies:
   '@unocss/transformer-variant-group': 0.48.0
   '@unocss/vite': 0.48.2_vite@4.0.4
   '@vitejs/plugin-vue': 4.0.0_vite@4.0.4+vue@3.2.45
-  '@vitest/coverage-c8': 0.26.3_jsdom@20.0.3+sass@1.32.13
+  '@vitest/coverage-c8': 0.26.3_jsdom@21.0.0+sass@1.32.13
   '@vue/eslint-config-prettier': 7.0.0_k3hr3m6agcryggk5vamhhr56wi
   '@vue/eslint-config-typescript': 11.0.2_6bpdc6aekjtktp4whh3ygv32oi
   '@vue/test-utils': 2.2.7_vue@3.2.45
@@ -179,7 +179,7 @@ devDependencies:
   execa: 6.1.0
   husky: 8.0.3
   imagetools-core: 3.2.3
-  jsdom: 20.0.3
+  jsdom: 21.0.0
   lint-staged: 13.1.0
   pnpm: 7.22.0
   prettier: 2.8.2
@@ -204,7 +204,7 @@ devDependencies:
   vite-plugin-vue-layouts: 0.7.0_oh6kquo6biweymmreht6aj34oy
   vite-ssg-sitemap: 0.4.3
   vite-tsconfig-paths: 4.0.3_gl4qsmwzp7wy5uclz4tx77gbli
-  vitest: 0.26.3_jsdom@20.0.3+sass@1.32.13
+  vitest: 0.26.3_jsdom@21.0.0+sass@1.32.13
   vue-eslint-parser: 9.1.0_eslint@8.31.0
   vue-tsc: 1.0.22_typescript@4.9.4
 
@@ -2945,11 +2945,11 @@ packages:
       vue: 3.2.45
     dev: true
 
-  /@vitest/coverage-c8/0.26.3_jsdom@20.0.3+sass@1.32.13:
+  /@vitest/coverage-c8/0.26.3_jsdom@21.0.0+sass@1.32.13:
     resolution: {integrity: sha512-sjmVYPozajWY2DawzuvhYX6hEe/LD6p2xv9VmPvh1zzDeNNVCAnyLcvXoaSMQD522x9bqciuyPrlrnh2iNkE/w==}
     dependencies:
       c8: 7.12.0
-      vitest: 0.26.3_jsdom@20.0.3+sass@1.32.13
+      vitest: 0.26.3_jsdom@21.0.0+sass@1.32.13
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -6145,6 +6145,48 @@ packages:
       - bufferutil
       - supports-color
       - utf-8-validate
+    dev: false
+
+  /jsdom/21.0.0:
+    resolution: {integrity: sha512-AIw+3ZakSUtDYvhwPwWHiZsUi3zHugpMEKlNPaurviseYoBqo0zBd3zqoUi3LPCNtPFlEP8FiW9MqCZdjb2IYA==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      canvas: ^2.5.0
+    peerDependenciesMeta:
+      canvas:
+        optional: true
+    dependencies:
+      abab: 2.0.6
+      acorn: 8.8.1
+      acorn-globals: 7.0.1
+      cssom: 0.5.0
+      cssstyle: 2.3.0
+      data-urls: 3.0.2
+      decimal.js: 10.4.2
+      domexception: 4.0.0
+      escodegen: 2.0.0
+      form-data: 4.0.0
+      html-encoding-sniffer: 3.0.0
+      http-proxy-agent: 5.0.0
+      https-proxy-agent: 5.0.1
+      is-potential-custom-element-name: 1.0.1
+      nwsapi: 2.2.2
+      parse5: 7.1.1
+      saxes: 6.0.0
+      symbol-tree: 3.2.4
+      tough-cookie: 4.1.2
+      w3c-xmlserializer: 4.0.0
+      webidl-conversions: 7.0.0
+      whatwg-encoding: 2.0.0
+      whatwg-mimetype: 3.0.0
+      whatwg-url: 11.0.0
+      ws: 8.11.0
+      xml-name-validator: 4.0.0
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+    dev: true
 
   /jsesc/0.5.0:
     resolution: {integrity: sha512-uZz5UnB7u4T9LvwmFqXii7pZSouaRPorGs5who1Ip7VO0wxanFvBL7GkM6dTHlgX+jhBApRetaWpnDabOeTcnA==}
@@ -8655,7 +8697,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
 
-  /vitest/0.26.3_jsdom@20.0.3+sass@1.32.13:
+  /vitest/0.26.3_jsdom@21.0.0+sass@1.32.13:
     resolution: {integrity: sha512-FmHxU9aUCxTi23keF3vxb/Qp0lYXaaJ+jRLGOUmMS3qVTOJvgGE+f1VArupA6pEhaG2Ans4X+zV9dqM5WISMbg==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -8684,7 +8726,7 @@ packages:
       acorn-walk: 8.2.0
       chai: 4.3.7
       debug: 4.3.4
-      jsdom: 20.0.3
+      jsdom: 21.0.0
       local-pkg: 0.4.2
       source-map: 0.6.1
       strip-literal: 1.0.0
