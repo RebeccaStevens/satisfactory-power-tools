@@ -89,7 +89,7 @@ specifiers:
   unplugin-vue-components: 0.22.12
   vite: 4.0.4
   vite-imagetools: 4.0.14
-  vite-plugin-inspect: 0.7.12
+  vite-plugin-inspect: 0.7.14
   vite-plugin-pages: 0.28.0
   vite-plugin-pwa: 0.14.1
   vite-plugin-vue-layouts: 0.7.0
@@ -198,7 +198,7 @@ devDependencies:
   unplugin-vue-components: 0.22.12_vue@3.2.45
   vite: 4.0.4_2t5zzertvgx7nxfmkolltgmm7i
   vite-imagetools: 4.0.14
-  vite-plugin-inspect: 0.7.12_vite@4.0.4
+  vite-plugin-inspect: 0.7.14_vite@4.0.4
   vite-plugin-pages: 0.28.0_vite@4.0.4
   vite-plugin-pwa: 0.14.1_vite@4.0.4
   vite-plugin-vue-layouts: 0.7.0_oh6kquo6biweymmreht6aj34oy
@@ -8532,12 +8532,13 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-inspect/0.7.12_vite@4.0.4:
-    resolution: {integrity: sha512-hI093vkhCVkDW9rnss+iJZ6mgCKKIZNcV0QJ2qnfzn15s67+WQcKK5byBTZEbfx2MBzMJInYsQfWiLdScgneIg==}
+  /vite-plugin-inspect/0.7.14_vite@4.0.4:
+    resolution: {integrity: sha512-C9V93Yy2yUf941oVxIq93K6T1o0SZxoG8MdmyJsnoNDijOAGHT1rVSVjzF/uKFYvgnvLvaXioaoy6ica6aOS0g==}
     engines: {node: '>=14'}
     peerDependencies:
       vite: ^3.1.0 || ^4.0.0
     dependencies:
+      '@antfu/utils': 0.7.2
       '@rollup/pluginutils': 5.0.2
       debug: 4.3.4
       fs-extra: 11.1.0
