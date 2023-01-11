@@ -74,7 +74,7 @@ specifiers:
   prettier: 2.8.2
   prettier-plugin-packagejson: 2.3.0
   pretty-format: 29.3.1
-  quasar: 2.11.4
+  quasar: 2.11.5
   rollup-plugin-node-polyfills: 0.2.1
   rollup-plugin-unassert: 0.5.0
   sass: 1.32.13
@@ -116,7 +116,7 @@ dependencies:
   newtype-ts: 0.3.5_y4ecnzjsatnzoei5elwf4wjeqa
   pinia: 2.0.28_prq2uz4lho2pwp6irk4cfkrxwu
   pretty-format: 29.3.1
-  quasar: 2.11.4
+  quasar: 2.11.5
   vite-ssg: 0.22.1_taxab7htm3ndplav6c3d2ozfxa
   vue: 3.2.45
   vue-i18n: 9.2.2_vue@3.2.45
@@ -131,7 +131,7 @@ devDependencies:
   '@iconify/utils': 2.0.12
   '@intlify/vite-plugin-vue-i18n': 6.0.3_vite@4.0.4+vue-i18n@9.2.2
   '@kidonng/daisyui': 2.31.0
-  '@quasar/vite-plugin': 1.3.0_a76ntnp5h5yjt5dcqgisgz636e
+  '@quasar/vite-plugin': 1.3.0_idzdegajbapa3olggtehvuzbta
   '@rebeccastevens/eslint-config': 1.4.6_wn5yfknlxpvstslf5httlwwpni
   '@types/dedent': 0.7.0
   '@types/node': 18.11.18
@@ -2280,7 +2280,7 @@ packages:
     resolution: {integrity: sha512-2y0KKTRol5FsqxhJH19pG5qU9ve+AUdPzQDSh/d7XxBZGJASOAcglKH/W1dCdChLJzyJDOJ4DmM2sxWQkosVWw==}
     dev: false
 
-  /@quasar/vite-plugin/1.3.0_a76ntnp5h5yjt5dcqgisgz636e:
+  /@quasar/vite-plugin/1.3.0_idzdegajbapa3olggtehvuzbta:
     resolution: {integrity: sha512-wd7b/QrKu/WB53l+vxo6GLbkoEwh5FFKLtLl3fM8TXrDDRB1qsKKkRa/vwTU4dpuyBaOZDjycmYuAsOlTdNp8w==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -2290,7 +2290,7 @@ packages:
       vue: ^3.0.0
     dependencies:
       '@vitejs/plugin-vue': 4.0.0_vite@4.0.4+vue@3.2.45
-      quasar: 2.11.4
+      quasar: 2.11.5
       vite: 4.0.4_2t5zzertvgx7nxfmkolltgmm7i
       vue: 3.2.45
     dev: true
@@ -7261,8 +7261,8 @@ packages:
     engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
     dev: true
 
-  /quasar/2.11.4:
-    resolution: {integrity: sha512-psE6R5pAyzkjpp7symrtuFug9LRPcuKne6C2XUdIUbomEzi0BiWcdxGesIqS+SUn7qrLIEFWVsvnCTAYSmqbyw==}
+  /quasar/2.11.5:
+    resolution: {integrity: sha512-rX4Rwp9wlCeB9A6RQUxEx/q84LMBVVm6WTECkoq8r/+NBgl9aHVexzZQBnRn2i61D0BJpdX5VcnMxAnJkTx/kA==}
     engines: {node: '>= 10.18.1', npm: '>= 6.13.4', yarn: '>= 1.21.1'}
 
   /querystringify/2.2.0:
