@@ -23,7 +23,7 @@ specifiers:
   '@unocss/preset-icons': 0.48.0
   '@unocss/preset-typography': 0.48.0
   '@unocss/preset-uno': 0.48.0
-  '@unocss/preset-web-fonts': 0.48.0
+  '@unocss/preset-web-fonts': 0.48.3
   '@unocss/reset': 0.48.3
   '@unocss/transformer-compile-class': 0.48.0
   '@unocss/transformer-directives': 0.48.0
@@ -144,7 +144,7 @@ devDependencies:
   '@unocss/preset-icons': 0.48.0
   '@unocss/preset-typography': 0.48.0
   '@unocss/preset-uno': 0.48.0
-  '@unocss/preset-web-fonts': 0.48.0
+  '@unocss/preset-web-fonts': 0.48.3
   '@unocss/reset': 0.48.3
   '@unocss/transformer-compile-class': 0.48.0
   '@unocss/transformer-directives': 0.48.0
@@ -2860,10 +2860,10 @@ packages:
       '@unocss/preset-wind': 0.48.0
     dev: true
 
-  /@unocss/preset-web-fonts/0.48.0:
-    resolution: {integrity: sha512-eH2tcr2ax1EWKVnT8lZWPGMZDur70UNhyyhF1qZaBdGmbRG4qxEhro9TB70FaNJ/ggHEpvUE8g/t1ZZ5IgwtdQ==}
+  /@unocss/preset-web-fonts/0.48.3:
+    resolution: {integrity: sha512-G6DX2Ppup9MWJ9J3vd3C/XphWUGz/VqBLMmBzJflqC1t+Q6dMYluDGiSI+OulCLQXAO5w/3L0CPAtUsV6AH2Mw==}
     dependencies:
-      '@unocss/core': 0.48.0
+      '@unocss/core': 0.48.3
       ohmyfetch: 0.4.21
     dev: true
 
