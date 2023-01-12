@@ -24,7 +24,7 @@ specifiers:
   '@unocss/preset-typography': 0.48.0
   '@unocss/preset-uno': 0.48.0
   '@unocss/preset-web-fonts': 0.48.0
-  '@unocss/reset': 0.48.3
+  '@unocss/reset': 0.48.4
   '@unocss/transformer-compile-class': 0.48.0
   '@unocss/transformer-directives': 0.48.0
   '@unocss/transformer-variant-group': 0.48.0
@@ -145,7 +145,7 @@ devDependencies:
   '@unocss/preset-typography': 0.48.0
   '@unocss/preset-uno': 0.48.0
   '@unocss/preset-web-fonts': 0.48.0
-  '@unocss/reset': 0.48.3
+  '@unocss/reset': 0.48.4
   '@unocss/transformer-compile-class': 0.48.0
   '@unocss/transformer-directives': 0.48.0
   '@unocss/transformer-variant-group': 0.48.0
@@ -2874,8 +2874,8 @@ packages:
       '@unocss/preset-mini': 0.48.0
     dev: true
 
-  /@unocss/reset/0.48.3:
-    resolution: {integrity: sha512-IVydK/VbRJp2ms6Yl1M3/FzHWOj9fof1HsqKnC6nE5S1lBq7856yhTyY9TOQoA2sPOa+pblc4o6vUcgRrnl1lg==}
+  /@unocss/reset/0.48.4:
+    resolution: {integrity: sha512-9WPoGwLrG5vZQzMxgd7/zJkUUmL06WYtrAiRdf5gYsCBbnpx6eq0II0TvU8PEzvseqgkhEpN19iSgnsuTZ34kA==}
     dev: true
 
   /@unocss/scope/0.48.3:
