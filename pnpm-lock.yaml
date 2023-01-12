@@ -19,7 +19,7 @@ specifiers:
   '@typescript-eslint/parser': 5.48.1
   '@typescript-eslint/type-utils': 5.48.1
   '@unocss/core': 0.48.0
-  '@unocss/preset-attributify': 0.48.0
+  '@unocss/preset-attributify': 0.48.3
   '@unocss/preset-icons': 0.48.0
   '@unocss/preset-typography': 0.48.0
   '@unocss/preset-uno': 0.48.0
@@ -140,7 +140,7 @@ devDependencies:
   '@typescript-eslint/parser': 5.48.1_iukboom6ndih5an6iafl45j2fe
   '@typescript-eslint/type-utils': 5.48.1_iukboom6ndih5an6iafl45j2fe
   '@unocss/core': 0.48.0
-  '@unocss/preset-attributify': 0.48.0
+  '@unocss/preset-attributify': 0.48.3
   '@unocss/preset-icons': 0.48.0
   '@unocss/preset-typography': 0.48.0
   '@unocss/preset-uno': 0.48.0
@@ -2824,10 +2824,10 @@ packages:
       sirv: 2.0.2
     dev: true
 
-  /@unocss/preset-attributify/0.48.0:
-    resolution: {integrity: sha512-2W6PTX85dLbKm0wAUKfVbMD8rDxE3DSPSWQNfbLewC1o202qzIS8PeTKh++nHMVw1gzpATd546FbPvbZJlTtzw==}
+  /@unocss/preset-attributify/0.48.3:
+    resolution: {integrity: sha512-qzDr+gueFNXBXgtGywEZLQxkaVKBvIEAvVKRYaq8x7DcIenDtO2VND6Hzaoqet5CdjW8zBgbQxpDJJmnIADPzw==}
     dependencies:
-      '@unocss/core': 0.48.0
+      '@unocss/core': 0.48.3
     dev: true
 
   /@unocss/preset-icons/0.48.0:
