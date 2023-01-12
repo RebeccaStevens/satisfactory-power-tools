@@ -26,7 +26,7 @@ specifiers:
   '@unocss/preset-web-fonts': 0.48.0
   '@unocss/reset': 0.48.3
   '@unocss/transformer-compile-class': 0.48.0
-  '@unocss/transformer-directives': 0.48.0
+  '@unocss/transformer-directives': 0.48.3
   '@unocss/transformer-variant-group': 0.48.0
   '@unocss/vite': 0.48.3
   '@vitejs/plugin-vue': 4.0.0
@@ -147,7 +147,7 @@ devDependencies:
   '@unocss/preset-web-fonts': 0.48.0
   '@unocss/reset': 0.48.3
   '@unocss/transformer-compile-class': 0.48.0
-  '@unocss/transformer-directives': 0.48.0
+  '@unocss/transformer-directives': 0.48.3
   '@unocss/transformer-variant-group': 0.48.0
   '@unocss/vite': 0.48.3_vite@4.0.4
   '@vitejs/plugin-vue': 4.0.0_vite@4.0.4+vue@3.2.45
@@ -2886,13 +2886,6 @@ packages:
     resolution: {integrity: sha512-8Hi1KRQfqac7AT+YQuVM0eW6Z83u7PzuKD+SU7k+UzQLpX+M/S5t4iYJPYDSJ34btN8VhvXcn5iV//kclFAWgg==}
     dependencies:
       '@unocss/core': 0.48.0
-    dev: true
-
-  /@unocss/transformer-directives/0.48.0:
-    resolution: {integrity: sha512-Iq55a/vAcTM7xoEtMkqlDP3BT+0ljaqTFctvlentJWDoAjJlbOoPe4gE5BKld5ulWEsV4wvpY2acn/y8SGvJUw==}
-    dependencies:
-      '@unocss/core': 0.48.0
-      css-tree: 2.3.1
     dev: true
 
   /@unocss/transformer-directives/0.48.3:
