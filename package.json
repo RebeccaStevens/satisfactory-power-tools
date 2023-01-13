@@ -95,7 +95,7 @@
     "eslint-plugin-promise": "6.1.1",
     "eslint-plugin-sonarjs": "0.18.0",
     "eslint-plugin-unicorn": "45.0.2",
-    "eslint-plugin-vue": "9.8.0",
+    "eslint-plugin-vue": "9.9.0",
     "execa": "6.1.0",
     "husky": "8.0.3",
     "imagetools-core": "3.3.0",
