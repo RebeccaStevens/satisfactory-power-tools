@@ -30,7 +30,7 @@ specifiers:
   '@unocss/transformer-variant-group': 0.48.0
   '@unocss/vite': 0.48.4
   '@vitejs/plugin-vue': 4.0.0
-  '@vitest/coverage-c8': 0.27.1
+  '@vitest/coverage-c8': 0.27.2
   '@vue/eslint-config-prettier': 7.0.0
   '@vue/eslint-config-typescript': 11.0.2
   '@vue/test-utils': 2.2.7
@@ -96,7 +96,7 @@ specifiers:
   vite-ssg: 0.22.1
   vite-ssg-sitemap: 0.4.3
   vite-tsconfig-paths: 4.0.3
-  vitest: 0.27.1
+  vitest: 0.27.2
   vue: 3.2.45
   vue-eslint-parser: 9.1.0
   vue-i18n: 9.2.2
@@ -151,7 +151,7 @@ devDependencies:
   '@unocss/transformer-variant-group': 0.48.0
   '@unocss/vite': 0.48.4_vite@4.0.4
   '@vitejs/plugin-vue': 4.0.0_vite@4.0.4+vue@3.2.45
-  '@vitest/coverage-c8': 0.27.1_jsdom@21.0.0+sass@1.32.13
+  '@vitest/coverage-c8': 0.27.2_jsdom@21.0.0+sass@1.32.13
   '@vue/eslint-config-prettier': 7.0.0_3vccgihvamfrdnqonsut5ihh4a
   '@vue/eslint-config-typescript': 11.0.2_5gm7ezxcdo2zu65gboxarjsumy
   '@vue/test-utils': 2.2.7_vue@3.2.45
@@ -204,7 +204,7 @@ devDependencies:
   vite-plugin-vue-layouts: 0.7.0_oh6kquo6biweymmreht6aj34oy
   vite-ssg-sitemap: 0.4.3
   vite-tsconfig-paths: 4.0.3_gl4qsmwzp7wy5uclz4tx77gbli
-  vitest: 0.27.1_jsdom@21.0.0+sass@1.32.13
+  vitest: 0.27.2_jsdom@21.0.0+sass@1.32.13
   vue-eslint-parser: 9.1.0_eslint@8.32.0
   vue-tsc: 1.0.24_typescript@4.9.4
 
@@ -3126,11 +3126,11 @@ packages:
       vue: 3.2.45
     dev: true
 
-  /@vitest/coverage-c8/0.27.1_jsdom@21.0.0+sass@1.32.13:
-    resolution: {integrity: sha512-/9VTGDIAp4hv8PBawfyijxhkiyucfOxFRRP+7kzy3Dj0wONy1Mc2MBoPmiH4aZVc0LViQqecrQLs8JVGt42keA==}
+  /@vitest/coverage-c8/0.27.2_jsdom@21.0.0+sass@1.32.13:
+    resolution: {integrity: sha512-1MFwlwfwIfPFLfu6aN+dZ5jo2aOah5nAwoq/SrqUkt9rXzUmohLOgI1GTT0PpXbJKqaZicIlWuBjiC+BjVgRwQ==}
     dependencies:
       c8: 7.12.0
-      vitest: 0.27.1_jsdom@21.0.0+sass@1.32.13
+      vitest: 0.27.2_jsdom@21.0.0+sass@1.32.13
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -7349,7 +7349,7 @@ packages:
     resolution: {integrity: sha512-jHv9HB+Ho7dj6ItwppRDDl0iZRYBD0jsakHXtFgoLr+cHSF6xC+QL54sJmWxyGxOLYSHm0afhXhXcQDQqH9z8g==}
     dependencies:
       jsonc-parser: 3.2.0
-      mlly: 1.0.0
+      mlly: 1.1.0
       pathe: 1.0.0
     dev: true
 
@@ -8735,8 +8735,8 @@ packages:
       - rollup
     dev: true
 
-  /vite-node/0.27.1_2t5zzertvgx7nxfmkolltgmm7i:
-    resolution: {integrity: sha512-d6+ue/3NzsfndWaPbYh/bFkHbmAWfDXI4B874zRx+WREnG6CUHUbBC8lKaRYZjeR6gCPN5m1aVNNRXBYICA9XA==}
+  /vite-node/0.27.2_2t5zzertvgx7nxfmkolltgmm7i:
+    resolution: {integrity: sha512-IDwuVhslF10qCnWOGJui7/2KksAOBHi+UbVo6Pqt4f5lgn+kS2sVvYDsETRG5PSuslisGB5CFGvb9I6FQgymBQ==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     dependencies:
@@ -8923,8 +8923,8 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
 
-  /vitest/0.27.1_jsdom@21.0.0+sass@1.32.13:
-    resolution: {integrity: sha512-1sIpQ1DVFTEn7c1ici1XHcVfdU4nKiBmPtPAtGKJJJLuJjojTv/OHGgcf69P57alM4ty8V4NMv+7Yoi5Cxqx9g==}
+  /vitest/0.27.2_jsdom@21.0.0+sass@1.32.13:
+    resolution: {integrity: sha512-y7tdsL2uaQy+KF18AlmNHZe29ukyFytlxrpSTwwmgLE2XHR/aPucJP9FLjWoqjgqFlXzRAjHlFJLU+HDyI/OsA==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
@@ -8962,7 +8962,7 @@ packages:
       tinypool: 0.3.0
       tinyspy: 1.0.2
       vite: 4.0.4_2t5zzertvgx7nxfmkolltgmm7i
-      vite-node: 0.27.1_2t5zzertvgx7nxfmkolltgmm7i
+      vite-node: 0.27.2_2t5zzertvgx7nxfmkolltgmm7i
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
