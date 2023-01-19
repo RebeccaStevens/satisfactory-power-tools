@@ -70,7 +70,7 @@ specifiers:
   monocle-ts: 2.3.13
   newtype-ts: 0.3.5
   pinia: 2.0.29
-  pnpm: 7.25.0
+  pnpm: 7.25.1
   prettier: 2.8.3
   prettier-plugin-packagejson: 2.4.0
   pretty-format: 29.3.1
@@ -181,7 +181,7 @@ devDependencies:
   imagetools-core: 3.3.0
   jsdom: 21.0.0
   lint-staged: 13.1.0
-  pnpm: 7.25.0
+  pnpm: 7.25.1
   prettier: 2.8.3
   prettier-plugin-packagejson: 2.4.0_prettier@2.8.3
   rollup-plugin-node-polyfills: 0.2.1
@@ -7351,8 +7351,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /pnpm/7.25.0:
-    resolution: {integrity: sha512-FGFQUON8kJ6ma39elJ8lyD8wPIfgp3opGJD9sX0TgIJk4zSr556qCgC8AN+3BFHe4yuRkEauf4JVLW2RKyyEcA==}
+  /pnpm/7.25.1:
+    resolution: {integrity: sha512-y/jlADVxyk+scBwI0ALRf8QoUMgrWyONnD1voZaPTBI+D+aIXXiFG9pMk3eLhvEfc0nK8KUnnbDDBTywd7WsMw==}
     engines: {node: '>=14.6'}
     hasBin: true
     dev: true
