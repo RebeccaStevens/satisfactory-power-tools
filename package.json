@@ -24,7 +24,7 @@
     "typecheck:scripts": "tsc -p tsconfig.node.json --noEmit"
   },
   "dependencies": {
-    "@quasar/extras": "1.15.9",
+    "@quasar/extras": "1.15.10",
     "@vueuse/core": "9.11.0",
     "@vueuse/head": "1.0.22",
     "array.prototype.group": "1.1.2",
