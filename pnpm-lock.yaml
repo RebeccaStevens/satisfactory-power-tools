@@ -5,7 +5,7 @@ specifiers:
   '@commitlint/config-conventional': 17.4.2
   '@esbuild-plugins/node-globals-polyfill': 0.1.1
   '@iconify-json/bx': 1.1.5
-  '@iconify/json': 2.2.10
+  '@iconify/json': 2.2.11
   '@iconify/utils': 2.0.12
   '@intlify/vite-plugin-vue-i18n': 6.0.3
   '@kidonng/daisyui': 2.31.0
@@ -127,7 +127,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.4.2
   '@esbuild-plugins/node-globals-polyfill': 0.1.1_esbuild@0.17.4
   '@iconify-json/bx': 1.1.5
-  '@iconify/json': 2.2.10
+  '@iconify/json': 2.2.11
   '@iconify/utils': 2.0.12
   '@intlify/vite-plugin-vue-i18n': 6.0.3_vite@4.0.4+vue-i18n@9.2.2
   '@kidonng/daisyui': 2.31.0
@@ -2252,8 +2252,8 @@ packages:
       '@iconify/types': 2.0.0
     dev: true
 
-  /@iconify/json/2.2.10:
-    resolution: {integrity: sha512-WaAHE6+o2YssA768FRx0a6FdJnW4jYMrVw6eXA8iwucoM+abaGMwxaGderlGS/kovFXCHyV1vViJgW12BPErcg==}
+  /@iconify/json/2.2.11:
+    resolution: {integrity: sha512-LlFrpRAOFq4zW7tbw3GZPB3GRjtwpXQJIb7bHyFjAQb43FdkOWM01A5tB1WpXDYBq1C4FMIbGusCbrSHlX9jHQ==}
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 1.0.0
