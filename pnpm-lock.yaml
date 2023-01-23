@@ -63,7 +63,7 @@ specifiers:
   execa: 6.1.0
   fp-ts: 2.13.1
   husky: 8.0.3
-  imagetools-core: 3.3.0
+  imagetools-core: 3.3.1
   iterator-helpers-polyfill: 2.2.8
   jsdom: 21.1.0
   lint-staged: 13.1.0
@@ -178,7 +178,7 @@ devDependencies:
   eslint-plugin-vue: 9.9.0_eslint@8.32.0
   execa: 6.1.0
   husky: 8.0.3
-  imagetools-core: 3.3.0
+  imagetools-core: 3.3.1
   jsdom: 21.1.0
   lint-staged: 13.1.0
   pnpm: 7.25.1
@@ -5881,8 +5881,8 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
-  /imagetools-core/3.3.0:
-    resolution: {integrity: sha512-6irRDGeZc12n30I0V4Vi8pZxJNIYKe0/5uQVTU8h+TIYEnMz9BMEKqJUwfYcHngFPm/v8GugwELO6SeH7wmzLw==}
+  /imagetools-core/3.3.1:
+    resolution: {integrity: sha512-xllF2GDRg0SXCQQRxBAtE6N9dPAttc+ro+QDLnRmVSE5lH5clQxD2Al4XluirXj0T7lIH5VbetFmBLowW6ps+w==}
     engines: {node: '>=12.0.0'}
     dependencies:
       sharp: 0.31.3
@@ -8723,7 +8723,7 @@ packages:
     engines: {node: '>=12.0.0'}
     dependencies:
       '@rollup/pluginutils': 5.0.2
-      imagetools-core: 3.3.0
+      imagetools-core: 3.3.1
     transitivePeerDependencies:
       - rollup
     dev: true
