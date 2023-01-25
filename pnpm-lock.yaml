@@ -73,7 +73,7 @@ specifiers:
   pnpm: 7.26.0
   prettier: 2.8.3
   prettier-plugin-packagejson: 2.4.0
-  pretty-format: 29.3.1
+  pretty-format: 29.4.0
   quasar: 2.11.5
   rollup-plugin-node-polyfills: 0.2.1
   rollup-plugin-unassert: 0.5.0
@@ -115,7 +115,7 @@ dependencies:
   monocle-ts: 2.3.13_fp-ts@2.13.1
   newtype-ts: 0.3.5_y4ecnzjsatnzoei5elwf4wjeqa
   pinia: 2.0.29_prq2uz4lho2pwp6irk4cfkrxwu
-  pretty-format: 29.3.1
+  pretty-format: 29.4.0
   quasar: 2.11.5
   vite-ssg: 0.22.1_sieo3airv7it63syofhmk4kcsa
   vue: 3.2.45
@@ -2374,11 +2374,11 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /@jest/schemas/29.0.0:
-    resolution: {integrity: sha512-3Ab5HgYIIAnS0HjqJHQYZS+zXc4tUmTmBH3z83ajI6afXp8X3ZtdLX+nXx+I7LNkJD7uN9LAVhgnjDgZa2z0kA==}
+  /@jest/schemas/29.4.0:
+    resolution: {integrity: sha512-0E01f/gOZeNTG76i5eWWSupvSHaIINrTie7vCyjiYFKgzNdyEGd12BUv4oNBFHOqlHDbtoJi3HrQ38KCC90NsQ==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
-      '@sinclair/typebox': 0.24.51
+      '@sinclair/typebox': 0.25.21
     dev: false
 
   /@jridgewell/gen-mapping/0.1.1:
@@ -2634,8 +2634,8 @@ packages:
       rollup: 3.7.4
     dev: true
 
-  /@sinclair/typebox/0.24.51:
-    resolution: {integrity: sha512-1P1OROm/rdubP5aFDSZQILU0vrLCJ4fvHt6EoqHEM+2D/G5MK3bIaymUKLit8Js9gbns5UyJnkP/TZROLw4tUA==}
+  /@sinclair/typebox/0.25.21:
+    resolution: {integrity: sha512-gFukHN4t8K4+wVC+ECqeqwzBDeFeTzBXroBTqE6vcWrQGbEUpHO7LYdG0f4xnvYq4VOEwITSlHlp0JBAIFMS/g==}
     dev: false
 
   /@surma/rollup-plugin-off-main-thread/2.2.3:
@@ -7482,11 +7482,11 @@ packages:
       react-is: 17.0.2
     dev: true
 
-  /pretty-format/29.3.1:
-    resolution: {integrity: sha512-FyLnmb1cYJV8biEIiRyzRFvs2lry7PPIvOqKVe1GCUEYg4YGmlx1qG9EJNMxArYm7piII4qb8UV1Pncq5dxmcg==}
+  /pretty-format/29.4.0:
+    resolution: {integrity: sha512-J+EVUPXIBHCdWAbvGBwXs0mk3ljGppoh/076g1S8qYS8nVG4u/yrhMvyTFHYYYKWnDdgRLExx0vA7pzxVGdlNw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
-      '@jest/schemas': 29.0.0
+      '@jest/schemas': 29.4.0
       ansi-styles: 5.2.0
       react-is: 18.2.0
     dev: false
