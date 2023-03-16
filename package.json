@@ -62,7 +62,7 @@
     "@unocss/core": "0.48.0",
     "@unocss/preset-attributify": "0.48.0",
     "@unocss/preset-icons": "0.48.0",
-    "@unocss/preset-typography": "0.48.0",
+    "@unocss/preset-typography": "0.50.6",
     "@unocss/preset-uno": "0.48.0",
     "@unocss/preset-web-fonts": "0.48.0",
     "@unocss/reset": "0.49.0",
