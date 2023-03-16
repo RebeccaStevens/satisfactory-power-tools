@@ -67,7 +67,7 @@
     "@unocss/preset-web-fonts": "0.48.0",
     "@unocss/reset": "0.49.0",
     "@unocss/transformer-compile-class": "0.48.0",
-    "@unocss/transformer-directives": "0.48.0",
+    "@unocss/transformer-directives": "0.50.6",
     "@unocss/transformer-variant-group": "0.48.0",
     "@unocss/vite": "0.49.0",
     "@vitejs/plugin-vue": "4.0.0",
