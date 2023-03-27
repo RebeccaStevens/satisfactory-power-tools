@@ -138,8 +138,8 @@ export const install: UserModule = ({ app }) => {
         icon: "i-carbon-play-filled-alt",
       },
       uploader: {
-        selected: "i-carbon-checkmark",
-        activeIcon: "i-carbon-close",
+        done: "i-carbon-checkmark",
+        clear: "i-carbon-close",
         add: "i-carbon-add-filled",
         upload: "i-carbon-cloud-upload",
         removeQueue: "i-carbon-sort-remove",

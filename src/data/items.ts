@@ -3,7 +3,7 @@ import { asMegaJoules, asItemTransporter, asColorString } from "~/data/types";
 
 import type RawGameData from "./game-data.json";
 
-export function getItems(rawItems: Readonly<typeof RawGameData["items"]>) {
+export function getItems(rawItems: Readonly<(typeof RawGameData)["items"]>) {
   return new Map(
     Object.entries(rawItems).map(([id, data]): [string, Item] => {
       const energy = asMegaJoules(data.energy);

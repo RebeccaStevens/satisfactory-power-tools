@@ -1,6 +1,7 @@
 const project = [
   "./tsconfig.json",
   "./tsconfig.node.json",
+  "./scripts/tsconfig.json",
   "./tests/tsconfig.json",
 ];
 
@@ -37,32 +38,25 @@ module.exports = {
   rules: {
     "@typescript-eslint/no-empty-function": "warn",
     "@typescript-eslint/no-empty-interface": "warn",
+    "jsdoc/require-jsdoc": "off",
+    "import/no-unassigned-import": [
+      "error",
+      {
+        allow: ["~/polyfills", "**/*.{css,sass,scss}", "virtual:*"],
+      },
+    ],
+    "node/no-unpublished-import": "off",
+    "unicorn/no-array-for-each": "off",
+    "unicorn/no-array-method-this-argument": "off",
+    "unicorn/no-empty-file": "warn",
+    // @see https://github.com/sindresorhus/eslint-plugin-unicorn/issues/2018
+    "unicorn/no-useless-spread": "off",
     "vue/multi-word-component-names": [
       "error",
       {
         ignores: ["index", "Footer"],
       },
     ],
-    "unicorn/no-array-for-each": "off",
-    "unicorn/no-array-method-this-argument": "off",
-    "import/default": "off",
-    "import/no-relative-parent-imports": "off",
-    "import/no-unassigned-import": "off",
-    "functional/prefer-immutable-types": [
-      "warn",
-      {
-        enforcement: "None",
-        ignoreInferredTypes: true,
-        parameters: {
-          enforcement: "ReadonlyShallow",
-        },
-        ignoreNamePattern: ["^m_"],
-      },
-    ],
-    "jsdoc/require-jsdoc": "off",
-    "unicorn/no-empty-file": "warn",
-    // @see https://github.com/sindresorhus/eslint-plugin-unicorn/issues/2018
-    "unicorn/no-useless-spread": "off",
   },
   overrides: [
     {
@@ -79,12 +73,24 @@ module.exports = {
     {
       files: ["src/**"],
       rules: {
+        "functional/functional-parameters": [
+          "error",
+          {
+            ignorePattern: "^use[A-Z]",
+          },
+        ],
+        "functional/no-expression-statements": "off",
         "node/prefer-global/console": "off",
         "unicorn/prefer-node-protocol": "off",
       },
     },
     {
-      files: ["src/main.ts", "src/**/modules/**"],
+      files: ["src/**/*.vue"],
+      extends: ["plugin:functional/off"],
+    },
+    {
+      files: ["src/main.ts", "src/**/modules/**", "src/types/user-module.d.ts"],
+      extends: ["plugin:functional/off"],
       rules: {
         "import/no-extraneous-dependencies": "off",
       },
@@ -109,7 +115,13 @@ module.exports = {
     },
     {
       files: "scripts/**/*",
+      extends: ["plugin:functional/off"],
       rules: {
+        "@typescript-eslint/no-unsafe-argument": "off",
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "@typescript-eslint/no-unsafe-return": "off",
         "no-await-in-loop": "off",
       },
     },
@@ -124,6 +136,18 @@ module.exports = {
       files: "raw-collection-parser.ts",
       rules: {
         "eslint-comments/no-unlimited-disable": "off",
+      },
+    },
+    {
+      files: "src/polyfills.ts",
+      rules: {
+        "import/no-unassigned-import": "off",
+      },
+    },
+    {
+      files: ".eslintrc.cjs",
+      rules: {
+        "sonarjs/no-duplicate-string": "off",
       },
     },
     {
@@ -208,15 +232,6 @@ module.exports = {
       typescript: {
         project,
       },
-    },
-    immutability: {
-      overrides: [
-        {
-          name: "Readonly",
-          to: "ReadonlyShallow",
-          from: "Mutable",
-        },
-      ],
     },
   },
 };

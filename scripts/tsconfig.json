@@ -1,5 +1,7 @@
 {
   "extends": "../tsconfig.node.json",
-  "compilerOptions": {},
-  "include": ["**/*.ts"]
+  "compilerOptions": {
+    "noPropertyAccessFromIndexSignature": false
+  },
+  "include": ["**/*.ts", "../src/shims.d.ts"]
 }

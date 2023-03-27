@@ -32,10 +32,12 @@ function parseNodeData(nodes: Readonly<typeof resourceJsonData.nodes>) {
   });
 
   return nodeEntries.reduce<
-    Record<string, Array<typeof nodeEntries[number][1]>>
+    Record<string, Array<(typeof nodeEntries)[number][1]>>
   >((c, [resource, data]) => {
-    // eslint-disable-next-line no-multi-assign -- easiest way to do this.
-    const node = (c[resource] ??= []);
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- see: https://github.com/typescript-eslint/typescript-eslint/issues/6635.
+    c[resource] ??= [];
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const node = c[resource]!;
     node.push(data);
     return c;
   }, {});
@@ -73,7 +75,7 @@ function parseWellData(
   });
 
   const satellitesByCore = satelliteEntries.reduce<
-    Map<string, Array<typeof satelliteEntries[number][1]>>
+    Map<string, Array<(typeof satelliteEntries)[number][1]>>
   >((c, [coreId, data]) => {
     let m_satellite = c.get(coreId);
     if (m_satellite === undefined) {
@@ -88,14 +90,16 @@ function parseWellData(
     Record<
       string,
       Array<
-        typeof coreEntries[number][2] & {
-          satellites: Array<typeof satelliteEntries[number][1]>;
+        (typeof coreEntries)[number][2] & {
+          satellites: Array<(typeof satelliteEntries)[number][1]>;
         }
       >
     >
   >((c, [resource, coreId, data]) => {
-    // eslint-disable-next-line no-multi-assign -- easiest way to do this.
-    const core = (c[resource] ??= []);
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- see: https://github.com/typescript-eslint/typescript-eslint/issues/6635.
+    c[resource] ??= [];
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const core = c[resource]!;
     const satellites = satellitesByCore.get(coreId);
     assert(satellites !== undefined);
     core.push({ ...data, satellites });
@@ -105,9 +109,9 @@ function parseWellData(
 
 function parseCommon(
   node: Readonly<
-    | typeof resourceJsonData.nodes[number]
-    | typeof resourceJsonData.geysers[number]
-    | typeof resourceJsonData.frackingCores[number]
+    | (typeof resourceJsonData.nodes)[number]
+    | (typeof resourceJsonData.geysers)[number]
+    | (typeof resourceJsonData.frackingCores)[number]
   >,
 ) {
   return {
@@ -120,9 +124,9 @@ function parseCommon(
 
 function parsePurity(
   thing: Readonly<
-    | typeof resourceJsonData.nodes[number]
-    | typeof resourceJsonData.geysers[number]
-    | typeof resourceJsonData.frackingSatellites[number]
+    | (typeof resourceJsonData.nodes)[number]
+    | (typeof resourceJsonData.geysers)[number]
+    | (typeof resourceJsonData.frackingSatellites)[number]
   >,
 ) {
   return thing.purity === ResourcePurity.Pure

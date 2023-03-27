@@ -9,7 +9,7 @@ import {
 import type RawGameData from "./game-data.json";
 
 export function getGeysers(
-  rawGeysers: Readonly<typeof RawGameData["geysers"]>,
+  rawGeysers: Readonly<(typeof RawGameData)["geysers"]>,
 ) {
   return new Set(
     rawGeysers.map((data): Geyser => {

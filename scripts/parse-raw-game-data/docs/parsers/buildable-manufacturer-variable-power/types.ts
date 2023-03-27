@@ -1,5 +1,5 @@
 import type { BuildableManufacturer } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type {} from "~/scripts/parse-raw-game-data/types";
+// import type {} from "~/scripts/parse-raw-game-data/types";
 
 export type Data = BuildableManufacturer & {
   mSequenceDuration: number;

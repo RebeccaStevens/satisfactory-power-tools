@@ -11,7 +11,7 @@ import {
 import type RawGameData from "./game-data.json";
 
 export function getNodes(
-  rawNodeGroups: Readonly<typeof RawGameData["nodes"]>,
+  rawNodeGroups: Readonly<(typeof RawGameData)["nodes"]>,
   items: ReadonlyMap<string, Item>,
 ) {
   return new Map(

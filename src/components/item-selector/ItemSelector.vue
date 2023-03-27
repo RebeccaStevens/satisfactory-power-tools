@@ -180,9 +180,11 @@ const itemOptions = computed(() => {
       }
       return getGroupedOptionsFilter(textInput.value)(itemsByTier.value);
     }
-  }
 
-  assertNever("Unhandled sort");
+    default: {
+      return assertNever("Unhandled sort");
+    }
+  }
 });
 
 // TODO: refactor to us a simpler event.

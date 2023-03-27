@@ -15,6 +15,7 @@ $q.iconMapFn = (iconName) => {
       cls: iconName,
     };
   }
+  return undefined;
 };
 
 // Setup detection of dark mode.

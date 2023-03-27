@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 
 import { isObject, assertNever } from "~/utils";
+import "~/polyfills";
 
 import docsJsonData from "../data/Docs.json" assert { type: "json" };
 import samJsonData from "../data/Sam.json" assert { type: "json" };
@@ -111,7 +112,7 @@ function rawGameDataByNativeClass() {
   assert(isObject(items) && "Classes" in items && Array.isArray(items.Classes));
   items.Classes.push(samJsonData);
 
-  return new Map(
+  return new Map<string, ReadonlyArray<unknown>>(
     data.map((group): [string, ReadonlyArray<unknown>] => {
       assert(
         isObject(group) &&

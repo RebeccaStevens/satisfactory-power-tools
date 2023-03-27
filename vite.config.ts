@@ -4,7 +4,7 @@ import path from "node:path";
 import url from "node:url";
 
 // import { NodeGlobalsPolyfillPlugin } from "@esbuild-plugins/node-globals-polyfill";
-import VueI18n from "@intlify/vite-plugin-vue-i18n";
+import VueI18n from "@intlify/unplugin-vue-i18n";
 import { quasar, transformAssetUrls } from "@quasar/vite-plugin";
 import Unocss from "@unocss/vite";
 import Vue from "@vitejs/plugin-vue";
@@ -35,7 +35,7 @@ export default defineConfig(({ command, mode }) => {
     Command: ${command}
     Mode:    ${mode}
   `);
-  process.env.NODE_ENV = mode;
+  process.env["NODE_ENV"] = mode;
 
   return {
     resolve: {
@@ -198,9 +198,7 @@ export default defineConfig(({ command, mode }) => {
       }),
 
       // https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
-      VueI18n({
-        runtimeOnly: true,
-        compositionOnly: true,
+      VueI18n.vite({
         fullInstall: false,
         include: [path.resolve(dirname, "locales/**")],
       }),

@@ -5,5 +5,5 @@
     "module": "ESNext",
     "lib": ["ESNext"]
   },
-  "include": ["*.ts", "scripts/**/*", "src/shims.d.ts"]
+  "include": ["*.ts", "src/shims.d.ts"]
 }

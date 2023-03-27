@@ -11,7 +11,7 @@ import {
 import type RawGameData from "./game-data.json";
 
 export function getWells(
-  rawWellGroups: Readonly<typeof RawGameData["wells"]>,
+  rawWellGroups: Readonly<(typeof RawGameData)["wells"]>,
   items: ReadonlyMap<string, Item>,
 ) {
   return new Map(

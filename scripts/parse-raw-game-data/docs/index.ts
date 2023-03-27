@@ -125,8 +125,10 @@ export function getDocsData() {
         })
         .reduce<Record<string, Array<readonly [string, unknown]>>>(
           (carry, [t, ent]) => {
-            // eslint-disable-next-line no-multi-assign
-            const classes = (carry[t] ??= []);
+            // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- see: https://github.com/typescript-eslint/typescript-eslint/issues/6635.
+            carry[t] ??= [];
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            const classes = carry[t]!;
             classes.push(ent);
             return carry;
           },

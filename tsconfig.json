@@ -3,13 +3,11 @@
   "compilerOptions": {
     "jsx": "preserve",
     "lib": ["ESNext", "DOM"],
-    "module": "ESNext",
-    "resolveJsonModule": true,
     "useDefineForClassFields": true,
     "types": [
       "vite-plugin-pages/client",
       "vite-plugin-pwa/client",
-      "vite-plugin-vue-layouts/client",
+      "vite-plugin-vue-layouts/client.d.ts",
       "vite/client",
       "vitest",
       "vue/ref-macros"

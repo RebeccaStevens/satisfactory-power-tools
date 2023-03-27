@@ -1,85 +1,28 @@
 name: CI
 
 on:
-  - push
-  - pull_request
+  push:
+    branches:
+      - main
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
-          cache: pnpm
-
-      - name: Install
-        run: pnpm install --frozen-lockfile
-
-      - name: Build
-        run: pnpm run build
-
-      - name: Lint
-        run: pnpm run lint
-
-  spellcheck:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
-          cache: pnpm
-
-      - name: Install
-        run: pnpm install --frozen-lockfile
-
-      - name: Lint
-        run: pnpm run spell-check
-
-  typecheck:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
-          cache: pnpm
-
-      - name: Install
-        run: pnpm install --frozen-lockfile
-
-      - name: Build
-        run: pnpm run build
-
-      - name: Typecheck
-        run: pnpm run typecheck
-
+  build:
+    uses: ./.github/workflows/build.yml
+  build_ssg:
+    uses: ./.github/workflows/build-ssg.yml
+  lint_js:
+    uses: ./.github/workflows/lint-js.yml
+  lint_markdown:
+    uses: ./.github/workflows/lint-markdown.yml
+  lint_spelling:
+    uses: ./.github/workflows/lint-spelling.yml
+  lint_prettier:
+    uses: ./.github/workflows/lint-prettier.yml
   test:
-    runs-on: ubuntu-latest
-
-    strategy:
-      fail-fast: false
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
-          registry-url: https://registry.npmjs.org/
-          cache: pnpm
-
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm run test:unit
-
-      - name: Report coverage
-        uses: codecov/codecov-action@v3
-        if: success() || failure()
-        with:
-          files: coverage/lcov.info
-          flags: unit
+    uses: ./.github/workflows/test-js.yml
+  type_check_app:
+    uses: ./.github/workflows/type-check-app.yml
+  type_check_node:
+    uses: ./.github/workflows/type-check-node.yml
+  type_check_scripts:
+    uses: ./.github/workflows/type-check-scripts.yml

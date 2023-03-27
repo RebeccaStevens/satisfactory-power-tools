@@ -1,0 +1,16 @@
+diff --git a/package.json b/package.json
+index 1ff4439d909e87f1f3c66d18776a95189dd5923f..f57f92378ed181d8c3515801d8b9a5d790f0a6c4 100644
+--- a/package.json
++++ b/package.json
+@@ -9,7 +9,10 @@
+     "module": "./build/bundle.min.mjs",
+     "types": "./declarations/index.d.ts",
+     "exports": {
+-        "import": "./build/bundle.min.mjs",
++        "import": {
++            "types": "./declarations/index.d.ts",
++            "default": "./build/bundle.min.mjs"
++        },
+         "require": "./build/bundle.min.cjs",
+         "default": "./build/bundle.min.js"
+     },

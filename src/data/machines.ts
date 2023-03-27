@@ -10,7 +10,7 @@ import {
 import type RawGameData from "./game-data.json";
 
 export function getMachines(
-  rawMachines: Readonly<typeof RawGameData["machines"]>,
+  rawMachines: Readonly<(typeof RawGameData)["machines"]>,
 ) {
   return new Map(
     Object.entries(rawMachines).map(([id, data]): [string, Machine] => {

@@ -10,7 +10,7 @@ import { isNotNull } from "~/utils";
 import type RawGameData from "./game-data.json";
 
 export function getRecipes(
-  rawRecipes: Readonly<typeof RawGameData["recipes"]>,
+  rawRecipes: Readonly<(typeof RawGameData)["recipes"]>,
   items: ReadonlyMap<string, Item>,
   machines: ReadonlyMap<string, Machine>,
 ) {
