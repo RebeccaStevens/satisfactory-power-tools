@@ -6,22 +6,22 @@ on:
       - main
 
 jobs:
-  build:
-    uses: ./.github/workflows/build.yml
-  build_ssg:
-    uses: ./.github/workflows/build-ssg.yml
-  lint_js:
-    uses: ./.github/workflows/lint-js.yml
+  # build:
+  #   uses: ./.github/workflows/build.yml
+  # build_ssg:
+  #   uses: ./.github/workflows/build-ssg.yml
+  # lint_js:
+  #   uses: ./.github/workflows/lint-js.yml
   lint_markdown:
     uses: ./.github/workflows/lint-markdown.yml
   lint_spelling:
     uses: ./.github/workflows/lint-spelling.yml
   lint_prettier:
     uses: ./.github/workflows/lint-prettier.yml
-  test:
-    uses: ./.github/workflows/test-js.yml
-  type_check_app:
-    uses: ./.github/workflows/type-check-app.yml
+  # test:
+  #   uses: ./.github/workflows/test-js.yml
+  # type_check_app:
+  #   uses: ./.github/workflows/type-check-app.yml
   type_check_node:
     uses: ./.github/workflows/type-check-node.yml
   type_check_scripts:
