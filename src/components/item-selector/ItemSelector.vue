@@ -253,17 +253,17 @@ const props = defineProps<{ label?: string }>();
       </q-item>
     </template>
 
-    <template v-slot:option="scope">
+    <template v-slot:option="data">
       <div
-        :key="Array.isArray(scope.opt) ? `group:${scope.opt[0]?.id ?? 'uncategorized'}` : `value:${scope.opt.value}`"
+        :key="Array.isArray(data.opt) ? `group:${data.opt[0]?.id ?? 'uncategorized'}` : `value:${data.opt.value}`"
       >
         <!-- Grouped -->
-        <template v-if="Array.isArray(scope.opt)">
+        <template v-if="Array.isArray(data.opt)">
           <q-expansion-item
             default-opened
-            :label="scope.opt[0]?.label ?? 'Uncategorized'"
+            :label="data.opt[0]?.label ?? 'Uncategorized'"
           >
-            <template v-for="option in scope.opt[1]" :key="option.value">
+            <template v-for="option in data.opt[1]" :key="option.value">
               <q-item
                 clickable
                 v-ripple
@@ -291,17 +291,17 @@ const props = defineProps<{ label?: string }>();
             clickable
             v-ripple
             v-close-popup
-            :active="itemModel?.value === scope.opt.value"
-            @click="itemModel = scope.opt"
+            :active="itemModel?.value === data.opt.value"
+            @click="itemModel = data.opt"
           >
             <q-item-section avatar>
               <picture class="item-image" aria-hidden="true">
-                <source :srcset="scope.opt.image.srcset" />
-                <img :src="scope.opt.image.src" />
+                <source :srcset="data.opt.image.srcset" />
+                <img :src="data.opt.image.src" />
               </picture>
             </q-item-section>
             <q-item-section>
-              {{ scope.opt.label }}
+              {{ data.opt.label }}
             </q-item-section>
           </q-item>
         </template>
