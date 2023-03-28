@@ -254,54 +254,58 @@ const props = defineProps<{ label?: string }>();
     </template>
 
     <template v-slot:option="scope">
-      <!-- Grouped -->
-      <template v-if="Array.isArray(scope.opt)">
-        <q-expansion-item
-          default-opened
-          :label="scope.opt[0]?.label ?? 'Uncategorized'"
-        >
-          <template v-for="option in scope.opt[1]" :key="option.value">
-            <q-item
-              clickable
-              v-ripple
-              v-close-popup
-              :active="itemModel?.value === option.value"
-              @click="itemModel = option"
-            >
-              <q-item-section avatar>
-                <picture class="item-image" aria-hidden="true">
-                  <source :srcset="option.image.srcset" />
-                  <img :src="option.image.src" />
-                </picture>
-              </q-item-section>
-              <q-item-section>
-                {{ option.label }}
-              </q-item-section>
-            </q-item>
-          </template>
-        </q-expansion-item>
-      </template>
+      <div
+        :key="Array.isArray(scope.opt) ? `group:${scope.opt[0]?.id ?? 'uncategorized'}` : `value:${scope.opt.value}`"
+      >
+        <!-- Grouped -->
+        <template v-if="Array.isArray(scope.opt)">
+          <q-expansion-item
+            default-opened
+            :label="scope.opt[0]?.label ?? 'Uncategorized'"
+          >
+            <template v-for="option in scope.opt[1]" :key="option.value">
+              <q-item
+                clickable
+                v-ripple
+                v-close-popup
+                :active="itemModel?.value === option.value"
+                @click="itemModel = option"
+              >
+                <q-item-section avatar>
+                  <picture class="item-image" aria-hidden="true">
+                    <source :srcset="option.image.srcset" />
+                    <img :src="option.image.src" />
+                  </picture>
+                </q-item-section>
+                <q-item-section>
+                  {{ option.label }}
+                </q-item-section>
+              </q-item>
+            </template>
+          </q-expansion-item>
+        </template>
 
-      <!-- Ungrouped -->
-      <template v-else>
-        <q-item
-          clickable
-          v-ripple
-          v-close-popup
-          :active="itemModel?.value === scope.opt.value"
-          @click="itemModel = scope.opt"
-        >
-          <q-item-section avatar>
-            <picture class="item-image" aria-hidden="true">
-              <source :srcset="scope.opt.image.srcset" />
-              <img :src="scope.opt.image.src" />
-            </picture>
-          </q-item-section>
-          <q-item-section>
-            {{ scope.opt.label }}
-          </q-item-section>
-        </q-item>
-      </template>
+        <!-- Ungrouped -->
+        <template v-else>
+          <q-item
+            clickable
+            v-ripple
+            v-close-popup
+            :active="itemModel?.value === scope.opt.value"
+            @click="itemModel = scope.opt"
+          >
+            <q-item-section avatar>
+              <picture class="item-image" aria-hidden="true">
+                <source :srcset="scope.opt.image.srcset" />
+                <img :src="scope.opt.image.src" />
+              </picture>
+            </q-item-section>
+            <q-item-section>
+              {{ scope.opt.label }}
+            </q-item-section>
+          </q-item>
+        </template>
+      </div>
     </template>
   </q-select>
 </template>
