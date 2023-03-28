@@ -265,6 +265,7 @@ const props = defineProps<{ label?: string }>();
               clickable
               v-ripple
               v-close-popup
+              :active="itemModel?.value === option.value"
               @click="itemModel = option"
             >
               <q-item-section avatar>
@@ -283,7 +284,13 @@ const props = defineProps<{ label?: string }>();
 
       <!-- Ungrouped -->
       <template v-else>
-        <q-item clickable v-ripple v-close-popup @click="itemModel = scope.opt">
+        <q-item
+          clickable
+          v-ripple
+          v-close-popup
+          :active="itemModel?.value === scope.opt.value"
+          @click="itemModel = scope.opt"
+        >
           <q-item-section avatar>
             <picture class="item-image" aria-hidden="true">
               <source :srcset="scope.opt.image.srcset" />
