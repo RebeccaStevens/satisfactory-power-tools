@@ -72,13 +72,6 @@ export default defineConfig(({ command, mode }) => {
         output: {
           inlineDynamicImports: false,
         },
-        plugins: [
-          // TODO: enable when it doesn't cause issues.
-          // @see https://github.com/unassert-js/rollup-plugin-unassert/issues/9
-          // rollupUnassert({
-          //   include: ["**/*.ts"],
-          // }),
-        ],
       },
     },
 
@@ -120,6 +113,10 @@ export default defineConfig(({ command, mode }) => {
           babelParserPlugins: ["importAssertions"],
         },
         template: { transformAssetUrls },
+      }),
+
+      rollupUnassert({
+        include: ["**/*.ts"],
       }),
 
       quasar({
