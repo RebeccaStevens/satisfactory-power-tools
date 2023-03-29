@@ -1,5 +1,5 @@
 import { getWells } from "./fracking";
-import rawGameData from "./game-data.json" assert { type: "json" };
+import rawGameData from "./game-data.json";
 import { getGeysers } from "./geysers";
 import { getItems } from "./items";
 import { getMachines } from "./machines";

@@ -109,9 +109,6 @@ export default defineConfig(({ command, mode }) => {
 
       Vue({
         reactivityTransform: true,
-        script: {
-          babelParserPlugins: ["importAssertions"],
-        },
         template: { transformAssetUrls },
       }),
 
