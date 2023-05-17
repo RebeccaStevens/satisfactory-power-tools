@@ -30,7 +30,7 @@
     "type-check:scripts": "tsc -p scripts/tsconfig.json --noEmit --skipLibCheck"
   },
   "dependencies": {
-    "@quasar/extras": "1.16.1",
+    "@quasar/extras": "1.16.4",
     "@vueuse/core": "9.13.0",
     "@vueuse/head": "1.1.23",
     "array.prototype.group": "1.1.2",
