@@ -49,8 +49,8 @@
     "vue-router": "4.1.6"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.5.1",
-    "@commitlint/config-conventional": "17.4.4",
+    "@commitlint/cli": "17.6.5",
+    "@commitlint/config-conventional": "17.6.5",
     "@cspell/dict-cryptocurrencies": "3.0.1",
     "@esbuild-plugins/node-globals-polyfill": "0.2.3",
     "@iconify-json/bx": "1.1.6",
