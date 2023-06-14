@@ -40,7 +40,7 @@
     "iterator-helpers-polyfill": "2.3.1",
     "monocle-ts": "2.3.13",
     "newtype-ts": "0.3.5",
-    "pinia": "2.0.33",
+    "pinia": "2.1.4",
     "pretty-format": "29.5.0",
     "quasar": "2.11.9",
     "vite-ssg": "0.22.1",
