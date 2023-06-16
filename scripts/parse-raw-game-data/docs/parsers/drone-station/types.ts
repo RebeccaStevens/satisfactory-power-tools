@@ -1,7 +1,7 @@
-import type { BuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type {
-  ItemTransferringStage,
-  Point3D,
+import { type BuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
+import {
+  type ItemTransferringStage,
+  type Point3D,
 } from "~/scripts/parse-raw-game-data/types";
 
 export type Data = BuildableBuilding & {

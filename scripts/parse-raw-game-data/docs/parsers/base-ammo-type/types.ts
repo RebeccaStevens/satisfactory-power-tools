@@ -1,8 +1,8 @@
-import type { Item } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type {
-  Color,
-  Point3D,
-  Transform3D,
+import { type Item } from "~/scripts/parse-raw-game-data/docs/parsers";
+import {
+  type Color,
+  type Point3D,
+  type Transform3D,
 } from "~/scripts/parse-raw-game-data/types";
 
 export type Data = Item & {

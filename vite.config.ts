@@ -1,4 +1,4 @@
-import type { Dirent } from "node:fs";
+import { type Dirent } from "node:fs";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import url from "node:url";
@@ -13,7 +13,7 @@ import dedent from "dedent";
 import { execa } from "execa";
 import rollupNodePolyFill from "rollup-plugin-node-polyfills";
 import rollupUnassert from "rollup-plugin-unassert";
-import type { FormatEnum } from "sharp";
+import { type FormatEnum } from "sharp";
 import sharp from "sharp";
 import AutoImport from "unplugin-auto-import/vite";
 import { QuasarResolver } from "unplugin-vue-components/resolvers";

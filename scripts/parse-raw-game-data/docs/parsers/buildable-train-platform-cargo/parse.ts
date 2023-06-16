@@ -10,7 +10,7 @@ import {
 } from "~/scripts/parse-raw-game-data/utils";
 import { isObject } from "~/utils";
 
-import type { Data } from "./types";
+import { type Data } from "./types";
 
 export function parse(data: unknown): Data {
   assert(isObject(data));

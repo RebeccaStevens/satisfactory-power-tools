@@ -4,7 +4,7 @@ import { setupLayouts } from "virtual:generated-layouts";
 import { ViteSSG } from "vite-ssg";
 
 import App from "./App.vue";
-import type { UserModule } from "./types";
+import { type UserModule } from "./types";
 
 import generatedRoutes from "~pages";
 

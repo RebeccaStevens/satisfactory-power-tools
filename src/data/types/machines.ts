@@ -1,9 +1,9 @@
-import type {
-  Hz,
-  MegaWatts,
-  PowerExponent,
-  Seconds,
-  Potential,
+import {
+  type Hz,
+  type MegaWatts,
+  type PowerExponent,
+  type Seconds,
+  type Potential,
 } from "~/data/types";
 
 export type Machine = {

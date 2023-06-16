@@ -6,12 +6,12 @@ import "~/polyfills";
 import docsJsonData from "../data/Docs.json" assert { type: "json" };
 import samJsonData from "../data/Sam.json" assert { type: "json" };
 
-import type {
-  Base,
-  BuildableManufacturer,
-  Item,
-  Recipe,
-  Schematic,
+import {
+  type Base,
+  type BuildableManufacturer,
+  type Item,
+  type Recipe,
+  type Schematic,
 } from "./parsers";
 import {
   parseAmmoTypeInstantHit,

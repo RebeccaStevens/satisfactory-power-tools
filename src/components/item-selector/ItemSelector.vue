@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { QSelect } from "quasar";
-import type { QSelectProps } from "quasar";
+import  { type QSelectProps } from "quasar";
 import { ref } from "vue";
 
 import { useGameDataName, useGameImage } from "~/composables/game-data";
 import { gameData } from "~/data";
-import type { Item } from "~/data/types";
+import  { type Item } from "~/data/types";
 import { assertNever } from "~/utils";
 
 type ItemOption = {
@@ -28,7 +28,7 @@ type SortOption = typeof sortOptions[number]["value"];
 
 type GroupOfItems = [ItemGroup | null, ItemOption[]];
 
-// eslint-disable-next-line unicorn/no-useless-spread -- @see https://github.com/sindresorhus/eslint-plugin-unicorn/issues/2018
+
 const allOptions = [
   ...gameData.items.values().map(
     (item): ItemOption => ({
@@ -190,6 +190,7 @@ const itemOptions = computed(() => {
 // TODO: refactor to us a simpler event.
 const onFilter: QSelectProps["onFilter"] = (input, update) => {
   update(
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     () => {},
     (qSelect) => {
       if (input !== "" && (qSelect.options?.length ?? 0) > 0) {

@@ -1,4 +1,4 @@
-import type { Item, Machine, Recipe } from "~/data/types";
+import { type Item, type Machine, type Recipe } from "~/data/types";
 
 export type GameData = {
   items: Map<string, Item>;

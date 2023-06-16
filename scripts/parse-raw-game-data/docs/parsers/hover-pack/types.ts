@@ -1,5 +1,8 @@
-import type { ConsumableEquipment } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type { HoverMode, Point3D } from "~/scripts/parse-raw-game-data/types";
+import { type ConsumableEquipment } from "~/scripts/parse-raw-game-data/docs/parsers";
+import {
+  type HoverMode,
+  type Point3D,
+} from "~/scripts/parse-raw-game-data/types";
 
 export type Data = ConsumableEquipment & {
   mCurrentPlayerVelocity: number;

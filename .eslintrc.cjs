@@ -39,6 +39,8 @@ module.exports = {
     "@typescript-eslint/no-empty-function": "warn",
     "@typescript-eslint/no-empty-interface": "warn",
     "jsdoc/require-jsdoc": "off",
+    // Can be turned off when using "bundler".
+    "import/extensions": "off",
     "import/no-unassigned-import": [
       "error",
       {
@@ -122,6 +124,7 @@ module.exports = {
         "@typescript-eslint/no-unsafe-call": "off",
         "@typescript-eslint/no-unsafe-member-access": "off",
         "@typescript-eslint/no-unsafe-return": "off",
+        "import/extensions": "error",
         "no-await-in-loop": "off",
       },
     },

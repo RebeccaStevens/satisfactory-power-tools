@@ -1,4 +1,4 @@
-import type { Newtype } from "newtype-ts";
+import { type Newtype } from "newtype-ts";
 import { iso } from "newtype-ts";
 
 export type Watts = Newtype<{ readonly Watts: unique symbol }, number>;

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 
-import type { Item, FrackingCore } from "~/data/types";
+import { type Item, type FrackingCore } from "~/data/types";
 import {
   asLocation3D,
   asRotation3D,

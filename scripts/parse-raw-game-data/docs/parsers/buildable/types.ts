@@ -1,11 +1,11 @@
-import type { Base } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type {
-  AttachmentPoint,
-  CustomScaleType,
-  Material,
-  OcclusionBoxInfo,
-  OcclusionShape,
-  Vector3D,
+import { type Base } from "~/scripts/parse-raw-game-data/docs/parsers";
+import {
+  type AttachmentPoint,
+  type CustomScaleType,
+  type Material,
+  type OcclusionBoxInfo,
+  type OcclusionShape,
+  type Vector3D,
 } from "~/scripts/parse-raw-game-data/types";
 
 export type Data = Base & {

@@ -1,5 +1,5 @@
-import type { Base } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type { GameEvent } from "~/scripts/parse-raw-game-data/types";
+import { type Base } from "~/scripts/parse-raw-game-data/docs/parsers";
+import { type GameEvent } from "~/scripts/parse-raw-game-data/types";
 
 export type Data = Base & {
   mIngredients: Record<string, number>;

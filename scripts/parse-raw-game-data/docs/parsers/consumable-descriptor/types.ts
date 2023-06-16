@@ -1,5 +1,8 @@
-import type { Item } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type { Point3D, Rotation3D } from "~/scripts/parse-raw-game-data/types";
+import { type Item } from "~/scripts/parse-raw-game-data/docs/parsers";
+import {
+  type Point3D,
+  type Rotation3D,
+} from "~/scripts/parse-raw-game-data/types";
 
 export type Data = Item &
   (

@@ -1,7 +1,7 @@
-import type { Buildable } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type {
-  PipeConnection,
-  Spline,
+import { type Buildable } from "~/scripts/parse-raw-game-data/docs/parsers";
+import {
+  type PipeConnection,
+  type Spline,
 } from "~/scripts/parse-raw-game-data/types";
 
 export type Data = Buildable & {

@@ -1,5 +1,8 @@
-import type { BuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type { Scale3D, Rotation3D } from "~/scripts/parse-raw-game-data/types";
+import { type BuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
+import {
+  type Scale3D,
+  type Rotation3D,
+} from "~/scripts/parse-raw-game-data/types";
 
 export type Data = BuildableBuilding & {
   mPowerBankCapacity: number;

@@ -1,5 +1,5 @@
-import type { BaseBuildableFracking } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type { PipeConnection } from "~/scripts/parse-raw-game-data/types";
+import { type BaseBuildableFracking } from "~/scripts/parse-raw-game-data/docs/parsers";
+import { type PipeConnection } from "~/scripts/parse-raw-game-data/types";
 
 export type Data = BaseBuildableFracking & {
   mExtractStartupTime: number;

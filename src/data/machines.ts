@@ -1,4 +1,4 @@
-import type { Machine } from "~/data/types";
+import { type Machine } from "~/data/types";
 import {
   asHz,
   asMegaWatts,

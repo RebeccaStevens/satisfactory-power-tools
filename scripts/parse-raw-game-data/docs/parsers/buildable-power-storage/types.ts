@@ -1,5 +1,5 @@
-import type { BuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type { BatteryStatus } from "~/scripts/parse-raw-game-data/types";
+import { type BuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
+import { type BatteryStatus } from "~/scripts/parse-raw-game-data/types";
 
 export type Data = BuildableBuilding & {
   m_PreviousBatteryStatus: BatteryStatus;

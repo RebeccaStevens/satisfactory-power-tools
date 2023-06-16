@@ -1,8 +1,8 @@
-import type { BuildableTrainPlatformEmpty } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type {
-  PipeConnection,
-  BeltConnection,
-  FreightCargoType,
+import { type BuildableTrainPlatformEmpty } from "~/scripts/parse-raw-game-data/docs/parsers";
+import {
+  type PipeConnection,
+  type BeltConnection,
+  type FreightCargoType,
 } from "~/scripts/parse-raw-game-data/types";
 
 export type Data = BuildableTrainPlatformEmpty & {

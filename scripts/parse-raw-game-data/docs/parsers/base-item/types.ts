@@ -1,10 +1,10 @@
-import type { Base } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type {
-  StackSize,
-  ResourceForm,
-  Color,
-  ScannableType,
-  SubCategory,
+import { type Base } from "~/scripts/parse-raw-game-data/docs/parsers";
+import {
+  type StackSize,
+  type ResourceForm,
+  type Color,
+  type ScannableType,
+  type SubCategory,
 } from "~/scripts/parse-raw-game-data/types";
 
 export type Data = Base & {

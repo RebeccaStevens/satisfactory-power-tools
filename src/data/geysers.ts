@@ -1,4 +1,4 @@
-import type { Geyser } from "~/data/types";
+import { type Geyser } from "~/data/types";
 import {
   asLocation3D,
   asRotation3D,

@@ -1,8 +1,8 @@
-import type { Buildable } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type {
-  RailroadAspect,
-  RailroadConnection,
-  RailroadBlockValidation,
+import { type Buildable } from "~/scripts/parse-raw-game-data/docs/parsers";
+import {
+  type RailroadAspect,
+  type RailroadConnection,
+  type RailroadBlockValidation,
 } from "~/scripts/parse-raw-game-data/types";
 
 export type Data = Buildable & {

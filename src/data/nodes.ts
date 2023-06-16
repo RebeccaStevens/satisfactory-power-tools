@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 
-import type { Item, Node } from "~/data/types";
+import { type Item, type Node } from "~/data/types";
 import {
   asLocation3D,
   asRotation3D,

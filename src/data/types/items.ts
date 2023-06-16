@@ -1,4 +1,8 @@
-import type { MegaJoules, ColorString, ItemTransporter } from "~/data/types";
+import {
+  type MegaJoules,
+  type ColorString,
+  type ItemTransporter,
+} from "~/data/types";
 
 export type Item = {
   id: string;

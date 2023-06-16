@@ -1,8 +1,8 @@
-import type { BuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type {
-  PipeConnection,
-  ResourceForm,
-  ExtractorType,
+import { type BuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
+import {
+  type PipeConnection,
+  type ResourceForm,
+  type ExtractorType,
 } from "~/scripts/parse-raw-game-data/types";
 
 export type Data = BuildableBuilding & {

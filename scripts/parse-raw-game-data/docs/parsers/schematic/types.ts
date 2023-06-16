@@ -1,9 +1,9 @@
-import type { Base } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type {
-  GamePhase,
-  ResourceNodeType,
-  SchematicType,
-  SubCategory,
+import { type Base } from "~/scripts/parse-raw-game-data/docs/parsers";
+import {
+  type GamePhase,
+  type ResourceNodeType,
+  type SchematicType,
+  type SubCategory,
 } from "~/scripts/parse-raw-game-data/types";
 
 export type Data = Base & {

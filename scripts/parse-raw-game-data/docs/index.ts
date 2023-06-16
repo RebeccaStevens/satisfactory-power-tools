@@ -2,12 +2,12 @@ import assert from "node:assert/strict";
 
 import { snakeCase } from "change-case";
 
-import type { Item } from "~/scripts/parse-raw-game-data/docs/parsers";
+import { type Item } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { isVariablePower } from "~/scripts/parse-raw-game-data/docs/parsers/buildable-manufacturer-variable-power";
 import { assertNever } from "~/utils";
 
 import itemTiers from "../data/ItemTeirs.json" assert { type: "json" };
-import type { Color } from "../types";
+import { type Color } from "../types";
 import { SchematicType, ResourceForm } from "../types";
 
 import { loadData } from "./load";

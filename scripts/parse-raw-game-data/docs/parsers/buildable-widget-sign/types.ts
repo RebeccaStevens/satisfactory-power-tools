@@ -1,8 +1,8 @@
-import type { Buildable } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type {
-  Color,
-  Point2D,
-  Point3D,
+import { type Buildable } from "~/scripts/parse-raw-game-data/docs/parsers";
+import {
+  type Color,
+  type Point2D,
+  type Point3D,
 } from "~/scripts/parse-raw-game-data/types";
 
 export type Data = Buildable & {

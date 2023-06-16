@@ -1,8 +1,8 @@
-import type {
-  Location3D,
-  ResourcePurity,
-  Rotation3D,
-  Scale3D,
+import {
+  type Location3D,
+  type ResourcePurity,
+  type Rotation3D,
+  type Scale3D,
 } from "~/data/types";
 
 export type Geyser = {

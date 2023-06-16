@@ -1,7 +1,7 @@
-import type { Buildable } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type {
-  LightControlData,
-  PowerConnection,
+import { type Buildable } from "~/scripts/parse-raw-game-data/docs/parsers";
+import {
+  type LightControlData,
+  type PowerConnection,
 } from "~/scripts/parse-raw-game-data/types";
 
 export type Data = Buildable & {

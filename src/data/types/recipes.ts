@@ -1,11 +1,11 @@
-import type {
-  Seconds,
-  Quantity,
-  VariablePowerConsumptionConstant,
-  VariablePowerConsumptionFactor,
-  Item,
+import {
+  type Seconds,
+  type Quantity,
+  type VariablePowerConsumptionConstant,
+  type VariablePowerConsumptionFactor,
+  type Item,
 } from "~/data/types";
-import type { Machine } from "~/data/types/machines";
+import { type Machine } from "~/data/types/machines";
 
 export type Recipe = {
   id: string;

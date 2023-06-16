@@ -1,7 +1,7 @@
-import type { Buildable } from "~/scripts/parse-raw-game-data/docs/parsers";
-import type {
-  Rotation3D,
-  Translation3D,
+import { type Buildable } from "~/scripts/parse-raw-game-data/docs/parsers";
+import {
+  type Rotation3D,
+  type Translation3D,
 } from "~/scripts/parse-raw-game-data/types";
 
 export type Data = Buildable & {

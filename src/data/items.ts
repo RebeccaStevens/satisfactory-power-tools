@@ -1,4 +1,4 @@
-import type { Item } from "~/data/types";
+import { type Item } from "~/data/types";
 import { asMegaJoules, asItemTransporter, asColorString } from "~/data/types";
 
 import type RawGameData from "./game-data.json";
