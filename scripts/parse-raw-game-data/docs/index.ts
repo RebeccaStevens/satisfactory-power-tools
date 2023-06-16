@@ -174,14 +174,16 @@ export function getIconPath(path: string) {
   );
 }
 
+type ItemTiers = Record<string, (typeof itemTiers)[keyof typeof itemTiers]>;
+
 function getItemTier(item: Readonly<Item>) {
-  const data = (itemTiers as any)[item.ClassName];
+  const data = (itemTiers as ItemTiers)[item.ClassName];
   assert(data?.tier !== undefined, `missing tier for ${item.ClassName}`);
   return data.tier;
 }
 
 function getItemType(item: Readonly<Item>) {
-  const data = (itemTiers as any)[item.ClassName];
+  const data = (itemTiers as ItemTiers)[item.ClassName];
   assert(data?.type !== undefined, `missing type for ${item.ClassName}`);
   return data.type;
 }

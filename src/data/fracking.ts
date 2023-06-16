@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
 
-import { type Item, type FrackingCore } from "~/data/types";
+import {
+  type FrackingSatellite,
+  type Item,
+  type FrackingCore,
+} from "~/data/types";
 import {
   asLocation3D,
   asRotation3D,
@@ -20,31 +24,36 @@ export function getWells(
         const resource = items.get(resourceId);
         assert(resource !== undefined);
 
-        return [
-          resource,
-          new Set(
-            rawWells.map((data): FrackingCore => {
-              const { id } = data;
-              const location = asLocation3D(data.location);
-              const rotation = asRotation3D(data.rotation);
-              const scale = asScale3D(data.scale);
-              const satellites = new Set(
-                data.satellites.map((satellite) => {
-                  const { id } = satellite;
-                  const location = asLocation3D(satellite.location);
-                  const rotation = asRotation3D(satellite.rotation);
-                  const scale = asScale3D(satellite.scale);
-                  const purity = asResourcePurity(satellite.purity);
-
-                  return { id, location, rotation, scale, purity };
-                }),
-              );
-
-              return { id, location, rotation, scale, satellites };
-            }),
-          ),
-        ];
+        return [resource, new Set(rawWells.map(createFrackingCore))];
       },
     ),
   );
+}
+
+function createFrackingCore(
+  rawCore: Readonly<
+    (typeof RawGameData)["wells"][keyof (typeof RawGameData)["wells"]][number]
+  >,
+): FrackingCore {
+  const { id } = rawCore;
+  const location = asLocation3D(rawCore.location);
+  const rotation = asRotation3D(rawCore.rotation);
+  const scale = asScale3D(rawCore.scale);
+  const satellites = new Set(rawCore.satellites.map(createFrackingSatellite));
+
+  return { id, location, rotation, scale, satellites };
+}
+
+function createFrackingSatellite(
+  rawSatellite: Readonly<
+    (typeof RawGameData)["wells"][keyof (typeof RawGameData)["wells"]][number]["satellites"][number]
+  >,
+): FrackingSatellite {
+  const { id } = rawSatellite;
+  const location = asLocation3D(rawSatellite.location);
+  const rotation = asRotation3D(rawSatellite.rotation);
+  const scale = asScale3D(rawSatellite.scale);
+  const purity = asResourcePurity(rawSatellite.purity);
+
+  return { id, location, rotation, scale, purity };
 }

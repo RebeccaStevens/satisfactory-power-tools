@@ -1,15 +1,14 @@
 import "~/polyfills";
 
 import { setupLayouts } from "virtual:generated-layouts";
+import generatedRoutes from "virtual:generated-pages";
 import { ViteSSG } from "vite-ssg";
 
 import App from "./App.vue";
 import { type UserModule } from "./types";
 
-import generatedRoutes from "~pages";
-
 import "quasar/src/css/index.sass";
-import "uno.css";
+import "virtual:uno.css";
 // import "virtual:unocss-devtools";
 import "~/styles/index.scss";
 
