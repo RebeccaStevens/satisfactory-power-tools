@@ -51,8 +51,12 @@ const config: UserConfig<PresetUnoTheme> = {
     transformerDirectives(),
     transformerVariantGroup(),
   ],
-  include: ["./**/*.vue", "./**/*.html"],
-  exclude: [],
+  content: {
+    pipeline: {
+      include: ["./**/*.vue", "./**/*.html"],
+      exclude: [],
+    },
+  },
   safelist: [
     // Icons for framework.
     "i-carbon-checkmark-outline",
