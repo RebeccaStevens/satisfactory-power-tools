@@ -16,6 +16,7 @@
     "exported-game-data",
     "images/**/index.ts",
     "LICENSE",
+    "patches/",
     "pnpm-lock.yaml",
     "pnpm-lock.yaml",
     "scripts/parse-raw-game-data/data/",

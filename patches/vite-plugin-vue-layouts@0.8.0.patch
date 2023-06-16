@@ -46,11 +46,117 @@ index 0000000000000000000000000000000000000000..f0c7efeb567872dc142b5a283b60ebb7
 +declare function layoutPlugin(userOptions?: UserOptions): Plugin;
 +
 +export { FileContainer, ResolvedOptions, UserOptions, layoutPlugin as default, defaultImportMode };
+diff --git a/index.d.mts b/index.d.mts
+new file mode 100644
+index 0000000000000000000000000000000000000000..fb1977fda435d32457aba898e50693a86d0b6ea0
+--- /dev/null
++++ b/index.d.mts
+@@ -0,0 +1,47 @@
++import { Plugin } from "vite";
++
++/**
++ * Plugin options.
++ */
++interface Options {
++  /**
++   * Relative path to the directory to search for page components.
++   * @default 'src/layouts'
++   */
++  layoutsDirs: string | string[];
++  /**
++   * Valid file extensions for page components.
++   * @default ['vue']
++   */
++  extensions: string[];
++  /**
++   * List of path globs to exclude when resolving pages.
++   */
++  exclude: string[];
++  /**
++   * Filename of default layout (".vue" is not needed)
++   * @default 'default'
++   */
++  defaultLayout: string;
++  /**
++   * Mode for importing layouts
++   */
++  importMode: (name: string) => "sync" | "async";
++}
++type FileContainer = {
++  path: string;
++  files: string[];
++};
++type UserOptions = Partial<Options>;
++interface ResolvedOptions extends Options {}
++
++declare function defaultImportMode(name: string): "sync" | "async";
++declare function layoutPlugin(userOptions?: UserOptions): Plugin;
++
++export {
++  FileContainer,
++  ResolvedOptions,
++  UserOptions,
++  layoutPlugin as default,
++  defaultImportMode,
++};
+diff --git a/index.d.ts b/index.d.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..fb1977fda435d32457aba898e50693a86d0b6ea0
+--- /dev/null
++++ b/index.d.ts
+@@ -0,0 +1,47 @@
++import { Plugin } from "vite";
++
++/**
++ * Plugin options.
++ */
++interface Options {
++  /**
++   * Relative path to the directory to search for page components.
++   * @default 'src/layouts'
++   */
++  layoutsDirs: string | string[];
++  /**
++   * Valid file extensions for page components.
++   * @default ['vue']
++   */
++  extensions: string[];
++  /**
++   * List of path globs to exclude when resolving pages.
++   */
++  exclude: string[];
++  /**
++   * Filename of default layout (".vue" is not needed)
++   * @default 'default'
++   */
++  defaultLayout: string;
++  /**
++   * Mode for importing layouts
++   */
++  importMode: (name: string) => "sync" | "async";
++}
++type FileContainer = {
++  path: string;
++  files: string[];
++};
++type UserOptions = Partial<Options>;
++interface ResolvedOptions extends Options {}
++
++declare function defaultImportMode(name: string): "sync" | "async";
++declare function layoutPlugin(userOptions?: UserOptions): Plugin;
++
++export {
++  FileContainer,
++  ResolvedOptions,
++  UserOptions,
++  layoutPlugin as default,
++  defaultImportMode,
++};
 diff --git a/package.json b/package.json
-index de999023f87c55dee2e57e2583e1e96b6f95095f..c6cb7906d7dd91c7ac9b7f98b6375b607708ce22 100644
+index de999023f87c55dee2e57e2583e1e96b6f95095f..e7b27b2fbf20779844e2f00b53691126c23c2d50 100644
 --- a/package.json
 +++ b/package.json
-@@ -19,8 +19,14 @@
+@@ -19,8 +19,17 @@
    ],
    "exports": {
      ".": {
@@ -64,6 +170,9 @@ index de999023f87c55dee2e57e2583e1e96b6f95095f..c6cb7906d7dd91c7ac9b7f98b6375b60
 +        "types": "./dist/index.d.ts",
 +        "default": "./dist/index.js"
 +      }
++    },
++    "./client": {
++      "types": "./client.d.ts"
      },
      "./*": "./*"
    },

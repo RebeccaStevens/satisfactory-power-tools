@@ -1,5 +1,5 @@
 diff --git a/dist/rollup-plugin-unassert.cjs.js b/dist/rollup-plugin-unassert.cjs.js
-index b8c3bd5bb074134a1cc429a00e2ecd0f79279971..2a2854570548917a83dfe7a9ed2ec218357fe80b 100644
+index b8c3bd5bb074134a1cc429a00e2ecd0f79279971..2245d36ba438822598e1b26c5fda4e2cc3e28e4b 100644
 --- a/dist/rollup-plugin-unassert.cjs.js
 +++ b/dist/rollup-plugin-unassert.cjs.js
 @@ -1,102 +1,28 @@
@@ -108,7 +108,7 @@ index b8c3bd5bb074134a1cc429a00e2ecd0f79279971..2a2854570548917a83dfe7a9ed2ec218
 +            const ast = this.parse(code);
 +            return unassert$1.unassertCode(code, ast, {
 +                sourceMap: options.sourcemap !== false ?
-+                    {hires: true} :
++                    { hires: true } :
 +                    false,
              });
 -        }
@@ -117,7 +117,7 @@ index b8c3bd5bb074134a1cc429a00e2ecd0f79279971..2a2854570548917a83dfe7a9ed2ec218
  }
  
 diff --git a/dist/rollup-plugin-unassert.es.js b/dist/rollup-plugin-unassert.es.js
-index e9e5996a5467703ae9d4e87ab377ac855cd877d0..b08ea115d9dc452c7bee74d07e97b1e7b87c2b87 100644
+index e9e5996a5467703ae9d4e87ab377ac855cd877d0..c5d0a3e3e9f87095f457c9a671464e2ee44f6970 100644
 --- a/dist/rollup-plugin-unassert.es.js
 +++ b/dist/rollup-plugin-unassert.es.js
 @@ -1,94 +1,26 @@
@@ -219,7 +219,7 @@ index e9e5996a5467703ae9d4e87ab377ac855cd877d0..b08ea115d9dc452c7bee74d07e97b1e7
 +            const ast = this.parse(code);
 +            return unassertCode(code, ast, {
 +                sourceMap: options.sourcemap !== false ?
-+                    {hires: true} :
++                    { hires: true } :
 +                    false,
              });
 -        }

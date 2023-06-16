@@ -1,16 +1,7 @@
 diff --git a/README.md b/README.md
-index ac2368f84b7f8359d582c0eeea5397dc6ff3d642..9621a010f0a36e4e1e31f6daa2b2dacfa156a3e3 100644
+index a07da2188c41d1c6e9c24b79131136d0345709b1..043170f16b7df69b5630a2635f22ecbe8dc8ff98 100644
 --- a/README.md
 +++ b/README.md
-@@ -17,7 +17,7 @@ See: "[unassert - encourage reliable programming by writing assertions in produc
- - [webpack-unassert-loader](https://github.com/unassert-js/webpack-unassert-loader): Webpack loader for unassert
- - [gulp-unassert](https://github.com/unassert-js/gulp-unassert): Gulp plugin for unassert
- - [unassert-cli](https://github.com/unassert-js/unassert-cli): CLI for unassert
--- [rollup-plugin-unassert](https://gitlab.com/IvanSanchez/rollup-plugin-unassert): RollupJS plugin for unassert
-+- [rollup-plugin-unassert](https://github.com/unassert-js/rollup-plugin-unassert): RollupJS plugin for unassert
- 
- 
- INSTALL
 @@ -91,8 +91,17 @@ function add(a, b) {
  API
  ---------------------------------------
@@ -30,6 +21,15 @@ index ac2368f84b7f8359d582c0eeea5397dc6ff3d642..9621a010f0a36e4e1e31f6daa2b2dacf
  
  ### const modifiedAst = unassertAst(ast, options)
  
+@@ -105,7 +114,7 @@ import { unassertAst } from 'unassert'
+ ```
+ 
+ | return type                                                   |
+-|:--------------------------------------------------------------|
++| :------------------------------------------------------------ |
+ | `object` ([ECMAScript AST](https://github.com/estree/estree)) |
+ 
+ Remove assertion calls from `ast` ([ECMAScript AST](https://github.com/estree/estree)). Default behaviour can be customized by `options`. `ast` is manipulated directly so returned `modifiedAst` will be the same instance of `ast`.
 @@ -128,6 +137,7 @@ For example, the default target modules are as follows.
      'node:assert',
      'node:assert/strict'
@@ -52,9 +52,9 @@ index ac2368f84b7f8359d582c0eeea5397dc6ff3d642..9621a010f0a36e4e1e31f6daa2b2dacf
 +import { unassertCode } from 'unassert'
 +```
 +
-+| return type                                                   |
-+|:--------------------------------------------------------------|
-+| `{ code: string; map: SourceMap | null; }`                    |
++| return type                     |
++| :------------------------------ |
++| `{ code: string; map: SourceMap | null; }` |
 +
 +Remove assertion calls from the code. Default behaviour can be customized by `options`.
 +Note that the `ast` is manipulated directly.
@@ -80,7 +80,13 @@ index ac2368f84b7f8359d582c0eeea5397dc6ff3d642..9621a010f0a36e4e1e31f6daa2b2dacf
  
  ### const visitor = createVisitor(options)
  
-@@ -218,6 +263,18 @@ import { createVisitor } from 'unassert'
+@@ -213,11 +258,23 @@ import { createVisitor } from 'unassert'
+ ```
+ 
+ | return type                                                                       |
+-|:----------------------------------------------------------------------------------|
++| :-------------------------------------------------------------------------------- |
+ | `object` (visitor object for [estraverse](https://github.com/estools/estraverse)) |
  
  Create visitor object to be used with `estraverse.replace`. Visitor can be customized by `options`.
  
@@ -100,7 +106,7 @@ index ac2368f84b7f8359d582c0eeea5397dc6ff3d642..9621a010f0a36e4e1e31f6daa2b2dacf
  ### const options = defaultOptions()
  
 diff --git a/dist/index.cjs b/dist/index.cjs
-index cc45827c2b71bad16a74e04a96517578ad6ab26e..335db64b1e9f27cba10e1717872f13cafbbaad2d 100644
+index cc45827c2b71bad16a74e04a96517578ad6ab26e..040fb11a488118db2bed8b608237ee11ad87ce89 100644
 --- a/dist/index.cjs
 +++ b/dist/index.cjs
 @@ -1,44 +1,52 @@
@@ -597,7 +603,7 @@ index cc45827c2b71bad16a74e04a96517578ad6ab26e..335db64b1e9f27cba10e1717872f13ca
 +  const {
 +    sourceMap,
 +    ...traverseOptions
-+  } = options !== null && options !== void 0 ? options : {};
++  } = options ?? {};
 +  const usingMagic = code instanceof MagicString;
 +  const magicCode = usingMagic ? code : new MagicString(code);
 +  estraverse.traverse(ast, createVisitor({
@@ -736,7 +742,7 @@ index 0000000000000000000000000000000000000000..b2841483943ed1ba6c9be128564d4ae1
 +export function createVisitor(options?: CreateVisitorOptions): Visitor;
 diff --git a/dist/index.mjs b/dist/index.mjs
 new file mode 100644
-index 0000000000000000000000000000000000000000..b684df5326a0acd67bce2ac963ce31d0a9ff6a6e
+index 0000000000000000000000000000000000000000..5be3a7ff6e23e9d5cc9429ff163b70bf6f38656e
 --- /dev/null
 +++ b/dist/index.mjs
 @@ -0,0 +1,393 @@
@@ -1109,7 +1115,7 @@ index 0000000000000000000000000000000000000000..b684df5326a0acd67bce2ac963ce31d0
 +  const {
 +    sourceMap,
 +    ...traverseOptions
-+  } = options !== null && options !== void 0 ? options : {};
++  } = options ?? {};
 +  const usingMagic = code instanceof MagicString;
 +  const magicCode = usingMagic ? code : new MagicString(code);
 +  traverse(ast, createVisitor({
@@ -1134,10 +1140,10 @@ index 0000000000000000000000000000000000000000..b684df5326a0acd67bce2ac963ce31d0
 +
 +export { createVisitor, defaultOptions, unassertAst, unassertCode };
 diff --git a/package.json b/package.json
-index d010bf6686ff9e7916841452d76325c2ae99bf4e..3a428d3871a6cad84ca802cd22a077f3ae20f428 100644
+index e7a7882c5b80943af3a54402a22753fe0c5b6941..12c1d98064abf10f6d90a2e2425160a6b9980bc5 100644
 --- a/package.json
 +++ b/package.json
-@@ -15,15 +15,20 @@
+@@ -19,32 +19,40 @@
      }
    ],
    "dependencies": {
@@ -1146,20 +1152,26 @@ index d010bf6686ff9e7916841452d76325c2ae99bf4e..3a428d3871a6cad84ca802cd22a077f3
 +    "magic-string": "^0.30.0"
    },
    "devDependencies": {
-+    "@babel/preset-env": "^7.20.2",
++    "@babel/plugin-transform-runtime": "^7.22.5",
++    "@babel/preset-env": "^7.22.5",
 +    "@rollup/plugin-babel": "^6.0.3",
      "@twada/benchmark-commits": "^0.1.0",
-     "acorn": "^8.0.0",
+-    "acorn": "^8.0.0",
++    "acorn": "^8.9.0",
      "escodegen": "^2.0.0",
-     "mocha": "^10.0.0",
-     "rimraf": "^3.0.2",
-     "rollup": "^2.77.0",
+-    "mocha": "^10.0.0",
+-    "rimraf": "^3.0.2",
+-    "rollup": "^2.77.0",
+-    "semistandard": "^16.0.0",
++    "mocha": "^10.2.0",
++    "rimraf": "^5.0.1",
++    "rollup": "^3.25.1",
 +    "rollup-plugin-cleanup": "^3.2.1",
 +    "rollup-plugin-copy": "^3.4.0",
-     "semistandard": "^16.0.0",
++    "semistandard": "^17.0.0",
      "snazzy": "^9.0.0"
    },
-@@ -31,12 +36,15 @@
+   "files": [
      "README.md",
      "CHANGELOG.md",
      "LICENSE",
@@ -1168,16 +1180,21 @@ index d010bf6686ff9e7916841452d76325c2ae99bf4e..3a428d3871a6cad84ca802cd22a077f3
    ],
    "main": "./dist/index.cjs",
    "exports": {
--    "import": "./src/index.mjs",
-+    "types": {
-+      "import": "./dist/index.d.mts",
-+      "require": "./dist/index.d.cts"
-+    },
-+    "import": "./dist/index.mjs",
-     "require": "./dist/index.cjs"
-   },
-   "homepage": "https://github.com/unassert-js/unassert",
-@@ -56,7 +64,8 @@
+     ".": [
+       {
+-        "import": "./src/index.mjs",
+-        "require": "./dist/index.cjs",
+-        "default": "./dist/index.cjs"
++        "types": {
++          "import": "./dist/index.d.mts",
++          "require": "./dist/index.d.cts"
++        },
++        "import": "./dist/index.mjs",
++        "require": "./dist/index.cjs"
+       },
+       "./dist/index.cjs"
+     ],
+@@ -67,7 +75,8 @@
      "build": "rimraf dist && rollup -c",
      "lint": "semistandard --verbose src/*.mjs test/*.mjs | snazzy",
      "fmt": "semistandard --fix src/*.mjs test/*.mjs",
@@ -1187,15 +1204,6 @@ index d010bf6686ff9e7916841452d76325c2ae99bf4e..3a428d3871a6cad84ca802cd22a077f3
    },
    "semistandard": {
      "globals": [
-@@ -64,5 +73,8 @@
-       "beforeEach",
-       "it"
-     ]
-+  },
-+  "engines": {
-+    "node": ">=12.0"
-   }
- }
 diff --git a/src/index.mjs b/src/index.mjs
 deleted file mode 100644
 index f614bd2a0b3e4ef16ea35e2db47cfe9b1e021d1f..0000000000000000000000000000000000000000
