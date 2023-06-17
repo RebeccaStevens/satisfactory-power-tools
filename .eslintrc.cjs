@@ -1,3 +1,5 @@
+/// <reference types="node" />
+
 const project = [
   "./tsconfig.json",
   "./tsconfig.node.json",
