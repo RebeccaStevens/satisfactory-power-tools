@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildable } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseBoolean,
@@ -14,8 +15,8 @@ export function parse(data: unknown): Data {
 
   const buildable = parseBuildable(data);
 
-  assert("mSize" in data);
-  assert("mIsSupport" in data);
+  assertPropertyExists(data, "mSize");
+  assertPropertyExists(data, "mIsSupport");
 
   return {
     ...buildable,

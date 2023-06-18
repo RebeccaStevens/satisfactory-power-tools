@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseNumber,
@@ -14,15 +15,15 @@ export function parse(data: unknown): Data {
 
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert("m_PreviousBatteryStatus" in data);
-  assert("mCurrentGameTimeSinceStateChange" in data);
-  assert("mActivationEventID" in data);
-  assert("mBatteryStatus" in data);
-  assert("mPowerStore" in data);
-  assert("mPowerStoreCapacity" in data);
-  assert("mPowerInputCapacity" in data);
-  assert("mIndicatorLevelMax" in data);
-  assert("mIndicatorLevel" in data);
+  assertPropertyExists(data, "m_PreviousBatteryStatus");
+  assertPropertyExists(data, "mCurrentGameTimeSinceStateChange");
+  assertPropertyExists(data, "mActivationEventID");
+  assertPropertyExists(data, "mBatteryStatus");
+  assertPropertyExists(data, "mPowerStore");
+  assertPropertyExists(data, "mPowerStoreCapacity");
+  assertPropertyExists(data, "mPowerInputCapacity");
+  assertPropertyExists(data, "mIndicatorLevelMax");
+  assertPropertyExists(data, "mIndicatorLevel");
 
   return {
     ...buildableBuilding,

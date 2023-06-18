@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseConsumableEquipment } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseBoolean,
@@ -16,30 +17,30 @@ export function parse(data: unknown): Data {
 
   const base = parseConsumableEquipment(data);
 
-  assert("mCurrentPlayerVelocity" in data);
-  assert("mCurrentMouseDelta" in data);
-  assert("mCurrentBatteryPowerLevel" in data);
-  assert("mHoverSpeed" in data);
-  assert("mHoverAccelerationSpeed" in data);
-  assert("mHoverSprintMultiplier" in data);
-  assert("mHoverFriction" in data);
-  assert("mJumpKeyHoldActivationTime" in data);
-  assert("mFallSpeedLimitWhenPowered" in data);
-  assert("mPowerConnectionSearchRadius" in data);
-  assert("mPowerConnectionSearchTickRate" in data);
-  assert("mPowerConnectionDisconnectionTime" in data);
-  assert("mPowerCapacity" in data);
-  assert("mPowerDrainRate" in data);
-  assert("mPowerConsumption" in data);
-  assert("mCurrentPowerLevel" in data);
-  assert("mRangeWarningNormalizedDistanceThreshold" in data);
-  assert("mCurrentHoverMode" in data);
-  assert("mHasConnection" in data);
-  assert("mShouldAutomaticallyHoverWhenConnected" in data);
-  assert("mCrouchHoverCancelTime" in data);
-  assert("mCharacterUseDistanceWhenActive" in data);
-  assert("mActiveNoiseFrequency" in data);
-  assert("mCurrentConnectionLocation" in data);
+  assertPropertyExists(data, "mCurrentPlayerVelocity");
+  assertPropertyExists(data, "mCurrentMouseDelta");
+  assertPropertyExists(data, "mCurrentBatteryPowerLevel");
+  assertPropertyExists(data, "mHoverSpeed");
+  assertPropertyExists(data, "mHoverAccelerationSpeed");
+  assertPropertyExists(data, "mHoverSprintMultiplier");
+  assertPropertyExists(data, "mHoverFriction");
+  assertPropertyExists(data, "mJumpKeyHoldActivationTime");
+  assertPropertyExists(data, "mFallSpeedLimitWhenPowered");
+  assertPropertyExists(data, "mPowerConnectionSearchRadius");
+  assertPropertyExists(data, "mPowerConnectionSearchTickRate");
+  assertPropertyExists(data, "mPowerConnectionDisconnectionTime");
+  assertPropertyExists(data, "mPowerCapacity");
+  assertPropertyExists(data, "mPowerDrainRate");
+  assertPropertyExists(data, "mPowerConsumption");
+  assertPropertyExists(data, "mCurrentPowerLevel");
+  assertPropertyExists(data, "mRangeWarningNormalizedDistanceThreshold");
+  assertPropertyExists(data, "mCurrentHoverMode");
+  assertPropertyExists(data, "mHasConnection");
+  assertPropertyExists(data, "mShouldAutomaticallyHoverWhenConnected");
+  assertPropertyExists(data, "mCrouchHoverCancelTime");
+  assertPropertyExists(data, "mCharacterUseDistanceWhenActive");
+  assertPropertyExists(data, "mActiveNoiseFrequency");
+  assertPropertyExists(data, "mCurrentConnectionLocation");
 
   return {
     ...base,

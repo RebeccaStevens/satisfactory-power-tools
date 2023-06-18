@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildable } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseNumber,
@@ -16,17 +17,17 @@ export function parse(data: unknown): Data {
 
   const buildable = parseBuildable(data);
 
-  assert("mGainSignificanceDistance" in data);
-  assert("mForegroundColor" in data);
-  assert("mBackgroundColor" in data);
-  assert("mAuxilaryColor" in data);
-  assert("mEmissive" in data);
-  assert("mGlossiness" in data);
-  assert("mDataVersion" in data);
-  assert("mWorldDimensions" in data);
-  assert("mPoleOffset" in data);
-  assert("mPoleScale" in data);
-  assert("mSignToSignOffset" in data);
+  assertPropertyExists(data, "mGainSignificanceDistance");
+  assertPropertyExists(data, "mForegroundColor");
+  assertPropertyExists(data, "mBackgroundColor");
+  assertPropertyExists(data, "mAuxilaryColor");
+  assertPropertyExists(data, "mEmissive");
+  assertPropertyExists(data, "mGlossiness");
+  assertPropertyExists(data, "mDataVersion");
+  assertPropertyExists(data, "mWorldDimensions");
+  assertPropertyExists(data, "mPoleOffset");
+  assertPropertyExists(data, "mPoleScale");
+  assertPropertyExists(data, "mSignToSignOffset");
 
   return {
     ...buildable,

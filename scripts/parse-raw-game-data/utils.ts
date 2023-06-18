@@ -1,5 +1,11 @@
 import assert from "node:assert/strict";
 
+import {
+  isPMap,
+  type PCollection,
+  type PList,
+  type PMap,
+} from "~/scripts/parse-raw-game-data/docs/raw-collection-parser";
 import { parseRawCollection } from "~/scripts/parse-raw-game-data/docs/raw-collection-parser";
 import {
   ItemTransferringStage,
@@ -53,107 +59,106 @@ import {
 } from "~/scripts/parse-raw-game-data/types";
 import { isNotNull } from "~/utils";
 
-export function parseAmounts(value: unknown): Record<string, number> {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
-
+export function parseAmounts(value: string): Record<string, number> {
   if (value === "" || value === "()") {
     return {};
   }
 
   const collection = parseRawCollection(value);
   assert(collection.type === "list");
+  return parseAmountsImpl(collection);
+}
 
+function parseAmountsImpl(collection: PList): Record<string, number> {
   return Object.fromEntries(
-    collection.data.flatMap((rawItemAmount) => {
-      const itemAmountEnts = parseRawCollection(rawItemAmount);
-      assert(itemAmountEnts.type === "map");
+    collection.data.flatMap((itemAmountEnts) => {
+      assert(isPMap(itemAmountEnts), "expected PMap");
       const itemAmount = Object.fromEntries(itemAmountEnts.data);
+
+      assert(
+        typeof itemAmount.Amount === "string" ||
+          itemAmount.Amount === undefined,
+      );
+      assert(typeof itemAmount.ItemClass === "string");
+
       const amount = itemAmount.Amount;
       const itemClass = parseClass(itemAmount.ItemClass);
-      assert(isNotNull(itemClass));
+      assert(isNotNull(itemClass), "expected non-null");
       return [
-        [itemClass, amount === undefined ? 1 : parseNumber(amount)] as const,
+        [itemClass, amount === undefined ? 0 : parseNumber(amount)] as const,
       ];
     }),
   );
 }
 
-export function parseAttachmentPoints(value: unknown): AttachmentPoint[] {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
-
+export function parseAttachmentPoints(value: string): AttachmentPoint[] {
   if (value === "" || value === "()") {
     return [];
   }
 
   const collection = parseRawCollection(value);
   assert(collection.type === "list");
+  return parseAttachmentPointsImpl(collection);
+}
 
+function parseAttachmentPointsImpl(collection: PList): AttachmentPoint[] {
   // TODO: implement.
   return [];
 }
 
-export function parseAttachmentSocket(value: unknown): AttachmentSocket | null {
+export function parseAttachmentSocket(value: string): AttachmentSocket | null {
   if (value === "None") {
     return null;
   }
   return parseEnum(AttachmentSocket, value);
 }
 
-export function parseBatteryStatus(value: unknown): BatteryStatus {
+export function parseBatteryStatus(value: string): BatteryStatus {
   return parseEnum(BatteryStatus, value);
 }
 
-export function parseBeltConnections(value: unknown): BeltConnection[] {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
-
+export function parseBeltConnections(value: string): BeltConnection[] {
   if (value === "" || value === "()") {
     return [];
   }
 
   const collection = parseRawCollection(value);
   assert(collection.type === "list");
+  return parseBeltConnectionsImpl(collection);
+}
 
+function parseBeltConnectionsImpl(value: PList): BeltConnection[] {
   // TODO: implement.
   return [];
 }
 
-export function parseBoolean(value: unknown): boolean {
+export function parseBoolean(value: string): boolean {
   assert(
     value === "False" || value === "True" || value === "0" || value === "1",
   );
   return value === "True" || value === "1";
 }
 
-export function parseClasses(value: unknown): string[] {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
-
+export function parseClasses(value: string): string[] {
   if (value === "" || value === "()") {
     return [];
   }
 
   const list = parseRawCollection(value);
   assert(list.type === "list");
-  return list.data.map(parseClass).filter(isNotNull);
+  return parseClassesImpl(list);
 }
 
-export function parseClass(value: unknown): string | null {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
+function parseClassesImpl(list: PList): string[] {
+  return list.data
+    .map((item) => {
+      assert(typeof item === "string");
+      return parseClass(item);
+    })
+    .filter(isNotNull);
+}
 
+export function parseClass(value: string): string | null {
   if (value === "None") {
     return null;
   }
@@ -164,27 +169,25 @@ export function parseClass(value: unknown): string | null {
   return path.slice(path.lastIndexOf(".") + 1);
 }
 
-export function parseIcon(value: unknown): string | null {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
-
+export function parseIcon(value: string): string | null {
   if (value === "" || value === "None") {
     return null;
   }
 
   if (value.startsWith("(")) {
-    const mapEnts = parseRawCollection(value);
-    assert(mapEnts.type === "map");
-    const map = Object.fromEntries(mapEnts.data);
-    if (map.ResourceObject === undefined) {
+    const map = parseRawCollection(value);
+    assert(map.type === "map");
+    const data = Object.fromEntries(map.data);
+    if (data.ResourceObject === undefined) {
       return null;
     }
-    return parseIcon(map.ResourceObject);
+    assert(typeof data.ResourceObject === "string");
+    return parseIcon(data.ResourceObject);
   }
 
-  const macth = /^Texture2D[ "']*\/(.*)\..*$/u.exec(value);
+  const macth = /^(?:\/Script\/Engine\.)?Texture2D[ "']*\/(.*)\..*$/u.exec(
+    value,
+  );
   assert(macth !== null);
   const v = macth[1];
   assert(v !== undefined);
@@ -192,157 +195,166 @@ export function parseIcon(value: unknown): string | null {
   return v;
 }
 
-export function parseColor(value: unknown): Color {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
+export function parseColor(value: string): Color {
+  const map = parseRawCollection(value);
+  assert(isPMap(map), "expected PMap");
+  return parseColorImpl(map);
+}
 
-  const mapEnts = parseRawCollection(value);
-  assert(mapEnts.type === "map");
-  const map = Object.fromEntries(mapEnts.data);
+function parseColorImpl(value: PMap): Color {
+  const data = Object.fromEntries(value.data);
 
-  const red = parseNumber(map.R);
-  const green = parseNumber(map.G);
-  const blue = parseNumber(map.B);
-  const alpha = parseNumber(map.A);
+  assert(typeof data.R === "string");
+  assert(typeof data.G === "string");
+  assert(typeof data.B === "string");
+  assert(typeof data.A === "string");
+
+  const red = parseNumber(data.R);
+  const green = parseNumber(data.G);
+  const blue = parseNumber(data.B);
+  const alpha = parseNumber(data.A);
 
   return { red, green, blue, alpha };
 }
 
-export function parseCustomScaleType(value: unknown): CustomScaleType {
+export function parseCustomScaleType(value: string): CustomScaleType {
   return parseEnum(CustomScaleType, value);
 }
 
 export function parseDirectionBooleanMap(
-  value: unknown,
+  value: string,
 ): Record<"Front" | "Bottom" | "Back" | "Top" | "Left" | "Right", boolean> {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
+  if (value === "" || value === "()") {
+    return parseDirectionBooleanMapImpl({ type: "map", data: [] });
+  }
 
-  const mapEnts =
-    value === "" || value === "()" ? undefined : parseRawCollection(value);
-  const map = Object.fromEntries(
-    mapEnts === undefined
-      ? []
-      : (void assert(mapEnts.type === "map"),
-        mapEnts.data as Array<[string, string]>),
-  );
+  const map = parseRawCollection(value);
+  assert(isPMap(map), "expected PMap");
+  return parseDirectionBooleanMapImpl(map);
+}
+
+function parseDirectionBooleanMapImpl(
+  map: PMap,
+): Record<"Front" | "Bottom" | "Back" | "Top" | "Left" | "Right", boolean> {
+  const data = Object.fromEntries(map.data as Array<[string, string]>);
 
   return Object.fromEntries(
     ["Front", "Bottom", "Back", "Top", "Left", "Right"].map((dir) => {
-      const v = map[dir];
-      return [dir, v === undefined ? false : parseBoolean(v)];
+      const value = data[dir];
+      return [dir, value === undefined ? false : parseBoolean(value)];
     }),
   );
 }
 
-export function parseEquipmentSlot(value: unknown): EquipmentSlot {
+export function parseEquipmentSlot(value: string): EquipmentSlot {
   return parseEnum(EquipmentSlot, value);
 }
 
-export function parseExtractorType(value: unknown): ExtractorType | null {
+export function parseExtractorType(value: string): ExtractorType | null {
   if (value === "None") {
     return null;
   }
   return parseEnum(ExtractorType, value);
 }
 
-export function parseFalsableNumber(value: unknown): number | false {
-  const number = parseNumber(value);
+export function parseFalsableNumber(value: string): number | false {
+  return parseFalsableNumberImpl(parseNumber(value));
+}
+
+function parseFalsableNumberImpl(number: number): number | false {
   return number < 0 ? false : number;
 }
 
-export function parseFreightCargoType(value: unknown): FreightCargoType {
+export function parseFreightCargoType(value: string): FreightCargoType {
   return parseEnum(FreightCargoType, value);
 }
 
-export function parseGameEvent(value: unknown): GameEvent {
+export function parseGameEvent(value: string): GameEvent {
   return parseEnum(GameEvent, value);
 }
 
-export function parseGameEvents(value: unknown): GameEvent[] {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
-
+export function parseGameEvents(value: string): GameEvent[] {
   if (value === "" || value === "()") {
     return [];
   }
 
   const collection = parseRawCollection(value);
   assert(collection.type === "list");
-
-  return collection.data.map((raw) => parseGameEvent(raw));
+  return parseGameEventsImpl(collection);
 }
 
-export function parseGamePhase(value: unknown): GamePhase {
+function parseGameEventsImpl(collection: PList): GameEvent[] {
+  return collection.data.map((raw) => {
+    assert(typeof raw === "string");
+    return parseGameEvent(raw);
+  });
+}
+
+export function parseGamePhase(value: string): GamePhase {
   return parseEnum(GamePhase, value);
 }
 
 export function parseGeneratorNuclearWarning(
-  value: unknown,
+  value: string,
 ): GeneratorNuclearWarning {
   return parseEnum(GeneratorNuclearWarning, value);
 }
 
-export function parseHoverMode(value: unknown): HoverMode {
+export function parseHoverMode(value: string): HoverMode {
   return parseEnum(HoverMode, value);
 }
 
 export function parseItemTransferringStage(
-  value: unknown,
+  value: string,
 ): ItemTransferringStage {
   return parseEnum(ItemTransferringStage, value);
 }
 
-export function parseLightControlData(value: unknown): LightControlData {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
+export function parseLightControlData(value: string): LightControlData {
+  const map = parseRawCollection(value);
+  assert(map.type === "map");
+  return parseLightControlDataImpl(map);
+}
 
-  const mapEnts = parseRawCollection(value);
-  assert(mapEnts.type === "map");
-  const map = Object.fromEntries(mapEnts.data);
+function parseLightControlDataImpl(map: PMap): LightControlData {
+  const data = Object.fromEntries(map.data);
+
+  assert(typeof data.Intensity === "string");
 
   return {
-    Intensity: parseNumber(map.Intensity),
+    Intensity: parseNumber(data.Intensity),
   };
 }
 
-export function parseMaterials(value: unknown): Material[] {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
-
+export function parseMaterials(value: string): Material[] {
   if (value === "" || value === "()") {
     return [];
   }
 
   const collection = parseRawCollection(value);
   assert(collection.type === "list");
+  return parseMaterialsImpl(collection);
+}
 
+function parseMaterialsImpl(value: PList): Material[] {
   // TODO: implement.
   return [];
 }
 
-export function parseMinMaxNumber(value: unknown): MinMax<number> {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
+export function parseMinMaxNumber(value: string): MinMax<number> {
+  const collection = parseRawCollection(value);
+  assert(collection.type === "map");
+  return parseMinMaxNumberImpl(collection);
+}
 
-  const mapEnts = parseRawCollection(value);
-  assert(mapEnts.type === "map");
-  const map = Object.fromEntries(mapEnts.data);
+export function parseMinMaxNumberImpl(value: PMap): MinMax<number> {
+  const data = Object.fromEntries(value.data);
 
-  const min = parseNumber(map.Min);
-  const max = parseNumber(map.Max);
+  assert(typeof data.Min === "string");
+  assert(typeof data.Max === "string");
+
+  const min = parseNumber(data.Min);
+  const max = parseNumber(data.Max);
 
   return {
     min,
@@ -350,11 +362,7 @@ export function parseMinMaxNumber(value: unknown): MinMax<number> {
   };
 }
 
-export function parseNullableNumber(value: unknown): number | null {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
+export function parseNullableNumber(value: string): number | null {
   if (value === "") {
     return null;
   }
@@ -362,47 +370,40 @@ export function parseNullableNumber(value: unknown): number | null {
   return parseNumber(value);
 }
 
-export function parseNullableString(value: unknown): string | null {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
+export function parseNullableString(value: string): string | null {
   if (value === "" || value === "None" || value === "(None)") {
     return null;
   }
   return value;
 }
 
-export function parseNumber(value: unknown): number {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
+export function parseNumber(value: string): number {
   assert(/^-?\d+\.?\d*$/u.test(value));
   return Number.parseFloat(value);
 }
 
-export function parseOcclusionBoxInfo(value: unknown): OcclusionBoxInfo[] {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
-
+export function parseOcclusionBoxInfo(value: string): OcclusionBoxInfo[] {
   if (value === "" || value === "()") {
     return [];
   }
 
   const list = parseRawCollection(value);
   assert(list.type === "list");
+  return parseOcclusionBoxInfoImpl(list);
+}
 
-  return list.data.map((info) => {
-    const mapEnts = parseRawCollection(info);
-    assert(mapEnts.type === "map");
-    const map = Object.fromEntries(mapEnts.data);
+function parseOcclusionBoxInfoImpl(list: PList): OcclusionBoxInfo[] {
+  return list.data.map((map) => {
+    assert(isPMap(map), "expected PMap");
+    const data = Object.fromEntries(map.data);
 
-    const min = parsePoint3D(map.Min);
-    const max = parsePoint3D(map.Max);
-    const isValid = parseBoolean(map.IsValid);
+    assert(isPMap(data.Min), "expected PMap");
+    assert(isPMap(data.Max), "expected PMap");
+    assert(typeof data.IsValid === "string");
+
+    const min = parsePoint3DImpl(data.Min);
+    const max = parsePoint3DImpl(data.Max);
+    const isValid = parseBoolean(data.IsValid);
     return {
       min,
       max,
@@ -411,244 +412,242 @@ export function parseOcclusionBoxInfo(value: unknown): OcclusionBoxInfo[] {
   });
 }
 
-export function parseOcclusionShape(value: unknown): OcclusionShape {
+export function parseOcclusionShape(value: string): OcclusionShape {
   return parseEnum(OcclusionShape, value);
 }
 
-export function parsePipeConnections(value: unknown): PipeConnection[] {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
-
+export function parsePipeConnections(value: string): PipeConnection[] {
   if (value === "" || value === "()") {
     return [];
   }
 
   const collection = parseRawCollection(value);
   assert(collection.type === "list");
+  return parsePipeConnectionsImpl(collection);
+}
 
+function parsePipeConnectionsImpl(value: PList): PipeConnection[] {
   // TODO: implement.
   return [];
 }
 
 export function parsePlatformDockingStatus(
-  value: unknown,
+  value: string,
 ): PlatformDockingStatus {
   return parseEnum(PlatformDockingStatus, value);
 }
 
-export function parsePoint2D(value: unknown): Point2D {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
+export function parsePoint2D(value: string): Point2D {
+  const map = parseRawCollection(value);
+  assert(map.type === "map");
+  return parsePoint2DImpl(map);
+}
 
-  const mapEnts = parseRawCollection(value);
-  assert(mapEnts.type === "map");
-  const map = Object.fromEntries(mapEnts.data);
+function parsePoint2DImpl(value: PMap): Point2D {
+  const data = Object.fromEntries(value.data);
 
-  const x = parseNumber(map.X);
-  const y = parseNumber(map.Y);
+  assert(typeof data.X === "string");
+  assert(typeof data.Y === "string");
+
+  const x = parseNumber(data.X);
+  const y = parseNumber(data.Y);
 
   return { x, y };
 }
 
-export function parsePoint3D(value: unknown): Point3D {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
+export function parsePoint3D(value: string): Point3D {
+  const map = parseRawCollection(value);
+  assert(map.type === "map");
+  return parsePoint3DImpl(map);
+}
 
-  const mapEnts = parseRawCollection(value);
-  assert(mapEnts.type === "map");
-  const map = Object.fromEntries(mapEnts.data);
+function parsePoint3DImpl(value: PMap): Point3D {
+  const data = Object.fromEntries(value.data);
 
-  const x = parseNumber(map.X);
-  const y = parseNumber(map.Y);
-  const z = parseNumber(map.Z);
+  assert(typeof data.X === "string");
+  assert(typeof data.Y === "string");
+  assert(typeof data.Z === "string");
+
+  const x = parseNumber(data.X);
+  const y = parseNumber(data.Y);
+  const z = parseNumber(data.Z);
 
   return { x, y, z };
 }
 
-export function parsePowerConnections(value: unknown): PowerConnection[] {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
-
+export function parsePowerConnections(value: string): PowerConnection[] {
   if (value === "" || value === "()") {
     return [];
   }
 
   const collection = parseRawCollection(value);
   assert(collection.type === "list");
+  return parsePowerConnectionsImpl(collection);
+}
 
+function parsePowerConnectionsImpl(value: PList): PowerConnection[] {
   // TODO: implement.
   return [];
 }
 
-export function parsePowerPoleType(value: unknown): PowerPoleType {
+export function parsePowerPoleType(value: string): PowerPoleType {
   return parseEnum(PowerPoleType, value);
 }
 
-export function parseRailroadAspect(value: unknown): RailroadAspect {
+export function parseRailroadAspect(value: string): RailroadAspect {
   return parseEnum(RailroadAspect, value);
 }
 
 export function parseRailroadBlockValidation(
-  value: unknown,
+  value: string,
 ): RailroadBlockValidation {
   return parseEnum(RailroadBlockValidation, value);
 }
 
-export function parseRailroadConnections(value: unknown): RailroadConnection[] {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
-
+export function parseRailroadConnections(value: string): RailroadConnection[] {
   if (value === "" || value === "()") {
     return [];
   }
 
   const collection = parseRawCollection(value);
   assert(collection.type === "list");
+  return parseRailroadConnectionsImpl(collection);
+}
 
+function parseRailroadConnectionsImpl(value: PList): RailroadConnection[] {
   // TODO: implement.
   return [];
 }
 
-export function parseResearchState(value: unknown): ResearchState {
+export function parseResearchState(value: string): ResearchState {
   return parseEnum(ResearchState, value);
 }
 
-export function parseResourceForm(value: unknown): ResourceForm {
+export function parseResourceForm(value: string): ResourceForm {
   return parseEnum(ResourceForm, value);
 }
 
-export function parseResourceForms(value: unknown): ResourceForm[] {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
-
+export function parseResourceForms(value: string): ResourceForm[] {
   if (value === "" || value === "()") {
     return [];
   }
 
   const collection = parseRawCollection(value);
   assert(collection.type === "list");
-
-  return collection.data.map((raw) => parseResourceForm(raw));
+  return parseResourceFormsImpl(collection);
 }
 
-export function parseResourcePurity(value: unknown): ResourcePurity {
+function parseResourceFormsImpl(collection: PList): ResourceForm[] {
+  return collection.data.map((raw) => {
+    assert(typeof raw === "string");
+    return parseResourceForm(raw);
+  });
+}
+
+export function parseResourcePurity(value: string): ResourcePurity {
   return parseEnum(ResourcePurity, value);
 }
 
-export function parseRotation3D(value: unknown): Rotation3D {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
+export function parseRotation3D(value: string): Rotation3D {
+  const collection = parseRawCollection(value);
+  assert(collection.type === "map");
+  return parseRotation3DImpl(collection);
+}
 
-  const mapEnts = parseRawCollection(value);
-  assert(mapEnts.type === "map");
-  const map = Object.fromEntries(mapEnts.data);
+function parseRotation3DImpl(value: PMap): Rotation3D {
+  const data = Object.fromEntries(value.data);
 
-  const pitch = parseNumber(map.Pitch);
-  const yaw = parseNumber(map.Yaw);
-  const roll = parseNumber(map.Roll);
+  assert(typeof data.Pitch === "string");
+  assert(typeof data.Yaw === "string");
+  assert(typeof data.Roll === "string");
+
+  const pitch = parseNumber(data.Pitch);
+  const yaw = parseNumber(data.Yaw);
+  const roll = parseNumber(data.Roll);
 
   return { pitch, yaw, roll };
 }
 
-export function parseRotation3Dxyz(value: unknown): Rotation3D {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
+export function parseRotation3Dxyz(value: string): Rotation3D {
+  const collection = parseRawCollection(value);
+  assert(collection.type === "map");
+  return parseRotation3DxyzImpl(collection);
+}
 
-  const mapEnts = parseRawCollection(value);
-  assert(mapEnts.type === "map");
-  const map = Object.fromEntries(mapEnts.data);
+function parseRotation3DxyzImpl(value: PMap): Rotation3D {
+  const data = Object.fromEntries(value.data);
 
-  const roll = parseNumber(map.X);
-  const pitch = parseNumber(map.Y);
-  const yaw = parseNumber(map.Z);
+  assert(typeof data.X === "string");
+  assert(typeof data.Y === "string");
+  assert(typeof data.Z === "string");
+
+  const roll = parseNumber(data.X);
+  const pitch = parseNumber(data.Y);
+  const yaw = parseNumber(data.Z);
 
   return { pitch, yaw, roll };
 }
 
-export function parseScale3D(value: unknown): Scale3D {
+export function parseScale3D(value: string): Scale3D {
   return parsePoint3D(value);
 }
 
-export function parseScannableType(value: unknown): ScannableType {
+export function parseScannableType(value: string): ScannableType {
   return parseEnum(ScannableType, value);
 }
 
-export function parseSchematicType(value: unknown): SchematicType {
+export function parseSchematicType(value: string): SchematicType {
   return parseEnum(SchematicType, value);
 }
 
-export function parseSpline(value: unknown): Spline {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
-
+export function parseSpline(value: string): Spline {
   // TODO: implement.
   return {};
 }
 
-export function parseStackSize(value: unknown): StackSize {
+export function parseStackSize(value: string): StackSize {
   return parseEnum(StackSize, value);
 }
 
-export function parseStairDirection(value: unknown): StairDirection {
+export function parseStairDirection(value: string): StairDirection {
   return parseEnum(StairDirection, value);
 }
 
-export function parseString(value: unknown): string {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
+export function parseString(value: string): string {
   return value;
 }
 
-export function parseSubCategories(value: unknown): SubCategory[] {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
-
+export function parseSubCategories(value: string): SubCategory[] {
   if (value === "" || value === "()") {
     return [];
   }
 
   const collection = parseRawCollection(value);
   assert(collection.type === "list");
+  return parseSubCategoriesImpl(collection);
+}
 
+function parseSubCategoriesImpl(value: PList): SubCategory[] {
   // TODO: implement.
   return [];
 }
 
-export function parseTransform3D(value: unknown): Transform3D {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
+export function parseTransform3D(value: string): Transform3D {
+  const collection = parseRawCollection(value);
+  assert(collection.type === "map");
+  return parseTransform3DImpl(collection);
+}
 
-  const mapEnts = parseRawCollection(value);
-  assert(mapEnts.type === "map");
-  const map = Object.fromEntries(mapEnts.data);
+export function parseTransform3DImpl(value: PMap): Transform3D {
+  const data = Object.fromEntries(value.data);
 
-  const translation = parsePoint3D(map.Translation);
-  const rotation = parseRotation3Dxyz(map.Rotation);
-  const scale = parsePoint3D(map.Scale3D);
+  assert(isPMap(data.Translation), "expected PMap");
+  assert(isPMap(data.Rotation), "expected PMap");
+  assert(isPMap(data.Scale3D), "expected PMap");
+
+  const translation = parsePoint3DImpl(data.Translation);
+  const rotation = parseRotation3DxyzImpl(data.Rotation);
+  const scale = parsePoint3DImpl(data.Scale3D);
 
   return {
     translation,
@@ -657,39 +656,37 @@ export function parseTransform3D(value: unknown): Transform3D {
   };
 }
 
-export function parseTranslation3D(value: unknown): Translation3D {
+export function parseTranslation3D(value: string): Translation3D {
   return parsePoint3D(value);
 }
 
-export function parseVector2D(value: unknown): Vector2D {
+export function parseVector2D(value: string): Vector2D {
   return parsePoint2D(value);
 }
 
-export function parseVector3D(value: unknown): Vector3D {
+export function parseVector3D(value: string): Vector3D {
   return parsePoint3D(value);
 }
 
-export function parseWallType(value: unknown): WallType {
+export function parseWallType(value: string): WallType {
   return parseEnum(WallType, value);
 }
 
-export function parseWeaponState(value: unknown): WeaponState {
+export function parseWeaponState(value: string): WeaponState {
   return parseEnum(WeaponState, value);
 }
 
-export function parseWireConnections(value: unknown): WireConnection[] {
-  assert(
-    typeof value === "string",
-    `expected type: string, actual type: ${typeof value}`,
-  );
-
+export function parseWireConnections(value: string): WireConnection[] {
   if (value === "" || value === "()" || value === "None") {
     return [];
   }
 
   const collection = parseRawCollection(value);
   assert(collection.type === "list");
+  return parseWireConnectionsImpl(collection);
+}
 
+export function parseWireConnectionsImpl(value: unknown): WireConnection[] {
   // TODO: implement.
   return [];
 }

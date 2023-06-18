@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildable } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseSpline,
@@ -15,11 +16,11 @@ export function parse(data: unknown): Data {
 
   const buildable = parseBuildable(data);
 
-  assert("mCustomSkins" in data);
-  assert("mMeshLength" in data);
-  assert("mSplineData" in data);
-  assert("mSpeed" in data);
-  assert("mItems" in data);
+  assertPropertyExists(data, "mCustomSkins");
+  assertPropertyExists(data, "mMeshLength");
+  assertPropertyExists(data, "mSplineData");
+  assertPropertyExists(data, "mSpeed");
+  assertPropertyExists(data, "mItems");
 
   return {
     ...buildable,

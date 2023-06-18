@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBaseAmmoType } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { parseNumber, parseBoolean } from "~/scripts/parse-raw-game-data/utils";
 import { isObject } from "~/utils";
@@ -11,17 +12,17 @@ export function parse(data: unknown): Data {
 
   const ammo = parseBaseAmmoType(data);
 
-  assert("mInitialProjectileSpeedOverride" in data);
-  assert("mProjectileMaxSpeedOverride" in data);
-  assert("mProjectileHealthOverride" in data);
-  assert("mProjectileLifespan" in data);
-  assert("mProjectileStickspan" in data);
-  assert("mCanTakeDamageBySameProjectileOrChild" in data);
-  assert("mHomingProjectile" in data);
-  assert("mHomingNeedsValidTarget" in data);
-  assert("mMaxHomingAccelerationMagnitudeOverride" in data);
-  assert("mHomingOverlapSize" in data);
-  assert("mHomingAngleLimit" in data);
+  assertPropertyExists(data, "mInitialProjectileSpeedOverride");
+  assertPropertyExists(data, "mProjectileMaxSpeedOverride");
+  assertPropertyExists(data, "mProjectileHealthOverride");
+  assertPropertyExists(data, "mProjectileLifespan");
+  assertPropertyExists(data, "mProjectileStickspan");
+  assertPropertyExists(data, "mCanTakeDamageBySameProjectileOrChild");
+  assertPropertyExists(data, "mHomingProjectile");
+  assertPropertyExists(data, "mHomingNeedsValidTarget");
+  assertPropertyExists(data, "mMaxHomingAccelerationMagnitudeOverride");
+  assertPropertyExists(data, "mHomingOverlapSize");
+  assertPropertyExists(data, "mHomingAngleLimit");
 
   return {
     ...ammo,

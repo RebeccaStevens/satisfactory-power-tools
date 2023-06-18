@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseConsumableEquipment } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseNumber,
@@ -15,17 +16,17 @@ export function parse(data: unknown): Data {
 
   const consumableEquipment = parseConsumableEquipment(data);
 
-  assert("mPlayingSound" in data);
-  assert("mScanlineLerpT" in data);
-  assert("mScreenUpdateTime" in data);
-  assert("mNormalizedCloesnessToObject" in data);
-  assert("mObjectIsWithinRange" in data);
-  assert("mBeepDelayMax" in data);
-  assert("mBeepDelayMin" in data);
-  assert("mDetectionRange" in data);
-  assert("mUpdateClosestObjectTime" in data);
-  assert("mScannableDescriptors" in data);
-  assert("mShouldBeepEvenIfNoObject" in data);
+  assertPropertyExists(data, "mPlayingSound");
+  assertPropertyExists(data, "mScanlineLerpT");
+  assertPropertyExists(data, "mScreenUpdateTime");
+  assertPropertyExists(data, "mNormalizedCloesnessToObject");
+  assertPropertyExists(data, "mObjectIsWithinRange");
+  assertPropertyExists(data, "mBeepDelayMax");
+  assertPropertyExists(data, "mBeepDelayMin");
+  assertPropertyExists(data, "mDetectionRange");
+  assertPropertyExists(data, "mUpdateClosestObjectTime");
+  assertPropertyExists(data, "mScannableDescriptors");
+  assertPropertyExists(data, "mShouldBeepEvenIfNoObject");
 
   return {
     ...consumableEquipment,

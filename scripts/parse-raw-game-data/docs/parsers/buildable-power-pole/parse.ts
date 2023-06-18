@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildable } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parsePowerConnections,
@@ -15,9 +16,9 @@ export function parse(data: unknown): Data {
 
   const buildable = parseBuildable(data);
 
-  assert("mPowerConnections" in data);
-  assert("mPowerPoleType" in data);
-  assert("mHasPower" in data);
+  assertPropertyExists(data, "mPowerConnections");
+  assertPropertyExists(data, "mPowerPoleType");
+  assertPropertyExists(data, "mHasPower");
 
   return {
     ...buildable,

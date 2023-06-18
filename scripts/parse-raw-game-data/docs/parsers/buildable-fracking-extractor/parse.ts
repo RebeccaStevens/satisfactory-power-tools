@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBaseBuildableFracking } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseNumber,
@@ -14,12 +15,12 @@ export function parse(data: unknown): Data {
 
   const baseBuildableFracking = parseBaseBuildableFracking(data);
 
-  assert("mExtractStartupTime" in data);
-  assert("mExtractStartupTimer" in data);
-  assert("mExtractCycleTime" in data);
-  assert("mItemsPerCycle" in data);
-  assert("mPipeOutputConnections" in data);
-  assert("mReplicatedFlowRate" in data);
+  assertPropertyExists(data, "mExtractStartupTime");
+  assertPropertyExists(data, "mExtractStartupTimer");
+  assertPropertyExists(data, "mExtractCycleTime");
+  assertPropertyExists(data, "mItemsPerCycle");
+  assertPropertyExists(data, "mPipeOutputConnections");
+  assertPropertyExists(data, "mReplicatedFlowRate");
 
   return {
     ...baseBuildableFracking,

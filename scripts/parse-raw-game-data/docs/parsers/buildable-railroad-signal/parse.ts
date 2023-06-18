@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildable } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseRailroadAspect,
@@ -17,13 +18,13 @@ export function parse(data: unknown): Data {
 
   const buildable = parseBuildable(data);
 
-  assert("mGuardedConnections" in data);
-  assert("mObservedConnections" in data);
-  assert("mAspect" in data);
-  assert("mBlockValidation" in data);
-  assert("mIsPathSignal" in data);
-  assert("mIsBiDirectional" in data);
-  assert("mVisualState" in data);
+  assertPropertyExists(data, "mGuardedConnections");
+  assertPropertyExists(data, "mObservedConnections");
+  assertPropertyExists(data, "mAspect");
+  assertPropertyExists(data, "mBlockValidation");
+  assertPropertyExists(data, "mIsPathSignal");
+  assertPropertyExists(data, "mIsBiDirectional");
+  assertPropertyExists(data, "mVisualState");
 
   return {
     ...buildable,

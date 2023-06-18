@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBase } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseBoolean,
@@ -16,17 +17,18 @@ export function parse(data: unknown): Data {
 
   const base = parseBase(data);
 
-  assert("mEquipmentSlot" in data);
-  assert("mAttachSocket" in data);
-  assert("mCostToUse" in data);
-  assert("mHasPersistentOwner" in data);
-  assert("mOnlyVisibleToOwner" in data);
-  assert("mUseDefaultPrimaryFire" in data);
+  assertPropertyExists(data, "mEquipmentSlot");
+  assertPropertyExists(data, "mAttachSocket");
+  assertPropertyExists(data, "mCostToUse");
+  assertPropertyExists(data, "mHasPersistentOwner");
+  assertPropertyExists(data, "mOnlyVisibleToOwner");
 
   const conditionalProps =
     "mCanPress" in data
       ? {
-          mCanPress: parseBoolean(data.mCanPress),
+          mCanPress:
+            (assertPropertyExists(data, "mCanPress"),
+            parseBoolean(data.mCanPress)),
         }
       : {};
 
@@ -38,6 +40,5 @@ export function parse(data: unknown): Data {
     mCostToUse: parseAmounts(data.mCostToUse),
     mHasPersistentOwner: parseBoolean(data.mHasPersistentOwner),
     mOnlyVisibleToOwner: parseBoolean(data.mOnlyVisibleToOwner),
-    mUseDefaultPrimaryFire: parseBoolean(data.mUseDefaultPrimaryFire),
   };
 }

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseBoolean,
@@ -18,17 +19,17 @@ export function parse(data: unknown): Data {
 
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert("mExtractStartupTime" in data);
-  assert("mExtractStartupTimer" in data);
-  assert("mExtractCycleTime" in data);
-  assert("mItemsPerCycle" in data);
-  assert("mPipeOutputConnections" in data);
-  assert("mReplicatedFlowRate" in data);
-  assert("mAllowedResourceForms" in data);
-  assert("mOnlyAllowCertainResources" in data);
-  assert("mAllowedResources" in data);
-  assert("mExtractorTypeName" in data);
-  assert("mTryFindMissingResource" in data);
+  assertPropertyExists(data, "mExtractStartupTime");
+  assertPropertyExists(data, "mExtractStartupTimer");
+  assertPropertyExists(data, "mExtractCycleTime");
+  assertPropertyExists(data, "mItemsPerCycle");
+  assertPropertyExists(data, "mPipeOutputConnections");
+  assertPropertyExists(data, "mReplicatedFlowRate");
+  assertPropertyExists(data, "mAllowedResourceForms");
+  assertPropertyExists(data, "mOnlyAllowCertainResources");
+  assertPropertyExists(data, "mAllowedResources");
+  assertPropertyExists(data, "mExtractorTypeName");
+  assertPropertyExists(data, "mTryFindMissingResource");
 
   return {
     ...buildableBuilding,

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { parseNumber, parseBoolean } from "~/scripts/parse-raw-game-data/utils";
 import { isObject } from "~/utils";
@@ -11,15 +12,15 @@ export function parse(data: unknown): Data {
 
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert("mProductionEffectsRunning" in data);
-  assert("mVariablePowerProductionConstant" in data);
-  assert("mVariablePowerProductionFactor" in data);
-  assert("mVariablePowerProductionCycleLength" in data);
-  assert("mMinPowerProduction" in data);
-  assert("mMaxPowerProduction" in data);
-  assert("mVariablePowerProductionCycleOffset" in data);
-  assert("mPowerProduction" in data);
-  assert("mLoadPercentage" in data);
+  assertPropertyExists(data, "mProductionEffectsRunning");
+  assertPropertyExists(data, "mVariablePowerProductionConstant");
+  assertPropertyExists(data, "mVariablePowerProductionFactor");
+  assertPropertyExists(data, "mVariablePowerProductionCycleLength");
+  assertPropertyExists(data, "mMinPowerProduction");
+  assertPropertyExists(data, "mMaxPowerProduction");
+  assertPropertyExists(data, "mVariablePowerProductionCycleOffset");
+  assertPropertyExists(data, "mPowerProduction");
+  assertPropertyExists(data, "mLoadPercentage");
 
   return {
     ...buildableBuilding,

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildable } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { parseRawCollection } from "~/scripts/parse-raw-game-data/docs/raw-collection-parser";
 import {
@@ -18,19 +19,19 @@ export function parse(data: unknown): Data {
 
   const buildable = parseBuildable(data);
 
-  assert("mRadius" in data);
-  assert("mFlowLimit" in data);
-  assert("mFlowIndicatorMinimumPipeLength" in data);
-  assert("mPipeConnections" in data);
-  assert("mMaxIndicatorTurnAngle" in data);
-  assert("mFluidNames" in data);
-  assert("mCurrentFluid" in data);
-  assert("mLastContentForSound" in data);
-  assert("mLastFlowForSound" in data);
-  assert("mRattleLimit" in data);
-  assert("mIsRattling" in data);
-  assert("mMeshLength" in data);
-  assert("mSplineData" in data);
+  assertPropertyExists(data, "mRadius");
+  assertPropertyExists(data, "mFlowLimit");
+  assertPropertyExists(data, "mFlowIndicatorMinimumPipeLength");
+  assertPropertyExists(data, "mPipeConnections");
+  assertPropertyExists(data, "mMaxIndicatorTurnAngle");
+  assertPropertyExists(data, "mFluidNames");
+  assertPropertyExists(data, "mCurrentFluid");
+  assertPropertyExists(data, "mLastContentForSound");
+  assertPropertyExists(data, "mLastFlowForSound");
+  assertPropertyExists(data, "mRattleLimit");
+  assertPropertyExists(data, "mIsRattling");
+  assertPropertyExists(data, "mMeshLength");
+  assertPropertyExists(data, "mSplineData");
 
   return {
     ...buildable,
@@ -68,17 +69,19 @@ function parseFluidNames(
   assert(list.type === "list");
 
   return list.data
-    .map((raw) => {
-      const mapEnts = parseRawCollection(raw);
-      assert(mapEnts.type === "map");
-      const map = Object.fromEntries(mapEnts.data);
+    .map((map) => {
+      assert(typeof map === "object");
+      assert(map.type === "map");
+      const data = Object.fromEntries(map.data);
 
-      const WwiseSafeName = parseString(map.WwiseSafeName);
+      assert(typeof data.WwiseSafeName === "string");
+      const WwiseSafeName = parseString(data.WwiseSafeName);
       if (WwiseSafeName === "No_Fluid") {
         return null;
       }
 
-      const ActualName = parseString(map.ActualName);
+      assert(typeof data.ActualName === "string");
+      const ActualName = parseString(data.ActualName);
 
       return {
         WwiseSafeName,

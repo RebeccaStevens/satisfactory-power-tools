@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseConsumableEquipment } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseBoolean,
@@ -15,12 +16,12 @@ export function parse(data: unknown): Data {
 
   const equipment = parseConsumableEquipment(data);
 
-  assert("mDefaultAirControl" in data);
-  assert("mRTPCInterval" in data);
-  assert("mThrustCooldown" in data);
-  assert("mCurrentFuel" in data);
-  assert("mIsThrusting" in data);
-  assert("mFuelTypes" in data);
+  assertPropertyExists(data, "mDefaultAirControl");
+  assertPropertyExists(data, "mRTPCInterval");
+  assertPropertyExists(data, "mThrustCooldown");
+  assertPropertyExists(data, "mCurrentFuel");
+  assertPropertyExists(data, "mIsThrusting");
+  assertPropertyExists(data, "mFuelTypes");
 
   return {
     ...equipment,

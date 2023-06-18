@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseItem } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseNumber,
@@ -17,23 +18,23 @@ export function parse(data: unknown): Data {
 
   const item = parseItem(data);
 
-  assert("mFiringTransform" in data);
-  assert("mFiringDirection" in data);
-  assert("mMagazineSize" in data);
-  assert("mMaxAmmoEffectiveRange" in data);
-  assert("mReloadTimeMultiplier" in data);
-  assert("mFireRate" in data);
-  assert("mFiringTransformIgnoresDispersion" in data);
-  assert("mDispersionFireRateMultiplier" in data);
-  assert("mDispersionPerShot" in data);
-  assert("mRestingDispersion" in data);
-  assert("mFiringDispersion" in data);
-  assert("mDispersionRecoveryTime" in data);
-  assert("mHasBeenInitialized" in data);
-  assert("mWeaponDamageMultiplier" in data);
-  assert("mMuzzleFlashScale" in data);
-  assert("mAmmoColor" in data);
-  assert("mAmmoScale" in data);
+  assertPropertyExists(data, "mFiringTransform");
+  assertPropertyExists(data, "mFiringDirection");
+  assertPropertyExists(data, "mMagazineSize");
+  assertPropertyExists(data, "mMaxAmmoEffectiveRange");
+  assertPropertyExists(data, "mReloadTimeMultiplier");
+  assertPropertyExists(data, "mFireRate");
+  assertPropertyExists(data, "mFiringTransformIgnoresDispersion");
+  assertPropertyExists(data, "mDispersionFireRateMultiplier");
+  assertPropertyExists(data, "mDispersionPerShot");
+  assertPropertyExists(data, "mRestingDispersion");
+  assertPropertyExists(data, "mFiringDispersion");
+  assertPropertyExists(data, "mDispersionRecoveryTime");
+  assertPropertyExists(data, "mHasBeenInitialized");
+  assertPropertyExists(data, "mWeaponDamageMultiplier");
+  assertPropertyExists(data, "mMuzzleFlashScale");
+  assertPropertyExists(data, "mAmmoColor");
+  assertPropertyExists(data, "mAmmoScale");
 
   return {
     ...item,

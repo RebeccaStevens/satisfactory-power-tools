@@ -14,5 +14,4 @@ export type Data = Base & {
   mCostToUse: Record<Item["ClassName"], number>;
   mHasPersistentOwner: boolean;
   mOnlyVisibleToOwner: boolean;
-  mUseDefaultPrimaryFire: boolean;
 };

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseItem } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { parseNumber, parseString } from "~/scripts/parse-raw-game-data/utils";
 import { isObject } from "~/utils";
@@ -11,8 +12,8 @@ export function parse(data: unknown): Data {
 
   const item = parseItem(data);
 
-  assert("mSpentFuelClass" in data);
-  assert("mAmountOfWaste" in data);
+  assertPropertyExists(data, "mSpentFuelClass");
+  assertPropertyExists(data, "mAmountOfWaste");
 
   return {
     ...item,

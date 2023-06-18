@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseNumber,
@@ -15,19 +16,19 @@ export function parse(data: unknown): Data {
 
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert("mDockPosition" in data);
-  assert("mMinimumDockingTime" in data);
-  assert("mStorageSizeX" in data);
-  assert("mStorageSizeY" in data);
-  assert("mFuelInventorySizeX" in data);
-  assert("mFuelInventorySizeY" in data);
-  assert("mTransferSpeed" in data);
-  assert("mFuelTransferSpeed" in data);
-  assert("mStackTransferSize" in data);
-  assert("mForceSignificance" in data);
-  assert("mVehicleFuelConsumptionRate" in data);
-  assert("mItemTransferRate" in data);
-  assert("mMaximumStackTransferRate" in data);
+  assertPropertyExists(data, "mDockPosition");
+  assertPropertyExists(data, "mMinimumDockingTime");
+  assertPropertyExists(data, "mStorageSizeX");
+  assertPropertyExists(data, "mStorageSizeY");
+  assertPropertyExists(data, "mFuelInventorySizeX");
+  assertPropertyExists(data, "mFuelInventorySizeY");
+  assertPropertyExists(data, "mTransferSpeed");
+  assertPropertyExists(data, "mFuelTransferSpeed");
+  assertPropertyExists(data, "mStackTransferSize");
+  assertPropertyExists(data, "mForceSignificance");
+  assertPropertyExists(data, "mVehicleFuelConsumptionRate");
+  assertPropertyExists(data, "mItemTransferRate");
+  assertPropertyExists(data, "mMaximumStackTransferRate");
 
   return {
     ...buildableBuilding,

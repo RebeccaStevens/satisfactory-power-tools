@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBaseGasMask } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { parseBoolean } from "~/scripts/parse-raw-game-data/utils";
 import { isObject } from "~/utils";
@@ -11,8 +12,8 @@ export function parse(data: unknown): Data {
 
   const base = parseBaseGasMask(data);
 
-  assert("mPostProcessEnabled" in data);
-  assert("mIsInPoisonArea" in data);
+  assertPropertyExists(data, "mPostProcessEnabled");
+  assertPropertyExists(data, "mIsInPoisonArea");
 
   return {
     ...base,

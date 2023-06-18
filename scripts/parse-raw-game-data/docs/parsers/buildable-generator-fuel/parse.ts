@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { type FuelAmount } from "~/scripts/parse-raw-game-data/types";
 import {
@@ -20,18 +21,18 @@ export function parse(data: unknown): Data {
 
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert("mFuelClasses" in data);
-  assert("mDefaultFuelClasses" in data);
-  assert("mFuel" in data);
-  assert("mAvailableFuelClasses" in data);
-  assert("mFuelResourceForm" in data);
-  assert("mFuelLoadAmount" in data);
-  assert("mRequiresSupplementalResource" in data);
-  assert("mSupplementalLoadAmount" in data);
-  assert("mSupplementalToPowerRatio" in data);
-  assert("mIsFullBlast" in data);
-  assert("mPowerProduction" in data);
-  assert("mLoadPercentage" in data);
+  assertPropertyExists(data, "mFuelClasses");
+  assertPropertyExists(data, "mDefaultFuelClasses");
+  assertPropertyExists(data, "mFuel", "array");
+  assertPropertyExists(data, "mAvailableFuelClasses");
+  assertPropertyExists(data, "mFuelResourceForm");
+  assertPropertyExists(data, "mFuelLoadAmount");
+  assertPropertyExists(data, "mRequiresSupplementalResource");
+  assertPropertyExists(data, "mSupplementalLoadAmount");
+  assertPropertyExists(data, "mSupplementalToPowerRatio");
+  assertPropertyExists(data, "mIsFullBlast");
+  assertPropertyExists(data, "mPowerProduction");
+  assertPropertyExists(data, "mLoadPercentage");
 
   return {
     ...buildableBuilding,
@@ -52,18 +53,13 @@ export function parse(data: unknown): Data {
   };
 }
 
-function parseFuel(values: unknown): FuelAmount[] {
-  assert(
-    Array.isArray(values),
-    `expected type: array, actual type: ${typeof values}`,
-  );
-
+function parseFuel(values: unknown[]): FuelAmount[] {
   return values.map((value) => {
     assert(isObject(value));
-    assert("mFuelClass" in value);
-    assert("mSupplementalResourceClass" in value);
-    assert("mByproduct" in value);
-    assert("mByproductAmount" in value);
+    assertPropertyExists(value, "mFuelClass");
+    assertPropertyExists(value, "mSupplementalResourceClass");
+    assertPropertyExists(value, "mByproduct");
+    assertPropertyExists(value, "mByproductAmount");
 
     const mFuelClass = parseString(value.mFuelClass);
     const mSupplementalResourceClass = parseString(

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseNumber,
@@ -15,18 +16,18 @@ export function parse(data: unknown): Data {
 
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert("mWorkBenchOccupied" in data);
-  assert("mWorkBenchFree" in data);
-  assert("mShipUpgradeLevel" in data);
-  assert("mStorageText" in data);
-  assert("mMamFreeText" in data);
-  assert("mMamOccupiedText" in data);
-  assert("mStorageInventorySize" in data);
-  assert("mStorageVisibilityLevel" in data);
-  assert("mSpawningGroundZOffset" in data);
-  assert("mGroundSearchZDistance" in data);
-  assert("mNeedPlayingBuildEffectNotification" in data);
-  assert("mRepresentationText" in data);
+  assertPropertyExists(data, "mWorkBenchOccupied");
+  assertPropertyExists(data, "mWorkBenchFree");
+  assertPropertyExists(data, "mShipUpgradeLevel");
+  assertPropertyExists(data, "mStorageText");
+  assertPropertyExists(data, "mMamFreeText");
+  assertPropertyExists(data, "mMamOccupiedText");
+  assertPropertyExists(data, "mStorageInventorySize");
+  assertPropertyExists(data, "mStorageVisibilityLevel");
+  assertPropertyExists(data, "mSpawningGroundZOffset");
+  assertPropertyExists(data, "mGroundSearchZDistance");
+  assertPropertyExists(data, "mNeedPlayingBuildEffectNotification");
+  assertPropertyExists(data, "mRepresentationText");
 
   return {
     ...buildableBuilding,

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBase } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseString,
@@ -21,20 +22,20 @@ export function parse(data: unknown): Data {
 
   const base = parseBase(data);
 
-  assert("mType" in data);
-  assert("mDescription" in data);
-  assert("mSubCategories" in data);
-  assert("mMenuPriority" in data);
-  assert("mTechTier" in data);
-  assert("mCost" in data);
-  assert("mTimeToComplete" in data);
-  assert("mRelevantShopSchematics" in data);
-  assert("mUnlocks" in data);
-  assert("mSchematicIcon" in data);
-  assert("mSmallSchematicIcon" in data);
-  assert("mSchematicDependencies" in data);
-  assert("mDependenciesBlocksSchematicAccess" in data);
-  assert("mHiddenUntilDependenciesMet" in data);
+  assertPropertyExists(data, "mType");
+  assertPropertyExists(data, "mDescription");
+  assertPropertyExists(data, "mSubCategories");
+  assertPropertyExists(data, "mMenuPriority");
+  assertPropertyExists(data, "mTechTier");
+  assertPropertyExists(data, "mCost");
+  assertPropertyExists(data, "mTimeToComplete");
+  assertPropertyExists(data, "mRelevantShopSchematics");
+  assertPropertyExists(data, "mUnlocks", "array");
+  assertPropertyExists(data, "mSchematicIcon");
+  assertPropertyExists(data, "mSmallSchematicIcon");
+  assertPropertyExists(data, "mSchematicDependencies", "array");
+  assertPropertyExists(data, "mDependenciesBlocksSchematicAccess");
+  assertPropertyExists(data, "mHiddenUntilDependenciesMet");
 
   return {
     ...base,
@@ -60,32 +61,31 @@ export function parse(data: unknown): Data {
 }
 
 // TODO
-function parseUnlocks(data: unknown) {
-  assert(Array.isArray(data));
+function parseUnlocks(data: unknown[]) {
   return data.map((value) => {
     assert(isObject(value));
-    assert("Class" in value);
+    assertPropertyExists(value, "Class");
     return {
       Class: parseString(value.Class),
     };
   });
 }
 
-function parseSchematicDependencies(data: unknown) {
-  assert(Array.isArray(data));
+function parseSchematicDependencies(data: unknown[]) {
   return data.map((value) => {
     assert(isObject(value));
-    assert("Class" in value);
+    assertPropertyExists(value, "Class");
 
     if ("mGamePhase" in value) {
+      assertPropertyExists(value, "mGamePhase");
       return {
         Class: parseString(value.Class),
         mGamePhase: parseGamePhase(value.mGamePhase),
       };
     }
 
-    assert("mSchematics" in value);
-    assert("mRequireAllSchematicsToBePurchased" in value);
+    assertPropertyExists(value, "mSchematics");
+    assertPropertyExists(value, "mRequireAllSchematicsToBePurchased");
 
     return {
       Class: parseString(value.Class),

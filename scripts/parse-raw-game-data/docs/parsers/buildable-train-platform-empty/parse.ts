@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parsePlatformDockingStatus,
@@ -15,11 +16,11 @@ export function parse(data: unknown): Data {
 
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert("mPlatformConnections" in data);
-  assert("mIsOrientationReversed" in data);
-  assert("mPlatformDockingStatus" in data);
-  assert("mSavedDockingStatus" in data);
-  assert("mDockWasCancelled" in data);
+  assertPropertyExists(data, "mPlatformConnections");
+  assertPropertyExists(data, "mIsOrientationReversed");
+  assertPropertyExists(data, "mPlatformDockingStatus");
+  assertPropertyExists(data, "mSavedDockingStatus");
+  assertPropertyExists(data, "mDockWasCancelled");
 
   return {
     ...buildableBuilding,

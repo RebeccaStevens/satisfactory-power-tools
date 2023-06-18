@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildable } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseBoolean,
@@ -15,21 +16,21 @@ export function parse(data: unknown): Data {
 
   const buildable = parseBuildable(data);
 
-  assert("mPowerConsumption" in data);
-  assert("mPowerConsumptionExponent" in data);
-  assert("mDoesHaveShutdownAnimation" in data);
-  assert("mMinimumProducingTime" in data);
-  assert("mMinimumStoppedTime" in data);
-  assert("mCanEverMonitorProductivity" in data);
-  assert("mCanChangePotential" in data);
-  assert("mMinPotential" in data);
-  assert("mMaxPotential" in data);
-  assert("mMaxPotentialIncreasePerCrystal" in data);
-  assert("mFluidStackSizeDefault" in data);
-  assert("mFluidStackSizeMultiplier" in data);
-  assert("mEffectUpdateInterval" in data);
-  assert("mAddToSignificanceManager" in data);
-  assert("mSignificanceRange" in data);
+  assertPropertyExists(data, "mPowerConsumption");
+  assertPropertyExists(data, "mPowerConsumptionExponent");
+  assertPropertyExists(data, "mDoesHaveShutdownAnimation");
+  assertPropertyExists(data, "mMinimumProducingTime");
+  assertPropertyExists(data, "mMinimumStoppedTime");
+  assertPropertyExists(data, "mCanEverMonitorProductivity");
+  assertPropertyExists(data, "mCanChangePotential");
+  assertPropertyExists(data, "mMinPotential");
+  assertPropertyExists(data, "mMaxPotential");
+  assertPropertyExists(data, "mMaxPotentialIncreasePerCrystal");
+  assertPropertyExists(data, "mFluidStackSizeDefault");
+  assertPropertyExists(data, "mFluidStackSizeMultiplier");
+  assertPropertyExists(data, "mEffectUpdateInterval");
+  assertPropertyExists(data, "mAddToSignificanceManager");
+  assertPropertyExists(data, "mSignificanceRange");
 
   return {
     ...buildable,

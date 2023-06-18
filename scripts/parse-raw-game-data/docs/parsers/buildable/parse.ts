@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBase } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseAttachmentPoints,
@@ -11,7 +12,6 @@ import {
   parseOcclusionBoxInfo,
   parseOcclusionShape,
   parseString,
-  parseVector3D,
 } from "~/scripts/parse-raw-game-data/utils";
 import { isObject } from "~/utils";
 
@@ -22,36 +22,33 @@ export function parse(data: unknown): Data {
 
   const base = parseBase(data);
 
-  assert("mDescription" in data);
-  assert("mHighlightVector" in data);
-  assert("mAlternativeMaterialRecipes" in data);
-  assert("mContainsComponents" in data);
-  assert("mBuildEffectSpeed" in data);
-  assert("mAllowColoring" in data);
-  assert("mAllowPatterning" in data);
-  assert("mSkipBuildEffect" in data);
-  assert("mForceNetUpdateOnRegisterPlayer" in data);
-  assert("mToggleDormancyOnInteraction" in data);
-  assert("mIsMultiSpawnedBuildable" in data);
-  assert("mShouldShowHighlight" in data);
-  assert("mShouldShowAttachmentPointVisuals" in data);
-  assert("mCreateClearanceMeshRepresentation" in data);
-  assert("mCanContainLightweightInstances" in data);
-  assert("mAffectsOcclusion" in data);
-  assert("mOcclusionShape" in data);
-  assert("mScaleCustomOffset" in data);
-  assert("mCustomScaleType" in data);
-  assert("mOcclusionBoxInfo" in data);
-  assert("mAttachmentPoints" in data);
-  assert("mIsUseable" in data);
-  assert("mHideOnBuildEffectStart" in data);
-  assert("mShouldModifyWorldGrid" in data);
-  assert("mBlueprintBuildEffectID" in data);
+  assertPropertyExists(data, "mDescription");
+  assertPropertyExists(data, "mAlternativeMaterialRecipes");
+  assertPropertyExists(data, "mContainsComponents");
+  assertPropertyExists(data, "mBuildEffectSpeed");
+  assertPropertyExists(data, "mAllowColoring");
+  assertPropertyExists(data, "mAllowPatterning");
+  assertPropertyExists(data, "mSkipBuildEffect");
+  assertPropertyExists(data, "mForceNetUpdateOnRegisterPlayer");
+  assertPropertyExists(data, "mToggleDormancyOnInteraction");
+  assertPropertyExists(data, "mIsMultiSpawnedBuildable");
+  assertPropertyExists(data, "mShouldShowAttachmentPointVisuals");
+  assertPropertyExists(data, "mCreateClearanceMeshRepresentation");
+  assertPropertyExists(data, "mCanContainLightweightInstances");
+  assertPropertyExists(data, "mAffectsOcclusion");
+  assertPropertyExists(data, "mOcclusionShape");
+  assertPropertyExists(data, "mScaleCustomOffset");
+  assertPropertyExists(data, "mCustomScaleType");
+  assertPropertyExists(data, "mOcclusionBoxInfo");
+  assertPropertyExists(data, "mAttachmentPoints");
+  assertPropertyExists(data, "mIsUseable");
+  assertPropertyExists(data, "mHideOnBuildEffectStart");
+  assertPropertyExists(data, "mShouldModifyWorldGrid");
+  assertPropertyExists(data, "mBlueprintBuildEffectID");
 
   return {
     ...base,
     mDescription: parseString(data.mDescription),
-    mHighlightVector: parseVector3D(data.mHighlightVector),
     mAlternativeMaterialRecipes: parseMaterials(
       data.mAlternativeMaterialRecipes,
     ),
@@ -67,7 +64,6 @@ export function parse(data: unknown): Data {
       data.mToggleDormancyOnInteraction,
     ),
     mIsMultiSpawnedBuildable: parseBoolean(data.mIsMultiSpawnedBuildable),
-    mShouldShowHighlight: parseBoolean(data.mShouldShowHighlight),
     mShouldShowAttachmentPointVisuals: parseBoolean(
       data.mShouldShowAttachmentPointVisuals,
     ),

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseConsumableEquipment } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseString,
@@ -15,11 +16,11 @@ export function parse(data: unknown): Data {
 
   const equipment = parseConsumableEquipment(data);
 
-  assert("mMaxSpawnDistance" in data);
-  assert("mSpawningClearance" in data);
-  assert("mBuildDisqualifierText" in data);
-  assert("canDisplayDisqualifier" in data);
-  assert("mPlaceDistanceMax" in data);
+  assertPropertyExists(data, "mMaxSpawnDistance");
+  assertPropertyExists(data, "mSpawningClearance");
+  assertPropertyExists(data, "mBuildDisqualifierText");
+  assertPropertyExists(data, "canDisplayDisqualifier");
+  assertPropertyExists(data, "mPlaceDistanceMax");
 
   return {
     ...equipment,

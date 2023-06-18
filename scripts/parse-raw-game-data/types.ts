@@ -130,6 +130,7 @@ export type PowerConnection = {};
 
 export enum PowerPoleType {
   Pole = "PPT_POLE",
+  Tower = "PPT_TOWER",
   WallSingle = "PPT_WALL",
   WallDouble = "PPT_WALL_DOUBLE",
 }

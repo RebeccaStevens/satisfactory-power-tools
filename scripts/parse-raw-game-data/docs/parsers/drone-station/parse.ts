@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parsePoint3D,
@@ -18,26 +19,26 @@ export function parse(data: unknown): Data {
 
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert("mStoppedProducingAnimationSounds" in data);
-  assert("mDroneDockingStartLocationLocal" in data);
-  assert("mDroneDockingLocationLocal" in data);
-  assert("mBatteryClasses" in data);
-  assert("mStationHasDronesInQueue" in data);
-  assert("mItemTransferringStage" in data);
-  assert("mTransferProgress" in data);
-  assert("mTransferSpeed" in data);
-  assert("mStackTransferSize" in data);
-  assert("mDroneQueueRadius" in data);
-  assert("mDroneQueueSeparationRadius" in data);
-  assert("mDroneQueueVerticalSeparation" in data);
-  assert("mTripPowerCost" in data);
-  assert("mTripPowerPerMeterCost" in data);
-  assert("mTripInformationSampleCount" in data);
-  assert("mStorageSizeX" in data);
-  assert("mStorageSizeY" in data);
-  assert("mBatteryStorageSizeX" in data);
-  assert("mBatteryStorageSizeY" in data);
-  assert("mMapText" in data);
+  assertPropertyExists(data, "mStoppedProducingAnimationSounds");
+  assertPropertyExists(data, "mDroneDockingStartLocationLocal");
+  assertPropertyExists(data, "mDroneDockingLocationLocal");
+  assertPropertyExists(data, "mBatteryClasses");
+  assertPropertyExists(data, "mStationHasDronesInQueue");
+  assertPropertyExists(data, "mItemTransferringStage");
+  assertPropertyExists(data, "mTransferProgress");
+  assertPropertyExists(data, "mTransferSpeed");
+  assertPropertyExists(data, "mStackTransferSize");
+  assertPropertyExists(data, "mDroneQueueRadius");
+  assertPropertyExists(data, "mDroneQueueSeparationRadius");
+  assertPropertyExists(data, "mDroneQueueVerticalSeparation");
+  assertPropertyExists(data, "mTripPowerCost");
+  assertPropertyExists(data, "mTripPowerPerMeterCost");
+  assertPropertyExists(data, "mTripInformationSampleCount");
+  assertPropertyExists(data, "mStorageSizeX");
+  assertPropertyExists(data, "mStorageSizeY");
+  assertPropertyExists(data, "mBatteryStorageSizeX");
+  assertPropertyExists(data, "mBatteryStorageSizeY");
+  assertPropertyExists(data, "mMapText");
 
   return {
     ...buildableBuilding,

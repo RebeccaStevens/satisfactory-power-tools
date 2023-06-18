@@ -5,12 +5,10 @@ import {
   type Material,
   type OcclusionBoxInfo,
   type OcclusionShape,
-  type Vector3D,
 } from "~/scripts/parse-raw-game-data/types";
 
 export type Data = Base & {
   mDescription: string;
-  mHighlightVector: Vector3D;
   mAlternativeMaterialRecipes: Material[];
   mContainsComponents: boolean;
   mBuildEffectSpeed: number;
@@ -20,7 +18,6 @@ export type Data = Base & {
   mForceNetUpdateOnRegisterPlayer: boolean;
   mToggleDormancyOnInteraction: boolean;
   mIsMultiSpawnedBuildable: boolean;
-  mShouldShowHighlight: boolean;
   mShouldShowAttachmentPointVisuals: boolean;
   mCreateClearanceMeshRepresentation: boolean;
   mCanContainLightweightInstances: boolean;

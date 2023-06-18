@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildableTrainPlatformEmpty } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseNumber,
@@ -17,35 +18,35 @@ export function parse(data: unknown): Data {
 
   const buildableTrainPlatformEmpty = parseBuildableTrainPlatformEmpty(data);
 
-  assert("mFreightCargoType" in data);
-  assert("mStorageSizeX" in data);
-  assert("mStorageSizeY" in data);
-  assert("mCanUnloadAny" in data);
-  assert("mIsFullUnload" in data);
-  assert("mCanLoadAny" in data);
-  assert("mIsFullLoad" in data);
-  assert("mTimeToCompleteLoad" in data);
-  assert("mTimeToSwapLoadVisibility" in data);
-  assert("mTimeToCompleteUnload" in data);
-  assert("mTimeToSwapUnloadVisibility" in data);
-  assert("mWaitForConditionUpdatePeriod" in data);
-  assert("mStorageInputConnections" in data);
-  assert("mPipeInputConnections" in data);
-  assert("mPipeOutputConnections" in data);
-  assert("mHasFullyLoadUnloadRule" in data);
-  assert("mDockForDuration" in data);
-  assert("mMustDockForDuration" in data);
-  assert("mCurrentDockForDuration" in data);
-  assert("mHasAnyRelevantStacksToMove" in data);
-  assert("mAllowDepartureNoValidItemsToTransfer" in data);
-  assert("mShouldExecuteLoadOrUnload" in data);
-  assert("mRanCompleteBeforeNone" in data);
-  assert("mTimeSinceLastLoadTransferUpdate" in data);
-  assert("mTimeSinceLastUnloadTransferUpdate" in data);
-  assert("mSmoothedLoadRate" in data);
-  assert("mSmoothedUnloadRate" in data);
-  assert("mReplicatedOutflowRate" in data);
-  assert("mReplicatedInflowRate" in data);
+  assertPropertyExists(data, "mFreightCargoType");
+  assertPropertyExists(data, "mStorageSizeX");
+  assertPropertyExists(data, "mStorageSizeY");
+  assertPropertyExists(data, "mCanUnloadAny");
+  assertPropertyExists(data, "mIsFullUnload");
+  assertPropertyExists(data, "mCanLoadAny");
+  assertPropertyExists(data, "mIsFullLoad");
+  assertPropertyExists(data, "mTimeToCompleteLoad");
+  assertPropertyExists(data, "mTimeToSwapLoadVisibility");
+  assertPropertyExists(data, "mTimeToCompleteUnload");
+  assertPropertyExists(data, "mTimeToSwapUnloadVisibility");
+  assertPropertyExists(data, "mWaitForConditionUpdatePeriod");
+  assertPropertyExists(data, "mStorageInputConnections");
+  assertPropertyExists(data, "mPipeInputConnections");
+  assertPropertyExists(data, "mPipeOutputConnections");
+  assertPropertyExists(data, "mHasFullyLoadUnloadRule");
+  assertPropertyExists(data, "mDockForDuration");
+  assertPropertyExists(data, "mMustDockForDuration");
+  assertPropertyExists(data, "mCurrentDockForDuration");
+  assertPropertyExists(data, "mHasAnyRelevantStacksToMove");
+  assertPropertyExists(data, "mAllowDepartureNoValidItemsToTransfer");
+  assertPropertyExists(data, "mShouldExecuteLoadOrUnload");
+  assertPropertyExists(data, "mRanCompleteBeforeNone");
+  assertPropertyExists(data, "mTimeSinceLastLoadTransferUpdate");
+  assertPropertyExists(data, "mTimeSinceLastUnloadTransferUpdate");
+  assertPropertyExists(data, "mSmoothedLoadRate");
+  assertPropertyExists(data, "mSmoothedUnloadRate");
+  assertPropertyExists(data, "mReplicatedOutflowRate");
+  assertPropertyExists(data, "mReplicatedInflowRate");
 
   return {
     ...buildableTrainPlatformEmpty,

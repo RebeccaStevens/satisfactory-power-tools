@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBaseItem } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseMinMaxNumber,
@@ -16,13 +17,25 @@ export function parse(data: unknown): Data {
 
   const conditionalProps = [
     "mFuelConsumption" in data
-      ? ["mFuelConsumption", parseNumber(data.mFuelConsumption)]
+      ? [
+          "mFuelConsumption",
+          (assertPropertyExists(data, "mFuelConsumption"),
+          parseNumber(data.mFuelConsumption)),
+        ]
       : null,
     "mPowerConsumption" in data
-      ? ["mPowerConsumption", parseMinMaxNumber(data.mPowerConsumption)]
+      ? [
+          "mPowerConsumption",
+          (assertPropertyExists(data, "mPowerConsumption"),
+          parseMinMaxNumber(data.mPowerConsumption)),
+        ]
       : null,
     "mInventorySize" in data
-      ? ["mInventorySize", parseNumber(data.mInventorySize)]
+      ? [
+          "mInventorySize",
+          (assertPropertyExists(data, "mInventorySize"),
+          parseNumber(data.mInventorySize)),
+        ]
       : null,
   ].filter(isNotNull);
 

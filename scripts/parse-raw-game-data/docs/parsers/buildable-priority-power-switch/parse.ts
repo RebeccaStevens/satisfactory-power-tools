@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 
 import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
-import { parseBaseItem } from "~/scripts/parse-raw-game-data/docs/parsers";
+import { parseBuildableCircuitSwitch } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { parseNumber } from "~/scripts/parse-raw-game-data/utils";
 import { isObject } from "~/utils";
 
@@ -10,12 +10,12 @@ import { type Data } from "./types";
 export function parse(data: unknown): Data {
   assert(isObject(data));
 
-  const baseItem = parseBaseItem(data);
+  const circuitSwitch = parseBuildableCircuitSwitch(data);
 
-  assertPropertyExists(data, "mResourceSinkPoints");
+  assertPropertyExists(data, "mPriority");
 
   return {
-    ...baseItem,
-    mResourceSinkPoints: parseNumber(data.mResourceSinkPoints),
+    ...circuitSwitch,
+    mPriority: parseNumber(data.mPriority),
   };
 }

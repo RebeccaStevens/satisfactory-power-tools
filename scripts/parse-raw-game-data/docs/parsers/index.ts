@@ -49,6 +49,10 @@ export {
   parse as parseBuildableCircuitSwitch,
 } from "./buildable-circuit-switch";
 export {
+  type Data as BuildablePriorityPowerSwitch,
+  parse as parseBuildablePriorityPowerSwitch,
+} from "./buildable-priority-power-switch";
+export {
   type Data as BuildableConveyorBelt,
   parse as parseBuildableConveyorBelt,
 } from "./buildable-conveyor-belt";

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseNumber,
@@ -16,21 +17,21 @@ export function parse(data: unknown): Data {
 
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert("mPowerBankCapacity" in data);
-  assert("mLaunchPowerCost" in data);
-  assert("mChargeRateMultiplier" in data);
-  assert("mCurrentPowerLevel" in data);
-  assert("mLaunchVelocity" in data);
-  assert("mLaunchAngle" in data);
-  assert("mPlayerChainJumpResetTime" in data);
-  assert("mHasPowerForLaunch" in data);
-  assert("mTrajectoryData" in data);
-  assert("mTrajectoryMeshScale" in data);
-  assert("mTrajectoryMeshRotation" in data);
-  assert("mDestinationMeshHeightOffset" in data);
-  assert("mNumArrows" in data);
-  assert("mTrajectoryGravityMultiplier" in data);
-  assert("mShowTrajectoryCounter" in data);
+  assertPropertyExists(data, "mPowerBankCapacity");
+  assertPropertyExists(data, "mLaunchPowerCost");
+  assertPropertyExists(data, "mChargeRateMultiplier");
+  assertPropertyExists(data, "mCurrentPowerLevel");
+  assertPropertyExists(data, "mLaunchVelocity");
+  assertPropertyExists(data, "mLaunchAngle");
+  assertPropertyExists(data, "mPlayerChainJumpResetTime");
+  assertPropertyExists(data, "mHasPowerForLaunch");
+  assertPropertyExists(data, "mTrajectoryData");
+  assertPropertyExists(data, "mTrajectoryMeshScale");
+  assertPropertyExists(data, "mTrajectoryMeshRotation");
+  assertPropertyExists(data, "mDestinationMeshHeightOffset");
+  assertPropertyExists(data, "mNumArrows");
+  assertPropertyExists(data, "mTrajectoryGravityMultiplier");
+  assertPropertyExists(data, "mShowTrajectoryCounter");
 
   return {
     ...buildableBuilding,

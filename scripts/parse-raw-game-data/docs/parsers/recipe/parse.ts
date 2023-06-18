@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBase } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseNumber,
@@ -16,15 +17,15 @@ export function parse(data: unknown): Data {
 
   const base = parseBase(data);
 
-  assert("mIngredients" in data);
-  assert("mProduct" in data);
-  assert("mManufacturingMenuPriority" in data);
-  assert("mManufactoringDuration" in data);
-  assert("mManualManufacturingMultiplier" in data);
-  assert("mProducedIn" in data);
-  assert("mRelevantEvents" in data);
-  assert("mVariablePowerConsumptionConstant" in data);
-  assert("mVariablePowerConsumptionFactor" in data);
+  assertPropertyExists(data, "mIngredients");
+  assertPropertyExists(data, "mProduct");
+  assertPropertyExists(data, "mManufacturingMenuPriority");
+  assertPropertyExists(data, "mManufactoringDuration");
+  assertPropertyExists(data, "mManualManufacturingMultiplier");
+  assertPropertyExists(data, "mProducedIn");
+  assertPropertyExists(data, "mRelevantEvents");
+  assertPropertyExists(data, "mVariablePowerConsumptionConstant");
+  assertPropertyExists(data, "mVariablePowerConsumptionFactor");
 
   return {
     ...base,

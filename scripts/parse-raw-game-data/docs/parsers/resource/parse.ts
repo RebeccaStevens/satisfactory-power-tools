@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseItem } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseString,
@@ -15,10 +16,10 @@ export function parse(data: unknown): Data {
 
   const item = parseItem(data);
 
-  assert("mDecalSize" in data);
-  assert("mPingColor" in data);
-  assert("mCollectSpeedMultiplier" in data);
-  assert("mManualMiningAudioName" in data);
+  assertPropertyExists(data, "mDecalSize");
+  assertPropertyExists(data, "mPingColor");
+  assertPropertyExists(data, "mCollectSpeedMultiplier");
+  assertPropertyExists(data, "mManualMiningAudioName");
 
   return {
     ...item,

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBase } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseString,
@@ -22,29 +23,29 @@ export function parse(data: unknown): Data {
 
   const base = parseBase(data);
 
-  assert("mDisplayName" in data);
-  assert("mDescription" in data);
-  assert("mAbbreviatedDisplayName" in data);
-  assert("mStackSize" in data);
-  assert("mCanBeDiscarded" in data);
-  assert("mRememberPickUp" in data);
-  assert("mEnergyValue" in data);
-  assert("mRadioactiveDecay" in data);
-  assert("mForm" in data);
-  assert("mSmallIcon" in data);
-  assert("mPersistentBigIcon" in data);
-  assert("mCrosshairMaterial" in data);
-  assert("mDescriptorStatBars" in data);
-  assert("mSubCategories" in data);
-  assert("mMenuPriority" in data);
-  assert("mFluidColor" in data);
-  assert("mGasColor" in data);
-  assert("mCompatibleItemDescriptors" in data);
-  assert("mClassToScanFor" in data);
-  assert("mScannableType" in data);
-  assert("mShouldOverrideScannerDisplayText" in data);
-  assert("mScannerDisplayText" in data);
-  assert("mScannerLightColor" in data);
+  assertPropertyExists(data, "mDisplayName");
+  assertPropertyExists(data, "mDescription");
+  assertPropertyExists(data, "mAbbreviatedDisplayName");
+  assertPropertyExists(data, "mStackSize");
+  assertPropertyExists(data, "mCanBeDiscarded");
+  assertPropertyExists(data, "mRememberPickUp");
+  assertPropertyExists(data, "mEnergyValue");
+  assertPropertyExists(data, "mRadioactiveDecay");
+  assertPropertyExists(data, "mForm");
+  assertPropertyExists(data, "mSmallIcon");
+  assertPropertyExists(data, "mPersistentBigIcon");
+  assertPropertyExists(data, "mCrosshairMaterial");
+  assertPropertyExists(data, "mDescriptorStatBars");
+  assertPropertyExists(data, "mSubCategories");
+  assertPropertyExists(data, "mMenuPriority");
+  assertPropertyExists(data, "mFluidColor");
+  assertPropertyExists(data, "mGasColor");
+  assertPropertyExists(data, "mCompatibleItemDescriptors");
+  assertPropertyExists(data, "mClassToScanFor");
+  assertPropertyExists(data, "mScannableType");
+  assertPropertyExists(data, "mShouldOverrideScannerDisplayText");
+  assertPropertyExists(data, "mScannerDisplayText");
+  assertPropertyExists(data, "mScannerLightColor");
 
   return {
     ...base,

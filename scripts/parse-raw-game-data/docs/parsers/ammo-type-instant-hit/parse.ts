@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBaseAmmoType } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { parseBoolean } from "~/scripts/parse-raw-game-data/utils";
 import { isObject } from "~/utils";
@@ -11,7 +12,7 @@ export function parse(data: unknown): Data {
 
   const ammo = parseBaseAmmoType(data);
 
-  assert("mPlayFireEffects" in data);
+  assertPropertyExists(data, "mPlayFireEffects");
 
   return {
     ...ammo,

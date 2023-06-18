@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildable } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseNumber,
@@ -14,9 +15,9 @@ export function parse(data: unknown): Data {
 
   const buildable = parseBuildable(data);
 
-  assert("mStairDirection" in data);
-  assert("mHeight" in data);
-  assert("mSize" in data);
+  assertPropertyExists(data, "mStairDirection");
+  assertPropertyExists(data, "mHeight");
+  assertPropertyExists(data, "mSize");
 
   return {
     ...buildable,

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseConsumableEquipment } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseNumber,
@@ -16,19 +17,19 @@ export function parse(data: unknown): Data {
 
   const consumableEquipment = parseConsumableEquipment(data);
 
-  assert("mWeaponState" in data);
-  assert("mAutomaticallyReload" in data);
-  assert("mAutoReloadDelay" in data);
-  assert("mCurrentAmmoCount" in data);
-  assert("mAllowedAmmoClasses" in data);
-  assert("mAttachMagazineToPlayer" in data);
-  assert("mDispersionOnNoMagazine" in data);
-  assert("mWeaponDamageMultiplier" in data);
-  assert("mFiringBlocksDispersionReduction" in data);
-  assert("mCurrentDispersion" in data);
-  assert("mReloadTime" in data);
-  assert("mAmmoSwitchUsedRadialMenu" in data);
-  assert("mBlockSprintWhenFiring" in data);
+  assertPropertyExists(data, "mWeaponState");
+  assertPropertyExists(data, "mAutomaticallyReload");
+  assertPropertyExists(data, "mAutoReloadDelay");
+  assertPropertyExists(data, "mCurrentAmmoCount");
+  assertPropertyExists(data, "mAllowedAmmoClasses");
+  assertPropertyExists(data, "mAttachMagazineToPlayer");
+  assertPropertyExists(data, "mDispersionOnNoMagazine");
+  assertPropertyExists(data, "mWeaponDamageMultiplier");
+  assertPropertyExists(data, "mFiringBlocksDispersionReduction");
+  assertPropertyExists(data, "mCurrentDispersion");
+  assertPropertyExists(data, "mReloadTime");
+  assertPropertyExists(data, "mAmmoSwitchUsedRadialMenu");
+  assertPropertyExists(data, "mBlockSprintWhenFiring");
 
   return {
     ...consumableEquipment,

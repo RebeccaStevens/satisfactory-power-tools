@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildable } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseNumber,
@@ -16,15 +17,15 @@ export function parse(data: unknown): Data {
 
   const buildable = parseBuildable(data);
 
-  assert("mSnappedBuildingThickness" in data);
-  assert("mMidMeshLength" in data);
-  assert("mGenerateTunnelCollision" in data);
-  assert("mEndCapRotation" in data);
-  assert("mMidMeshRotation" in data);
-  assert("mEndCapTranslation" in data);
-  assert("mClearanceHeightMin" in data);
-  assert("mClearanceThickness" in data);
-  assert("mUseSoftClearance" in data);
+  assertPropertyExists(data, "mSnappedBuildingThickness");
+  assertPropertyExists(data, "mMidMeshLength");
+  assertPropertyExists(data, "mGenerateTunnelCollision");
+  assertPropertyExists(data, "mEndCapRotation");
+  assertPropertyExists(data, "mMidMeshRotation");
+  assertPropertyExists(data, "mEndCapTranslation");
+  assertPropertyExists(data, "mClearanceHeightMin");
+  assertPropertyExists(data, "mClearanceThickness");
+  assertPropertyExists(data, "mUseSoftClearance");
 
   return {
     ...buildable,

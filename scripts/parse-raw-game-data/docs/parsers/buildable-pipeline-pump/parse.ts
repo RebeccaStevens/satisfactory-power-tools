@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseNumber,
@@ -14,19 +15,19 @@ export function parse(data: unknown): Data {
 
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert("mLastFlowUpdate" in data);
-  assert("mUpdateFlowTime" in data);
-  assert("mAnimSpeed" in data);
-  assert("mLastFlowValue" in data);
-  assert("mTimeScaleOffset" in data);
-  assert("mMaxPressure" in data);
-  assert("mDesignPressure" in data);
-  assert("mDefaultFlowLimit" in data);
-  assert("mUserFlowLimit" in data);
-  assert("mMinimumFlowPercentForStandby" in data);
-  assert("mRadius" in data);
-  assert("mFluidBoxVolume" in data);
-  assert("mPipeConnections" in data);
+  assertPropertyExists(data, "mLastFlowUpdate");
+  assertPropertyExists(data, "mUpdateFlowTime");
+  assertPropertyExists(data, "mAnimSpeed");
+  assertPropertyExists(data, "mLastFlowValue");
+  assertPropertyExists(data, "mTimeScaleOffset");
+  assertPropertyExists(data, "mMaxPressure");
+  assertPropertyExists(data, "mDesignPressure");
+  assertPropertyExists(data, "mDefaultFlowLimit");
+  assertPropertyExists(data, "mUserFlowLimit");
+  assertPropertyExists(data, "mMinimumFlowPercentForStandby");
+  assertPropertyExists(data, "mRadius");
+  assertPropertyExists(data, "mFluidBoxVolume");
+  assertPropertyExists(data, "mPipeConnections");
 
   return {
     ...buildableBuilding,

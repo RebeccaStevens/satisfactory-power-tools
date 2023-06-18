@@ -52,6 +52,7 @@ import {
   parseBuildablePipelineJunction,
   parseBuildablePipelinePump,
   parseBuildablePipelineSupport,
+  parseBuildablePriorityPowerSwitch,
   parseBuildablePipeReservoir,
   parseBuildablePoleLightweight,
   parseBuildablePowerPole,
@@ -107,7 +108,9 @@ import {
 function rawGameDataByNativeClass() {
   const data = docsJsonData;
   const items = data.find(
-    (c) => c.NativeClass === "Class'/Script/FactoryGame.FGItemDescriptor'",
+    (c) =>
+      c.NativeClass ===
+      "/Script/CoreUObject.Class'/Script/FactoryGame.FGItemDescriptor'",
   ) as unknown;
   assert(isObject(items) && "Classes" in items && Array.isArray(items.Classes));
   items.Classes.push(samJsonData);
@@ -141,354 +144,358 @@ function parseRawGameData(
 
 function getClassParser(className: string): (data: unknown) => Base {
   switch (className) {
-    case "Class'/Script/FactoryGame.FGBuildingDescriptor'":
-    case "Class'/Script/FactoryGame.FGPoleDescriptor'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildingDescriptor'":
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGPoleDescriptor'": {
       return parseBaseItem;
     }
 
-    case "Class'/Script/FactoryGame.FGItemDescriptor'":
-    case "Class'/Script/FactoryGame.FGItemDescriptorBiomass'":
-    case "Class'/Script/FactoryGame.FGEquipmentDescriptor'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGItemDescriptor'":
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGItemDescriptorBiomass'":
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGEquipmentDescriptor'": {
       return parseItem;
     }
 
-    case "Class'/Script/FactoryGame.FGResourceDescriptor'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGResourceDescriptor'": {
       return parseResource;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableBlueprintDesigner'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableBlueprintDesigner'": {
       return parseBlueprintDesigner;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableDroneStation'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableDroneStation'": {
       return parseDroneStation;
     }
 
-    case "Class'/Script/FactoryGame.FGConsumableEquipment'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGConsumableEquipment'": {
       return parseConsumableEquipment;
     }
 
-    case "Class'/Script/FactoryGame.FGSchematic'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGSchematic'": {
       return parseSchematic;
     }
 
-    case "Class'/Script/FactoryGame.FGConsumableDescriptor'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGConsumableDescriptor'": {
       return parseConsumableDescriptor;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildable'":
-    case "Class'/Script/FactoryGame.FGBuildableSnowDispenser'":
-    case "Class'/Script/FactoryGame.FGBuildableFactoryBuilding'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildable'":
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableSnowDispenser'":
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableFactoryBuilding'": {
       return parseBuildable;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableWall'":
-    case "Class'/Script/FactoryGame.FGBuildableWallLightweight'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableWall'":
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableWallLightweight'": {
       return parseBuildableWall;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableCornerWall'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableCornerWall'": {
       return parseBuildableCornerWall;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableDoor'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableDoor'": {
       return parseBuildableDoor;
     }
 
-    case "Class'/Script/FactoryGame.FGRecipe'":
-    case "Class'/Script/FactoryGame.FGCustomizationRecipe'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGRecipe'":
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGCustomizationRecipe'": {
       return parseRecipe;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableFrackingExtractor'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableFrackingExtractor'": {
       return parseBuildableFrackingExtractor;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableFrackingActivator'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableFrackingActivator'": {
       return parseBuildableFrackingActivator;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableResourceExtractor'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableResourceExtractor'": {
       return parseBuildableResourceExtractor;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableSpaceElevator'":
-    case "Class'/Script/FactoryGame.FGBuildableFactory'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableSpaceElevator'":
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableFactory'": {
       return parseBuildableBuilding;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableTradingPost'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableTradingPost'": {
       return parseBuildableTradingPost;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildablePoleLightweight'":
-    case "Class'/Script/FactoryGame.FGConveyorPoleStackable'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildablePoleLightweight'":
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGConveyorPoleStackable'": {
       return parseBuildablePoleLightweight;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableConveyorBelt'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableConveyorBelt'": {
       return parseBuildableConveyorBelt;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableWire'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableWire'": {
       return parseBuildableWire;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildablePowerPole'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildablePowerPole'": {
       return parseBuildablePowerPole;
     }
 
-    case "Class'/Script/FactoryGame.FGChainsaw'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGChainsaw'": {
       return parseChainsaw;
     }
 
-    case "Class'/Script/FactoryGame.FGGolfCartDispenser'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGGolfCartDispenser'": {
       return parseGolfCartDispenser;
     }
 
-    case "Class'/Script/FactoryGame.FGSuitBase'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGSuitBase'": {
       return parseSuitBase;
     }
 
-    case "Class'/Script/FactoryGame.FGJetPack'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGJetPack'": {
       return parseJetPack;
     }
 
-    case "Class'/Script/FactoryGame.FGJumpingStilts'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGJumpingStilts'": {
       return parseJumpingStilts;
     }
 
-    case "Class'/Script/FactoryGame.FGAmmoTypeProjectile'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGAmmoTypeProjectile'": {
       return parseAmmoTypeProjectile;
     }
 
-    case "Class'/Script/FactoryGame.FGAmmoTypeSpreadshot'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGAmmoTypeSpreadshot'": {
       return parseAmmoTypeSpreadshot;
     }
 
-    case "Class'/Script/FactoryGame.FGWeapon'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGWeapon'": {
       return parseWeapon;
     }
 
-    case "Class'/Script/FactoryGame.FGChargedWeapon'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGChargedWeapon'": {
       return parseChargedWeapon;
     }
 
-    case "Class'/Script/FactoryGame.FGEquipmentStunSpear'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGEquipmentStunSpear'": {
       return parseEquipmentStunSpear;
     }
 
-    case "Class'/Script/FactoryGame.FGGasMask'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGGasMask'": {
       return parseGasMask;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableWaterPump'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableWaterPump'": {
       return parseBuildableWaterPump;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableManufacturer'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableManufacturer'": {
       return parseBuildableManufacturer;
     }
 
-    case "Class'/Script/FactoryGame.FGPortableMinerDispenser'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGPortableMinerDispenser'": {
       return parsePortableMinerDispenser;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableStorage'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableStorage'": {
       return parseBuildableStorage;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableGeneratorFuel'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableGeneratorFuel'": {
       return parseBuildableGeneratorFuel;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableMAM'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableMAM'": {
       return parseBuildableMAM;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableBeamLightweight'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableBeamLightweight'": {
       return parseBuildableBeamLightweight;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildablePillarLightweight'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildablePillarLightweight'": {
       return parseBuildablePillarLightweight;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableWalkwayLightweight'":
-    case "Class'/Script/FactoryGame.FGBuildableWalkway'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableWalkwayLightweight'":
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableWalkway'": {
       return parseBuildableWalkwayLightweight;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildablePipelineSupport'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildablePipelineSupport'": {
       return parseBuildablePipelineSupport;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildablePipeline'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildablePipeline'": {
       return parseBuildablePipeline;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildablePipelineJunction'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildablePipelineJunction'": {
       return parseBuildablePipelineJunction;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableResourceSink'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableResourceSink'": {
       return parseBuildableResourceSink;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableResourceSinkShop'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableResourceSinkShop'": {
       return parseBuildableResourceSinkShop;
     }
 
-    case "Class'/Script/FactoryGame.FGVehicleDescriptor'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGVehicleDescriptor'": {
       return parseVehicleDescriptor;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableManufacturerVariablePower'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableManufacturerVariablePower'": {
       return parseBuildableManufacturerVariablePower;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableGeneratorNuclear'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableGeneratorNuclear'": {
       return parseBuildableGeneratorNuclear;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableConveyorLift'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableConveyorLift'": {
       return parseBuildableConveyorLift;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableFoundation'":
-    case "Class'/Script/FactoryGame.FGBuildableFoundationLightweight'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableFoundation'":
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableFoundationLightweight'": {
       return parseBuildableFoundation;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableRamp'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableRamp'": {
       return parseBuildableRamp;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableSplitterSmart'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableSplitterSmart'": {
       return parseBuildableSplitterSmart;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableAttachmentMerger'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableAttachmentMerger'": {
       return parseBuildableAttachmentMerger;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableAttachmentSplitter'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableAttachmentSplitter'": {
       return parseBuildableAttachmentSplitter;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableJumppad'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableJumppad'": {
       return parseBuildableJumppad;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableDockingStation'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableDockingStation'": {
       return parseBuildableDockingStation;
     }
 
-    case "Class'/Script/FactoryGame.FGPipeHyperStart'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGPipeHyperStart'": {
       return parsePipeHyperStart;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildablePipeHyper'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildablePipeHyper'": {
       return parseBuildablePipeHyper;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildablePowerStorage'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildablePowerStorage'": {
       return parseBuildablePowerStorage;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableRailroadSignal'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableRailroadSignal'": {
       return parseBuildableRailroadSignal;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableTrainPlatformEmpty'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableTrainPlatformEmpty'": {
       return parseBuildableTrainPlatformEmpty;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableTrainPlatformCargo'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableTrainPlatformCargo'": {
       return parseBuildableTrainPlatformCargo;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableRailroadStation'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableRailroadStation'": {
       return parseBuildableRailroadStation;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableRailroadTrack'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableRailroadTrack'": {
       return parseBuildableRailroadTrack;
     }
 
-    case "Class'/Script/FactoryGame.FGHoverPack'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGHoverPack'": {
       return parseHoverPack;
     }
 
-    case "Class'/Script/FactoryGame.FGEquipmentZipline'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGEquipmentZipline'": {
       return parseEquipmentZipline;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableCircuitSwitch'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableCircuitSwitch'": {
       return parseBuildableCircuitSwitch;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableGeneratorGeoThermal'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildablePriorityPowerSwitch'": {
+      return parseBuildablePriorityPowerSwitch;
+    }
+
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableGeneratorGeoThermal'": {
       return parseBuildableGeneratorGeoThermal;
     }
 
-    case "Class'/Script/FactoryGame.FGParachute'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGParachute'": {
       return parseParachute;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableRadarTower'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableRadarTower'": {
       return parseBuildableRadarTower;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableFactorySimpleProducer'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableFactorySimpleProducer'": {
       return parseBuildableFactorySimpleProducer;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableWidgetSign'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableWidgetSign'": {
       return parseBuildableWidgetSign;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableLightSource'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableLightSource'": {
       return parseBuildableLightSource;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableLadder'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableLadder'": {
       return parseBuildableLadder;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableStair'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableStair'": {
       return parseBuildableStair;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableFloodlight'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableFloodlight'": {
       return parseBuildableFloodlight;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildableLightsControlPanel'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableLightsControlPanel'": {
       return parseBuildableLightsControlPanel;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildablePassthrough'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildablePassthrough'": {
       return parseBuildablePassthrough;
     }
 
-    case "Class'/Script/FactoryGame.FGItemDescriptorNuclearFuel'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGItemDescriptorNuclearFuel'": {
       return parseItemDescriptorNuclearFuel;
     }
 
-    case "Class'/Script/FactoryGame.FGAmmoTypeInstantHit'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGAmmoTypeInstantHit'": {
       return parseAmmoTypeInstantHit;
     }
 
-    case "Class'/Script/FactoryGame.FGObjectScanner'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGObjectScanner'": {
       return parseObjectScanner;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildablePipelinePump'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildablePipelinePump'": {
       return parseBuildablePipelinePump;
     }
 
-    case "Class'/Script/FactoryGame.FGBuildablePipeReservoir'": {
+    case "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildablePipeReservoir'": {
       return parseBuildablePipeReservoir;
     }
 
@@ -500,15 +507,15 @@ function getClassParser(className: string): (data: unknown) => Base {
 
 function getItems(staticData: Readonly<StaticData>) {
   const itemClasses = new Set([
-    "Class'/Script/FactoryGame.FGItemDescriptor'",
-    "Class'/Script/FactoryGame.FGConsumableDescriptor'",
-    "Class'/Script/FactoryGame.FGItemDescriptorBiomass'",
-    "Class'/Script/FactoryGame.FGResourceDescriptor'",
-    "Class'/Script/FactoryGame.FGEquipmentDescriptor'",
-    "Class'/Script/FactoryGame.FGItemDescriptorNuclearFuel'",
-    "Class'/Script/FactoryGame.FGAmmoTypeProjectile'",
-    "Class'/Script/FactoryGame.FGAmmoTypeSpreadshot'",
-    "Class'/Script/FactoryGame.FGAmmoTypeInstantHit'",
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGItemDescriptor'",
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGConsumableDescriptor'",
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGItemDescriptorBiomass'",
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGResourceDescriptor'",
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGEquipmentDescriptor'",
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGItemDescriptorNuclearFuel'",
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGAmmoTypeProjectile'",
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGAmmoTypeSpreadshot'",
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGAmmoTypeInstantHit'",
   ]);
 
   const items = new Set(
@@ -549,8 +556,8 @@ function getItems(staticData: Readonly<StaticData>) {
 
 function getMachines(staticData: Readonly<StaticData>) {
   const machineClasses = new Set([
-    "Class'/Script/FactoryGame.FGBuildableManufacturer'",
-    "Class'/Script/FactoryGame.FGBuildableManufacturerVariablePower'",
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableManufacturer'",
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableManufacturerVariablePower'",
   ]);
 
   const machines = new Set(
@@ -591,8 +598,8 @@ function getMachines(staticData: Readonly<StaticData>) {
 
 function getRecipes(staticData: Readonly<StaticData>) {
   const recipeClasses = new Set([
-    "Class'/Script/FactoryGame.FGRecipe'",
-    "Class'/Script/FactoryGame.FGCustomizationRecipe'",
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGRecipe'",
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGCustomizationRecipe'",
   ]);
 
   const recipes = new Set(
@@ -632,7 +639,9 @@ function getRecipes(staticData: Readonly<StaticData>) {
 }
 
 function getSchematics(staticData: Readonly<StaticData>) {
-  const schematicClasses = new Set(["Class'/Script/FactoryGame.FGSchematic'"]);
+  const schematicClasses = new Set([
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGSchematic'",
+  ]);
 
   const schematics = new Set(
     staticData

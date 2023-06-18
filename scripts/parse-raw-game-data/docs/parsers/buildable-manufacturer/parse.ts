@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildableBuilding } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseNumber,
@@ -15,11 +16,11 @@ export function parse(data: unknown): Data {
 
   const buildableBuilding = parseBuildableBuilding(data);
 
-  assert("mManufacturingSpeed" in data);
-  assert("mFactoryInputConnections" in data);
-  assert("mPipeInputConnections" in data);
-  assert("mFactoryOutputConnections" in data);
-  assert("mPipeOutputConnections" in data);
+  assertPropertyExists(data, "mManufacturingSpeed");
+  assertPropertyExists(data, "mFactoryInputConnections");
+  assertPropertyExists(data, "mPipeInputConnections");
+  assertPropertyExists(data, "mFactoryOutputConnections");
+  assertPropertyExists(data, "mPipeOutputConnections");
 
   return {
     ...buildableBuilding,

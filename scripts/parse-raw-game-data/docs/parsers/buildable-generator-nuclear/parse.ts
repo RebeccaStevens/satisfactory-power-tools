@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildableGeneratorFuel } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parseNumber,
@@ -14,8 +15,8 @@ export function parse(data: unknown): Data {
 
   const generatorFuel = parseBuildableGeneratorFuel(data);
 
-  assert("mWasteLeftFromCurrentFuel" in data);
-  assert("mCurrentGeneratorNuclearWarning" in data);
+  assertPropertyExists(data, "mWasteLeftFromCurrentFuel");
+  assertPropertyExists(data, "mCurrentGeneratorNuclearWarning");
 
   return {
     ...generatorFuel,

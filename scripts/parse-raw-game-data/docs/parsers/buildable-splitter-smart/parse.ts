@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildable } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { parseNumber } from "~/scripts/parse-raw-game-data/utils";
 import { isObject } from "~/utils";
@@ -11,10 +12,10 @@ export function parse(data: unknown): Data {
 
   const buildable = parseBuildable(data);
 
-  assert("mMaxNumSortRules" in data);
-  assert("mCurrentOutputIndex" in data);
-  assert("mLastOutputIndex" in data);
-  assert("mCurrentInventoryIndex" in data);
+  assertPropertyExists(data, "mMaxNumSortRules");
+  assertPropertyExists(data, "mCurrentOutputIndex");
+  assertPropertyExists(data, "mLastOutputIndex");
+  assertPropertyExists(data, "mCurrentInventoryIndex");
 
   return {
     ...buildable,

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseWeapon } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { parseNumber, parseBoolean } from "~/scripts/parse-raw-game-data/utils";
 import { isObject } from "~/utils";
@@ -11,12 +12,12 @@ export function parse(data: unknown): Data {
 
   const weapon = parseWeapon(data);
 
-  assert("mRadialMenuShowUpTime" in data);
-  assert("mIsPendingExecuteFire" in data);
-  assert("mMaxChargeTime" in data);
-  assert("mMaxThrowForce" in data);
-  assert("mMinThrowForce" in data);
-  assert("mDelayBetweenSecondaryTriggers" in data);
+  assertPropertyExists(data, "mRadialMenuShowUpTime");
+  assertPropertyExists(data, "mIsPendingExecuteFire");
+  assertPropertyExists(data, "mMaxChargeTime");
+  assertPropertyExists(data, "mMaxThrowForce");
+  assertPropertyExists(data, "mMinThrowForce");
+  assertPropertyExists(data, "mDelayBetweenSecondaryTriggers");
 
   return {
     ...weapon,

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseConsumableEquipment } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { parseNumber, parseBoolean } from "~/scripts/parse-raw-game-data/utils";
 import { isObject } from "~/utils";
@@ -11,16 +12,16 @@ export function parse(data: unknown): Data {
 
   const consumableEquipment = parseConsumableEquipment(data);
 
-  assert("mMontageLength" in data);
-  assert("mInterpSawProgress" in data);
-  assert("mWasSawing" in data);
-  assert("mPlayingSound" in data);
-  assert("mCurrentOutputDataSFX" in data);
-  assert("mEnergyConsumption" in data);
-  assert("mSawDownTreeTime" in data);
-  assert("mCollateralPickupRadius" in data);
-  assert("mExcludeChainsawableFoliage" in data);
-  assert("mEnergyStored" in data);
+  assertPropertyExists(data, "mMontageLength");
+  assertPropertyExists(data, "mInterpSawProgress");
+  assertPropertyExists(data, "mWasSawing");
+  assertPropertyExists(data, "mPlayingSound");
+  assertPropertyExists(data, "mCurrentOutputDataSFX");
+  assertPropertyExists(data, "mEnergyConsumption");
+  assertPropertyExists(data, "mSawDownTreeTime");
+  assertPropertyExists(data, "mCollateralPickupRadius");
+  assertPropertyExists(data, "mExcludeChainsawableFoliage");
+  assertPropertyExists(data, "mEnergyStored");
 
   return {
     ...consumableEquipment,

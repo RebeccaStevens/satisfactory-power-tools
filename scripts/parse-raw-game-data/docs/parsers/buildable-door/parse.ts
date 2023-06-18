@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseBuildableWall } from "~/scripts/parse-raw-game-data/docs/parsers";
 import { parseBoolean, parseNumber } from "~/scripts/parse-raw-game-data/utils";
 import { isObject } from "~/utils";
@@ -11,9 +12,9 @@ export function parse(data: unknown): Data {
 
   const buildableWall = parseBuildableWall(data);
 
-  assert("mCanBeLocked" in data);
-  assert("mAnimationRate" in data);
-  assert("mMovementRate" in data);
+  assertPropertyExists(data, "mCanBeLocked");
+  assertPropertyExists(data, "mAnimationRate");
+  assertPropertyExists(data, "mMovementRate");
 
   return {
     ...buildableWall,

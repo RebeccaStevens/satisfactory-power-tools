@@ -1,12 +1,13 @@
 import assert from "node:assert/strict";
 
+import { assertPropertyExists } from "~/scripts/parse-raw-game-data/docs/assert";
 import { parseItem } from "~/scripts/parse-raw-game-data/docs/parsers";
 import {
   parsePoint3D,
   parseNumber,
   parseRotation3D,
 } from "~/scripts/parse-raw-game-data/utils";
-import { assertNever, isObject } from "~/utils";
+import { isObject } from "~/utils";
 
 import { type Data } from "./types";
 
@@ -15,17 +16,18 @@ export function parse(data: unknown): Data {
 
   const item = parseItem(data);
 
-  assert("mHealthGain" in data || "mCustomHandsMeshScale" in data);
-  assert("mCustomHandsMeshScale" in data);
-  assert("mCustomRotation" in data);
-  assert("mCustomLocation" in data);
+  assertPropertyExists(data, "mCustomHandsMeshScale");
+  assertPropertyExists(data, "mCustomRotation");
+  assertPropertyExists(data, "mCustomLocation");
 
   const conditionalProps = Object.fromEntries([
     "mHealthGain" in data
-      ? ["mHealthGain", parseNumber(data.mHealthGain)]
-      : "mCustomHandsMeshScale" in data
-      ? ["mCustomHandsMeshScale", parseNumber(data.mCustomHandsMeshScale)]
-      : assertNever(),
+      ? [
+          "mHealthGain",
+          (assertPropertyExists(data, "mHealthGain"),
+          parseNumber(data.mHealthGain)),
+        ]
+      : [],
   ]);
 
   return {
