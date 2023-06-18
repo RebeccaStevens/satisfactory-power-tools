@@ -113,7 +113,7 @@
   "Desc_PackagedOilResidue_C": { "tier": 5, "type": "packaged" },
   "Desc_PackagedSulfuricAcid_C": { "tier": 7, "type": "packaged" },
   "Desc_PackagedWater_C": { "tier": -1, "type": "packaged" },
-  "Desc_Parachute_C": { "tier": -1, "type": "consume" },
+  "Desc_Parachute_C": { "tier": -1, "type": "equip" },
   "Desc_PetroleumCoke_C": { "tier": 5, "type": "mineral" },
   "Desc_Plastic_C": { "tier": 5, "type": "standard" },
   "Desc_PlutoniumCell_C": { "tier": 8, "type": "nuclear" },
