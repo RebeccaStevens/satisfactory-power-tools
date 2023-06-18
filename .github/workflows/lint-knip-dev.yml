@@ -6,7 +6,12 @@ on:
   workflow_call:
 
 jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+
   lint_knip_dev:
+    needs:
+      - build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
