@@ -1,15 +1,3 @@
-declare module "*.vue" {
-  import { type DefineComponent } from "vue";
-
-  const component: DefineComponent<{}, {}, any>;
-  export default component;
-}
-
-declare module "*&imagetools" {
-  const src: string;
-  export default src;
-}
-
 interface ObjectConstructor {
   hasOwn<ObjectType, Key extends PropertyKey>(
     object: ObjectType,
