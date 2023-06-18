@@ -46,5 +46,6 @@ const imagePaths = data.items
   .filter(isNotNull);
 
 for (const { src, out } of imagePaths) {
+  await fsp.mkdir(path.dirname(out), { recursive: true });
   await fsp.copyFile(src, out);
 }
