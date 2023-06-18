@@ -1,4 +1,4 @@
-import { type KnipConfig } from "knip";
+import { type KnipConfig } from "knip/dist/index";
 
 const compiler = /<script\b[^>]*>([\S\s]*?)<\/script>/gmu;
 
@@ -33,6 +33,7 @@ const config: KnipConfig = {
   },
   ignore: ["**/*.d.ts", "src/modules/*.ts", "src/data/**/*.ts"],
   ignoreDependencies: [
+    "knip",
     "@esbuild-plugins/node-globals-polyfill",
     "@iconify-json/bx",
     "@iconify/json",
