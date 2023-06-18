@@ -25,8 +25,8 @@
     "test": "vitest",
     "test:unit": "vitest run --coverage",
     "type-check": "pnpm run type-check:app && pnpm run type-check:node && pnpm run type-check:scripts",
-    "type-check:app": "vue-tsc --noEmit --skipLibCheck",
-    "type-check:node": "tsc -p tsconfig.node.json --noEmit --skipLibCheck",
+    "type-check:app": "vue-tsc -p src/tsconfig.json --noEmit --skipLibCheck",
+    "type-check:node": "tsc -p tsconfig.json --noEmit --skipLibCheck",
     "type-check:scripts": "tsc -p scripts/tsconfig.json --noEmit --skipLibCheck"
   },
   "dependencies": {

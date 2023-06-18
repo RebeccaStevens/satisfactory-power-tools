@@ -2,7 +2,7 @@
 
 const project = [
   "./tsconfig.json",
-  "./tsconfig.node.json",
+  "./src/tsconfig.json",
   "./scripts/tsconfig.json",
   "./tests/tsconfig.json",
 ];
