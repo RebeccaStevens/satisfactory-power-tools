@@ -8,7 +8,11 @@ import { gameData } from "~/data";
 import  { type Item } from "~/data/types";
 import { assertNever, getMagnitudeOrder } from "~/utils";
 
-const props = defineProps<{ label?: string; sortBy?: SortOption; }>();
+const props = defineProps<{
+  label?: string;
+  sortBy?: SortOption;
+  filter?: (item: Item) => boolean
+}>();
 
 type ItemOption = {
   label: string;
@@ -31,10 +35,12 @@ type SortOption = typeof sortOptions[number]["value"];
 
 type GroupOfItems = [ItemGroup | null, ItemOption[]];
 
+const allOptions = (() => {
+  const items = gameData.items.values();
+  const filteredItems = props.filter === undefined ? items : items.filter(props.filter);
 
-const allOptions = [
-  ...gameData.items.values().map(
-    (item): ItemOption => ({
+  return [
+  ...filteredItems.map((item): ItemOption => ({
       label: useGameDataName(item),
       value: item.id,
       image: useGameImage(item.icon),
@@ -42,6 +48,7 @@ const allOptions = [
     }),
   ),
 ];
+})();
 
 const itemTypeGroups = new Map<string, ItemGroup>(
   (
