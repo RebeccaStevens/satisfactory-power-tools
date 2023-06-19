@@ -6,7 +6,7 @@ import { ref } from "vue";
 import { useGameDataName, useGameImage } from "~/composables/game-data";
 import { gameData } from "~/data";
 import  { type Item } from "~/data/types";
-import { assertNever } from "~/utils";
+import { assertNever, getMagnitudeOrder } from "~/utils";
 
 type ItemOption = {
   label: string;
@@ -16,6 +16,7 @@ type ItemOption = {
     src: string;
   };
   gameData: Item;
+  detail?: string;
 };
 
 type ItemGroup = {
@@ -81,10 +82,14 @@ const itemTierGroups = new Map<string, ItemGroup>(
   ).map((data) => [data.id, data]),
 );
 
+// Populated on demand.
+const itemPointsGroups = new Map<number, ItemGroup>();
+
 const sortOptions = [
   { label: "Name", value: "name" as const },
   { label: "Type", value: "type" as const },
   { label: "Tier", value: "tier" as const },
+  { label: "Points", value: "points" as const },
 ];
 
 function getItemsGroupedByType(items: ReadonlyArray<ItemOption>) {
@@ -98,6 +103,29 @@ function getItemsGroupedByTier(items: ReadonlyArray<ItemOption>) {
     item.gameData.tier === null
       ? null
       : itemTierGroups.get(`tier${item.gameData.tier}`) ?? null,
+  );
+}
+
+function getItemsGroupedByPoints(items: ReadonlyArray<ItemOption>) {
+  return items.groupToMap((item) => {
+    const order = item.gameData.points > 0
+      ? getMagnitudeOrder(item.gameData.points)
+      : -1;
+
+    const cached = itemPointsGroups.get(order);
+    if (cached !== undefined) {
+      return cached;
+    }
+
+    const magnitude = 10 ** order;
+    const intl = new Intl.NumberFormat('en-US');
+    const label = order === -1
+      ? intl.format(0)
+      : `${intl.format(magnitude)}+`;
+    const group = { id: `points${order}`, label, menuPriority: -order };
+    itemPointsGroups.set(order, group);
+    return group;
+  },
   );
 }
 
@@ -123,6 +151,7 @@ const baseItems = ref<ItemOption[]>(allOptions);
 const itemsByName = ref<ItemOption[]>();
 const itemsByType = ref<GroupOfItems[]>();
 const itemsByTier = ref<GroupOfItems[]>();
+const itemsByPoints = ref<GroupOfItems[]>();
 
 const textInput = ref("");
 const itemModel = ref<ItemOption | null>(null);
@@ -179,6 +208,32 @@ const itemOptions = computed(() => {
         );
       }
       return getGroupedOptionsFilter(textInput.value)(itemsByTier.value);
+    }
+
+    case "points": {
+      if (itemsByPoints.value === undefined) {
+        const intl = new Intl.NumberFormat('en-US');
+        const pointsItems = baseItems.value.map(item => ({
+          ...item,
+          detail: intl.format(item.gameData.points),
+        }));
+        itemsByPoints.value = [
+          ...getItemsGroupedByPoints(pointsItems)
+            .entries()
+            .map(
+              ([group, items]): GroupOfItems => [
+                group,
+                items.sort((a, b) => b.gameData.points - a.gameData.points),
+              ],
+            ),
+        ].sort(([a], [b]) =>
+          (a?.menuPriority ?? Number.POSITIVE_INFINITY) >
+          (b?.menuPriority ?? Number.POSITIVE_INFINITY)
+            ? 1
+            : -1,
+        );
+      }
+      return getGroupedOptionsFilter(textInput.value)(itemsByPoints.value);
     }
 
     default: {
@@ -278,8 +333,14 @@ const props = defineProps<{ label?: string }>();
                     <img :src="option.image.src" />
                   </picture>
                 </q-item-section>
-                <q-item-section>
+                <q-item-section flex-basis-full>
                   {{ option.label }}
+                </q-item-section>
+                <q-item-section
+                  v-if="option.detail !== undefined"
+                  flex-basis-auto
+                >
+                  {{ option.detail }}
                 </q-item-section>
               </q-item>
             </template>
@@ -303,6 +364,12 @@ const props = defineProps<{ label?: string }>();
             </q-item-section>
             <q-item-section>
               {{ data.opt.label }}
+            </q-item-section>
+            <q-item-section
+              v-if="data.opt.detail !== undefined"
+              flex-basis-auto
+            >
+              {{ data.opt.detail }}
             </q-item-section>
           </q-item>
         </template>
