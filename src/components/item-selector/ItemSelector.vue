@@ -8,6 +8,8 @@ import { gameData } from "~/data";
 import  { type Item } from "~/data/types";
 import { assertNever, getMagnitudeOrder } from "~/utils";
 
+const props = defineProps<{ label?: string; sortBy?: SortOption; }>();
+
 type ItemOption = {
   label: string;
   value: string;
@@ -155,7 +157,7 @@ const itemsByPoints = ref<GroupOfItems[]>();
 
 const textInput = ref("");
 const itemModel = ref<ItemOption | null>(null);
-const sortModel = ref<SortOption>("type");
+const sortModel = ref<SortOption>(props.sortBy ?? "type");
 
 const itemOptions = computed(() => {
   switch (sortModel.value) {
@@ -259,8 +261,6 @@ const onFilter: QSelectProps["onFilter"] = (input, update) => {
 const onInput: QSelectProps["onInputValue"] = (value: string) => {
   textInput.value = value;
 };
-
-const props = defineProps<{ label?: string }>();
 </script>
 
 <template>
