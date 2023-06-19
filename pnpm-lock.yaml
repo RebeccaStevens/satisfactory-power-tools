@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 patchedDependencies:
   rollup-plugin-unassert@0.6.0:
     hash: ckcwe4f7r6jv2tzcjn6ftypenq
@@ -81,8 +85,8 @@ devDependencies:
     specifier: 1.1.6
     version: 1.1.6
   '@iconify/json':
-    specifier: 2.2.79
-    version: 2.2.79
+    specifier: 2.2.80
+    version: 2.2.80
   '@iconify/utils':
     specifier: 2.1.6
     version: 2.1.6
@@ -2461,8 +2465,8 @@ packages:
       '@iconify/types': 2.0.0
     dev: true
 
-  /@iconify/json@2.2.79:
-    resolution: {integrity: sha512-sxuoFm9n5CiW+rFnfKiwIRWq3J2rM/FJ0C3UMgTX4fhKWZKo1/KVJZiHce7xJX5vZFnoifKdMFOKdSpy+o7mKg==}
+  /@iconify/json@2.2.80:
+    resolution: {integrity: sha512-YPBG1YKKrmmDcKmUZTwCzwtkOhDCfuUdYpJafrAuB0LBE7IMJkYxZ0Aro07NkMBwivxWXNAx9RBm//v8AUKDgA==}
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 1.1.1
@@ -10091,7 +10095,3 @@ packages:
   /zhead@2.0.4:
     resolution: {integrity: sha512-V4R94t3ifk9AURym6OskbKcnowzgp5Z88tkoL/NF67vyryNxC62u6mx5F1Ux4oh4+YN7FFmKYEyWy6m5kfPH6g==}
     dev: false
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false

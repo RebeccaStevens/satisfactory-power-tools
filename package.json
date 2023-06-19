@@ -54,7 +54,7 @@
     "@cspell/dict-cryptocurrencies": "3.0.1",
     "@esbuild-plugins/node-globals-polyfill": "0.2.3",
     "@iconify-json/bx": "1.1.6",
-    "@iconify/json": "2.2.79",
+    "@iconify/json": "2.2.80",
     "@iconify/utils": "2.1.6",
     "@intlify/unplugin-vue-i18n": "0.11.0",
     "@kidonng/daisyui": "2.51.3",
