@@ -274,6 +274,7 @@ const onInput: QSelectProps["onInputValue"] = (value: string) => {
     input-debounce="0"
     @filter="onFilter"
     @input-value="onInput"
+    class="w-[45ch]"
   >
     <template v-slot:before-options>
       <div class="flex items-center">
@@ -380,7 +381,6 @@ const onInput: QSelectProps["onInputValue"] = (value: string) => {
 
 <style lang="scss" scoped>
 .q-select {
-  width: 45ch;
   & :deep(.q-field__native) {
     height: 48px;
   }
