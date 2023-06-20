@@ -43,6 +43,14 @@ module.exports = {
     "jsdoc/require-jsdoc": "off",
     // Can be turned off when using "bundler".
     "import/extensions": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        devDependencies: true,
+        optionalDependencies: false,
+        peerDependencies: false,
+      },
+    ],
     "import/no-unassigned-import": [
       "error",
       {
@@ -95,9 +103,6 @@ module.exports = {
     {
       files: ["src/main.ts", "src/**/modules/**", "src/types/user-module.d.ts"],
       extends: ["plugin:functional/off"],
-      rules: {
-        "import/no-extraneous-dependencies": "off",
-      },
     },
     {
       files: ["src/**/layouts/**/*.vue", "src/pages/**/*.vue"],

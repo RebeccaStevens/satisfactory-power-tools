@@ -1,4 +1,4 @@
-import assert from "node:assert/strict";
+import { assert } from "chai";
 
 import { ResourcePurity } from "~/scripts/parse-raw-game-data/types";
 import {

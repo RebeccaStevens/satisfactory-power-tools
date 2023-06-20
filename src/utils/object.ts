@@ -1,4 +1,4 @@
-import assert from "node:assert/strict";
+import { assert } from "chai";
 
 /**
  * Assertion to test if the given value is not undefined.

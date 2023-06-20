@@ -1,4 +1,4 @@
-import assert from "node:assert/strict";
+import { assert } from "chai";
 
 import * as gameImages from "~/images/game-data";
 

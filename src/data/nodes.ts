@@ -1,4 +1,4 @@
-import assert from "node:assert/strict";
+import { assert } from "chai";
 
 import { type Item, type Node } from "~/data/types";
 import {

@@ -1,5 +1,4 @@
-import assert from "node:assert/strict";
-
+import { assert } from "chai";
 import { snakeCase } from "change-case";
 
 import { type Item } from "~/scripts/parse-raw-game-data/docs/parsers";

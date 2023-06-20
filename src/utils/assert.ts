@@ -1,5 +1,5 @@
-import assert from "node:assert/strict";
+import { assert } from "chai";
 
 export function assertNever(msg = "never reached"): never {
-  return void assert(false, msg) as never;
+  assert.fail(msg);
 }

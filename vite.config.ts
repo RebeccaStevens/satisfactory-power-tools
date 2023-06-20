@@ -3,7 +3,6 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import url from "node:url";
 
-// import { NodeGlobalsPolyfillPlugin } from "@esbuild-plugins/node-globals-polyfill";
 import VueI18n from "@intlify/unplugin-vue-i18n";
 import { quasar, transformAssetUrls } from "@quasar/vite-plugin";
 import Unocss from "@unocss/vite";
@@ -11,7 +10,6 @@ import Vue from "@vitejs/plugin-vue";
 import { camelCase, snakeCase } from "change-case";
 import dedent from "dedent";
 import { execa } from "execa";
-import rollupNodePolyFill from "rollup-plugin-node-polyfills";
 import rollupUnassert from "rollup-plugin-unassert";
 import { type FormatEnum } from "sharp";
 import sharp from "sharp";
@@ -42,10 +40,6 @@ export default defineConfig(({ command, mode }) => {
       alias: {
         "~/images/": `${path.resolve(dirname, "images")}/`,
         "~/": `${path.resolve(dirname, "src")}/`,
-        "node:assert/strict": "rollup-plugin-node-polyfills/polyfills/assert",
-        "assert/strict": "rollup-plugin-node-polyfills/polyfills/assert",
-        "node:util": "rollup-plugin-node-polyfills/polyfills/util",
-        util: "rollup-plugin-node-polyfills/polyfills/util",
       },
     },
 
@@ -56,11 +50,7 @@ export default defineConfig(({ command, mode }) => {
           global: "globalThis",
         },
         // Enable esbuild polyfill plugins
-        plugins: [
-          // NodeGlobalsPolyfillPlugin({
-          //   process: true,
-          // }),
-        ],
+        plugins: [],
       },
     },
 
@@ -112,9 +102,16 @@ export default defineConfig(({ command, mode }) => {
         template: { transformAssetUrls },
       }),
 
-      rollupUnassert({
-        include: ["**/*.ts"],
-      }),
+      ...(mode === "production"
+        ? [
+            rollupUnassert({
+              include: ["**/*.ts"],
+              unassertOptions: {
+                modules: ["chai"],
+              },
+            }),
+          ]
+        : []),
 
       quasar({
         sassVariables: "src/styles/quasar.variables.scss",
@@ -196,8 +193,6 @@ export default defineConfig(({ command, mode }) => {
         fullInstall: false,
         include: [path.resolve(dirname, "locales/**")],
       }),
-
-      rollupNodePolyFill(),
 
       runScripts(),
 

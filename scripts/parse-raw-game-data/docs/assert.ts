@@ -1,4 +1,4 @@
-import assert from "node:assert/strict";
+import { assert } from "chai";
 
 export function assertPropertyExists<O extends object, P extends string>(
   object: O,

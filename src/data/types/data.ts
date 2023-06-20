@@ -1,5 +1,4 @@
-import assert from "node:assert/strict";
-
+import { assert } from "chai";
 import { type Newtype } from "newtype-ts";
 import { iso } from "newtype-ts";
 

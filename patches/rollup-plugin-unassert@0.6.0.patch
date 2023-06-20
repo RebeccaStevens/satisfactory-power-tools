@@ -1,5 +1,23 @@
+diff --git a/dist/rollup-plugin-unassert.cjs.d.ts b/dist/rollup-plugin-unassert.cjs.d.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..6d21d14b2244fb21242ed99e4fcf84a57329e89c
+--- /dev/null
++++ b/dist/rollup-plugin-unassert.cjs.d.ts
+@@ -0,0 +1,12 @@
++import type { UnassertCodeOptions } from "unassert";
++import type { FilterPattern } from "@rollup/pluginutils";
++import type { Plugin } from "rollup";
++
++export type Options = Partial<{
++  include: FilterPattern;
++  exclude: FilterPattern;
++  sourcemap: boolean;
++  unassertOptions: Omit<UnassertCodeOptions, "sourceMap">;
++}>;
++
++export default function (options?: Options): Plugin;
 diff --git a/dist/rollup-plugin-unassert.cjs.js b/dist/rollup-plugin-unassert.cjs.js
-index b8c3bd5bb074134a1cc429a00e2ecd0f79279971..2245d36ba438822598e1b26c5fda4e2cc3e28e4b 100644
+index b8c3bd5bb074134a1cc429a00e2ecd0f79279971..3023aafa89af126111263997dbcd6065313f712f 100644
 --- a/dist/rollup-plugin-unassert.cjs.js
 +++ b/dist/rollup-plugin-unassert.cjs.js
 @@ -1,102 +1,28 @@
@@ -64,7 +82,8 @@ index b8c3bd5bb074134a1cc429a00e2ecd0f79279971..2245d36ba438822598e1b26c5fda4e2c
 +        options.include ?? ['*.js', '**/*.js'],
          options.exclude
      );
- 
+-
++    const unassertOptions = options.unassertOptions ?? {};
      return {
          name: 'unassert',
          transform(code, id) {
@@ -104,12 +123,12 @@ index b8c3bd5bb074134a1cc429a00e2ecd0f79279971..2245d36ba438822598e1b26c5fda4e2c
 +            if (!filter(id)) {
 +                return null;
 +            }
-+
 +            const ast = this.parse(code);
 +            return unassert$1.unassertCode(code, ast, {
 +                sourceMap: options.sourcemap !== false ?
-+                    { hires: true } :
++                    {hires: true} :
 +                    false,
++                ...unassertOptions
              });
 -        }
 +        },
@@ -117,121 +136,83 @@ index b8c3bd5bb074134a1cc429a00e2ecd0f79279971..2245d36ba438822598e1b26c5fda4e2c
  }
  
 diff --git a/dist/rollup-plugin-unassert.es.js b/dist/rollup-plugin-unassert.es.js
-index e9e5996a5467703ae9d4e87ab377ac855cd877d0..c5d0a3e3e9f87095f457c9a671464e2ee44f6970 100644
---- a/dist/rollup-plugin-unassert.es.js
-+++ b/dist/rollup-plugin-unassert.es.js
-@@ -1,94 +1,26 @@
- import { createFilter } from '@rollup/pluginutils';
--import acorn from 'acorn';
--import escodegen from '@javascript-obfuscator/escodegen';
--import { unassertAst } from 'unassert';
--import convert from 'convert-source-map';
--import { transfer } from 'multi-stage-sourcemap';
--
--// Adapted from https://github.com/unassert-js/unassertify/blob/master/index.js
--// by Takuto Wada (MIT-licensed)
--
--function handleIncomingSourceMap(originalCode) {
--    const commented = convert.fromSource(originalCode);
--    if (commented) {
--        return commented.toObject();
--    }
--    return null;
--}
--
--function overwritePropertyIfExists(name, from, to) {
--    // eslint-disable-next-line no-prototype-builtins
--    if (from.hasOwnProperty(name)) {
--        to.setProperty(name, from[name]);
--    }
--}
--function reconnectSourceMap(inMap, outMap) {
--    const mergedRawMap = mergeSourceMap(inMap, outMap.toObject());
--    const reMap = convert.fromObject(mergedRawMap);
--    overwritePropertyIfExists('sources', inMap, reMap);
--    overwritePropertyIfExists('sourceRoot', inMap, reMap);
--    overwritePropertyIfExists('sourcesContent', inMap, reMap);
--    return reMap;
--}
--
--function mergeSourceMap(incomingSourceMap, outgoingSourceMap) {
--    if (typeof outgoingSourceMap === 'string' || outgoingSourceMap instanceof String) {
--        outgoingSourceMap = JSON.parse(outgoingSourceMap);
--    }
--    if (!incomingSourceMap) {
--        return outgoingSourceMap;
--    }
--    return JSON.parse(transfer({fromSourceMap: outgoingSourceMap, toSourceMap: incomingSourceMap}));
--}
+deleted file mode 100644
+index e9e5996a5467703ae9d4e87ab377ac855cd877d0..0000000000000000000000000000000000000000
+diff --git a/dist/rollup-plugin-unassert.esm.d.ts b/dist/rollup-plugin-unassert.esm.d.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..6d21d14b2244fb21242ed99e4fcf84a57329e89c
+--- /dev/null
++++ b/dist/rollup-plugin-unassert.esm.d.ts
+@@ -0,0 +1,12 @@
++import type { UnassertCodeOptions } from "unassert";
++import type { FilterPattern } from "@rollup/pluginutils";
++import type { Plugin } from "rollup";
++
++export type Options = Partial<{
++  include: FilterPattern;
++  exclude: FilterPattern;
++  sourcemap: boolean;
++  unassertOptions: Omit<UnassertCodeOptions, "sourceMap">;
++}>;
++
++export default function (options?: Options): Plugin;
+diff --git a/dist/rollup-plugin-unassert.esm.js b/dist/rollup-plugin-unassert.esm.js
+new file mode 100644
+index 0000000000000000000000000000000000000000..15410307df344cb57455def20fef2c3b945b43c8
+--- /dev/null
++++ b/dist/rollup-plugin-unassert.esm.js
+@@ -0,0 +1,27 @@
++import { createFilter } from '@rollup/pluginutils';
 +import { unassertCode } from 'unassert';
- 
- function unassert(options = {}) {
--    if (options.sourcemap === undefined) {
--        options.sourcemap = true;
--    }
--
-     const filter = createFilter(
--        options.include || ['*.js', '**/*.js'],
++
++function unassert(options = {}) {
++    const filter = createFilter(
 +        options.include ?? ['*.js', '**/*.js'],
-         options.exclude
-     );
- 
-     return {
-         name: 'unassert',
-         transform(code, id) {
--            if (!filter(id)) { return null; }
--
--            return new Promise((resolve) => {
--                const comments = [];
--                const tokens = [];
--
--                const ast = acorn.parse(code, {
--                    sourceType: 'module',
--                    ecmaVersion: 'latest',
--                    locations: true,
--                    ranges: true,
--                    onComment: comments,
--                    onToken: tokens,
--                });
--
--                escodegen.attachComments(ast, comments, tokens);
--                const unassertedAst = escodegen.generate(unassertAst(ast), {
--                    sourceMap: id,
--                    sourceContent: code,
--                    sourceMapWithCode: true,
--                    comment: true,
--                });
--
--                const inMap = options.sourcemap && handleIncomingSourceMap(code);
--                let outMap = convert.fromJSON(unassertedAst.map.toString());
--                if (inMap) {
--                    outMap = reconnectSourceMap(inMap, outMap);
--                }
--
--                resolve({
--                    code: unassertedAst.code,
--                    map: outMap.toObject()
--                });
++        options.exclude
++    );
++    const unassertOptions = options.unassertOptions ?? {};
++    return {
++        name: 'unassert',
++        transform(code, id) {
 +            if (!filter(id)) {
 +                return null;
 +            }
-+
 +            const ast = this.parse(code);
 +            return unassertCode(code, ast, {
 +                sourceMap: options.sourcemap !== false ?
-+                    { hires: true } :
++                    {hires: true} :
 +                    false,
-             });
--        }
++                ...unassertOptions
++            });
 +        },
-     };
- }
- 
++    };
++}
++
++export { unassert as default };
 diff --git a/package.json b/package.json
-index 4a60adcbb85dadafeffa1dc84703dc46d40ac41a..afd54a063bf85d7cd35aa2013a38ffbfb1a8a895 100644
+index 4a60adcbb85dadafeffa1dc84703dc46d40ac41a..30f96fec486c866f820052a13292c2b6e877652e 100644
 --- a/package.json
 +++ b/package.json
-@@ -9,11 +9,7 @@
+@@ -3,23 +3,33 @@
+   "version": "0.6.0",
+   "description": "RollupJS plugin to remove assertion calls via Unassert",
+   "main": "dist/rollup-plugin-unassert.cjs.js",
+-  "module": "dist/rollup-plugin-unassert.es.js",
++  "module": "dist/rollup-plugin-unassert.esm.js",
++  "types": "dist/rollup-plugin-unassert.d.ts",
++  "exports": {
++    ".": {
++      "types": {
++        "import": "./dist/rollup-plugin-unassert.cjs.d.ts",
++        "require": "./dist/rollup-plugin-unassert.esm.d.ts"
++      },
++      "import": "./dist/rollup-plugin-unassert.cjs.js",
++      "require": "./dist/rollup-plugin-unassert.esm.js"
++    },
++    "./package.json": "./package.json"
++  },
+   "files": [
+     "src",
      "dist"
    ],
    "dependencies": {
@@ -243,7 +224,15 @@ index 4a60adcbb85dadafeffa1dc84703dc46d40ac41a..afd54a063bf85d7cd35aa2013a38ffbf
      "unassert": "^2.0.0"
    },
    "devDependencies": {
-@@ -31,6 +27,9 @@
+     "eslint": "^8.21.0",
+     "eslint-config-mourner": "^3.0.0",
+     "rollup": "^2.77.3",
++    "rollup-plugin-cleanup": "^3.2.1",
++    "rollup-plugin-copy": "^3.4.0",
+     "tape": "^5.5.3"
+   },
+   "scripts": {
+@@ -31,6 +41,9 @@
    },
    "eslintConfig": {
      "extends": "mourner",
