@@ -1,20 +1,26 @@
 <script setup lang="ts">
 import { QSelect } from "quasar";
-import  { type QSelectProps } from "quasar";
+import { type QSelectProps } from "quasar";
 import { ref } from "vue";
 
 import { useGameDataName, useGameImage } from "~/composables/game-data";
+import { useIntlNumberFormatter } from "~/composables/intl";
 import { gameData } from "~/data";
-import  { type Item } from "~/data/types";
-import { assertNever, getMagnitudeOrder } from "~/utils";
+import { type Item } from "~/data/types";
+import { assertNever } from "~/utils";
+
+const numberFormatter = useIntlNumberFormatter();
 
 const props = defineProps<{
   label?: string;
   sortBy?: SortOption;
-  filter?: (item: Item) => boolean
+  filter?: (item: Item) => boolean;
+  modelValue?: ItemOption | null;
 }>();
 
-type ItemOption = {
+const emit = defineEmits(['update:modelValue']);
+
+export type ItemOption = {
   label: string;
   value: string;
   image: {
@@ -22,7 +28,6 @@ type ItemOption = {
     src: string;
   };
   gameData: Item;
-  detail?: string;
 };
 
 type ItemGroup = {
@@ -91,9 +96,6 @@ const itemTierGroups = new Map<string, ItemGroup>(
   ).map((data) => [data.id, data]),
 );
 
-// Populated on demand.
-const itemPointsGroups = new Map<number, ItemGroup>();
-
 const sortOptions = [
   { label: "Name", value: "name" as const },
   { label: "Type", value: "type" as const },
@@ -112,29 +114,6 @@ function getItemsGroupedByTier(items: ReadonlyArray<ItemOption>) {
     item.gameData.tier === null
       ? null
       : itemTierGroups.get(`tier${item.gameData.tier}`) ?? null,
-  );
-}
-
-function getItemsGroupedByPoints(items: ReadonlyArray<ItemOption>) {
-  return items.groupToMap((item) => {
-    const order = item.gameData.points > 0
-      ? getMagnitudeOrder(item.gameData.points)
-      : -1;
-
-    const cached = itemPointsGroups.get(order);
-    if (cached !== undefined) {
-      return cached;
-    }
-
-    const magnitude = 10 ** order;
-    const intl = new Intl.NumberFormat('en-US');
-    const label = order === -1
-      ? intl.format(0)
-      : `${intl.format(magnitude)}+`;
-    const group = { id: `points${order}`, label, menuPriority: -order };
-    itemPointsGroups.set(order, group);
-    return group;
-  },
   );
 }
 
@@ -160,11 +139,20 @@ const baseItems = ref<ItemOption[]>(allOptions);
 const itemsByName = ref<ItemOption[]>();
 const itemsByType = ref<GroupOfItems[]>();
 const itemsByTier = ref<GroupOfItems[]>();
-const itemsByPoints = ref<GroupOfItems[]>();
+const itemsByPoints = ref<ItemOption[]>();
 
 const textInput = ref("");
-const itemModel = ref<ItemOption | null>(null);
+const itemModel = ref<ItemOption | null>(props.modelValue ?? null);
 const sortModel = ref<SortOption>(props.sortBy ?? "type");
+
+if (props.modelValue !== undefined) {
+  watchEffect(() => {
+    emit("update:modelValue", itemModel.value);
+  });
+  watchEffect(() => {
+    itemModel.value = props.modelValue ?? null;
+  });
+}
 
 const itemOptions = computed(() => {
   switch (sortModel.value) {
@@ -190,7 +178,7 @@ const itemOptions = computed(() => {
             ),
         ].sort(([a], [b]) =>
           (a?.menuPriority ?? Number.POSITIVE_INFINITY) >
-          (b?.menuPriority ?? Number.POSITIVE_INFINITY)
+            (b?.menuPriority ?? Number.POSITIVE_INFINITY)
             ? 1
             : -1,
         );
@@ -211,7 +199,7 @@ const itemOptions = computed(() => {
             ),
         ].sort(([a], [b]) =>
           (a?.menuPriority ?? Number.POSITIVE_INFINITY) >
-          (b?.menuPriority ?? Number.POSITIVE_INFINITY)
+            (b?.menuPriority ?? Number.POSITIVE_INFINITY)
             ? 1
             : -1,
         );
@@ -221,28 +209,16 @@ const itemOptions = computed(() => {
 
     case "points": {
       if (itemsByPoints.value === undefined) {
-        const intl = new Intl.NumberFormat('en-US');
-        const pointsItems = baseItems.value.map(item => ({
-          ...item,
-          detail: intl.format(item.gameData.points),
-        }));
-        itemsByPoints.value = [
-          ...getItemsGroupedByPoints(pointsItems)
-            .entries()
-            .map(
-              ([group, items]): GroupOfItems => [
-                group,
-                items.sort((a, b) => b.gameData.points - a.gameData.points),
-              ],
-            ),
-        ].sort(([a], [b]) =>
-          (a?.menuPriority ?? Number.POSITIVE_INFINITY) >
-          (b?.menuPriority ?? Number.POSITIVE_INFINITY)
-            ? 1
-            : -1,
+        itemsByPoints.value = baseItems.value.sort((a, b) => {
+          const pointDiff = b.gameData.points - a.gameData.points;
+          if (pointDiff !== 0) {
+            return pointDiff;
+          }
+          return a.label.localeCompare(b.label);
+        }
         );
       }
-      return getGroupedOptionsFilter(textInput.value)(itemsByPoints.value);
+      return getOptionsFilter(textInput.value)(itemsByPoints.value);
     }
 
     default: {
@@ -255,7 +231,7 @@ const itemOptions = computed(() => {
 const onFilter: QSelectProps["onFilter"] = (input, update) => {
   update(
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    () => {},
+    () => { },
     (qSelect) => {
       if (input !== "" && (qSelect.options?.length ?? 0) > 0) {
         qSelect.setOptionIndex(-1);
@@ -278,7 +254,6 @@ const onInput: QSelectProps["onInputValue"] = (value: string) => {
     :use-input="itemModel === null"
     :label="props.label"
     :options="itemOptions"
-    input-debounce="0"
     @filter="onFilter"
     @input-value="onInput"
     class="w-[45ch]"
@@ -300,7 +275,7 @@ const onInput: QSelectProps["onInputValue"] = (value: string) => {
     <template v-slot:selected>
       <q-item v-if="itemModel">
         <q-item-section avatar>
-          <picture class="item-image" aria-hidden="true">
+          <picture class="aspect-square w-8" aria-hidden="true">
             <source :srcset="itemModel.image.srcset" />
             <img :src="itemModel.image.src" />
           </picture>
@@ -336,19 +311,13 @@ const onInput: QSelectProps["onInputValue"] = (value: string) => {
                 @click="itemModel = option"
               >
                 <q-item-section avatar>
-                  <picture class="item-image" aria-hidden="true">
+                  <picture class="aspect-square w-8" aria-hidden="true">
                     <source :srcset="option.image.srcset" />
                     <img :src="option.image.src" />
                   </picture>
                 </q-item-section>
                 <q-item-section flex-basis-full>
                   {{ option.label }}
-                </q-item-section>
-                <q-item-section
-                  v-if="option.detail !== undefined"
-                  flex-basis-auto
-                >
-                  {{ option.detail }}
                 </q-item-section>
               </q-item>
             </template>
@@ -365,19 +334,16 @@ const onInput: QSelectProps["onInputValue"] = (value: string) => {
             @click="itemModel = data.opt"
           >
             <q-item-section avatar>
-              <picture class="item-image" aria-hidden="true">
+              <picture class="aspect-square w-8" aria-hidden="true">
                 <source :srcset="data.opt.image.srcset" />
                 <img :src="data.opt.image.src" />
               </picture>
             </q-item-section>
-            <q-item-section>
+            <q-item-section flex-basis-full>
               {{ data.opt.label }}
             </q-item-section>
-            <q-item-section
-              v-if="data.opt.detail !== undefined"
-              flex-basis-auto
-            >
-              {{ data.opt.detail }}
+            <q-item-section v-if="sortModel === 'points'" flex-basis-auto>
+              {{ numberFormatter.format(data.opt.gameData.points) }}
             </q-item-section>
           </q-item>
         </template>
@@ -391,13 +357,9 @@ const onInput: QSelectProps["onInputValue"] = (value: string) => {
   & :deep(.q-field__native) {
     height: 48px;
   }
+
   & :deep(.q-field__marginal) {
     align-self: end;
   }
-}
-
-.item-image {
-  aspect-ratio: 1;
-  width: 2rem;
 }
 </style>
