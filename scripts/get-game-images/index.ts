@@ -23,27 +23,33 @@ const dotImageExt = `.${imageExt}`;
 
 const data = loadData();
 
-const imagePaths = data.items
-  .map((item) => {
-    if (item.mPersistentBigIcon === null) {
-      return null;
-    }
+const extraImages = [
+  [
+    "other",
+    "Game/FactoryGame/Resource/Parts/ResourceSinkCoupon/UI/IconDesc_Ficsit_Coupon_256",
+  ],
+];
 
-    const src = path.join(
-      exportedGameDataPath,
-      `${item.mPersistentBigIcon}${dotImageExt}`,
-    );
+const imagePaths = [
+  ...data.items.map((item) => ["items", item.mPersistentBigIcon] as const),
+  ...data.buildings.map(
+    (building) => ["buildings", building.mPersistentBigIcon] as const,
+  ),
+  ...extraImages,
+]
+  .filter(([dir, icon]) => isNotNull(icon))
+  .map(([dir, icon]) => {
+    const src = path.join(exportedGameDataPath, `${icon}${dotImageExt}`);
     const out = path.join(
       outDir,
-      "items",
+      dir,
       `${getIconPath(path.basename(src, dotImageExt))}${dotImageExt}`,
     );
     return {
       src,
       out,
     };
-  })
-  .filter(isNotNull);
+  });
 
 for (const { src, out } of imagePaths) {
   await fsp.mkdir(path.dirname(out), { recursive: true });

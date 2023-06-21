@@ -280,6 +280,7 @@ function autoImageIndex() {
         }
         if (dirent.isFile()) {
           const { name, ext, dir, base } = path.parse(dirent.name);
+          const safeName = /^\d/u.test(name) ? `_${name}` : name;
 
           if (ext === ".ts") {
             return undefined;
@@ -307,8 +308,12 @@ function autoImageIndex() {
                 .toString()
                 .replaceAll("=&", "&")}&imagetools`;
 
+              const fullName = `${
+                safeName.startsWith("_") ? "_" : ""
+              }${snakeCase(safeName)}_${format}_${size}`;
+
               return {
-                fullName: `${snakeCase(name)}_${format}_${size}`,
+                fullName,
                 relPath: `./${dirent.name}?${queryString}`,
                 format,
                 size,
@@ -324,7 +329,7 @@ function autoImageIndex() {
           );
 
           const exports = dedent`
-            export const ${name} = {
+            export const ${safeName} = {
               srcset: createSrcset([${importsData
                 .map(
                   ({ fullName, size, format }) =>
@@ -338,7 +343,7 @@ function autoImageIndex() {
           return dedent`
             ${imports.join("\n")}
             ${exports}
-            // images.set("${name}", ${name})
+            // images.set("${safeName}", ${safeName})
           `;
         }
         return undefined;

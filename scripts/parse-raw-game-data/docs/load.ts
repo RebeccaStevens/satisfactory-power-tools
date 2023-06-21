@@ -7,6 +7,7 @@ import docsJsonData from "../data/Docs.json" assert { type: "json" };
 import samJsonData from "../data/Sam.json" assert { type: "json" };
 
 import {
+  type BaseItem,
   type Base,
   type BuildableManufacturer,
   type Item,
@@ -554,6 +555,42 @@ function getItems(staticData: Readonly<StaticData>) {
   return [...items.values()];
 }
 
+function getBuildings(staticData: Readonly<StaticData>) {
+  const buildingClasses = new Set([
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildingDescriptor'",
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGPoleDescriptor'",
+  ]);
+
+  const buildings = new Set(
+    staticData
+      .entries()
+      .filter((data): data is [string, Set<BaseItem>] => {
+        const [nativeClass] = data;
+        return buildingClasses.has(nativeClass);
+      })
+      .flatMap(([nativeClass, set]) => {
+        // TODO: verify it's a building
+        // assert(
+        //   set.values().every((building) => {
+        //     return true;
+        //   }),
+        // );
+        return set.values();
+      }),
+  );
+
+  // TODO: verify it's a building
+  // assert(
+  //   staticData.entries().every(([nativeClass, buildingSet]) => {
+  //     return buildingSet.values().every((building) => {
+  //       return true;
+  //     });
+  //   }),
+  // );
+
+  return [...buildings.values()];
+}
+
 function getMachines(staticData: Readonly<StaticData>) {
   const machineClasses = new Set([
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableManufacturer'",
@@ -682,12 +719,14 @@ function getSchematics(staticData: Readonly<StaticData>) {
 export function loadData() {
   const staticData = parseRawGameData(rawGameDataByNativeClass());
   const items = getItems(staticData);
+  const buildings = getBuildings(staticData);
   const machines = getMachines(staticData);
   const recipes = getRecipes(staticData);
   const schematics = getSchematics(staticData);
 
   return {
     items,
+    buildings,
     machines,
     recipes,
     schematics,
