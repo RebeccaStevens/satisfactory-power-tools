@@ -5,49 +5,23 @@ const menu = useMainMenu();
 </script>
 
 <template>
-  <nav>
-    <template v-for="menuItem in menu" :key="menuItem.link">
-      <router-link v-if="menuItem.type === 'link'" :to="menuItem.link">
-        <q-btn flat>{{ menuItem.label }}</q-btn>
-      </router-link>
-    </template>
+  <q-header elevated>
+    <q-toolbar class="flex p-2">
+      <template v-for="menuItem in menu" :key="menuItem.link">
+        <router-link v-if="menuItem.type === 'link'" :to="menuItem.link">
+          <q-btn
+            flat
+            class="capitalize text-base @xl:text-lg mx-2"
+            >{{ menuItem.label }}</q-btn
+          >
+        </router-link>
+      </template>
 
-    <span class="grow"></span>
+      <span class="flex-grow"></span>
 
-    <DonateBtn class="donate-btn"></DonateBtn>
-  </nav>
+      <DonateBtn class="flex-none h-12 m-0 p-2"></DonateBtn>
+    </q-toolbar>
+  </q-header>
 </template>
 
-<style lang="scss" scoped>
-nav {
-  background-color: var(--q-primary);
-  display: flex;
-  padding: 0.5rem;
-  height: 3rem;
-
-  & > * {
-    height: auto;
-  }
-}
-
-.q-btn {
-  @extend .q-mx-sm;
-  @extend .q-px-sm;
-  text-transform: capitalize;
-  font-size: 1rem;
-
-  &.donate-btn {
-    @extend .q-ma-none;
-    @extend .q-px-sm;
-  }
-}
-
-@container (height >= 50rem) {
-  nav {
-    height: 4rem;
-  }
-  .q-btn {
-    font-size: 1.2rem;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

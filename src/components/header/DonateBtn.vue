@@ -7,11 +7,13 @@ const { t } = useI18n();
 <template>
   <q-btn-dropdown content-class="donate-content">
     <template v-slot:label>
-      <picture>
+      <picture class="aspect-square h-full">
         <source :srcset="kofi.srcset" />
         <img :src="kofi.src" :alt="t('donate.ko-fi.image-alt')" />
       </picture>
-      {{ t("donate.ko-fi.message") }}
+      <span class="capitalize text-base @xl:text-lg ml-2">
+        {{ t("donate.ko-fi.message") }}
+      </span>
     </template>
 
     <iframe
@@ -26,13 +28,7 @@ const { t } = useI18n();
 
 <style lang="scss" scoped>
 .q-btn {
-  text-transform: capitalize;
   background-color: var(--kofi-blue);
-}
-
-picture {
-  aspect-ratio: 1;
-  height: 100%;
 }
 
 :deep(.q-btn__content) {
