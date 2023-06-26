@@ -124,8 +124,8 @@ devDependencies:
     specifier: 0.53.1
     version: 0.53.1
   '@unocss/preset-attributify':
-    specifier: 0.53.1
-    version: 0.53.1
+    specifier: 0.53.4
+    version: 0.53.4
   '@unocss/preset-icons':
     specifier: 0.53.1
     version: 0.53.1
@@ -3172,6 +3172,10 @@ packages:
     resolution: {integrity: sha512-28xxgZZBaGeDUULoNrpmSP4ZtNn41b2NlBnOe2ta+TnA4F0R5v8bW0w8CxHoYGiHS8mbCq4Aw1ReNlqVhfar8Q==}
     dev: true
 
+  /@unocss/core@0.53.4:
+    resolution: {integrity: sha512-JvmpuFOiJ8NkGzRmh0dCUmNdYjr8MmMtCX+czCmSnX2kvKyQjJIw3RIu84/DQbd/M/yxZmPjle8DrcZ1Ql86rQ==}
+    dev: true
+
   /@unocss/extractor-arbitrary-variants@0.53.1:
     resolution: {integrity: sha512-8/+R8ctMwIpUQk5NMDgxCJInWqn7LjzmvgnT2x+LFkCA3F+etU9FNDMV5eg3feNdsHSWsJlKnPlS+cjGseSLiA==}
     dependencies:
@@ -3185,10 +3189,10 @@ packages:
       sirv: 2.0.3
     dev: true
 
-  /@unocss/preset-attributify@0.53.1:
-    resolution: {integrity: sha512-yLNW/z1JDKxRBtUXKObCJJaFxRpBNGsGQxrQ8esAxZNfkUKWkLp9qlrda1G5OeR1TNyHsV3Hb8rzRWYwzXg7TQ==}
+  /@unocss/preset-attributify@0.53.4:
+    resolution: {integrity: sha512-/lYH0SHFEkROOMHJ5td3txHnR93RRt/ZtsJ4brH3ptJixiEiShl5oNGS8cHBV/jV/KYsBW4gqeVomzUGCGWu9w==}
     dependencies:
-      '@unocss/core': 0.53.1
+      '@unocss/core': 0.53.4
     dev: true
 
   /@unocss/preset-icons@0.53.1:
