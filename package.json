@@ -66,7 +66,7 @@
     "@typescript-eslint/eslint-plugin": "5.59.11",
     "@typescript-eslint/parser": "5.59.11",
     "@typescript-eslint/type-utils": "5.59.11",
-    "@unocss/core": "0.53.1",
+    "@unocss/core": "0.53.4",
     "@unocss/preset-attributify": "0.53.1",
     "@unocss/preset-icons": "0.53.1",
     "@unocss/preset-typography": "0.53.1",
