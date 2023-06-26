@@ -127,8 +127,8 @@ devDependencies:
     specifier: 0.53.1
     version: 0.53.1
   '@unocss/preset-icons':
-    specifier: 0.53.1
-    version: 0.53.1
+    specifier: 0.53.4
+    version: 0.53.4
   '@unocss/preset-typography':
     specifier: 0.53.1
     version: 0.53.1
@@ -2489,6 +2489,19 @@ packages:
       - supports-color
     dev: true
 
+  /@iconify/utils@2.1.7:
+    resolution: {integrity: sha512-P8S3z/L1LcV4Qem9AoCfVAaTFGySEMzFEY4CHZLkfRj0Fv9LiR+AwjDgrDrzyI93U2L2mg9JHsbTJ52mF8suNw==}
+    dependencies:
+      '@antfu/install-pkg': 0.1.1
+      '@antfu/utils': 0.7.4
+      '@iconify/types': 2.0.0
+      debug: 4.3.4
+      kolorist: 1.8.0
+      local-pkg: 0.4.3
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@intlify/bundle-utils@6.0.1(vue-i18n@9.3.0-beta.19):
     resolution: {integrity: sha512-BkeZNKZiC0B7K3OYMwiPLoAqsZmKH3SxTL75vYAkuQ//XWR8WO0NpfjXhTxgLTVFHxMcNb2agAopC0DP6fqDrg==}
     engines: {node: '>= 14.16'}
@@ -3172,6 +3185,10 @@ packages:
     resolution: {integrity: sha512-28xxgZZBaGeDUULoNrpmSP4ZtNn41b2NlBnOe2ta+TnA4F0R5v8bW0w8CxHoYGiHS8mbCq4Aw1ReNlqVhfar8Q==}
     dev: true
 
+  /@unocss/core@0.53.4:
+    resolution: {integrity: sha512-JvmpuFOiJ8NkGzRmh0dCUmNdYjr8MmMtCX+czCmSnX2kvKyQjJIw3RIu84/DQbd/M/yxZmPjle8DrcZ1Ql86rQ==}
+    dev: true
+
   /@unocss/extractor-arbitrary-variants@0.53.1:
     resolution: {integrity: sha512-8/+R8ctMwIpUQk5NMDgxCJInWqn7LjzmvgnT2x+LFkCA3F+etU9FNDMV5eg3feNdsHSWsJlKnPlS+cjGseSLiA==}
     dependencies:
@@ -3191,12 +3208,12 @@ packages:
       '@unocss/core': 0.53.1
     dev: true
 
-  /@unocss/preset-icons@0.53.1:
-    resolution: {integrity: sha512-itL92ZSoplYjJA22TjMQnlJVOheFL8KWy9yPvXpNc4LA+eAhfCLXK2f5DoBNE5ehg3xGRvc8nhI0lP5xKJURWQ==}
+  /@unocss/preset-icons@0.53.4:
+    resolution: {integrity: sha512-PSc1svzDq/o7lKLrZohFIMf0ZqOypYdBY1Wvfp+Gd6Zc4uybnCTVme3pnlgYIcjSO24ilt/PeWgx3SxD8ypMcw==}
     dependencies:
-      '@iconify/utils': 2.1.6
-      '@unocss/core': 0.53.1
-      ofetch: 1.1.0
+      '@iconify/utils': 2.1.7
+      '@unocss/core': 0.53.4
+      ofetch: 1.1.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3227,7 +3244,7 @@ packages:
     resolution: {integrity: sha512-UwAYDkdIVwydw1UxXFVQ7HufzIPxY6Nf3ATb3cKgC134xLNGxbzIQx7DQRFSGe6hmqYC2S86U+URayboGlL1iA==}
     dependencies:
       '@unocss/core': 0.53.1
-      ofetch: 1.1.0
+      ofetch: 1.1.1
     dev: true
 
   /@unocss/preset-wind@0.53.1:
@@ -4784,8 +4801,8 @@ packages:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
     engines: {node: '>=0.4.0'}
 
-  /destr@1.2.2:
-    resolution: {integrity: sha512-lrbCJwD9saUQrqUfXvl6qoM+QN3W7tLV5pAOs+OqOmopCCz/JkE05MHedJR1xfk4IAnZuJXPVuN5+7jNA2ZCiA==}
+  /destr@2.0.0:
+    resolution: {integrity: sha512-FJ9RDpf3GicEBvzI3jxc2XhHzbqD8p4ANw/1kPsFBfTvP1b7Gn/Lg1vO7R9J4IVgoMbyUmFrFGZafJ1hPZpvlg==}
     dev: true
 
   /detect-file@1.0.0:
@@ -7560,10 +7577,10 @@ packages:
       es-abstract: 1.21.2
     dev: true
 
-  /ofetch@1.1.0:
-    resolution: {integrity: sha512-yjq2ZUUMto1ITpge2J5vNlUfteLzxfHn9aJC55WtVGD3okKwSfPoLaKpcHXmmKd2kZZUGo+jdkFuuj09Blyeig==}
+  /ofetch@1.1.1:
+    resolution: {integrity: sha512-SSMoktrp9SNLi20BWfB/BnnKcL0RDigXThD/mZBeQxkIRv1xrd9183MtLdsqRYLYSqW0eTr5t8w8MqjNhvoOQQ==}
     dependencies:
-      destr: 1.2.2
+      destr: 2.0.0
       node-fetch-native: 1.2.0
       ufo: 1.1.2
     dev: true
