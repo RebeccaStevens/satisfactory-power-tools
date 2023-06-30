@@ -1,18 +1,19 @@
 <script setup lang="ts">
 import { assert } from "chai";
 
-import type ResourceRates from "~/components/resource-rates/ResourceRates.vue";
-import { type ResourceItemRates } from "~/components/resource-rates/ResourceRates.vue";
 import { useOptimizableItems, useResourceItems, useResourceItemsMapMaxRates } from "~/composables/game-data";
 import { usePageTitle } from "~/composables/page";
 import { points } from "~/data/special-items";
+
+import AvaliableResources from "./components/avaliable-resources/AvaliableResources.vue";
+import { type ResourceItemRates } from "./components/avaliable-resources/AvaliableResources.vue";
 
 useHead({
   title: usePageTitle("optimizer"),
 });
 const { t } = useI18n();
 
-const AvaliableResourcesRef = ref<InstanceType<typeof ResourceRates> | null>(null);
+const AvaliableResourcesRef = ref<InstanceType<typeof AvaliableResources> | null>(null);
 
 const optimizableItems = useOptimizableItems();
 const resourceItems = useResourceItems();
