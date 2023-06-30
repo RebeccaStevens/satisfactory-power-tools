@@ -14,7 +14,7 @@ import { loadData } from "./load";
 export function getDocsData() {
   const data = loadData();
 
-  const filteredItems = Object.fromEntries(
+  const items = Object.fromEntries(
     data.items.map((item) => [
       item.ClassName,
       {
@@ -35,14 +35,30 @@ export function getDocsData() {
           item.mPersistentBigIcon === null
             ? null
             : `items/${getIconPath(item.mPersistentBigIcon)}`,
+        categories: item.mSubCategories,
+        menuPriority: item.mMenuPriority,
         tier: getItemTier(item),
         type: getItemType(item),
       },
     ]),
   );
 
-  const filteredMachines = Object.fromEntries(
-    data.machines.map((machine) => {
+  const buildings = Object.fromEntries(
+    data.buildings.map((building) => [
+      building.ClassName,
+      {
+        icon:
+          building.mPersistentBigIcon === null
+            ? null
+            : `buildings/${getIconPath(building.mPersistentBigIcon)}`,
+        categories: building.mSubCategories,
+        menuPriority: building.mMenuPriority,
+      },
+    ]),
+  );
+
+  const productionMachines = Object.fromEntries(
+    data.machines.production.map((machine) => {
       const variablePower = isVariablePower(machine);
       return [
         machine.ClassName,
@@ -60,7 +76,6 @@ export function getDocsData() {
             ? machine.mEstimatedMaximumPowerConsumption
             : machine.mPowerConsumption,
           powerConsumptionExponent: machine.mPowerConsumptionExponent,
-          minimumProducingTime: machine.mMinimumProducingTime,
           minPotential: machine.mCanChangePotential ? machine.mMinPotential : 1,
           maxPotential: machine.mCanChangePotential ? machine.mMaxPotential : 1,
           maxPotentialIncreasePerCrystal: machine.mCanChangePotential
@@ -71,7 +86,56 @@ export function getDocsData() {
     }),
   );
 
-  const filteredRecipes = Object.fromEntries(
+  const generatorFuelMachines = Object.fromEntries(
+    data.machines.generator.fuel.map((machine) => {
+      return [
+        machine.ClassName,
+        {
+          fuel: machine.mFuel.map((fuel) => ({
+            fuel: fuel.mFuelClass,
+            supplemental: fuel.mSupplementalResourceClass,
+            byproduct:
+              fuel.mByproduct === null
+                ? null
+                : ([fuel.mByproduct, fuel.mByproductAmount] as const),
+          })),
+          fuelLoadAmount: machine.mFuelLoadAmount,
+          fuelTransporter:
+            machine.mFuelResourceForm === ResourceForm.Liquid ||
+            machine.mFuelResourceForm === ResourceForm.Gas
+              ? "pipe"
+              : "belt",
+          requiresSupplementalResource: machine.mRequiresSupplementalResource,
+          supplementalLoadAmount: machine.mSupplementalLoadAmount,
+          supplementalToPowerRatio: machine.mSupplementalToPowerRatio,
+          powerProduction: machine.mPowerProduction,
+          minPotential: machine.mCanChangePotential ? machine.mMinPotential : 1,
+          maxPotential: machine.mCanChangePotential ? machine.mMaxPotential : 1,
+          maxPotentialIncreasePerCrystal: machine.mCanChangePotential
+            ? machine.mMaxPotentialIncreasePerCrystal
+            : 0,
+        },
+      ];
+    }),
+  );
+
+  const generatorGeoThermalMachines = Object.fromEntries(
+    data.machines.generator.geoThermal.map((machine) => {
+      return [
+        machine.ClassName,
+        {
+          powerProduction: machine.mPowerProduction,
+          minPotential: machine.mCanChangePotential ? machine.mMinPotential : 1,
+          maxPotential: machine.mCanChangePotential ? machine.mMaxPotential : 1,
+          maxPotentialIncreasePerCrystal: machine.mCanChangePotential
+            ? machine.mMaxPotentialIncreasePerCrystal
+            : 0,
+        },
+      ];
+    }),
+  );
+
+  const recipes = Object.fromEntries(
     data.recipes.map((recipe) => {
       return [
         recipe.ClassName,
@@ -89,7 +153,7 @@ export function getDocsData() {
     }),
   );
 
-  const filteredSchematics = Object.fromEntries(
+  const schematics = Object.fromEntries(
     Object.entries(
       data.schematics
         .filter(
@@ -145,10 +209,17 @@ export function getDocsData() {
   );
 
   return {
-    items: filteredItems,
-    machines: filteredMachines,
-    recipes: filteredRecipes,
-    schematics: filteredSchematics,
+    items,
+    machines: {
+      production: productionMachines,
+      generator: {
+        fuel: generatorFuelMachines,
+        geoThermal: generatorGeoThermalMachines,
+      },
+    },
+    recipes,
+    schematics,
+    buildings,
   };
 }
 

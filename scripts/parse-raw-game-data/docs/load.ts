@@ -7,6 +7,8 @@ import docsJsonData from "../data/Docs.json" assert { type: "json" };
 import samJsonData from "../data/Sam.json" assert { type: "json" };
 
 import {
+  type BuildableGeneratorFuel,
+  type BuildableGeneratorGeoThermal,
   type BaseItem,
   type Base,
   type BuildableManufacturer,
@@ -591,7 +593,7 @@ function getBuildings(staticData: Readonly<StaticData>) {
   return [...buildings.values()];
 }
 
-function getMachines(staticData: Readonly<StaticData>) {
+function getProductionMachines(staticData: Readonly<StaticData>) {
   const machineClasses = new Set([
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableManufacturer'",
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableManufacturerVariablePower'",
@@ -631,6 +633,92 @@ function getMachines(staticData: Readonly<StaticData>) {
   );
 
   return [...machines.values()];
+}
+
+function getGeneratorFuelMachines(staticData: Readonly<StaticData>) {
+  const generatorClasses = new Set([
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableGeneratorFuel'",
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableGeneratorNuclear'",
+  ]);
+
+  const generators = new Set(
+    staticData
+      .entries()
+      .filter((data): data is [string, Set<BuildableGeneratorFuel>] => {
+        const [nativeClass] = data;
+        return generatorClasses.has(nativeClass);
+      })
+      .flatMap(([nativeClass, set]) => {
+        assert(
+          set.values().every((item) => {
+            if ("mFuel" in item) {
+              return true;
+            }
+            console.log("Not a Generator Class:", nativeClass);
+            return false;
+          }),
+        );
+        return set.values();
+      }),
+  );
+
+  assert(
+    staticData.entries().every(([nativeClass, generatorSet]) =>
+      generatorSet.values().every((generator) => {
+        if (!generators.has(generator) && "mFuel" in generator) {
+          console.log("Missing Generator Class:", nativeClass);
+          return false;
+        }
+        return true;
+      }),
+    ),
+  );
+
+  return [...generators.values()];
+}
+
+function getGeneratorGeoThermalMachines(staticData: Readonly<StaticData>) {
+  const generatorClasses = new Set([
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableGeneratorGeoThermal'",
+  ]);
+
+  const generators = new Set(
+    staticData
+      .entries()
+      .filter((data): data is [string, Set<BuildableGeneratorGeoThermal>] => {
+        const [nativeClass] = data;
+        return generatorClasses.has(nativeClass);
+      })
+      .flatMap(([nativeClass, set]) => {
+        assert(
+          set.values().every((item) => {
+            if ("mVariablePowerProductionFactor" in item) {
+              return true;
+            }
+            console.log("Not a Generator Class:", nativeClass);
+            return false;
+          }),
+        );
+        return set.values();
+      }),
+  );
+
+  assert(
+    staticData.entries().every(([nativeClass, generatorSet]) =>
+      generatorSet.values().every((generator) => {
+        if (
+          !generators.has(generator) &&
+          "mVariablePowerProductionFactor" in generator
+        ) {
+          console.log("Missing Generator Class:", nativeClass);
+          return false;
+        }
+        return true;
+      }),
+    ),
+  );
+
+  return [...generators.values()];
 }
 
 function getRecipes(staticData: Readonly<StaticData>) {
@@ -720,7 +808,13 @@ export function loadData() {
   const staticData = parseRawGameData(rawGameDataByNativeClass());
   const items = getItems(staticData);
   const buildings = getBuildings(staticData);
-  const machines = getMachines(staticData);
+  const machines = {
+    production: getProductionMachines(staticData),
+    generator: {
+      fuel: getGeneratorFuelMachines(staticData),
+      geoThermal: getGeneratorGeoThermalMachines(staticData),
+    },
+  };
   const recipes = getRecipes(staticData);
   const schematics = getSchematics(staticData);
 

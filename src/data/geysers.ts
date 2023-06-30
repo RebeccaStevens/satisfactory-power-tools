@@ -1,3 +1,4 @@
+import type RawGameData from "~/data/game-data.json";
 import { type Geyser } from "~/data/types";
 import {
   asLocation3D,
@@ -5,8 +6,6 @@ import {
   asScale3D,
   asResourcePurity,
 } from "~/data/types";
-
-import type RawGameData from "./game-data.json";
 
 export function getGeysers(
   rawGeysers: Readonly<(typeof RawGameData)["geysers"]>,

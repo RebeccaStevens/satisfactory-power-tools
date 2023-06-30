@@ -119,6 +119,7 @@ const config: UserConfig<PresetUnoTheme> = {
     "i-carbon-number-5",
     "i-carbon-number-6",
     "i-carbon-number-7",
+    "i-carbon-caret-right",
     "i-carbon-caret-down",
     "i-carbon-add",
     "i-carbon-close",

@@ -1,6 +1,7 @@
 import { assert } from "chai";
 
-import { type Item, type Node } from "~/data/types";
+import type RawGameData from "~/data/game-data.json";
+import { type GeneralItem, type Node } from "~/data/types";
 import {
   asLocation3D,
   asRotation3D,
@@ -8,15 +9,13 @@ import {
   asResourcePurity,
 } from "~/data/types";
 
-import type RawGameData from "./game-data.json";
-
 export function getNodes(
   rawNodeGroups: Readonly<(typeof RawGameData)["nodes"]>,
-  items: ReadonlyMap<string, Item>,
+  items: ReadonlyMap<string, GeneralItem>,
 ) {
   return new Map(
     Object.entries(rawNodeGroups).map(
-      ([resourceId, rawNodes]): [Item, Set<Node>] => {
+      ([resourceId, rawNodes]): [GeneralItem, Set<Node>] => {
         const resource = items.get(resourceId);
         assert(resource !== undefined);
 

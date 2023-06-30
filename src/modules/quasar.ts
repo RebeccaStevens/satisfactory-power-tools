@@ -135,7 +135,7 @@ export const install: UserModule = ({ app }) => {
         lastPage: "-carbon-page-last",
       },
       tree: {
-        icon: "i-carbon-play-filled-alt",
+        icon: "i-carbon-caret-right",
       },
       uploader: {
         done: "i-carbon-checkmark",

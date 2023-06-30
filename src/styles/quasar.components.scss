@@ -1,7 +1,11 @@
 .q-page-container {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+}
+
+.q-page {
+  container-name: q-page;
+  container-type: size;
 }
 
 .q-btn-icon {
@@ -28,5 +32,14 @@ button.q-icon[class*="i-"] {
 
   .dark & {
     background-color: #ffffff;
+  }
+}
+
+.q-field > .q-field__inner {
+  display: flex;
+  align-items: center;
+
+  > .q-field__control {
+    width: 100%;
   }
 }

@@ -36,6 +36,6 @@ watch(
 #app {
   container-name: app;
   container-type: size;
-  height: 100vh;
+  height: 100svh;
 }
 </style>

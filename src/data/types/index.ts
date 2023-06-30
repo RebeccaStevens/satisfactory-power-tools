@@ -1,3 +1,4 @@
+export * from "./buildings";
 export * from "./data";
 export * from "./fracking";
 export * from "./game-data";

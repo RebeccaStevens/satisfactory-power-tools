@@ -1,44 +1,35 @@
-import { type Newtype } from "newtype-ts";
-import { iso } from "newtype-ts";
+import { type DivideUnits, type Unit, mul, div } from "uom-ts";
 
-export type Seconds = Newtype<{ readonly Seconds: unique symbol }, number>;
-const isoSeconds = iso<Seconds>();
-export function asSeconds(value: number) {
-  return isoSeconds.from(value);
-}
+export type Seconds = Unit<{ Seconds: 1 }>;
+export type Minutes = Unit<{ Minutes: 1 }>;
+export type Hours = Unit<{ Hours: 1 }>;
 
-export type Minutes = Newtype<{ readonly Minutes: unique symbol }, number>;
-const isoMinutes = iso<Minutes>();
-export function asMinutes(value: number) {
-  return isoMinutes.from(value);
-}
+// Unit<{ Seconds: 1, Minutes: -1 }>
+type MinutesToSecondsRate = DivideUnits<Seconds, Minutes>;
 
-export type Hours = Newtype<{ readonly Hours: unique symbol }, number>;
-const isoHours = iso<Hours>();
-export function asHours(value: number) {
-  return isoHours.from(value);
-}
-
-export function minutesToSeconds(value: Minutes): Seconds {
-  return isoSeconds.from(isoMinutes.to(value) * 60);
-}
-
-export function hoursToSeconds(value: Hours): Seconds {
-  return minutesToSeconds(isoMinutes.from(isoHours.to(value) * 60));
-}
+// Unit<{ Minutes: 1, Hours: -1 }>
+type HoursToMinutesRate = DivideUnits<Minutes, Hours>;
 
 export function secondsToMinutes(value: Seconds): Minutes {
-  return isoMinutes.from(isoSeconds.to(value) / 60);
-}
-
-export function hoursToMinutes(value: Hours): Minutes {
-  return isoMinutes.from(isoHours.to(value) * 60);
+  return div(value, 60 as MinutesToSecondsRate);
 }
 
 export function secondsToHours(value: Seconds): Hours {
-  return minutesToHours(isoMinutes.from(isoSeconds.to(value) / 60));
+  return div(secondsToMinutes(value), 60 as HoursToMinutesRate);
+}
+
+export function minutesToSeconds(value: Minutes): Seconds {
+  return mul(value, 60 as MinutesToSecondsRate);
 }
 
 export function minutesToHours(value: Minutes): Hours {
-  return isoHours.from(isoMinutes.to(value) / 60);
+  return div(value, 60 as HoursToMinutesRate);
+}
+
+export function hoursToSeconds(value: Hours): Seconds {
+  return mul(hoursToMinutes(value), 60 as MinutesToSecondsRate);
+}
+
+export function hoursToMinutes(value: Hours): Minutes {
+  return mul(value, 60 as HoursToMinutesRate);
 }

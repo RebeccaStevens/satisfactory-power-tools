@@ -1,7 +1,7 @@
 language: english
 
 site:
-  title: "Satisfactory Power Tools"
+  title: Satisfactory Power Tools
 
 donate:
   ko-fi:
@@ -16,345 +16,3959 @@ pages:
   optimizer:
     label: optimizer
     title: Optimizer
+    content:
+      for:
+        label: optimize for
+        help:
+          header: "Help: @:pages.optimizer.content.for.label"
+          content: "TODO: Write help"
+      excess:
+        header: excess production
+        help:
+          header: "Help: @:pages.optimizer.content.excess.header"
+          content: "TODO: Write help"
+      resources:
+        header: avaliable resources
+        action:
+          label: Presets
+          options:
+            effective-map-max:
+              label: Effective maximum mining rates.
+            full-map-max:
+              label: Maximum mining rates (ignoring transportation limits).
+        help:
+          header: "Help: @:pages.optimizer.content.resources.header"
+          content: "TODO: Write help"
+      recipes:
+        header: recipe settings
+        help:
+          header: "Help: @:pages.optimizer.content.recipes.header"
+          content: "TODO: Write help"
+      calculate:
+        value: calculate optimal production
+
+components:
+  search:
+    no-results: No results
+
+data:
+  categories:
+    no-category: Uncategorized
+
+  compare:
+    ">=": Greater than or equal to
+    ">": Greater than
+    "<": Less than
+    "<=": Less than or equal to
+    "=": Equal to
+
+  terms:
+    unlimited: unlimited
+
+actions:
+  add:
+    title:
+      basic: Add
+      with-context: "@:actions.add.title.basic {item}"
+  remove:
+    title:
+      basic: Remove
+      with-context: "@:actions.remove.title.basic {item}"
+  help:
+    title: Help
+
+units:
+  amount:
+    item:
+      long: Item | Items
+      short: item | items
+    fluid:
+      long: Cubic @:units.length.meters.long
+      short: m^3
+
+  energy:
+    MegaJoule:
+      long: Mega Joule | Mega Joules
+      short: MJ
+    MegaWattHour:
+      long: "@:units.rates.power.long Hour"
+      short: "@:units.rates.power.short@:units.time.hour.short"
+
+  length:
+    meters:
+      long: Meter | Meters
+      short: m
+
+  rates:
+    per:
+      second:
+        long: per Second
+        short: "1/@:units.time.second.short"
+        alt:
+          long: Hertz
+          short: Hz
+      minute:
+        long: per Minute
+        short: "1/@:units.time.minute.short"
+      hour:
+        long: per Hour
+        short: "1/@:units.time.hour.short"
+    item:
+      second:
+        long: "@:units.amount.item.long @:units.rates.per.second.long"
+        short: "@:units.amount.item.short/@:units.time.second.short"
+      minute:
+        long: "@:units.amount.item.long @:units.rates.per.minute.long"
+        short: "@:units.amount.item.short/@:units.time.minute.short"
+      hour:
+        long: "@:units.amount.item.long @:units.rates.per.hour.long"
+        short: "@:units.amount.item.short/@:units.time.hour.short"
+    fluid:
+      second:
+        long: "@:units.amount.fluid.long @:units.rates.per.second.long"
+        short: "@:units.amount.fluid.short/@:units.time.second.short"
+      minute:
+        long: "@:units.amount.fluid.long @:units.rates.per.minute.long"
+        short: "@:units.amount.fluid.short/@:units.time.minute.short"
+      hour:
+        long: "@:units.amount.fluid.long @:units.rates.per.hour.long"
+        short: "@:units.amount.fluid.short/@:units.time.hour.short"
+    power:
+      long: Mega Watt | Mega Watts
+      short: MW
+
+  time:
+    second:
+      long: Second | Seconds
+      short: s
+    minute:
+      long: Minute | Minutes
+      short: min
+    hour:
+      long: Hour | Hours
+      short: h
 
 game-data:
-  BP_EqDescZipLine_C:
-    name: Zipline
-  BP_EquipmentDescriptorBeacon_C:
-    name: Beacon
-  BP_EquipmentDescriptorCandyCane_C:
-    name: Candy Cane Basher
-  BP_EquipmentDescriptorGasmask_C:
-    name: Gas Mask
-  BP_EquipmentDescriptorHazmatSuit_C:
-    name: Hazmat Suit
-  BP_EquipmentDescriptorHoverPack_C:
-    name: Hover Pack
-  BP_EquipmentDescriptorJetPack_C:
-    name: Jetpack
-  BP_EquipmentDescriptorJumpingStilts_C:
-    name: Blade Runners
-  BP_EquipmentDescriptorNobeliskDetonator_C:
-    name: Nobelisk Detonator
-  BP_EquipmentDescriptorObjectScanner_C:
-    name: Object Scanner
-  BP_EquipmentDescriptorRifle_C:
-    name: Rifle
-  BP_EquipmentDescriptorShockShank_C:
-    name: Xeno-Zapper
-  BP_EquipmentDescriptorStunSpear_C:
-    name: Xeno-Basher
-  BP_ItemDescriptorPortableMiner_C:
-    name: Portable Miner
-  Desc_AlienDNACapsule_C:
-    name: Alien DNA Capsule
-  Desc_AlienProtein_C:
-    name: Alien Protein
-  Desc_AluminaSolution_C:
-    name: Alumina Solution
-  Desc_AluminumCasing_C:
-    name: Aluminum Casing
-  Desc_AluminumIngot_C:
-    name: Aluminum Ingot
-  Desc_AluminumPlate_C:
-    name: Alclad Aluminum Sheet
-  Desc_AluminumPlateReinforced_C:
-    name: Heat Sink
-  Desc_AluminumScrap_C:
-    name: Aluminum Scrap
-  Desc_Battery_C:
-    name: Battery
-  Desc_Berry_C:
-    name: Paleberry
-  Desc_Biofuel_C:
-    name: Solid Biofuel
-  Desc_Cable_C:
-    name: Cable
-  Desc_CandyCane_C:
-    name: Candy Cane
-  Desc_CartridgeChaos_C:
-    name: Turbo Rifle Ammo
-  Desc_CartridgeSmartProjectile_C:
-    name: Homing Rifle Ammo
-  Desc_CartridgeStandard_C:
-    name: Rifle Ammo
-  Desc_Cement_C:
-    name: Concrete
-  Desc_Chainsaw_C:
-    name: Chainsaw
-  Desc_CircuitBoard_C:
-    name: Circuit Board
-  Desc_CircuitBoardHighSpeed_C:
-    name: AI Limiter
-  Desc_Coal_C:
-    name: Coal
-  Desc_ColorCartridge_C:
-    name: Color Cartridge
-  Desc_CompactedCoal_C:
-    name: Compacted Coal
-  Desc_Computer_C:
-    name: Computer
-  Desc_ComputerSuper_C:
-    name: Supercomputer
-  Desc_CoolingSystem_C:
-    name: Cooling System
-  Desc_CopperDust_C:
-    name: Copper Powder
-  Desc_CopperIngot_C:
-    name: Copper Ingot
-  Desc_CopperSheet_C:
-    name: Copper Sheet
-  Desc_Crystal_C:
-    name: Blue Power Slug
-  Desc_Crystal_mk2_C:
-    name: Yellow Power Slug
-  Desc_Crystal_mk3_C:
-    name: Purple Power Slug
-  Desc_CrystalOscillator_C:
-    name: Crystal Oscillator
-  Desc_CrystalShard_C:
-    name: Power Shard
-  Desc_ElectromagneticControlRod_C:
-    name: Electromagnetic Control Rod
-  Desc_Fabric_C:
-    name: Fabric
-  Desc_Filter_C:
-    name: Gas Filter
-  Desc_Fireworks_Projectile_01_C:
-    name: Sweet Fireworks
-  Desc_Fireworks_Projectile_02_C:
-    name: Fancy Fireworks
-  Desc_Fireworks_Projectile_03_C:
-    name: Sparkly Fireworks
-  Desc_FlowerPetals_C:
-    name: Flower Petals
-  Desc_FluidCanister_C:
-    name: Empty Canister
-  Desc_Fuel_C:
-    name: Packaged Fuel
-  Desc_GasTank_C:
-    name: Empty Fluid Tank
-  Desc_GenericBiomass_C:
-    name: Biomass
-  Desc_Gift_C:
-    name: FICSMAS Gift
-  Desc_GoldIngot_C:
-    name: Caterium Ingot
-  Desc_GolfCart_C:
-    name: Factory Cart™
-  Desc_GolfCartGold_C:
-    name: Golden Factory Cart™
-  Desc_Gunpowder_C:
-    name: Black Powder
-  Desc_GunpowderMK2_C:
-    name: Smokeless Powder
-  Desc_HatcherParts_C:
-    name: Hatcher Remains
-  Desc_HazmatFilter_C:
-    name: Iodine Infused Filter
-  Desc_HeavyOilResidue_C:
-    name: Heavy Oil Residue
-  Desc_HighSpeedConnector_C:
-    name: High-Speed Connector
-  Desc_HighSpeedWire_C:
-    name: Quickwire
-  Desc_HogParts_C:
-    name: Hog Remains
-  Desc_HUBParts_C:
-    name: HUB Parts
-  Desc_IronIngot_C:
-    name: Iron Ingot
-  Desc_IronPlate_C:
-    name: Iron Plate
-  Desc_IronPlateReinforced_C:
-    name: Reinforced Iron Plate
-  Desc_IronRod_C:
-    name: Iron Rod
-  Desc_IronScrew_C:
-    name: Screw
-  Desc_Leaves_C:
-    name: Leaves
-  Desc_LiquidBiofuel_C:
-    name: Liquid Biofuel
-  Desc_LiquidFuel_C:
-    name: Fuel
-  Desc_LiquidOil_C:
-    name: Crude Oil
-  Desc_LiquidTurboFuel_C:
-    name: Turbofuel
-  Desc_Medkit_C:
-    name: Medicinal Inhaler
-  Desc_ModularFrame_C:
-    name: Modular Frame
-  Desc_ModularFrameFused_C:
-    name: Fused Modular Frame
-  Desc_ModularFrameHeavy_C:
-    name: Heavy Modular Frame
-  Desc_ModularFrameLightweight_C:
-    name: Radio Control Unit
-  Desc_Motor_C:
-    name: Motor
-  Desc_MotorLightweight_C:
-    name: Turbo Motor
-  Desc_Mycelia_C:
-    name: Mycelia
-  Desc_NitricAcid_C:
-    name: Nitric Acid
-  Desc_NitrogenGas_C:
-    name: Nitrogen Gas
-  Desc_NobeliskCluster_C:
-    name: Cluster Nobelisk
-  Desc_NobeliskExplosive_C:
-    name: Nobelisk
-  Desc_NobeliskGas_C:
-    name: Gas Nobelisk
-  Desc_NobeliskNuke_C:
-    name: Nuke Nobelisk
-  Desc_NobeliskShockwave_C:
-    name: Pulse Nobelisk
-  Desc_NonFissibleUranium_C:
-    name: Non-fissile Uranium
-  Desc_NuclearFuelRod_C:
-    name: Uranium Fuel Rod
-  Desc_NuclearWaste_C:
-    name: Uranium Waste
-  Desc_Nut_C:
-    name: Beryl Nut
-  Desc_OreBauxite_C:
-    name: Bauxite
-  Desc_OreCopper_C:
-    name: Copper Ore
-  Desc_OreGold_C:
-    name: Caterium Ore
-  Desc_OreIron_C:
-    name: Iron Ore
-  Desc_OreUranium_C:
-    name: Uranium
-  Desc_PackagedAlumina_C:
-    name: Packaged Alumina Solution
-  Desc_PackagedBiofuel_C:
-    name: Packaged Liquid Biofuel
-  Desc_PackagedNitricAcid_C:
-    name: Packaged Nitric Acid
-  Desc_PackagedNitrogenGas_C:
-    name: Packaged Nitrogen Gas
-  Desc_PackagedOil_C:
-    name: Packaged Oil
-  Desc_PackagedOilResidue_C:
-    name: Packaged Heavy Oil Residue
-  Desc_PackagedSulfuricAcid_C:
-    name: Packaged Sulfuric Acid
-  Desc_PackagedWater_C:
-    name: Packaged Water
-  Desc_Parachute_C:
-    name: Parachute
-  Desc_PetroleumCoke_C:
-    name: Petroleum Coke
-  Desc_Plastic_C:
-    name: Plastic
-  Desc_PlutoniumCell_C:
-    name: Encased Plutonium Cell
-  Desc_PlutoniumFuelRod_C:
-    name: Plutonium Fuel Rod
-  Desc_PlutoniumPellet_C:
-    name: Plutonium Pellet
-  Desc_PlutoniumWaste_C:
-    name: Plutonium Waste
-  Desc_PolymerResin_C:
-    name: Polymer Resin
-  Desc_PressureConversionCube_C:
-    name: Pressure Conversion Cube
-  Desc_QuartzCrystal_C:
-    name: Quartz Crystal
-  Desc_RawQuartz_C:
-    name: Raw Quartz
-  Desc_Rebar_Explosive_C:
-    name: Explosive Rebar
-  Desc_Rebar_Spreadshot_C:
-    name: Shatter Rebar
-  Desc_Rebar_Stunshot_C:
-    name: Stun Rebar
-  Desc_RebarGunProjectile_C:
-    name: Rebar Gun
-  Desc_Rotor_C:
-    name: Rotor
-  Desc_Rubber_C:
-    name: Rubber
-  Desc_SAM_C:
-    name: S.A.M. Ore
-  Desc_Shroom_C:
-    name: Bacon Agaric
-  Desc_Silica_C:
-    name: Silica
-  Desc_Snow_C:
-    name: Actual Snow
-  Desc_SnowballProjectile_C:
-    name: Snowball
-  Desc_SpaceElevatorPart_1_C:
-    name: Smart Plating
-  Desc_SpaceElevatorPart_2_C:
-    name: Versatile Framework
-  Desc_SpaceElevatorPart_3_C:
-    name: Automated Wiring
-  Desc_SpaceElevatorPart_4_C:
-    name: Modular Engine
-  Desc_SpaceElevatorPart_5_C:
-    name: Adaptive Control Unit
-  Desc_SpaceElevatorPart_6_C:
-    name: Magnetic Field Generator
-  Desc_SpaceElevatorPart_7_C:
-    name: Assembly Director System
-  Desc_SpaceElevatorPart_8_C:
-    name: Thermal Propulsion Rocket
-  Desc_SpaceElevatorPart_9_C:
-    name: Nuclear Pasta
-  Desc_SpikedRebar_C:
-    name: Iron Rebar
-  Desc_SpitterParts_C:
-    name: Plasma Spitter Remains
-  Desc_Stator_C:
-    name: Stator
-  Desc_SteelIngot_C:
-    name: Steel Ingot
-  Desc_SteelPipe_C:
-    name: Steel Pipe
-  Desc_SteelPlate_C:
-    name: Steel Beam
-  Desc_SteelPlateReinforced_C:
-    name: Encased Industrial Beam
-  Desc_StingerParts_C:
-    name: Stinger Remains
-  Desc_Stone_C:
-    name: Limestone
-  Desc_Sulfur_C:
-    name: Sulfur
-  Desc_SulfuricAcid_C:
-    name: Sulfuric Acid
-  Desc_TurboFuel_C:
-    name: Packaged Turbofuel
-  Desc_UraniumCell_C:
-    name: Encased Uranium Cell
-  Desc_Water_C:
-    name: Water
-  Desc_Wire_C:
-    name: Wire
-  Desc_Wood_C:
-    name: Wood
-  Desc_XmasBall1_C:
-    name: Red FICSMAS Ornament
-  Desc_XmasBall2_C:
-    name: Blue FICSMAS Ornament
-  Desc_XmasBall3_C:
-    name: Copper FICSMAS Ornament
-  Desc_XmasBall4_C:
-    name: Iron FICSMAS Ornament
-  Desc_XmasBallCluster_C:
-    name: FICSMAS Ornament Bundle
-  Desc_XmasBow_C:
-    name: FICSMAS Bow
-  Desc_XmasBranch_C:
-    name: FICSMAS Tree Branch
-  Desc_XmasStar_C:
-    name: FICSMAS Wonder Star
-  Desc_XmasWreath_C:
-    name: FICSMAS Decoration
+  items:
+    groups:
+      name:
+        name: "Name"
+      points:
+        name: "Points"
+      type:
+        name: "Type"
+        subgroups:
+          alien:
+            name: "Alien"
+          ammo:
+            name: "Ammo"
+          communication:
+            name: "Communications"
+          consume:
+            name: "Consumables"
+          container:
+            name: "Containers"
+          electronic:
+            name: "Electronics"
+          elevator:
+            name: "Space Elevator Parts"
+          fluid:
+            name: "Fluids"
+          industrial:
+            name: "Industrial Parts"
+          ingot:
+            name: "Ingots"
+          mineral:
+            name: "Minerals"
+          nuclear:
+            name: "Nuclear"
+          ore:
+            name: "Resources"
+          packaged:
+            name: "Packaged Fluids"
+          special:
+            name: "Special"
+          standard:
+            name: "Standard Parts"
+          equip:
+            name: "Equipment"
+          xmas:
+            name: "Ficsmas"
+      tier:
+        name: "Tier"
+        subgroups:
+          tutorial:
+            name: "Tutorial"
+          tier:
+            name: "Tier {tier}"
+
+  recipes:
+    generator:
+      fuel:
+        name: "Power ({fuel})"
+
+  machines:
+    settings:
+      clock-speed:
+        label: Clock Speed
+        value: "{value}%"
+
+  classes:
+    Desc_NuclearWaste_C:
+      name: "Uranium Waste"
+    Desc_PlutoniumWaste_C:
+      name: "Plutonium Waste"
+    Desc_Battery_C:
+      name: "Battery"
+    Desc_AluminumIngot_C:
+      name: "Aluminum Ingot"
+    Desc_ColorCartridge_C:
+      name: "Color Cartridge"
+    Desc_Cable_C:
+      name: "Cable"
+    Desc_Cement_C:
+      name: "Concrete"
+    Desc_ModularFrame_C:
+      name: "Modular Frame"
+    Desc_SteelPlate_C:
+      name: "Steel Beam"
+    Desc_NonFissibleUranium_C:
+      name: "Non-fissile Uranium"
+    Desc_PlutoniumPellet_C:
+      name: "Plutonium Pellet"
+    Desc_PlutoniumCell_C:
+      name: "Encased Plutonium Cell"
+    Desc_Silica_C:
+      name: "Silica"
+    Desc_IronPlate_C:
+      name: "Iron Plate"
+    Desc_CrystalShard_C:
+      name: "Power Shard"
+    Desc_IronRod_C:
+      name: "Iron Rod"
+    Desc_Wire_C:
+      name: "Wire"
+    Desc_HUBParts_C:
+      name: "HUB Parts"
+    Desc_IronIngot_C:
+      name: "Iron Ingot"
+    Desc_IronPlateReinforced_C:
+      name: "Reinforced Iron Plate"
+    Desc_Rotor_C:
+      name: "Rotor"
+    Desc_CopperSheet_C:
+      name: "Copper Sheet"
+    Desc_IronScrew_C:
+      name: "Screw"
+    Desc_CompactedCoal_C:
+      name: "Compacted Coal"
+    Desc_HeavyOilResidue_C:
+      name: "Heavy Oil Residue"
+    Desc_LiquidTurboFuel_C:
+      name: "Turbofuel"
+    Desc_FluidCanister_C:
+      name: "Empty Canister"
+    Desc_TurboFuel_C:
+      name: "Packaged Turbofuel"
+    Desc_CircuitBoard_C:
+      name: "Circuit Board"
+    Desc_Plastic_C:
+      name: "Plastic"
+    Desc_Motor_C:
+      name: "Motor"
+    Desc_SteelPlateReinforced_C:
+      name: "Encased Industrial Beam"
+    Desc_SteelPipe_C:
+      name: "Steel Pipe"
+    Desc_Rubber_C:
+      name: "Rubber"
+    Desc_LiquidFuel_C:
+      name: "Fuel"
+    Desc_PolymerResin_C:
+      name: "Polymer Resin"
+    Desc_PetroleumCoke_C:
+      name: "Petroleum Coke"
+    Desc_SteelIngot_C:
+      name: "Steel Ingot"
+    Desc_SpaceElevatorPart_2_C:
+      name: "Versatile Framework"
+    Desc_ModularFrameHeavy_C:
+      name: "Heavy Modular Frame"
+    Desc_Fuel_C:
+      name: "Packaged Fuel"
+    Desc_PackagedOil_C:
+      name: "Packaged Oil"
+    Desc_PackagedOilResidue_C:
+      name: "Packaged Heavy Oil Residue"
+    Desc_PackagedWater_C:
+      name: "Packaged Water"
+    Desc_CopperIngot_C:
+      name: "Copper Ingot"
+    Desc_QuartzCrystal_C:
+      name: "Quartz Crystal"
+    Desc_GoldIngot_C:
+      name: "Caterium Ingot"
+    Desc_AluminumScrap_C:
+      name: "Aluminum Scrap"
+    Desc_SulfuricAcid_C:
+      name: "Sulfuric Acid"
+    Desc_UraniumCell_C:
+      name: "Encased Uranium Cell"
+    Desc_AluminumPlateReinforced_C:
+      name: "Heat Sink"
+    Desc_CoolingSystem_C:
+      name: "Cooling System"
+    Desc_NitricAcid_C:
+      name: "Nitric Acid"
+    Desc_AluminumCasing_C:
+      name: "Aluminum Casing"
+    Desc_ModularFrameLightweight_C:
+      name: "Radio Control Unit"
+    Desc_AluminumPlate_C:
+      name: "Alclad Aluminum Sheet"
+    Desc_Computer_C:
+      name: "Computer"
+    Desc_CrystalOscillator_C:
+      name: "Crystal Oscillator"
+    Desc_AluminaSolution_C:
+      name: "Alumina Solution"
+    Desc_SpaceElevatorPart_1_C:
+      name: "Smart Plating"
+    Desc_HighSpeedConnector_C:
+      name: "High-Speed Connector"
+    Desc_SpaceElevatorPart_3_C:
+      name: "Automated Wiring"
+    Desc_Stator_C:
+      name: "Stator"
+    Desc_CircuitBoardHighSpeed_C:
+      name: "AI Limiter"
+    Desc_HighSpeedWire_C:
+      name: "Quickwire"
+    Desc_SpaceElevatorPart_4_C:
+      name: "Modular Engine"
+    Desc_SpaceElevatorPart_5_C:
+      name: "Adaptive Control Unit"
+    Desc_MotorLightweight_C:
+      name: "Turbo Motor"
+    Desc_PressureConversionCube_C:
+      name: "Pressure Conversion Cube"
+    Desc_ModularFrameFused_C:
+      name: "Fused Modular Frame"
+    Desc_ComputerSuper_C:
+      name: "Supercomputer"
+    Desc_ElectromagneticControlRod_C:
+      name: "Electromagnetic Control Rod"
+    Desc_CopperDust_C:
+      name: "Copper Powder"
+    Desc_GasTank_C:
+      name: "Empty Fluid Tank"
+    Desc_SpaceElevatorPart_9_C:
+      name: "Nuclear Pasta"
+    Desc_SpaceElevatorPart_7_C:
+      name: "Assembly Director System"
+    Desc_SpaceElevatorPart_6_C:
+      name: "Magnetic Field Generator"
+    Desc_SpaceElevatorPart_8_C:
+      name: "Thermal Propulsion Rocket"
+    Desc_Gunpowder_C:
+      name: "Black Powder"
+    Desc_Filter_C:
+      name: "Gas Filter"
+    Desc_HazmatFilter_C:
+      name: "Iodine Infused Filter"
+    Desc_AlienDNACapsule_C:
+      name: "Alien DNA Capsule"
+    Desc_Crystal_C:
+      name: "Blue Power Slug"
+    Desc_AlienProtein_C:
+      name: "Alien Protein"
+    Desc_Crystal_mk3_C:
+      name: "Purple Power Slug"
+    Desc_Crystal_mk2_C:
+      name: "Yellow Power Slug"
+    Desc_GunpowderMK2_C:
+      name: "Smokeless Powder"
+    Desc_XmasStar_C:
+      name: "FICSMAS Wonder Star"
+    Desc_XmasBallCluster_C:
+      name: "FICSMAS Ornament Bundle"
+    Desc_XmasWreath_C:
+      name: "FICSMAS Decoration"
+    Desc_CandyCane_C:
+      name: "Candy Cane"
+    Desc_Snow_C:
+      name: "Actual Snow"
+    Desc_XmasBow_C:
+      name: "FICSMAS Bow"
+    Desc_XmasBall3_C:
+      name: "Copper FICSMAS Ornament"
+    Desc_XmasBall4_C:
+      name: "Iron FICSMAS Ornament"
+    Desc_XmasBranch_C:
+      name: "FICSMAS Tree Branch"
+    Desc_XmasBall1_C:
+      name: "Red FICSMAS Ornament"
+    Desc_XmasBall2_C:
+      name: "Blue FICSMAS Ornament"
+    Desc_Gift_C:
+      name: "FICSMAS Gift"
+    Build_DroneStation_C:
+      name: "Drone Port"
+    Recipe_Swatch_Custom_C:
+      name: "Custom Slot"
+    Recipe_Swatch_Slot1_C:
+      name: "Swatch 1"
+    Recipe_Swatch_Slot10_C:
+      name: "Swatch 10"
+    Recipe_Swatch_Slot11_C:
+      name: "Swatch 11"
+    Recipe_Swatch_Slot12_C:
+      name: "Swatch 12"
+    Recipe_Swatch_Slot13_C:
+      name: "Swatch 13"
+    Recipe_Swatch_Slot14_C:
+      name: "Swatch 14"
+    Recipe_Swatch_Slot15_C:
+      name: "Swatch 15"
+    Recipe_Swatch_Slot2_C:
+      name: "Swatch 2"
+    Recipe_Swatch_Slot3_C:
+      name: "Swatch 3"
+    Recipe_Swatch_Slot4_C:
+      name: "Swatch 4"
+    Recipe_Swatch_Slot5_C:
+      name: "Swatch 5"
+    Recipe_Swatch_Slot6_C:
+      name: "Swatch 6"
+    Recipe_Swatch_Slot7_C:
+      name: "Swatch 7"
+    Recipe_Swatch_Slot8_C:
+      name: "Swatch 8"
+    Recipe_Swatch_Slot9_C:
+      name: "Swatch 9"
+    Build_BlueprintDesigner_C:
+      name: "Blueprint Designer"
+    Recipe_BlueprintDesigner_C:
+      name: "Blueprint Designer"
+    Recipe_Wall_Concrete_8x1_C:
+      name: "Basic Wall 1m"
+    Recipe_Wall_Concrete_8x4_C:
+      name: "Basic Wall 4m"
+    Recipe_Wall_Concrete_8x4_ConveyorHole_01_C:
+      name: "Conveyor Wall x1"
+    Recipe_Wall_Concrete_8x4_ConveyorHole_02_C:
+      name: "Conveyor Wall x2"
+    Recipe_Wall_Concrete_8x4_ConveyorHole_03_C:
+      name: "Conveyor Wall x3"
+    Recipe_Wall_Concrete_8x4_Corner_01_C:
+      name: "Tilted Corner Wall 4m"
+    Recipe_Wall_Concrete_8x4_Corner_2_C:
+      name: "Tilted Concave Wall 4m"
+    Recipe_Wall_Concrete_8x4_Window_01_C:
+      name: "Single Window"
+    Recipe_Wall_Concrete_8x4_Window_02_C:
+      name: "Frame Window"
+    Recipe_Wall_Concrete_8x4_Window_03_C:
+      name: "Panel Window"
+    Recipe_Wall_Concrete_8x4_Window_04_C:
+      name: "Reinforced Window"
+    Recipe_Wall_Concrete_8x8_Corner_01_C:
+      name: "Tilted Corner Wall 8m"
+    Recipe_Wall_Concrete_8x8_Corner_2_C:
+      name: "Tilted Concave Wall 8m"
+    Recipe_Wall_Concrete_Angular_8x4_C:
+      name: "Tilted Wall 4m"
+    Recipe_Wall_Concrete_Angular_8x8_C:
+      name: "Tilted Wall 8m"
+    Recipe_Wall_Concrete_CDoor_8x4_C:
+      name: "Center Door Wall"
+    Recipe_Wall_Concrete_FlipTris_8x1_C:
+      name: "Inv. Ramp Wall 1m"
+    Recipe_Wall_Concrete_FlipTris_8x2_C:
+      name: "Inv. Ramp Wall 2m"
+    Recipe_Wall_Concrete_FlipTris_8x4_C:
+      name: "Inv. Ramp Wall 4m"
+    Recipe_Wall_Concrete_FlipTris_8x8_C:
+      name: "Inv. Ramp Wall 8m"
+    Recipe_Wall_Concrete_Gate_8x4_C:
+      name: "Gate Hole Wall"
+    Recipe_Wall_Concrete_SDoor_8x4_C:
+      name: "Side Door Wall"
+    Recipe_Wall_Concrete_Tris_8x1_C:
+      name: "Ramp Wall 1m"
+    Recipe_Wall_Concrete_Tris_8x2_C:
+      name: "Ramp Wall 2m"
+    Recipe_Wall_Concrete_Tris_8x4_C:
+      name: "Ramp Wall 4m"
+    Recipe_Wall_Concrete_Tris_8x8_C:
+      name: "Ramp Wall 8m"
+    Recipe_Wall_8x4_01_C:
+      name: "Basic Wall 4m"
+    Recipe_Wall_Conveyor_8x4_01_C:
+      name: "Conveyor Wall x3"
+    Recipe_Wall_Conveyor_8x4_02_C:
+      name: "Conveyor Wall x2"
+    Recipe_Wall_Conveyor_8x4_03_C:
+      name: "Conveyor Wall x1"
+    Recipe_Wall_Door_8x4_01_C:
+      name: "Center Door Wall"
+    Recipe_Wall_Door_8x4_03_C:
+      name: "Side Door Wall"
+    Recipe_Wall_Gate_8x4_01_C:
+      name: "Gate Hole Wall"
+    Recipe_Wall_Orange_8x1_C:
+      name: "Basic Wall 1m"
+    Recipe_Wall_Orange_8x4_Corner_01_C:
+      name: "Tilted Corner Wall 4m"
+    Recipe_Wall_Orange_8x4_Corner_02_C:
+      name: "Tilted Concave Wall 4m"
+    Recipe_Wall_Orange_8x8_Corner_01_C:
+      name: "Tilted Corner Wall 8m"
+    Recipe_Wall_Orange_8x8_Corner_02_C:
+      name: "Tilted Concave Wall 8m"
+    Recipe_Wall_Orange_Angular_8x4_C:
+      name: "Tilted Wall 4m"
+    Recipe_Wall_Orange_Angular_8x8_C:
+      name: "Tilted Wall 8m"
+    Recipe_Wall_Orange_FlipTris_8x1_C:
+      name: "Inv. Ramp Wall 1m"
+    Recipe_Wall_Orange_FlipTris_8x2_C:
+      name: "Inv. Ramp Wall 2m"
+    Recipe_Wall_Orange_FlipTris_8x4_C:
+      name: "Inv. Ramp Wall 4m"
+    Recipe_Wall_Orange_FlipTris_8x8_C:
+      name: "Inv. Ramp Wall 8m"
+    Recipe_Wall_Orange_Tris_8x1_C:
+      name: "Ramp Wall 1m"
+    Recipe_Wall_Orange_Tris_8x2_C:
+      name: "Ramp Wall 2m"
+    Recipe_Wall_Orange_Tris_8x4_C:
+      name: "Ramp Wall 4m"
+    Recipe_Wall_Orange_Tris_8x8_C:
+      name: "Ramp Wall 8m"
+    Recipe_Wall_Window_8x4_01_C:
+      name: "Single Window"
+    Recipe_Wall_Window_8x4_02_C:
+      name: "Frame Window"
+    Recipe_Wall_Window_8x4_03_C:
+      name: "Panel Window"
+    Recipe_Wall_Window_8x4_04_C:
+      name: "Reinforced Window"
+    Recipe_SteelWall_8x4_Gate_01_C:
+      name: "Gate Hole Wall"
+    Recipe_SteelWall_8x4_Window_01_C:
+      name: "Single Window"
+    Recipe_SteelWall_8x4_Window_02_C:
+      name: "Reinforced Window"
+    Recipe_SteelWall_8x4_Window_03_C:
+      name: "Frame Window"
+    Recipe_SteelWall_8x4_Window_04_C:
+      name: "Panel Window"
+    Recipe_Wall_Steel_8x4_Corner_01_C:
+      name: "Tilted Corner Wall 4m"
+    Recipe_Wall_Steel_8x4_Corner_2_C:
+      name: "Tilted Concave Wall 4m"
+    Recipe_Wall_Steel_8x8_Corner_01_C:
+      name: "Tilted Corner Wall 8m"
+    Recipe_Wall_Steel_8x8_Corner_2_C:
+      name: "Tilted Concave Wall 8m"
+    Recipe_SteelWall_8x1_C:
+      name: "Basic Wall 1m"
+    Recipe_SteelWall_FlipTris_8x1_C:
+      name: "Inv. Ramp Wall 1m"
+    Recipe_SteelWall_FlipTris_8x2_C:
+      name: "Inv. Ramp Wall 2m"
+    Recipe_SteelWall_FlipTris_8x4_C:
+      name: "Inv. Ramp Wall 4m"
+    Recipe_SteelWall_FlipTris_8x8_C:
+      name: "Inv. Ramp Wall 8m"
+    Recipe_SteelWall_Tris_8x1_C:
+      name: "Ramp Wall 1m"
+    Recipe_SteelWall_Tris_8x2_C:
+      name: "Ramp Wall 2m"
+    Recipe_SteelWall_Tris_8x4_C:
+      name: "Ramp Wall 4m"
+    Recipe_SteelWall_Tris_8x8_C:
+      name: "Ramp Wall 8m"
+    Recipe_Wall_8x4_02_C:
+      name: "Basic Wall 4m"
+    Recipe_Wall_Conveyor_8x4_01_Steel_C:
+      name: "Conveyor Wall x3"
+    Recipe_Wall_Conveyor_8x4_02_Steel_C:
+      name: "Conveyor Wall x2"
+    Recipe_Wall_Conveyor_8x4_03_Steel_C:
+      name: "Conveyor Wall x1"
+    Recipe_Wall_Door_8x4_01_Steel_C:
+      name: "Center Door Wall"
+    Recipe_Wall_Door_8x4_03_Steel_C:
+      name: "Side Door Wall"
+    Recipe_WallSet_Steel_Angular_8x4_C:
+      name: "Tilted Wall 4m"
+    Recipe_WallSet_Steel_Angular_8x8_C:
+      name: "Tilted Wall 8m"
+    Recipe_ConveyorCeilingAttachment_C:
+      name: "Conveyor Ceiling Mount"
+    Recipe_ConveyorPole_C:
+      name: "Conveyor Pole"
+    Recipe_ConveyorPoleWall_C:
+      name: "Conveyor Wall Mount"
+    Recipe_ConveyorBeltMk1_C:
+      name: "Conveyor Belt Mk.1"
+    Recipe_PowerLine_C:
+      name: "Power Line"
+    Recipe_PowerPoleMk1_C:
+      name: "Power Pole Mk.1"
+    Recipe_PowerPoleWall_C:
+      name: "Wall Outlet Mk.1"
+    Recipe_TradingPost_C:
+      name: "The HUB"
+    Recipe_WorkBench_C:
+      name: "Craft Bench"
+    Recipe_IronPlate_C:
+      name: "Iron Plate"
+    Recipe_IronRod_C:
+      name: "Iron Rod"
+    Recipe_XenoZapper_C:
+      name: "Xeno-Zapper"
+    Recipe_IngotIron_C:
+      name: "Iron Ingot"
+    Recipe_Fence_01_C:
+      name: "Industrial Railing"
+    Recipe_PillarTop_C:
+      name: "Pillar Top"
+    Recipe_JumpPad_C:
+      name: "Old Jump Pad"
+    Recipe_JumpPadTilted_C:
+      name: "Old Tilted Jump Pad"
+    Recipe_Walkway_Cross_C:
+      name: "Walkway Crossing"
+    Recipe_Walkway_Ramp_C:
+      name: "Walkway Ramp"
+    Recipe_Walkway_Straight_C:
+      name: "Walkway Straight"
+    Recipe_Walkway_T_C:
+      name: "Walkway T-Crossing"
+    Recipe_Walkway_Turn_C:
+      name: "Walkway Turn"
+    Recipe_SteelWall_8x4_C:
+      name: "Tilted Wall 4m"
+    Recipe_Wall_Conveyor_8x4_04_C:
+      name: "Wall Conveyor Perpendicular"
+    Recipe_Wall_Conveyor_8x4_04_Steel_C:
+      name: "Wall Conveyor Perpendicular"
+    Recipe_Wall_Window_8x4_03_Steel_C:
+      name: "Panel Window"
+    Recipe_Alternate_WetConcrete_C:
+      name: "Alternate: Wet Concrete"
+    Recipe_GeneratorCoal_C:
+      name: "Coal Generator"
+    Recipe_PipeSupport_C:
+      name: "Pipeline Support"
+    Recipe_PipeSupportWall_C:
+      name: "Pipeline Wall Support"
+    Recipe_Pipeline_C:
+      name: "Pipeline Mk.1"
+    Recipe_PipelineJunction_Cross_C:
+      name: "Pipeline Junction Cross"
+    Recipe_PipelinePump_C:
+      name: "Pipeline Pump Mk.1"
+    Recipe_PipeStorageTank_C:
+      name: "Fluid Buffer"
+    Recipe_WaterPump_C:
+      name: "Water Extractor"
+    Recipe_ResourceSink_C:
+      name: "AWESOME Sink"
+    Recipe_ResourceSinkShop_C:
+      name: "AWESOME Shop"
+    Recipe_ColorCartridge_C:
+      name: "Color Cartridge"
+    Recipe_Alternate_TurboHeavyFuel_C:
+      name: "Alternate: Turbo Heavy Fuel"
+    Recipe_PackagedTurboFuel_C:
+      name: "Packaged Turbofuel"
+    Recipe_UnpackageTurboFuel_C:
+      name: "Unpackage Turbofuel"
+    Recipe_Alternate_Coal_1_C:
+      name: "Alternate: Charcoal"
+    Recipe_Alternate_Coal_2_C:
+      name: "Alternate: Biocoal"
+    Recipe_Alternate_EnrichedCoal_C:
+      name: "Alternate: Compacted Coal"
+    Recipe_CircuitBoard_C:
+      name: "Circuit Board"
+    Recipe_OilPump_C:
+      name: "Oil Extractor"
+    Recipe_OilRefinery_C:
+      name: "Refinery"
+    Recipe_Valve_C:
+      name: "Valve"
+    Recipe_LiquidFuel_C:
+      name: "Fuel"
+    Recipe_PetroleumCoke_C:
+      name: "Petroleum Coke"
+    Recipe_Plastic_C:
+      name: "Plastic"
+    Recipe_Rubber_C:
+      name: "Rubber"
+    Recipe_ResidualFuel_C:
+      name: "Residual Fuel"
+    Recipe_ResidualPlastic_C:
+      name: "Residual Plastic"
+    Recipe_ResidualRubber_C:
+      name: "Residual Rubber"
+    Recipe_Alternate_SteelRod_C:
+      name: "Alternate: Steel Rod"
+    Recipe_SmelterMk1_C:
+      name: "Foundry"
+    Recipe_SteelBeam_C:
+      name: "Steel Beam"
+    Recipe_SteelPipe_C:
+      name: "Steel Pipe"
+    Recipe_IngotSteel_C:
+      name: "Steel Ingot"
+    Recipe_SpaceElevatorPart_2_C:
+      name: "Versatile Framework"
+    Recipe_Alternate_SteelCoatedPlate_C:
+      name: "Alternate: Steel Coated Plate"
+    Recipe_Alternate_SteelCanister_C:
+      name: "Alternate: Steel Canister"
+    Recipe_IndustrialTank_C:
+      name: "Industrial Fluid Buffer"
+    Recipe_Packager_C:
+      name: "Packager"
+    Recipe_FluidCanister_C:
+      name: "Empty Canister"
+    Recipe_Fuel_C:
+      name: "Packaged Fuel"
+    Recipe_LiquidBiofuel_C:
+      name: "Liquid Biofuel"
+    Recipe_PackagedBiofuel_C:
+      name: "Packaged Liquid Biofuel"
+    Recipe_PackagedCrudeOil_C:
+      name: "Packaged Oil"
+    Recipe_PackagedOilResidue_C:
+      name: "Packaged Heavy Oil Residue"
+    Recipe_PackagedWater_C:
+      name: "Packaged Water"
+    Recipe_UnpackageBioFuel_C:
+      name: "Unpackage Liquid Biofuel"
+    Recipe_UnpackageFuel_C:
+      name: "Unpackage Fuel"
+    Recipe_UnpackageOil_C:
+      name: "Unpackage Oil"
+    Recipe_UnpackageOilResidue_C:
+      name: "Unpackage Heavy Oil Residue"
+    Recipe_UnpackageWater_C:
+      name: "Unpackage Water"
+    Recipe_Alternate_SteamedCopperSheet_C:
+      name: "Alternate: Steamed Copper Sheet"
+    Recipe_Alternate_RubberConcrete_C:
+      name: "Alternate: Rubber Concrete"
+    Recipe_Alternate_RecycledRubber_C:
+      name: "Alternate: Recycled Rubber"
+    Recipe_Alternate_PureQuartzCrystal_C:
+      name: "Alternate: Pure Quartz Crystal"
+    Recipe_QuartzCrystal_C:
+      name: "Quartz Crystal"
+    Recipe_Alternate_PureIronIngot_C:
+      name: "Alternate: Pure Iron Ingot"
+    Recipe_Alternate_PureCopperIngot_C:
+      name: "Alternate: Pure Copper Ingot"
+    Recipe_Alternate_PureCateriumIngot_C:
+      name: "Alternate: Pure Caterium Ingot"
+    Recipe_PureAluminumIngot_C:
+      name: "Alternate: Pure Aluminum Ingot"
+    Recipe_UraniumCell_C:
+      name: "Encased Uranium Cell"
+    Recipe_CoolingSystem_C:
+      name: "Cooling System"
+    Recipe_NitricAcid_C:
+      name: "Nitric Acid"
+    Recipe_NonFissileUranium_C:
+      name: "Non-fissile Uranium"
+    Recipe_Blender_C:
+      name: "Blender"
+    Recipe_AluminumCasing_C:
+      name: "Aluminum Casing"
+    Recipe_AluminumSheet_C:
+      name: "Alclad Aluminum Sheet"
+    Recipe_RadioControlUnit_C:
+      name: "Radio Control Unit"
+    Recipe_AluminaSolution_C:
+      name: "Alumina Solution"
+    Recipe_AluminumScrap_C:
+      name: "Aluminum Scrap"
+    Recipe_PackagedAlumina_C:
+      name: "Packaged Alumina Solution"
+    Recipe_IngotAluminum_C:
+      name: "Aluminum Ingot"
+    Recipe_Silica_C:
+      name: "Silica"
+    Recipe_CrystalOscillator_C:
+      name: "Crystal Oscillator"
+    Recipe_UnpackageAlumina_C:
+      name: "Unpackage Alumina Solution"
+    Recipe_Alternate_PolymerResin_C:
+      name: "Alternate: Polymer Resin"
+    Recipe_Alternate_PlasticSmartPlating_C:
+      name: "Alternate: Plastic Smart Plating"
+    Recipe_Alternate_HighSpeedWiring_C:
+      name: "Alternate: Automated Speed Wiring"
+    Recipe_EncasedIndustrialBeam_C:
+      name: "Encased Industrial Beam"
+    Recipe_Motor_C:
+      name: "Motor"
+    Recipe_Stator_C:
+      name: "Stator"
+    Recipe_MinerMk2_C:
+      name: "Miner Mk.2"
+    Recipe_ModularFrameHeavy_C:
+      name: "Heavy Modular Frame"
+    Recipe_SpaceElevatorPart_3_C:
+      name: "Automated Wiring"
+    Recipe_AILimiter_C:
+      name: "AI Limiter"
+    Recipe_Alternate_HeavyOilResidue_C:
+      name: "Alternate: Heavy Oil Residue"
+    Recipe_Alternate_HeavyFlexibleFrame_C:
+      name: "Alternate: Heavy Flexible Frame"
+    Recipe_ManufacturerMk1_C:
+      name: "Manufacturer"
+    Recipe_Computer_C:
+      name: "Computer"
+    Recipe_SpaceElevatorPart_4_C:
+      name: "Modular Engine"
+    Recipe_SpaceElevatorPart_5_C:
+      name: "Adaptive Control Unit"
+    Recipe_Truck_C:
+      name: "Truck"
+    Recipe_Alternate_FusedWire_C:
+      name: "Alternate: Fused Wire"
+    Recipe_Alternate_FlexibleFramework_C:
+      name: "Alternate: Flexible Framework"
+    Recipe_Alternate_ElectrodeCircuitBoard_C:
+      name: "Alternate: Electrode Circuit Board"
+    Recipe_Alternate_ElectroAluminumScrap_C:
+      name: "Alternate: Electrode - Aluminum Scrap"
+    Recipe_Alternate_DilutedPackagedFuel_C:
+      name: "Alternate: Diluted Packaged Fuel"
+    Recipe_Alternate_CopperRotor_C:
+      name: "Alternate: Copper Rotor"
+    Recipe_ModularFrame_C:
+      name: "Modular Frame"
+    Recipe_Rotor_C:
+      name: "Rotor"
+    Recipe_AssemblerMk1_C:
+      name: "Assembler"
+    Recipe_CopperSheet_C:
+      name: "Copper Sheet"
+    Recipe_SpaceElevatorPart_1_C:
+      name: "Smart Plating"
+    Recipe_Alternate_CopperAlloyIngot_C:
+      name: "Alternate: Copper Alloy Ingot"
+    Recipe_Alternate_CokeSteelIngot_C:
+      name: "Alternate: Coke Steel Ingot"
+    Recipe_Alternate_CoatedIronPlate_C:
+      name: "Alternate: Coated Iron Plate"
+    Recipe_Alternate_CoatedIronCanister_C:
+      name: "Alternate: Coated Iron Canister"
+    Recipe_Alternate_CoatedCable_C:
+      name: "Alternate: Coated Cable"
+    Recipe_Alternate_BoltedFrame_C:
+      name: "Alternate: Bolted Frame"
+    Recipe_Alternate_AdheredIronPlate_C:
+      name: "Alternate: Adhered Iron Plate"
+    Recipe_Alternate_TurboPressureMotor_C:
+      name: "Alternate: Turbo Pressure Motor"
+    Recipe_PlutoniumCell_C:
+      name: "Encased Plutonium Cell"
+    Recipe_PressureConversionCube_C:
+      name: "Pressure Conversion Cube"
+    Recipe_HadronCollider_C:
+      name: "Particle Accelerator"
+    Recipe_CopperDust_C:
+      name: "Copper Powder"
+    Recipe_Plutonium_C:
+      name: "Plutonium Pellet"
+    Recipe_PlutoniumFuelRod_C:
+      name: "Plutonium Fuel Rod"
+    Recipe_PackagedNitricAcid_C:
+      name: "Packaged Nitric Acid"
+    Recipe_SpaceElevatorPart_9_C:
+      name: "Nuclear Pasta"
+    Recipe_UnpackageNitricAcid_C:
+      name: "Unpackage Nitric Acid"
+    Recipe_Alternate_TurboBlendFuel_C:
+      name: "Alternate: Turbo Blend Fuel"
+    Recipe_Alternate_SuperStateComputer_C:
+      name: "Alternate: Super-State Computer"
+    Recipe_DroneStation_C:
+      name: "Drone Port"
+    Recipe_DroneTransport_C:
+      name: "Drone"
+    Recipe_Battery_C:
+      name: "Battery"
+    Recipe_ComputerSuper_C:
+      name: "Supercomputer"
+    Recipe_SulfuricAcid_C:
+      name: "Sulfuric Acid"
+    Recipe_PackagedSulfuricAcid_C:
+      name: "Packaged Sulfuric Acid"
+    Recipe_SpaceElevatorPart_7_C:
+      name: "Assembly Director System"
+    Recipe_HighSpeedConnector_C:
+      name: "High-Speed Connector"
+    Recipe_UnpackageSulfuricAcid_C:
+      name: "Unpackage Sulfuric Acid"
+    Recipe_ElectromagneticControlRod_C:
+      name: "Electromagnetic Control Rod"
+    Recipe_GeneratorNuclear_C:
+      name: "Nuclear Power Plant"
+    Recipe_NuclearFuelRod_C:
+      name: "Uranium Fuel Rod"
+    Recipe_SpaceElevatorPart_6_C:
+      name: "Magnetic Field Generator"
+    Recipe_Alternate_SloppyAlumina_C:
+      name: "Alternate: Sloppy Alumina"
+    Recipe_Alternate_RadioControlSystem_C:
+      name: "Alternate: Radio Control System"
+    Recipe_Alternate_PlutoniumFuelUnit_C:
+      name: "Alternate: Plutonium Fuel Unit"
+    Recipe_Alternate_OCSupercomputer_C:
+      name: "Alternate: OC Supercomputer"
+    Recipe_HeatSink_C:
+      name: "Heat Sink"
+    Recipe_FusedModularFrame_C:
+      name: "Fused Modular Frame"
+    Recipe_FrackingExtractor_C:
+      name: "Resource Well Extractor"
+    Recipe_FrackingSmasher_C:
+      name: "Resource Well Pressurizer"
+    Recipe_GasTank_C:
+      name: "Empty Fluid Tank"
+    Recipe_PackagedNitrogen_C:
+      name: "Packaged Nitrogen Gas"
+    Recipe_UnpackageNitrogen_C:
+      name: "Unpackage Nitrogen Gas"
+    Recipe_Alternate_InstantScrap_C:
+      name: "Alternate: Instant Scrap"
+    Recipe_Alternate_InstantPlutoniumCell_C:
+      name: "Alternate: Instant Plutonium Cell"
+    Recipe_Alternate_HeatFusedFrame_C:
+      name: "Alternate: Heat-Fused Frame"
+    Recipe_Alternate_FertileUranium_C:
+      name: "Alternate: Fertile Uranium"
+    Recipe_Alternate_ElectricMotor_C:
+      name: "Alternate: Electric Motor"
+    Recipe_Alternate_DilutedFuel_C:
+      name: "Alternate: Diluted Fuel"
+    Recipe_Alternate_CoolingDevice_C:
+      name: "Alternate: Cooling Device"
+    Recipe_Alternate_ClassicBattery_C:
+      name: "Alternate: Classic Battery"
+    Recipe_Alternate_AutomatedMiner_C:
+      name: "Alternate: Automated Miner"
+    Recipe_Alternate_AlcladCasing_C:
+      name: "Alternate: Alclad Casing"
+    Recipe_Alternate_Wire_2_C:
+      name: "Alternate: Caterium Wire"
+    Recipe_Alternate_Wire_1_C:
+      name: "Alternate: Iron Wire"
+    Recipe_Alternate_UraniumCell_1_C:
+      name: "Alternate: Infused Uranium Cell"
+    Recipe_IngotCaterium_C:
+      name: "Caterium Ingot"
+    Recipe_Alternate_TurboMotor_1_C:
+      name: "Alternate: Turbo Electric Motor"
+    Recipe_ConveyorBeltMk5_C:
+      name: "Conveyor Belt Mk.5"
+    Recipe_ConveyorLiftMk5_C:
+      name: "Conveyor Lift Mk.5"
+    Recipe_MinerMk3_C:
+      name: "Miner Mk.3"
+    Recipe_MotorTurbo_C:
+      name: "Turbo Motor"
+    Recipe_SpaceElevatorPart_8_C:
+      name: "Thermal Propulsion Rocket"
+    Recipe_Alternate_Turbofuel_C:
+      name: "Turbofuel"
+    Recipe_Alternate_Stator_C:
+      name: "Alternate: Quickwire Stator"
+    Recipe_Alternate_Silica_C:
+      name: "Alternate: Cheap Silica"
+    Recipe_Alternate_Screw_2_C:
+      name: "Alternate: Steel Screw"
+    Recipe_Alternate_Screw_C:
+      name: "Alternate: Cast Screw"
+    Recipe_Alternate_Rotor_C:
+      name: "Alternate: Steel Rotor"
+    Recipe_Alternate_EncasedIndustrialBeam_C:
+      name: "Alternate: Encased Industrial Pipe"
+    Recipe_Alternate_ReinforcedIronPlate_2_C:
+      name: "Alternate: Stitched Iron Plate"
+    Recipe_Alternate_ReinforcedIronPlate_1_C:
+      name: "Alternate: Bolted Iron Plate"
+    Recipe_Alternate_RadioControlUnit_1_C:
+      name: "Alternate: Radio Connection Unit"
+    Recipe_Alternate_Quickwire_C:
+      name: "Alternate: Fused Quickwire"
+    Recipe_Alternate_Plastic_1_C:
+      name: "Alternate: Recycled Plastic"
+    Recipe_Alternate_NuclearFuelRod_1_C:
+      name: "Alternate: Uranium Fuel Unit"
+    Recipe_Alternate_Motor_1_C:
+      name: "Alternate: Rigour Motor"
+    Recipe_Alternate_ModularFrame_C:
+      name: "Alternate: Steeled Frame"
+    Recipe_Alternate_IngotSteel_2_C:
+      name: "Alternate: Compacted Steel Ingot"
+    Recipe_Alternate_IngotSteel_1_C:
+      name: "Alternate: Solid Steel Ingot"
+    Recipe_Alternate_IngotIron_C:
+      name: "Alternate: Iron Alloy Ingot"
+    Recipe_Alternate_HighSpeedConnector_C:
+      name: "Alternate: Silicon High-Speed Connector"
+    Recipe_Alternate_ModularFrameHeavy_C:
+      name: "Alternate: Heavy Encased Frame"
+    Recipe_Alternate_HeatSink_1_C:
+      name: "Alternate: Heat Exchanger"
+    Recipe_Alternate_Gunpowder_1_C:
+      name: "Alternate: Fine Black Powder"
+    Recipe_Alternate_ElectromagneticControlRod_1_C:
+      name: "Alternate: Electromagnetic Connection Rod"
+    Recipe_Alternate_CrystalOscillator_C:
+      name: "Alternate: Insulated Crystal Oscillator"
+    Recipe_Alternate_Concrete_C:
+      name: "Alternate: Fine Concrete"
+    Recipe_Alternate_Computer_2_C:
+      name: "Alternate: Crystal Computer"
+    Recipe_Alternate_Computer_1_C:
+      name: "Alternate: Caterium Computer"
+    Recipe_Alternate_CircuitBoard_2_C:
+      name: "Alternate: Caterium Circuit Board"
+    Recipe_Alternate_CircuitBoard_1_C:
+      name: "Alternate: Silicon Circuit Board"
+    Recipe_Alternate_Cable_2_C:
+      name: "Alternate: Quickwire Cable"
+    Recipe_Alternate_Cable_1_C:
+      name: "Alternate: Insulated Cable"
+    Recipe_Alternate_Beacon_1_C:
+      name: "Alternate: Crystal Beacon"
+    Recipe_Hoverpack_C:
+      name: "Hover Pack"
+    Recipe_FilterHazmat_C:
+      name: "Iodine Infused Filter"
+    Recipe_HazmatSuit_C:
+      name: "Hazmat Suit"
+    Recipe_PipelineMK2_C:
+      name: "Pipeline Mk.2"
+    Recipe_PipelinePumpMK2_C:
+      name: "Pipeline Pump Mk.2"
+    Recipe_FilterGasMask_C:
+      name: "Gas Filter"
+    Recipe_Gasmask_C:
+      name: "Gas Mask"
+    Recipe_RailroadBlockSignal_C:
+      name: "Block Signal"
+    Recipe_RailroadPathSignal_C:
+      name: "Path Signal"
+    Recipe_TrainDockingStation_C:
+      name: "Freight Platform"
+    Recipe_TrainDockingStationLiquid_C:
+      name: "Fluid Freight Platform"
+    Recipe_TrainPlatformEmpty_C:
+      name: "Empty Platform"
+    Recipe_TrainPlatformEmpty_02_C:
+      name: "Empty Platform With Catwalk"
+    Recipe_TrainStation_C:
+      name: "Train Station"
+    Recipe_RailroadTrack_C:
+      name: "Railway"
+    Recipe_FreightWagon_C:
+      name: "Freight Car"
+    Recipe_Locomotive_C:
+      name: "Electric Locomotive"
+    Recipe_JetPack_C:
+      name: "Jetpack"
+    Recipe_ConveyorBeltMk4_C:
+      name: "Conveyor Belt Mk.4"
+    Recipe_ConveyorLiftMk4_C:
+      name: "Conveyor Lift Mk.4"
+    Recipe_GeneratorFuel_C:
+      name: "Fuel Generator"
+    Recipe_ConveyorBeltMk3_C:
+      name: "Conveyor Belt Mk.3"
+    Recipe_ConveyorLiftMk3_C:
+      name: "Conveyor Lift Mk.3"
+    Recipe_PipeSupportStackable_C:
+      name: "Stackable Pipeline Support"
+    Recipe_StorageContainerMk2_C:
+      name: "Industrial Storage Container"
+    Recipe_PipeHyperStart_C:
+      name: "Hypertube Entrance"
+    Recipe_HyperPoleStackable_C:
+      name: "Stackable Hypertube Support"
+    Recipe_HyperTubeWallSupport_C:
+      name: "Hypertube Wall Support"
+    Recipe_PipeHyperSupport_C:
+      name: "Hypertube Support"
+    Recipe_PipeHyper_C:
+      name: "Hypertube"
+    Recipe_PowerStorageMk1_C:
+      name: "Power Storage"
+    Recipe_PowerTower_C:
+      name: "Power Tower"
+    Recipe_PowerTowerPlatform_C:
+      name: "Power Tower Platform"
+    Recipe_XenoBasher_C:
+      name: "Xeno-Basher"
+    Recipe_TruckStation_C:
+      name: "Truck Station"
+    Recipe_Tractor_C:
+      name: "Tractor"
+    Recipe_ConveyorBeltMk2_C:
+      name: "Conveyor Belt Mk.2"
+    Recipe_ConveyorLiftMk2_C:
+      name: "Conveyor Lift Mk.2"
+    Recipe_ConveyorPoleStackable_C:
+      name: "Stackable Conveyor Pole"
+    Recipe_JumpPadAdjustable_C:
+      name: "Jump Pad"
+    Recipe_UJellyLandingPad_C:
+      name: "U-Jelly Landing Pad"
+    Recipe_Biofuel_C:
+      name: "Solid Biofuel"
+    Recipe_Chainsaw_C:
+      name: "Chainsaw"
+    Recipe_Mam_C:
+      name: "MAM"
+    Recipe_StoragePlayer_C:
+      name: "Personal Storage Box"
+    Recipe_Beacon_C:
+      name: "Beacon"
+    Recipe_ObjectScanner_C:
+      name: "Object Scanner"
+    Recipe_ConveyorAttachmentMerger_C:
+      name: "Conveyor Merger"
+    Recipe_ConveyorAttachmentSplitter_C:
+      name: "Conveyor Splitter"
+    Recipe_ConveyorLiftMk1_C:
+      name: "Conveyor Lift Mk.1"
+    Recipe_QuarterPipeMiddle_Ficsit_4x1_C:
+      name: "Half 1m Foundation"
+    Recipe_QuarterPipeMiddle_Ficsit_4x2_C:
+      name: "Half 2m Foundation"
+    Recipe_QuarterPipeMiddle_Ficsit_4x4_C:
+      name: "Half 4m Foundation"
+    Recipe_QuarterPipeMiddleInCorner_Ficsit_8x1_C:
+      name: "Inner Corner Extension 1m"
+    Recipe_QuarterPipeMiddleInCorner_Ficsit_8x2_C:
+      name: "Inner Corner Extension 2m"
+    Recipe_QuarterPipeMiddleInCorner_Ficsit_8x4_C:
+      name: "Inner Corner Extension 4m"
+    Recipe_QuarterPipeMiddleOutCorner_Ficsit_4x1_C:
+      name: "Outer Corner Extension 1m"
+    Recipe_QuarterPipeMiddleOutCorner_Ficsit_4x2_C:
+      name: "Outer Corner Extension 2m"
+    Recipe_QuarterPipeMiddleOutCorner_Ficsit_4x4_C:
+      name: "Outer Corner Extension 4m"
+    Recipe_Foundation_8x1_01_C:
+      name: "Foundation 1m"
+    Recipe_Foundation_8x2_01_C:
+      name: "Foundation 2m"
+    Recipe_Foundation_8x4_01_C:
+      name: "Foundation 4m"
+    Recipe_QuarterPipe_C:
+      name: "Quarter Pipe"
+    Recipe_QuarterPipe_02_C:
+      name: "Inverted Quarter Pipe"
+    Recipe_QuarterPipeCorner_01_C:
+      name: "Inner Corner Quarter Pipe"
+    Recipe_QuarterPipeCorner_02_C:
+      name: "Inverted Inner Corner Quarter Pipe"
+    Recipe_QuarterPipeCorner_03_C:
+      name: "Outer Corner Quarter Pipe"
+    Recipe_QuarterPipeCorner_04_C:
+      name: "Inverted Outer Corner Quarter Pipe"
+    Recipe_Ramp_8x1_01_C:
+      name: "Ramp 1m"
+    Recipe_Ramp_8x2_01_C:
+      name: "Ramp 2m"
+    Recipe_Ramp_8x4_01_C:
+      name: "Ramp 4m"
+    Recipe_Ramp_8x4_Inverted_01_C:
+      name: "Inv. Ramp 4m"
+    Recipe_Ramp_8x8x8_C:
+      name: "Double Ramp 8m"
+    Recipe_Ramp_Diagonal_8x1_01_C:
+      name: "Down Corner Ramp 1m"
+    Recipe_Ramp_Diagonal_8x1_02_C:
+      name: "Up Corner Ramp 1m"
+    Recipe_Ramp_Diagonal_8x2_01_C:
+      name: "Down Corner Ramp 2m"
+    Recipe_Ramp_Diagonal_8x2_02_C:
+      name: "Up Corner Ramp 2m"
+    Recipe_Ramp_Diagonal_8x4_01_C:
+      name: "Down Corner Ramp 4m"
+    Recipe_Ramp_Diagonal_8x4_02_C:
+      name: "Up Corner Ramp 4m"
+    Recipe_RampDouble_C:
+      name: "Double Ramp 4m"
+    Recipe_RampDouble_8x1_C:
+      name: "Double Ramp 2m"
+    Recipe_RampInverted_8x1_C:
+      name: "Inv. Ramp 1m"
+    Recipe_RampInverted_8x1_Corner_01_C:
+      name: "Inv. Up Corner 1m"
+    Recipe_RampInverted_8x1_Corner_02_C:
+      name: "Inv. Down Corner 1m"
+    Recipe_RampInverted_8x2_01_C:
+      name: "Inv. Ramp 2m"
+    Recipe_RampInverted_8x2_Corner_01_C:
+      name: "Inv. Up Corner 2m"
+    Recipe_RampInverted_8x2_Corner_02_C:
+      name: "Inv. Down Corner 2m"
+    Recipe_RampInverted_8x4_Corner_01_C:
+      name: "Inv. Up Corner 4m"
+    Recipe_RampInverted_8x4_Corner_02_C:
+      name: "Inv. Down Corner 4m"
+    Recipe_LookoutTower_C:
+      name: "Lookout Tower"
+    Recipe_DownQuarterPipe_Concrete_8x4_C:
+      name: "Inverted Quarter Pipe"
+    Recipe_DownQuarterPipe_ConcreteInCorner_8x4_C:
+      name: "Inverted Inner Corner Quarter Pipe"
+    Recipe_DownQuarterPipe_ConcreteOutCorner_8x4_C:
+      name: "Inverted Outer Corner Quarter Pipe"
+    Recipe_Foundation_Concrete_8x1_C:
+      name: "Foundation 1m"
+    Recipe_Foundation_Concrete_8x2_C:
+      name: "Foundation 2m"
+    Recipe_Foundation_Concrete_8x4_C:
+      name: "Foundation 4m"
+    Recipe_InvertedRamp_Concrete_8x1_C:
+      name: "Inv. Ramp 1m"
+    Recipe_InvertedRamp_Concrete_8x2_C:
+      name: "Inv. Ramp 2m"
+    Recipe_InvertedRamp_Concrete_8x4_C:
+      name: "Inv. Ramp 4m"
+    Recipe_InvertedRamp_DCorner_Concrete_8x1_C:
+      name: "Inv. Down Corner 1m"
+    Recipe_InvertedRamp_DCorner_Concrete_8x2_C:
+      name: "Inv. Down Corner 2m"
+    Recipe_InvertedRamp_DCorner_Concrete_8x4_C:
+      name: "Inv. Down Corner 4m"
+    Recipe_InvertedRamp_UCorner_Concrete_8x1_C:
+      name: "Inv. Up Corner 1m"
+    Recipe_InvertedRamp_UCorner_Concrete_8x2_C:
+      name: "Inv. Up Corner 2m"
+    Recipe_InvertedRamp_UCorner_Concrete_8x4_C:
+      name: "Inv. Up Corner 4m"
+    Recipe_QuarterPipe_Concrete_8x4_C:
+      name: "Quarter Pipe"
+    Recipe_QuarterPipeInCorner_Concrete_8x4_C:
+      name: "Inner Corner Quarter Pipe"
+    Recipe_QuarterPipeMiddle_Concrete_8x1_C:
+      name: "Half 1m Foundation"
+    Recipe_QuarterPipeMiddle_Concrete_8x2_C:
+      name: "Half 2m Foundation"
+    Recipe_QuarterPipeMiddle_Concrete_8x4_C:
+      name: "Half 4m Foundation"
+    Recipe_QuarterPipeMiddleInCorner_Concrete_8x1_C:
+      name: "Inner Corner Extension 1m"
+    Recipe_QuarterPipeMiddleInCorner_Concrete_8x2_C:
+      name: "Inner Corner Extension 2m"
+    Recipe_QuarterPipeMiddleInCorner_Concrete_8x4_C:
+      name: "Inner Corner Extension 4m"
+    Recipe_QuarterPipeMiddleOutCorner_Concrete_4x1_C:
+      name: "Outer Corner Extension 1m"
+    Recipe_QuarterPipeMiddleOutCorner_Concrete_4x2_C:
+      name: "Outer Corner Extension 2m"
+    Recipe_QuarterPipeMiddleOutCorner_Concrete_4x4_C:
+      name: "Outer Corner Extension 4m"
+    Recipe_QuarterPipeOutCorner_Concrete_8x4_C:
+      name: "Outer Corner Quarter Pipe"
+    Recipe_Ramp_Concrete_8x1_C:
+      name: "Ramp 1m"
+    Recipe_Ramp_Concrete_8x2_C:
+      name: "Ramp 2m"
+    Recipe_Ramp_Concrete_8x4_C:
+      name: "Ramp 4m"
+    Recipe_Ramp_DownCorner_Concrete_8x1_C:
+      name: "Down Corner Ramp 1m"
+    Recipe_Ramp_DownCorner_Concrete_8x2_C:
+      name: "Down Corner Ramp 2m"
+    Recipe_Ramp_DownCorner_Concrete_8x4_C:
+      name: "Down Corner Ramp 4m"
+    Recipe_Ramp_UpCorner_Concrete_8x1_C:
+      name: "Up Corner Ramp 1m"
+    Recipe_Ramp_UpCorner_Concrete_8x2_C:
+      name: "Up Corner Ramp 2m"
+    Recipe_Ramp_UpCorner_Concrete_8x4_C:
+      name: "Up Corner Ramp 4m"
+    Recipe_RampDouble_Concrete_8x1_C:
+      name: "Double Ramp 2m"
+    Recipe_RampDouble_Concrete_8x2_C:
+      name: "Double Ramp 4m"
+    Recipe_RampDouble_Concrete_8x4_C:
+      name: "Double Ramp 8m"
+    Recipe_DownQuarterPipe_Grip_8x4_C:
+      name: "Inverted Quarter Pipe"
+    Recipe_DownQuarterPipe_GripInCorner_8x4_C:
+      name: "Inverted Inner Corner Quarter Pipe"
+    Recipe_DownQuarterPipe_GripOutCorner_8x4_C:
+      name: "Inverted Outer Corner Quarter Pipe"
+    Recipe_Foundation_Metal_8x1_C:
+      name: "Foundation 1m"
+    Recipe_Foundation_Metal_8x2_C:
+      name: "Foundation 2m"
+    Recipe_Foundation_Metal_8x4_C:
+      name: "Foundation 4m"
+    Recipe_InvertedRamp_DCorner_Metal_8x1_C:
+      name: "Inv. Down Corner 1m"
+    Recipe_InvertedRamp_DCorner_Metal_8x2_C:
+      name: "Inv. Down Corner 2m"
+    Recipe_InvertedRamp_DCorner_Metal_8x4_C:
+      name: "Inv. Down Corner 4m"
+    Recipe_InvertedRamp_Metal_8x1_C:
+      name: "Inv. Ramp 1m"
+    Recipe_InvertedRamp_Metal_8x2_C:
+      name: "Inv. Ramp 2m"
+    Recipe_InvertedRamp_Metal_8x4_C:
+      name: "Inv. Ramp 4m"
+    Recipe_InvertedRamp_UCorner_Metal_8x1_C:
+      name: "Inv. Up Corner 1m"
+    Recipe_InvertedRamp_UCorner_Metal_8x2_C:
+      name: "Inv. Up Corner 2m"
+    Recipe_InvertedRamp_UCorner_Metal_8x4_C:
+      name: "Inv. Up Corner 4m"
+    Recipe_QuarterPipe_Grip_8x4_C:
+      name: "Quarter Pipe"
+    Recipe_QuarterPipeInCorner_Grip_8x4_C:
+      name: "Inner Corner Quarter Pipe"
+    Recipe_QuarterPipeMiddle_Grip_8x1_C:
+      name: "Half 1m Foundation"
+    Recipe_QuarterPipeMiddle_Grip_8x2_C:
+      name: "Half 2m Foundation"
+    Recipe_QuarterPipeMiddle_Grip_8x4_C:
+      name: "Half 4m Foundation"
+    Recipe_QuarterPipeMiddleInCorner_Grip_8x1_C:
+      name: "Inner Corner Extension 1m"
+    Recipe_QuarterPipeMiddleInCorner_Grip_8x2_C:
+      name: "Inner Corner Extension 2m"
+    Recipe_QuarterPipeMiddleInCorner_Grip_8x4_C:
+      name: "Inner Corner Extension 4m"
+    Recipe_QuarterPipeMiddleOutCorner_Grip_4x1_C:
+      name: "Outer Corner Extension 1m"
+    Recipe_QuarterPipeMiddleOutCorner_Grip_4x2_C:
+      name: "Outer Corner Extension 2m"
+    Recipe_QuarterPipeMiddleOutCorner_Grip_4x4_C:
+      name: "Outer Corner Extension 4m"
+    Recipe_QuarterPipeOutCorner_Grip_8x4_C:
+      name: "Outer Corner Quarter Pipe"
+    Recipe_Ramp_DownCorner_Metal_8x1_C:
+      name: "Down Corner Ramp 1m"
+    Recipe_Ramp_DownCorner_Metal_8x2_C:
+      name: "Down Corner Ramp 2m"
+    Recipe_Ramp_DownCorner_Metal_8x4_C:
+      name: "Down Corner Ramp 4m"
+    Recipe_Ramp_Metal_8x1_C:
+      name: "Ramp 1m"
+    Recipe_Ramp_Metal_8x2_C:
+      name: "Ramp 2m"
+    Recipe_Ramp_Metal_8x4_C:
+      name: "Ramp 4m"
+    Recipe_Ramp_UpCorner_Metal_8x1_C:
+      name: "Up Corner Ramp 1m"
+    Recipe_Ramp_UpCorner_Metal_8x2_C:
+      name: "Up Corner Ramp 2m"
+    Recipe_Ramp_UpCorner_Metal_8x4_C:
+      name: "Up Corner Ramp 4m"
+    Recipe_RampDouble_Metal_8x1_C:
+      name: "Double Ramp 2m"
+    Recipe_RampDouble_Metal_8x2_C:
+      name: "Double Ramp 4m"
+    Recipe_RampDouble_Metal_8x4_C:
+      name: "Double Ramp 8m"
+    Recipe_DownQuarterPipe_ConcretePolished_8x4_C:
+      name: "Inverted Quarter Pipe"
+    Recipe_DownQuarterPipe_ConcretePolishedInCorner_8x4_C:
+      name: "Inverted Inner Corner Quarter Pipe"
+    Recipe_DownQuarterPipe_ConcretePolishedOutCorner_8x4_C:
+      name: "Inverted Outer Corner Quarter Pipe"
+    Recipe_Foundation_ConcretePolished_8x1_C:
+      name: "Foundation 1m"
+    Recipe_Foundation_ConcretePolished_8x2_C:
+      name: "Foundation 2m"
+    Recipe_Foundation_ConcretePolished_8x4_C:
+      name: "Foundation 4m"
+    Recipe_InvertedRamp_DCorner_Polished_8x1_C:
+      name: "Inv. Down Corner 1m"
+    Recipe_InvertedRamp_DCorner_Polished_8x2_C:
+      name: "Inv. Down Corner 2m"
+    Recipe_InvertedRamp_DCorner_Polished_8x4_C:
+      name: "Inv. Down Corner 4m"
+    Recipe_InvertedRamp_Polished_8x1_C:
+      name: "Inv. Ramp 1m"
+    Recipe_InvertedRamp_Polished_8x2_C:
+      name: "Inv. Ramp 2m"
+    Recipe_InvertedRamp_Polished_8x4_C:
+      name: "Inv. Ramp 4m"
+    Recipe_InvertedRamp_UCorner_Polished_8x1_C:
+      name: "Inv. Up Corner 1m"
+    Recipe_InvertedRamp_UCorner_Polished_8x2_C:
+      name: "Inv. Up Corner 2m"
+    Recipe_InvertedRamp_UCorner_Polished_8x4_C:
+      name: "Inv. Up Corner 4m"
+    Recipe_QuarterPipe_ConcretePolished_8x4_C:
+      name: "Quarter Pipe"
+    Recipe_QuarterPipeInCorner_ConcretePolished_8x4_C:
+      name: "Inner Corner Quarter Pipe"
+    Recipe_QuarterPipeMiddle_PolishedConcrete_8x1_C:
+      name: "Half 1m Foundation"
+    Recipe_QuarterPipeMiddle_PolishedConcrete_8x2_C:
+      name: "Half 2m Foundation"
+    Recipe_QuarterPipeMiddle_PolishedConcrete_8x4_C:
+      name: "Half 4m Foundation"
+    Recipe_QuarterPipeMiddleInCorner_PolishedConcrete_8x1_C:
+      name: "Inner Corner Extension 1m"
+    Recipe_QuarterPipeMiddleInCorner_PolishedConcrete_8x2_C:
+      name: "Inner Corner Extension 2m"
+    Recipe_QuarterPipeMiddleInCorner_PolishedConcrete_8x4_C:
+      name: "Inner Corner Extension 4m"
+    Recipe_QuarterPipeMiddleOutCorner_PolishedConcrete_4x1_C:
+      name: "Outer Corner Extension 1m"
+    Recipe_QuarterPipeMiddleOutCorner_PolishedConcrete_4x2_C:
+      name: "Outer Corner Extension 2m"
+    Recipe_QuarterPipeMiddleOutCorner_PolishedConcrete_4x4_C:
+      name: "Outer Corner Extension 4m"
+    Recipe_QuarterPipeOutCorner_ConcretePolished_8x4_C:
+      name: "Outer Corner Quarter Pipe"
+    Recipe_Ramp_DownCorner_Polished_8x1_C:
+      name: "Down Corner Ramp 1m"
+    Recipe_Ramp_DownCorner_Polished_8x2_C:
+      name: "Down Corner Ramp 2m"
+    Recipe_Ramp_DownCorner_Polished_8x4_C:
+      name: "Down Corner Ramp 4m"
+    Recipe_Ramp_Polished_8x1_C:
+      name: "Ramp 1m"
+    Recipe_Ramp_Polished_8x2_C:
+      name: "Ramp 2m"
+    Recipe_Ramp_Polished_8x4_C:
+      name: "Ramp 4m"
+    Recipe_Ramp_UpCorner_Polished_8x1_C:
+      name: "Up Corner Ramp 1m"
+    Recipe_Ramp_UpCorner_Polished_8x2_C:
+      name: "Up Corner Ramp 2m"
+    Recipe_Ramp_UpCorner_Polished_8x4_C:
+      name: "Up Corner Ramp 4m"
+    Recipe_RampDouble_Polished_8x1_C:
+      name: "Double Ramp 2m"
+    Recipe_RampDouble_Polished_8x2_C:
+      name: "Double Ramp 4m"
+    Recipe_RampDouble_Polished_8x4_C:
+      name: "Double Ramp 8m"
+    Recipe_DownQuarterPipe_Asphalt_8x4_C:
+      name: "Inverted Quarter Pipe"
+    Recipe_DownQuarterPipe_AsphaltInCorner_8x4_C:
+      name: "Inverted Inner Corner Quarter Pipe"
+    Recipe_DownQuarterPipe_AsphaltOutCorner_8x4_C:
+      name: "Inverted Outer Corner Quarter Pipe"
+    Recipe_Foundation_Asphalt_8x1_C:
+      name: "Foundation 1m"
+    Recipe_Foundation_Asphalt_8x2_C:
+      name: "Foundation 2m"
+    Recipe_Foundation_Asphalt_8x4_C:
+      name: "Foundation 4m"
+    Recipe_InvertedRamp_Asphalt_8x1_C:
+      name: "Inv. Ramp 1m"
+    Recipe_InvertedRamp_Asphalt_8x2_C:
+      name: "Inv. Ramp 2m"
+    Recipe_InvertedRamp_Asphalt_8x4_C:
+      name: "Inv. Ramp 4m"
+    Recipe_InvertedRamp_DCorner_Asphalt_8x1_C:
+      name: "Inv. Down Corner 1m"
+    Recipe_InvertedRamp_DCorner_Asphalt_8x2_C:
+      name: "Inv. Down Corner 2m"
+    Recipe_InvertedRamp_DCorner_Asphalt_8x4_C:
+      name: "Inv. Down Corner 4m"
+    Recipe_InvertedRamp_UCorner_Asphalt_8x1_C:
+      name: "Inv. Up Corner 1m"
+    Recipe_InvertedRamp_UCorner_Asphalt_8x2_C:
+      name: "Inv. Up Corner 2m"
+    Recipe_InvertedRamp_UCorner_Asphalt_8x4_C:
+      name: "Inv. Up Corner 4m"
+    Recipe_QuarterPipe_Asphalt_8x4_C:
+      name: "Quarter Pipe"
+    Recipe_QuarterPipeInCorner_Asphalt_8x4_C:
+      name: "Inner Corner Quarter Pipe"
+    Recipe_QuarterPipeMiddle_Asphalt_8x1_C:
+      name: "Half 1m Foundation"
+    Recipe_QuarterPipeMiddle_Asphalt_8x2_C:
+      name: "Half 2m Foundation"
+    Recipe_QuarterPipeMiddle_Asphalt_8x4_C:
+      name: "Half 4m Foundation"
+    Recipe_QuarterPipeMiddleInCorner_Asphalt_8x1_C:
+      name: "Inner Corner Extension 1m"
+    Recipe_QuarterPipeMiddleInCorner_Asphalt_8x2_C:
+      name: "Inner Corner Extension 2m"
+    Recipe_QuarterPipeMiddleInCorner_Asphalt_8x4_C:
+      name: "Inner Corner Extension 4m"
+    Recipe_QuarterPipeMiddleOutCorner_Asphalt_4x1_C:
+      name: "Outer Corner Extension 1m"
+    Recipe_QuarterPipeMiddleOutCorner_Asphalt_4x2_C:
+      name: "Outer Corner Extension 2m"
+    Recipe_QuarterPipeMiddleOutCorner_Asphalt_4x4_C:
+      name: "Outer Corner Extension 4m"
+    Recipe_QuarterPipeOutCorner_Asphalt_8x4_C:
+      name: "Outer Corner Quarter Pipe"
+    Recipe_Ramp_Asphalt_8x1_C:
+      name: "Ramp 1m"
+    Recipe_Ramp_Asphalt_8x2_C:
+      name: "Ramp 2m"
+    Recipe_Ramp_Asphalt_8x4_C:
+      name: "Ramp 4m"
+    Recipe_Ramp_DownCorner_Asphalt_8x1_C:
+      name: "Down Corner Ramp 1m"
+    Recipe_Ramp_DownCorner_Asphalt_8x2_C:
+      name: "Down Corner Ramp 2m"
+    Recipe_Ramp_DownCorner_Asphalt_8x4_C:
+      name: "Down Corner Ramp 4m"
+    Recipe_Ramp_UpCorner_Asphalt_8x1_C:
+      name: "Up Corner Ramp 1m"
+    Recipe_Ramp_UpCorner_Asphalt_8x2_C:
+      name: "Up Corner Ramp 2m"
+    Recipe_Ramp_UpCorner_Asphalt_8x4_C:
+      name: "Up Corner Ramp 4m"
+    Recipe_RampDouble_Asphalt_8x1_C:
+      name: "Double Ramp 2m"
+    Recipe_RampDouble_Asphalt_8x2_C:
+      name: "Double Ramp 4m"
+    Recipe_RampDouble_Asphalt_8x4_C:
+      name: "Double Ramp 8m"
+    Recipe_Protein_Stinger_C:
+      name: "Stinger Protein"
+    Recipe_Protein_Spitter_C:
+      name: "Spitter Protein"
+    Recipe_Protein_Hog_C:
+      name: "Hog Protein"
+    Recipe_Protein_Crab_C:
+      name: "Hatcher Protein"
+    Recipe_AlienDNACapsule_C:
+      name: "Alien DNA Capsule"
+    Recipe_Biomass_AlienProtein_C:
+      name: "Biomass (Alien Protein)"
+    Recipe_MedicinalInhalerAlienOrgans_C:
+      name: "Protein Inhaler"
+    Recipe_SpikedRebar_C:
+      name: "Iron Rebar"
+    Recipe_RebarGun_C:
+      name: "Rebar Gun"
+    Recipe_GeneratorGeoThermal_C:
+      name: "Geothermal Generator"
+    Recipe_ConveyorAttachmentSplitterProgrammable_C:
+      name: "Programmable Splitter"
+    Recipe_CartridgeSmart_C:
+      name: "Homing Rifle Ammo"
+    Recipe_PowerPoleMk3_C:
+      name: "Power Pole Mk.3"
+    Recipe_PriorityPowerSwitch_C:
+      name: "Priority Power Switch"
+    Recipe_BladeRunners_C:
+      name: "Blade Runners"
+    Recipe_PowerPoleMk2_C:
+      name: "Power Pole Mk.2"
+    Recipe_PowerSwitch_C:
+      name: "Power Switch"
+    Recipe_ConveyorAttachmentSplitterSmart_C:
+      name: "Smart Splitter"
+    Recipe_Rebar_Stunshot_C:
+      name: "Stun Rebar"
+    Recipe_ZipLine_C:
+      name: "Zipline"
+    Recipe_Quickwire_C:
+      name: "Quickwire"
+    Recipe_NobeliskGas_C:
+      name: "Gas Nobelisk"
+    Recipe_TherapeuticInhaler_C:
+      name: "Therapeutic Inhaler"
+    Recipe_MedicinalInhaler_C:
+      name: "Vitamin Inhaler"
+    Recipe_Parachute_C:
+      name: "Parachute"
+    Recipe_Alternate_PolyesterFabric_C:
+      name: "Alternate: Polyester Fabric"
+    Recipe_Fabric_C:
+      name: "Fabric"
+    Recipe_Biomass_Mycelia_C:
+      name: "Biomass (Mycelia)"
+    Recipe_NutritionalInhaler_C:
+      name: "Nutritional Inhaler"
+    Recipe_PowerCrystalShard_3_C:
+      name: "Power Shard (5)"
+    Recipe_PowerCrystalShard_2_C:
+      name: "Power Shard (2)"
+    Recipe_PowerCrystalShard_1_C:
+      name: "Power Shard (1)"
+    Recipe_RadarTower_C:
+      name: "Radar Tower"
+    Recipe_NobeliskShockwave_C:
+      name: "Pulse Nobelisk"
+    Recipe_Explorer_C:
+      name: "Explorer"
+    Recipe_Rebar_Spreadshot_C:
+      name: "Shatter Rebar"
+    Recipe_CartridgeChaos_Packaged_C:
+      name: "Turbo Rifle Ammo"
+    Recipe_CartridgeChaos_C:
+      name: "Turbo Rifle Ammo"
+    Recipe_NobeliskNuke_C:
+      name: "Nuke Nobelisk"
+    Recipe_Cartridge_C:
+      name: "Rifle Ammo"
+    Recipe_Rebar_Explosive_C:
+      name: "Explosive Rebar"
+    Recipe_SpaceRifleMk1_C:
+      name: "Rifle"
+    Recipe_NobeliskCluster_C:
+      name: "Cluster Nobelisk"
+    Recipe_Nobelisk_C:
+      name: "Nobelisk"
+    Recipe_NobeliskDetonator_C:
+      name: "Nobelisk Detonator"
+    Recipe_GunpowderMK2_C:
+      name: "Smokeless Powder"
+    Recipe_Gunpowder_C:
+      name: "Black Powder"
+    Recipe_Snowball_C:
+      name: "Snowball"
+    Recipe_WreathDecor_C:
+      name: "FICSMAS Wreath"
+    Recipe_XmasStar_C:
+      name: "FICSMAS Wonder Star"
+    Recipe_SnowDispenser_C:
+      name: "FICSMAS Snow Dispenser"
+    Recipe_XmasWreath_C:
+      name: "FICSMAS Decoration"
+    Recipe_xmassLights_C:
+      name: "FICSMAS Power Light"
+    Recipe_XmasBallCluster_C:
+      name: "FICSMAS Ornament Bundle"
+    Recipe_XmasBall1_C:
+      name: "Red FICSMAS Ornament"
+    Recipe_XmasBall2_C:
+      name: "Blue FICSMAS Ornament"
+    Recipe_XmasBall3_C:
+      name: "Copper FICSMAS Ornament"
+    Recipe_XmasBall4_C:
+      name: "Iron FICSMAS Ornament"
+    Recipe_TreeGiftProducer_C:
+      name: "FICSMAS Gift Tree"
+    Recipe_Snowman_C:
+      name: "Snowman"
+    Recipe_Snow_C:
+      name: "Actual Snow"
+    Recipe_XMassTree_C:
+      name: "Giant FICSMAS Tree"
+    Recipe_XmasBranch_C:
+      name: "FICSMAS Tree Branch"
+    Recipe_CandyCaneDecor_C:
+      name: "Candy Cane"
+    Recipe_XmasBow_C:
+      name: "FICSMAS Bow"
+    Recipe_CandyCane_C:
+      name: "Candy Cane"
+    Recipe_CandyCaneBasher_C:
+      name: "Candy Cane Basher"
+    Recipe_Flat_Frame_01_C:
+      name: "Frame Floor"
+    Recipe_Foundation_Frame_01_C:
+      name: "Frame Foundation"
+    Recipe_FoundationGlass_01_C:
+      name: "Glass Frame Foundation"
+    Recipe_Ramp_Frame_01_C:
+      name: "Frame Ramp"
+    Recipe_Ramp_Frame_Inverted_01_C:
+      name: "Inverted Frame Ramp"
+    Recipe_Wall_Frame_01_C:
+      name: "Frame Wall"
+    Recipe_Railing_01_C:
+      name: "Modern Railing"
+    Recipe_Pillar_Small_Metal_C:
+      name: "Small Metal Pillar"
+    Recipe_PillarBase_Small_C:
+      name: "Small Pillar Support"
+    Recipe_PillarBase_C:
+      name: "Big Pillar Support"
+    Recipe_PillarMiddle_C:
+      name: "Big Metal Pillar"
+    Recipe_Ladder_C:
+      name: "Ladder"
+    Recipe_Stairs_Left_01_C:
+      name: "Stairs Left"
+    Recipe_Stairs_Right_01_C:
+      name: "Stairs Right"
+    Recipe_FactoryCart_C:
+      name: "Factory Cart™"
+    Recipe_CyberWagon_C:
+      name: "Cyber Wagon"
+    Recipe_Gate_Automated_8x4_C:
+      name: "Automated Gate"
+    Recipe_HyperTubeWallHole_C:
+      name: "Hypertube Wall Hole"
+    Recipe_PipeSupportWallHole_C:
+      name: "Pipeline Wall Hole"
+    Recipe_FoundationPassthrough_Pipe_C:
+      name: "Pipeline Floor Hole"
+    Recipe_PowerPoleWallDouble_C:
+      name: "Double Wall Outlet Mk.1"
+    Recipe_PowerPoleWallDoubleMk2_C:
+      name: "Double Wall Outlet Mk.2"
+    Recipe_PowerPoleWallMk2_C:
+      name: "Wall Outlet Mk.2"
+    Recipe_PowerPoleWallDoubleMk3_C:
+      name: "Double Wall Outlet Mk.3"
+    Recipe_PowerPoleWallMk3_C:
+      name: "Wall Outlet Mk.3"
+    Recipe_StreetLight_C:
+      name: "Street Light"
+    Recipe_CeilingLight_C:
+      name: "Ceiling Light"
+    Recipe_FloodlightPole_C:
+      name: "Flood Light Tower"
+    Recipe_FloodlightWall_C:
+      name: "Wall Mounted Flood Light"
+    Recipe_Roof_Orange_01_C:
+      name: "Roof Flat"
+    Recipe_Roof_Orange_02_C:
+      name: "Roof 1m"
+    Recipe_Roof_Orange_03_C:
+      name: "Roof 2m"
+    Recipe_Roof_Orange_04_C:
+      name: "Roof 4m"
+    Recipe_Roof_Orange_InCorner_01_C:
+      name: "Inner Corner Roof 1m"
+    Recipe_Roof_Orange_InCorner_02_C:
+      name: "Inner Corner Roof 2m"
+    Recipe_Roof_Orange_InCorner_03_C:
+      name: "Inner Corner Roof 4m"
+    Recipe_Roof_Orange_OutCorner_01_C:
+      name: "Outer Corner Roof 1m"
+    Recipe_Roof_Orange_OutCorner_02_C:
+      name: "Outer Corner Roof 2m"
+    Recipe_Roof_Orange_OutCorner_03_C:
+      name: "Outer Corner Roof 4m"
+    Recipe_Roof_Window_01_C:
+      name: "Roof Flat"
+    Recipe_Roof_Window_02_C:
+      name: "Roof 1m"
+    Recipe_Roof_Window_03_C:
+      name: "Roof 2m"
+    Recipe_Roof_Window_04_C:
+      name: "Roof 4m"
+    Recipe_Roof_Window_InCorner_01_C:
+      name: "Inner Corner Roof 1m"
+    Recipe_Roof_Window_InCorner_02_C:
+      name: "Inner Corner Roof 2m"
+    Recipe_Roof_Window_InCorner_03_C:
+      name: "Inner Corner Roof 4m"
+    Recipe_Roof_Window_OutCorner_01_C:
+      name: "Outer Corner Roof 1m"
+    Recipe_Roof_Window_OutCorner_02_C:
+      name: "Outer Corner Roof 2m"
+    Recipe_Roof_Window_OutCorner_03_C:
+      name: "Outer Corner Roof 4m"
+    Recipe_Roof_A_01_C:
+      name: "Roof Flat"
+    Recipe_Roof_A_02_C:
+      name: "Roof 1m"
+    Recipe_Roof_A_03_C:
+      name: "Roof 2m"
+    Recipe_Roof_A_04_C:
+      name: "Roof 4m"
+    Recipe_Roof_Metal_InCorner_01_C:
+      name: "Inner Corner Roof 1m"
+    Recipe_Roof_Metal_InCorner_02_C:
+      name: "Inner Corner Roof 2m"
+    Recipe_Roof_Metal_InCorner_03_C:
+      name: "Inner Corner Roof 4m"
+    Recipe_Roof_Metal_OutCorner_01_C:
+      name: "Outer Corner Roof 1m"
+    Recipe_Roof_Metal_OutCorner_02_C:
+      name: "Outer Corner Roof 2m"
+    Recipe_Roof_Metal_OutCorner_03_C:
+      name: "Outer Corner Roof 4m"
+    Recipe_Roof_Tar_01_C:
+      name: "Roof Flat"
+    Recipe_Roof_Tar_02_C:
+      name: "Roof 1m"
+    Recipe_Roof_Tar_03_C:
+      name: "Roof 2m"
+    Recipe_Roof_Tar_04_C:
+      name: "Roof 4m"
+    Recipe_Roof_Tar_InCorner_01_C:
+      name: "Inner Corner Roof 1m"
+    Recipe_Roof_Tar_InCorner_02_C:
+      name: "Inner Corner Roof 2m"
+    Recipe_Roof_Tar_InCorner_03_C:
+      name: "Inner Corner Roof 4m"
+    Recipe_Roof_Tar_OutCorner_01_C:
+      name: "Outer Corner Roof 1m"
+    Recipe_Roof_Tar_OutCorner_02_C:
+      name: "Outer Corner Roof 2m"
+    Recipe_Roof_Tar_OutCorner_03_C:
+      name: "Outer Corner Roof 4m"
+    Recipe_PipelineMK2_NoIndicator_C:
+      name: "Pipeline Mk.2 (No Indicator)"
+    Recipe_Pipeline_NoIndicator_C:
+      name: "Pipeline Mk.1 (No Indicator)"
+    Recipe_StorageMedkit_C:
+      name: "Medical Storage Box"
+    Recipe_LightsControlPanel_C:
+      name: "Lights Control Panel"
+    Recipe_StandaloneWidgetSign_Small_C:
+      name: "Label Sign 2m"
+    Recipe_StandaloneWidgetSign_SmallVeryWide_C:
+      name: "Label Sign 4m"
+    Recipe_StandaloneWidgetSign_SmallWide_C:
+      name: "Label Sign 3m"
+    Recipe_StandaloneWidgetSign_Square_Tiny_C:
+      name: "Square Sign 0.5m"
+    Recipe_FoundationPassthrough_Hypertube_C:
+      name: "Hypertube Floor Hole"
+    Recipe_StorageHazard_C:
+      name: "Hazard Storage Box"
+    Recipe_GoldenCart_C:
+      name: "Golden Factory Cart™"
+    Recipe_Wall_Window_Thin_8x4_01_C:
+      name: "Full Frame Window"
+    Recipe_Wall_Window_Thin_8x4_02_C:
+      name: "Hex Frame Window"
+    Recipe_Pillar_Small_Frame_C:
+      name: "Small Frame Pillar"
+    Recipe_PillarMiddle_Frame_C:
+      name: "Big Frame Pillar"
+    Recipe_Concrete_Barrier_01_C:
+      name: "Road Barrier"
+    Recipe_StandaloneWidgetSign_Medium_C:
+      name: "Display Sign"
+    Recipe_StandaloneWidgetSign_Portrait_C:
+      name: "Portrait Sign"
+    Recipe_StandaloneWidgetSign_Square_C:
+      name: "Square Sign 2m"
+    Recipe_StandaloneWidgetSign_Square_Small_C:
+      name: "Square Sign 1m"
+    Recipe_FoundationPassthrough_Lift_C:
+      name: "Conveyor Lift Floor Hole"
+    Recipe_Pillar_Small_Concrete_C:
+      name: "Small Concrete Pillar"
+    Recipe_PillarMiddle_Concrete_C:
+      name: "Big Concrete Pillar"
+    Recipe_Catwalk_Cross_C:
+      name: "Catwalk Crossing"
+    Recipe_Catwalk_Ramp_C:
+      name: "Catwalk Ramp"
+    Recipe_Catwalk_Stairs_C:
+      name: "Catwalk Stairs"
+    Recipe_Catwalk_Straight_C:
+      name: "Catwalk Straight"
+    Recipe_Catwalk_T_C:
+      name: "Catwalk T-Crossing"
+    Recipe_Catwalk_Turn_C:
+      name: "Catwalk Corner"
+    Recipe_StandaloneWidgetSign_Huge_C:
+      name: "Large Billboard"
+    Recipe_StandaloneWidgetSign_Large_C:
+      name: "Small Billboard"
+    Recipe_Beam_C:
+      name: "Metal Beam"
+    Recipe_Beam_Connector_C:
+      name: "Beam Connector"
+    Recipe_Beam_Connector_Double_C:
+      name: "Beam Connector Double"
+    Recipe_Beam_Painted_C:
+      name: "Painted Beam"
+    Recipe_Beam_Support_C:
+      name: "Beam Support"
+    Recipe_GeneratorBiomass_C:
+      name: "Biomass Burner"
+    Recipe_SpaceElevator_C:
+      name: "Space Elevator"
+    Recipe_Biomass_Leaves_C:
+      name: "Biomass (Leaves)"
+    Recipe_Biomass_Wood_C:
+      name: "Biomass (Wood)"
+    Recipe_MinerMk1_C:
+      name: "Miner Mk.1"
+    Recipe_StorageContainerMk1_C:
+      name: "Storage Container"
+    Recipe_IronPlateReinforced_C:
+      name: "Reinforced Iron Plate"
+    Recipe_ConstructorMk1_C:
+      name: "Constructor"
+    Recipe_Concrete_C:
+      name: "Concrete"
+    Recipe_Screw_C:
+      name: "Screw"
+    Recipe_SmelterBasicMk1_C:
+      name: "Smelter"
+    Recipe_Cable_C:
+      name: "Cable"
+    Recipe_Wire_C:
+      name: "Wire"
+    Recipe_IngotCopper_C:
+      name: "Copper Ingot"
+    Recipe_Workshop_C:
+      name: "Equipment Workshop"
+    Recipe_PortableMiner_C:
+      name: "Portable Miner"
+    Recipe_Fireworks_01_C:
+      name: "Sweet Fireworks"
+    Recipe_Fireworks_02_C:
+      name: "Fancy Fireworks"
+    Recipe_Fireworks_03_C:
+      name: "Sparkly Fireworks"
+    ResourceSink_CyberWagon_Unlock_C:
+      name: "Cyber Wagon available in the AWESOME Shop"
+    ResourceSink_GoldenCart_Unlock_C:
+      name: "Golden Cart available in the AWESOME Shop"
+    ResourceSink_Checkmark_C:
+      name: "FICSIT Checkmark™"
+    Schematic_StartingRecipes_C:
+      name: "Starting Blueprints"
+    Schematic_SaveCompatibility_C:
+      name: "Save Compatibility"
+    CustomizerUnlock_ColourSwatches_C:
+      name: "Customizer Colour Swatches"
+    CustomizerUnlock_PipelineSwatch_C:
+      name: "Pipeline Swatch"
+    Schematic_2-5_C:
+      name: "Resource Sink Bonus Program"
+    Schematic_3-1_C:
+      name: "Coal Power"
+    Schematic_Alternate_WetConcrete_C:
+      name: "Alternate: Wet Concrete"
+    Research_Sulfur_0_C:
+      name: "Sulfur"
+    Schematic_Alternate_EnrichedCoal_C:
+      name: "Alternate: Compacted Coal"
+    Schematic_5-1-1_C:
+      name: "Oil Processing 2"
+    Schematic_5-1_C:
+      name: "Oil Processing"
+    Schematic_Alternate_TurboHeavyFuel_C:
+      name: "Alternate: Turbo Heavy Fuel"
+    Schematic_3-4_C:
+      name: "Basic Steel Production"
+    Schematic_Alternate_SteelRod_C:
+      name: "Alternate: Steel Rod"
+    Schematic_Alternate_SteelCoatedPlate_C:
+      name: "Alternate: Steel Coated Plate"
+    Schematic_5-4-1_C:
+      name: "Alternative Fluid Transport 2"
+    Schematic_5-4_C:
+      name: "Alternative Fluid Transport"
+    Schematic_Alternate_SteelCanister_C:
+      name: "Alternate: Steel Canister"
+    Schematic_Alternate_SteamedCopperSheet_C:
+      name: "Alternate: Steamed Copper Sheet"
+    Schematic_Alternate_RubberConcrete_C:
+      name: "Alternate: Rubber Concrete"
+    Schematic_Alternate_RecycledRubber_C:
+      name: "Alternate: Recycled Rubber"
+    Research_Quartz_1_1_C:
+      name: "Quartz Crystals"
+    Schematic_Alternate_PureQuartzCrystal_C:
+      name: "Alternate: Pure Quartz Crystal"
+    Schematic_Alternate_PureIronIngot_C:
+      name: "Alternate: Pure Iron Ingot"
+    Schematic_Alternate_PureCopperIngot_C:
+      name: "Alternate: Pure Copper Ingot"
+    Research_Caterium_0_C:
+      name: "Caterium"
+    Schematic_Alternate_PureCateriumIngot_C:
+      name: "Alternate: Pure Caterium Ingot"
+    Schematic_7-1-1_C:
+      name: "Bauxite Refinement 2"
+    Schematic_7-1_C:
+      name: "Bauxite Refinement"
+    Schematic_Alternate_PureAluminumIngot_C:
+      name: "Alternate: Pure Aluminum Ingot"
+    Schematic_Alternate_PolymerResin_C:
+      name: "Alternate: Polymer Resin"
+    Schematic_Alternate_PlasticSmartPlating_C:
+      name: "Alternate: Plastic Smart Plating"
+    Schematic_4-1_C:
+      name: "Advanced Steel Production"
+    Research_Caterium_4_1_C:
+      name: "AI Limiter"
+    Schematic_Alternate_HighSpeedWiring_C:
+      name: "Alternate: Automated Speed Wiring"
+    Schematic_Alternate_HeavyOilResidue_C:
+      name: "Alternate: Heavy Oil Residue"
+    Schematic_5-2_C:
+      name: "Industrial Manufacturing"
+    Schematic_Alternate_HeavyFlexibleFrame_C:
+      name: "Alternate: Heavy Flexible Frame"
+    Schematic_Alternate_FusedWire_C:
+      name: "Alternate: Fused Wire"
+    Schematic_Alternate_FlexibleFramework_C:
+      name: "Alternate: Flexible Framework"
+    Schematic_Alternate_ElectrodeCircuitBoard_C:
+      name: "Alternate: Electrode Circuit Board"
+    Schematic_Alternate_ElectroAluminumScrap_C:
+      name: "Alternate: Electrode - Aluminum Scrap"
+    Schematic_Alternate_DilutedPackagedFuel_C:
+      name: "Alternate: Diluted Packaged Fuel"
+    Schematic_2-1_C:
+      name: "Part Assembly"
+    Schematic_Alternate_CopperRotor_C:
+      name: "Alternate: Copper Rotor"
+    Schematic_Alternate_CopperAlloyIngot_C:
+      name: "Alternate: Copper Alloy Ingot"
+    Schematic_Alternate_CokeSteelIngot_C:
+      name: "Alternate: Coke Steel Ingot"
+    Schematic_Alternate_CoatedIronPlate_C:
+      name: "Alternate: Coated Iron Plate"
+    Schematic_Alternate_CoatedIronCanister_C:
+      name: "Alternate: Coated Iron Canister"
+    Schematic_Alternate_CoatedCable_C:
+      name: "Alternate: Coated Cable"
+    Schematic_Alternate_BoltedFrame_C:
+      name: "Alternate: Bolted Frame"
+    Schematic_Alternate_AdheredIronPlate_C:
+      name: "Alternate: Adhered Iron Plate"
+    Schematic_8-5-1_C:
+      name: "Particle Enrichment 2"
+    Schematic_8-5_C:
+      name: "Particle Enrichment"
+    Schematic_Alternate_TurboPressureMotor_C:
+      name: "Alternate: Turbo Pressure Motor"
+    Schematic_Alternate_TurboBlendFuel_C:
+      name: "Alternate: Turbo Blend Fuel"
+    Schematic_7-4-1_C:
+      name: "Aeronautical Engineering 2"
+    Schematic_7-4_C:
+      name: "Aeronautical Engineering"
+    Schematic_8-1_C:
+      name: "Nuclear Power"
+    Schematic_Alternate_SuperStateComputer_C:
+      name: "Alternate: Super-State Computer"
+    Schematic_Alternate_SloppyAlumina_C:
+      name: "Alternate: Sloppy Alumina"
+    Schematic_Alternate_RadioControlSystem_C:
+      name: "Alternate: Radio Control System"
+    Schematic_Alternate_PlutoniumFuelUnit_C:
+      name: "Alternate: Plutonium Fuel Unit"
+    Schematic_8-2-1_C:
+      name: "Advanced Aluminum Production 2"
+    Schematic_8-2_C:
+      name: "Advanced Aluminum Production"
+    Schematic_Alternate_OCSupercomputer_C:
+      name: "Alternate: OC Supercomputer"
+    Schematic_Alternate_InstantScrap_C:
+      name: "Alternate: Instant Scrap"
+    Schematic_Alternate_InstantPlutoniumCell_C:
+      name: "Alternate: Instant Plutonium Cell"
+    Schematic_Alternate_HeatFusedFrame_C:
+      name: "Alternate: Heat-Fused Frame"
+    Schematic_Alternate_FertileUranium_C:
+      name: "Alternate: Fertile Uranium"
+    Schematic_Alternate_ElectricMotor_C:
+      name: "Alternate: Electric Motor"
+    Schematic_Alternate_DilutedFuel_C:
+      name: "Alternate: Diluted Fuel"
+    Schematic_Alternate_CoolingDevice_C:
+      name: "Alternate: Cooling Device"
+    Schematic_Alternate_ClassicBattery_C:
+      name: "Alternate: Classic Battery"
+    Schematic_Alternate_AutomatedMiner_C:
+      name: "Alternate: Automated Miner"
+    Schematic_Alternate_AlcladCasing_C:
+      name: "Alternate: Alclad Casing"
+    Schematic_Alternate_Wire2_C:
+      name: "Alternate: Caterium Wire"
+    Schematic_Alternate_Wire1_C:
+      name: "Alternate: Iron Wire"
+    Research_Caterium_1_C:
+      name: "Caterium Ingots"
+    Research_Quartz_0_C:
+      name: "Quartz"
+    Schematic_Alternate_UraniumCell1_C:
+      name: "Alternate: Infused Uranium Cell"
+    Schematic_7-2_C:
+      name: "Logistics Mk.5"
+    Schematic_8-4_C:
+      name: "Leading-edge Production"
+    Research_Caterium_3_C:
+      name: "Caterium Electronics"
+    Schematic_Alternate_TurboMotor1_C:
+      name: "Alternate: Turbo Electric Motor"
+    Schematic_Alternate_TurboFuel_C:
+      name: "Alternate: Turbofuel"
+    Schematic_Alternate_Stator_C:
+      name: "Alternate: Quickwire Stator"
+    Research_Quartz_1_2_C:
+      name: "Silica"
+    Schematic_Alternate_Silica_C:
+      name: "Alternate: Cheap Silica"
+    Schematic_Alternate_Screw2_C:
+      name: "Alternate: Steel Screw"
+    Schematic_Alternate_Screw_C:
+      name: "Alternate: Cast Screw"
+    Schematic_Alternate_Rotor_C:
+      name: "Alternate: Steel Rotor"
+    Schematic_Alternate_ReinforcedSteelPlate_C:
+      name: "Alternate: Encased Industrial Pipe"
+    Schematic_Alternate_ReinforcedIronPlate2_C:
+      name: "Alternate: Stitched Iron Plate"
+    Schematic_Alternate_ReinforcedIronPlate1_C:
+      name: "Alternate: Bolted Iron Plate"
+    Research_Caterium_5_C:
+      name: "High-Speed Connector"
+    Research_Quartz_3_3_C:
+      name: "Discontinued - Radio Control Unit"
+    Schematic_Alternate_RadioControlUnit1_C:
+      name: "Alternate: Radio Connection Unit"
+    Schematic_Alternate_Quickwire_C:
+      name: "Alternate: Fused Quickwire"
+    Schematic_Alternate_Plastic1_C:
+      name: "Alternate: Recycled Plastic"
+    Schematic_Alternate_NuclearFuelRod1_C:
+      name: "Alternate: Uranium Fuel Unit"
+    Schematic_Alternate_Motor1_C:
+      name: "Alternate: Rigour Motor"
+    Schematic_Alternate_ModularFrame_C:
+      name: "Alternate: Steeled Frame"
+    Schematic_Alternate_IngotSteel2_C:
+      name: "Alternate: Compacted Steel Ingot"
+    Schematic_Alternate_IngotSteel1_C:
+      name: "Alternate: Solid Steel Ingot"
+    Schematic_Alternate_IngotIron_C:
+      name: "Alternate: Iron Alloy Ingot"
+    Schematic_Alternate_HighSpeedConnector_C:
+      name: "Alternate: Silicon High-Speed Connector"
+    Schematic_Alternate_HeavyModularFrame_C:
+      name: "Alternate: Heavy Encased Frame"
+    Schematic_Alternate_HeatSink1_C:
+      name: "Alternate: Heat Exchanger"
+    Schematic_Alternate_Gunpowder1_C:
+      name: "Alternate: Fine Black Powder"
+    Schematic_Alternate_ElectromagneticControlRod1_C:
+      name: "Alternate: Electromagnetic Connection Rod"
+    Research_Quartz_2_C:
+      name: "Crystal Oscillator"
+    Schematic_Alternate_CrystalOscillator_C:
+      name: "Alternate: Insulated Crystal Oscillator"
+    Schematic_Alternate_Concrete_C:
+      name: "Alternate: Fine Concrete"
+    Schematic_Alternate_Computer2_C:
+      name: "Alternate: Crystal Computer"
+    Schematic_Alternate_Computer1_C:
+      name: "Alternate: Caterium Computer"
+    Schematic_Alternate_Coal2_C:
+      name: "Alternate: Biocoal"
+    Schematic_Alternate_Coal1_C:
+      name: "Alternate: Charcoal"
+    Schematic_Alternate_CircuitBoard2_C:
+      name: "Alternate: Caterium Circuit Board"
+    Schematic_Alternate_CircuitBoard1_C:
+      name: "Alternate: Silicon Circuit Board"
+    Schematic_Alternate_Cable2_C:
+      name: "Alternate: Quickwire Cable"
+    Schematic_Alternate_Cable1_C:
+      name: "Alternate: Insulated Cable"
+    Schematic_Alternate_Beacon1_C:
+      name: "Alternate: Crystal Beacon"
+    Schematic_Alternate_InventorySlots2_C:
+      name: "Inflated Pocket Dimension"
+    Schematic_Alternate_InventorySlots1_C:
+      name: "Inflated Pocket Dimension"
+    Schematic_8-3_C:
+      name: "Hover Pack"
+    Schematic_7-3_C:
+      name: "Hazmat Suit"
+    Schematic_6-5_C:
+      name: "Pipeline Engineering Mk.2"
+    Schematic_6-4_C:
+      name: "Gas Mask"
+    Schematic_6-3_C:
+      name: "Monorail Train Technology"
+    Schematic_6-2_C:
+      name: "Jetpack"
+    Schematic_6-1_C:
+      name: "Logistics Mk.4"
+    Schematic_5-3_C:
+      name: "Logistics Mk.3"
+    Schematic_4-5_C:
+      name: "FICSIT Blueprints"
+    Schematic_4-4_C:
+      name: "Hypertubes"
+    Schematic_4-3_C:
+      name: "Expanded Power Infrastructure"
+    Schematic_4-2_C:
+      name: "Improved Melee Combat"
+    Schematic_3-3_C:
+      name: "Vehicular Transport"
+    Schematic_3-2_C:
+      name: "Logistics Mk.2"
+    Schematic_2-3_C:
+      name: "Jump Pads"
+    Schematic_2-2_C:
+      name: "Obstacle Clearing"
+    Research_Quartz_4_1_C:
+      name: "Radio Signal Scanning"
+    Research_AOrganisms_2_C:
+      name: "Hostile Organism Detection"
+    Research_PowerSlugs_3_C:
+      name: "Slug Scanning"
+    Research_Nutrients_2_C:
+      name: "Bacon Agaric"
+    Research_Nutrients_0_C:
+      name: "Paleberry"
+    Research_Nutrients_1_C:
+      name: "Beryl Nut"
+    Schematic_1-3_C:
+      name: "Field Research"
+    Schematic_1-2_C:
+      name: "Logistics"
+    Schematic_1-1_C:
+      name: "Base Building"
+    Research_AO_Stinger_C:
+      name: "Stinger Research"
+    Research_AO_Spitter_C:
+      name: "Spitter Research"
+    Research_AO_Pre_Rebar_C:
+      name: "Structural Analysis"
+    Research_AO_Hog_C:
+      name: "Hog Research"
+    Research_AO_Hatcher_C:
+      name: "Hatcher Research"
+    Research_AO_DNACapsule_C:
+      name: "Bio-Organic Properties"
+    Research_AOrgans_3_C:
+      name: "Inflated Pocket Dimension"
+    Research_AOrgans_2_C:
+      name: "Protein Inhaler"
+    Research_AOrgans_1_C:
+      name: "Discontinued - Organic Properties"
+    Research_AOrgans_0_C:
+      name: "Spitter Research"
+    Research_AOrganisms_1_C:
+      name: "Discontinued - Object Scanner Improvements"
+    Research_ACarapace_3_C:
+      name: "Expanded Toolbelt"
+    Research_ACarapace_2_1_C:
+      name: "Discontinued - Spiked Rebars"
+    Research_ACarapace_2_C:
+      name: "The Rebar Gun"
+    Research_ACarapace_1_C:
+      name: "Discontinued - Structural Analysis"
+    Research_ACarapace_0_C:
+      name: "Hog Research"
+    Research_Caterium_7_2_C:
+      name: "Geothermal Generator"
+    Research_Caterium_7_1_C:
+      name: "Programmable Splitter"
+    Research_Caterium_6_3_C:
+      name: "Bullet Guidance System"
+    Research_Caterium_6_2_C:
+      name: "Power Poles Mk.3"
+    Research_Caterium_6_1_C:
+      name: "Supercomputer"
+    Research_Caterium_5_1_C:
+      name: "Priority Power Switch"
+    Research_Caterium_4_3_C:
+      name: "Blade Runners"
+    Research_Caterium_4_2_C:
+      name: "Power Poles Mk.2"
+    Research_Caterium_4_1_2_C:
+      name: "Power Switch"
+    Research_Caterium_4_1_1_C:
+      name: "Smart Splitter"
+    Research_Caterium_3_2_C:
+      name: "Stun Rebar"
+    Research_Caterium_3_1_C:
+      name: "Inflated Pocket Dimension"
+    Research_Caterium_2_1_C:
+      name: "Zipline"
+    Research_Caterium_2_C:
+      name: "Quickwire"
+    Research_FlowerPetals_3_C:
+      name: "Color Cartridges"
+    Research_FlowerPetals_1_C:
+      name: "Flower Petals"
+    Research_HardDrive_0_C:
+      name: "Hard Drive"
+    Research_Mycelia_8_C:
+      name: "Toxic Cellular Modification"
+    Research_Mycelia_7_C:
+      name: "Expanded Toolbelt"
+    Research_Mycelia_6_C:
+      name: "Therapeutic Inhaler"
+    Research_Mycelia_5_C:
+      name: "Vitamin Inhaler"
+    Research_Mycelia_4_C:
+      name: "Medical Properties"
+    Research_Mycelia_3_C:
+      name: "Parachute"
+    Research_Mycelia_2_1_C:
+      name: "Synthethic Polyester Fabric"
+    Research_Mycelia_2_C:
+      name: "Fabric"
+    Research_Mycelia_1_C:
+      name: "Mycelia"
+    Research_Nutrients_4_C:
+      name: "Nutritional Inhaler"
+    Research_Nutrients_3_C:
+      name: "Nutritional Processor"
+    Research_PowerSlugs_5_C:
+      name: "Purple Power Shards"
+    Research_PowerSlugs_4_C:
+      name: "Yellow Power Shards"
+    Research_PowerSlugs_2_C:
+      name: "Overclock Production"
+    Research_PowerSlugs_1_C:
+      name: "Blue Power Slugs"
+    Research_Quartz_4_C:
+      name: "Radar Technology"
+    Research_Quartz_3_4_C:
+      name: "Explosive Resonance Application"
+    Research_Quartz_3_2_C:
+      name: "Discontinued - Frequency Mapping"
+    Research_Quartz_3_1_C:
+      name: "The Explorer"
+    Research_Quartz_3_C:
+      name: "Signal Systems"
+    Research_Quartz_2_1_C:
+      name: "Shatter Rebar"
+    Research_Sulfur_TurboFuel_C:
+      name: "Turbo Fuel"
+    Research_Sulfur_ExperimentalPower_C:
+      name: "Experimental Power Generation"
+    Research_Sulfur_CompactedCoal_C:
+      name: "Compacted Coal"
+    Research_Sulfur_6_C:
+      name: "Inflated Pocket Dimension"
+    Research_Sulfur_5_2_Hidden_C:
+      name: "Packaged Turbo Rifle Ammo"
+    Research_Sulfur_5_2_C:
+      name: "Turbo Rifle Ammo"
+    Research_Sulfur_5_1_C:
+      name: "Nuclear Deterrent Development"
+    Research_Sulfur_5_C:
+      name: "Expanded Toolbelt"
+    Research_Sulfur_4_2_1_C:
+      name: "Discontinued - Rifle Cartridges"
+    Research_Sulfur_4_2_C:
+      name: "Explosive Rebar"
+    Research_Sulfur_4_1_C:
+      name: "The Rifle"
+    Research_Sulfur_4_C:
+      name: "Cluster Nobelisk"
+    Research_Sulfur_3_2_1_C:
+      name: "Discontinued - Nobelisk Explosives"
+    Research_Sulfur_3_1_C:
+      name: "The Nobelisk Detonator"
+    Research_Sulfur_3_C:
+      name: "Smokeless Powder"
+    Research_Sulfur_2_C:
+      name: "Volatile Applications"
+    Research_Sulfur_1_C:
+      name: "Black Powder"
+    Research_XMas_5_C:
+      name: "Giant FICSMAS Tree: Upgrade 4"
+    Research_XMas_4_C:
+      name: "Giant FICSMAS Tree: Upgrade 3"
+    Research_XMas_4-2_C:
+      name: "Snowfight!"
+    Research_XMas_4-1_C:
+      name: "FICSMAS Wreath"
+    Research_XMas_3_C:
+      name: "Giant FICSMAS Tree: Upgrade 2"
+    Research_XMas_3-2_C:
+      name: "It's snowing!"
+    Research_XMas_3-1_C:
+      name: "FICSMAS Lights"
+    Research_XMas_2_C:
+      name: "Giant FICSMAS Tree: Upgrade 1"
+    Research_XMas_2-2_C:
+      name: "FICSMAS Gift Tree"
+    Research_XMas_2-1_C:
+      name: "A friend"
+    Research_XMas_1_C:
+      name: "FICSMAS Tree Base"
+    Research_XMas_1-2_C:
+      name: "Candy Cane Decor"
+    Research_XMas_1-1_C:
+      name: "Candy Cane Basher"
+    CBG_Colour_ConcreteSwatch_C:
+      name: "Concrete Color Swatch background unlock"
+    CBG_Concrete_Walls_Basic_C:
+      name: "Basic Concrete Walls"
+    ResourceSink_Customizer_ConcreteWallMaterial_C:
+      name: "Concrete Wall Material"
+    CBG_Concrete_Walls_Conveyor_C:
+      name: "Conveyor Concrete Walls"
+    CBG_Steel_Walls_Basic_C:
+      name: "Basic Steel Walls"
+    CBG_Steel_Walls_Conveyor_C:
+      name: "Conveyor Steel Walls"
+    ResourceSink_Customizer_SteelWallMaterial_C:
+      name: "Steel Wall Material"
+    ResourceSink_Diagonal_Down_Wallset_C:
+      name: "Inverted Ramp Wall Bundle"
+    CBG_Concrete_Walls_DiagonalDown_C:
+      name: "Down Diagonal Concrete Walls"
+    CBG_Steel_Walls_DiagonalDown_C:
+      name: "Down Diagonal Steel Walls"
+    ResourceSink_Diagonal_Up_WallSet_C:
+      name: "Ramp Wall Bundle"
+    CBG_Concrete_Walls_DiagonalUp_C:
+      name: "Up Diagonal Concrete Walls"
+    CBG_Steel_Walls_DiagonalUp_C:
+      name: "Up Diagonal Steel Walls"
+    ResourceSink_DoorWalls_Normal_C:
+      name: "Door Walls"
+    CBG_Concrete_Walls_Doors_C:
+      name: "Doors Concrete Walls"
+    CBG_Steel_Walls_Doors_C:
+      name: "Doors Steel Walls"
+    ResourceSink_FactoryRailing_C:
+      name: "Industrial Railing"
+    ResourceSink_FactoryFence_C:
+      name: "Modern Railing"
+    ResourceSink_FrameworkFoundations_C:
+      name: "Structural Frame Set"
+    ResourceSink_FoudationPillar_C:
+      name: "Metal Pillar Set"
+    ResourceSink_Customizer_Asphalt_FoundationMaterial_C:
+      name: "Asphalt Foundation Material"
+    CBG_ExtensionQuarterPipes_Asphalt_C:
+      name: "Asphalt Quarter PIpe Extensions"
+    CBG_Foundations_Asphalt_C:
+      name: "Asphalt Foundations & Basic Ramps"
+    CBG_Ramps_Corners_Asphalt_C:
+      name: "Asphalt Corner Ramps"
+    ResourceSink_DiagonalRamps_C:
+      name: "Corner Ramp Pack"
+    ResourceSink_Customizer_Concrete_FoundationMaterial_C:
+      name: "Concrete Foundation Material"
+    CBG_ExtensionQuarterPipes_Concrete_C:
+      name: "Concrete Quarter PIpe Extensions"
+    CBG_Foundations_Concrete_C:
+      name: "Concrete Foundations & Basic Ramps"
+    CBG_Ramps_Corners_Concrete_C:
+      name: "Concrete Corner Ramps"
+    ResourceSink_FoundationExpansionPack_C:
+      name: "Double Ramp Set"
+    CBG_Ramps_Double_Asphalt_C:
+      name: "Asphalt Double Ramps"
+    CBG_Ramps_Double_Concrete_C:
+      name: "Concrete Double Ramps"
+    ResourceSink_Customizer_GripMetal_FoundationMaterial_C:
+      name: "Grip Metal Foundation Material"
+    CBG_ExtensionQuarterPipes_GripMetal_C:
+      name: "Grip Metal Quarter PIpe Extensions"
+    CBG_Foundations_Metal_C:
+      name: "Metal Foundations & Basic Ramps"
+    CBG_Ramps_Corners_Metal_C:
+      name: "Metal Corner Ramps"
+    CBG_Ramps_Double_Metal_C:
+      name: "Metal Double Ramps"
+    ResourceSink_InvertedCornerRamps_C:
+      name: "Inverted Corner Ramp Pack"
+    CBG_Ramps_InvCorners_Asphalt_C:
+      name: "Asphalt Inverted corner Ramps"
+    CBG_Ramps_InvCorners_Concrete_C:
+      name: "Concrete Inverted corner Ramps"
+    CBG_Ramps_InvCorners_Metal_C:
+      name: "Metal Inverted Corner Ramps"
+    ResourceSink_Customizer_PolishedConcrete_FoundationMaterial_C:
+      name: "Coated Concrete Foundation Material"
+    CBG_ExtensionQuarterPipes_Polished_C:
+      name: "Polished Concrete Quarter PIpe Extensions"
+    CBG_Foundations_Coated_C:
+      name: "Coated Concrete Foundations & Basic Ramps"
+    CBG_Ramps_Corners_Coated_C:
+      name: "Coated Concrete Corner Ramps"
+    CBG_Ramps_Double_Coated_C:
+      name: "Coated Concrete Double Ramps"
+    CBG_Ramps_InvCorners_Coated_C:
+      name: "Coated Concrete Inverted Corner Ramps"
+    CBG_Ramps_Inverted_Coated_C:
+      name: "Coated Concrete Inverted Ramps"
+    ResourceSink_InvertedRampPack_C:
+      name: "Inverted Ramp Set"
+    CBG_Ramps_Inverted_Concrete_C:
+      name: "Concrete Inverted Ramps"
+    CBG_Ramps_Inverted_Metal_C:
+      name: "Metal Inverted Ramps"
+    ResourceSink_Ladders_C:
+      name: "Factory Ladder"
+    ResourceSink_Walkways_C:
+      name: "Industrial Walkways"
+    ResourceSink_Stairs_C:
+      name: "Stairs"
+    ResourceSink_CurvedFoundationPack_C:
+      name: "Quarter Pipes Pack"
+    CBG_QuarterPipes_Asphalt_C:
+      name: "Asphalt Quarter PIpes"
+    CBG_QuarterPipes_Concrete_C:
+      name: "Concrete Quarter PIpes"
+    CBG_QuarterPipes_GripMetal_C:
+      name: "Grip Metal Quarter PIpes"
+    CBG_QuarterPipes_Coated_C:
+      name: "Polished Concrete Quarter PIpes"
+    ResourceSink_FactoryCart_C:
+      name: "FICSIT Factory Cart™"
+    ResourceSink_CyberWagon_C:
+      name: "Cyber Wagon"
+    ResourceSink_HalfFoundations_C:
+      name: "Half Foundation Set"
+    CBG_Half_Foundations_Asphalt_C:
+      name: "Asphalt Half Foundations"
+    CBG_Half_Foundations_Concrete_C:
+      name: "Concrete Half Foundations"
+    CBG_Half_Foundations_Metal_C:
+      name: "Grip Metal Half Foundations"
+    CBG_Half_Foundations_Polished_C:
+      name: "Polished Concrete Half Foundations"
+    ResourceSink_QuarterPipeExtensions_C:
+      name: "Quarter Pipe Extensions Pack"
+    CBG_Ramps_Inverted_Asphalt_C:
+      name: "Asphalt Inverted Ramps"
+    ResourceSink_WindowedWalls_C:
+      name: "Windowed Walls"
+    CBG_Concrete_Walls_Windows_C:
+      name: "Windows Concrete Walls"
+    CBG_Steel_Walls_WIndows_C:
+      name: "Windows Steel Walls"
+    ResourceSink_GateWalls_C:
+      name: "Gates"
+    CBG_Concrete_Walls_Gates_C:
+      name: "Gates Concrete Walls"
+    CBG_Steel_Walls_Gates_C:
+      name: "Gates Steel Walls"
+    ResourceSink_Tilted_Walls_C:
+      name: "Tilted Walls"
+    CBG_Concrete_Walls_Tilted_C:
+      name: "Concrete Tilted Walls"
+    CBG_Steel_Walls_Tilted_C:
+      name: "Steel Tilted Walls"
+    ResourceSink_ConveryWalls_Normal_C:
+      name: "Conveyor Walls"
+    ResourceSink_ConveyorWallMount_C:
+      name: "Conveyor Wall Mount"
+    ResourceSink_ConveyorCeilingMount_C:
+      name: "Conveyor Ceiling Mount"
+    ResourceSink_HyperTubeWallAttachements_C:
+      name: "Hypertube Wall Attachments"
+    ResourceSink_PipelineWallAttachments_C:
+      name: "Pipeline Wall Attachments"
+    ResourceSink_PipelineFloorHole_C:
+      name: "Pipeline Floor Hole"
+    ResourceSink_WallPowerPoles_C:
+      name: "Wall Power Outlets Mk.1"
+    ResourceSink_WallPowerPolesMK2_C:
+      name: "Wall Power Outlets Mk.2"
+    ResourceSink_WallPowerPolesMK3_C:
+      name: "Wall Power Outlets Mk.3"
+    ResourceSink_CeilingLight_C:
+      name: "Indoor Lighting"
+    ResourceSink_LightTower_C:
+      name: "Flood Lights"
+    ResourceSink_StreetLight_C:
+      name: "Street Light"
+    ResourceSink_Statue_Hoggo_C:
+      name: "Silver Hog"
+    ResourceSink_StatueLizardDoggo_C:
+      name: "Lizard Doggo"
+    ResourceSink_StatueSpaceGiraffe_C:
+      name: "Confusing Creature"
+    ResourceSink_StatueBronzePioneer_C:
+      name: "Adequate Pioneering"
+    ResourceSink_StatueGoldPioneer_C:
+      name: "Satisfactory Pioneering"
+    ResourceSink_StatueSilverPioneer_C:
+      name: "Pretty Good Pioneering"
+    ResourceSink_StatueGoldenNut_C:
+      name: "Golden Nut"
+    ResourceSink_Customizer_GlassRoofMaterial_C:
+      name: "Glass Roof Material"
+    CBG_Roofs_Basic_Glass_C:
+      name: "Glass Roofs Basic"
+    ResourceSink_Roofs_Basic_C:
+      name: "FICSIT Roofs"
+    CBG_Roofs_Corners_Glass_C:
+      name: "Glass Roof Corners"
+    ResourceSink_Roofs_Corners_C:
+      name: "FICSIT Roof Corners"
+    ResourceSink_Customizer_SteelRoofMaterial_C:
+      name: "Steel Roof Material"
+    CBG_Roofs_Basic_Steel_C:
+      name: "Metal Roofs Basic"
+    CBG_Roofs_Corners_Steel_C:
+      name: "Metal Roof Corners"
+    ResourceSink_Customizer_TarRoofMaterial_C:
+      name: "Tar Roof Material"
+    CBG_Roofs_Basic_Tar_C:
+      name: "Tar Roofs Basic"
+    CBG_Roofs_Corners_Tar_C:
+      name: "Tar Roof Corners"
+    ResourceSink_NoIndicator_PipelineMK2_C:
+      name: "Clean Pipeline Mk.2"
+    ResourceSink_NoIndicator_PipelineMK1_C:
+      name: "Clean Pipeline Mk.1"
+    ResourceSink_MedicalBoxSkin_C:
+      name: "Medical Box - Personal Storage Skin"
+    ResourceSink_LightControlPanel_C:
+      name: "Lights Control Panel"
+    ResourceSink_LabelSigns_C:
+      name: "Label Sign Bundle"
+    ResourceSink_HyperTubeFloorHole_C:
+      name: "Hypertube Floor Hole"
+    ResourceSink_HazardBoxSkin_C:
+      name: "Hazard Box - Personal Storage Skin"
+    ResourceSink_GoldenCup_C:
+      name: "'Employee of the Planet' Cup"
+    ResourceSink_GoldenCart_C:
+      name: "Golden FICSIT Factory Cart™"
+    ResourceSink_FrameWindows_C:
+      name: "Steel-framed Windows"
+    ResourceSink_FramePillarSet_C:
+      name: "Frame Pillar Set"
+    ResourceSink_FactoryBarrier_C:
+      name: "Road Barrier"
+    ResourceSink_DisplaySigns_C:
+      name: "Display Sign Bundle"
+    ResourceSink_ConveyorLiftHole_C:
+      name: "Conveyor Lift Floor Hole"
+    ResourceSink_ConcretePillarSet_C:
+      name: "Concrete Pillar Set"
+    ResourceSink_Catwalks_C:
+      name: "Modern Catwalks"
+    ResourceSink_Boombox_C:
+      name: "The Boombox"
+    ResourceSink_BillboardSigns_C:
+      name: "Billboard Set"
+    ResourceSink_BeamSet_C:
+      name: "Structural Beam Pack"
+    ResourceSink_RifleAmmoTurbo_C:
+      name: "Turbo Rifle Ammo Pack"
+    ResourceSink_RifleAmmoHoming_C:
+      name: "Homing Rifle Ammo Pack"
+    ResourceSink_RebarStun_C:
+      name: "Stun Rebar Pack"
+    ResourceSink_RebarShatter_C:
+      name: "Shatter Rebar Pack"
+    ResourceSink_RebarExplosive_C:
+      name: "Explosive Rebar Pack"
+    ResourceSink_RadiationFilters_C:
+      name: "Radiation Filters"
+    ResourceSink_Parachutes_C:
+      name: "Parachutes"
+    ResourceSink_NobeliskPulse_C:
+      name: "Pulse Nobelisk Pack"
+    ResourceSink_NobeliskGas_C:
+      name: "Gas Nobelisk Pack"
+    ResourceSink_NobeliskCluster_C:
+      name: "Cluster Nobelisk Pack"
+    ResourceSink_HealthPack_C:
+      name: "Health Pack"
+    ResourceSink_GasFilters_C:
+      name: "Gas Filters"
+    ResourceSink_Explosives_C:
+      name: "Nobelisk Pack"
+    ResourceSink_ColoredAmmoPack_C:
+      name: "Color Cartridge"
+    ResourceSink_CoffeeCup_C:
+      name: "FICSIT™ Coffee Cup"
+    ResourceSink_Beacons_C:
+      name: "Beacons"
+    ResourceSink_AmmoPack_C:
+      name: "Iron Rebar Pack"
+    ResourceSink_AdvancedAmmoPack_C:
+      name: "Rifle Ammo Pack"
+    ResourceSink_Wire_C:
+      name: "Wire"
+    ResourceSink_Screw_C:
+      name: "Screw"
+    ResourceSink_Rod_C:
+      name: "Iron Rod"
+    ResourceSink_QuartzCrystal_C:
+      name: "Quartz Crystal"
+    ResourceSink_Plate_C:
+      name: "Iron Plate"
+    ResourceSink_Concrete_C:
+      name: "Concrete"
+    ResourceSink_Cable_C:
+      name: "Cable"
+    ResourceSink_Biomass_C:
+      name: "Biomass"
+    ResourceSink_Rotor_C:
+      name: "Rotor"
+    ResourceSink_ReinforcedIronPlate_C:
+      name: "Reinforced Iron Plate"
+    ResourceSink_Quickwire_C:
+      name: "Quickwire"
+    ResourceSink_ModularFrame_C:
+      name: "Modular Frame"
+    ResourceSink_Fabric_C:
+      name: "Fabric"
+    ResourceSink_CopperSheet_C:
+      name: "Copper Sheet"
+    ResourceSink_Biofuel_C:
+      name: "Biofuel"
+    ResourceSink_AILimiter_C:
+      name: "AI Limiter"
+    ResourceSink_SteelPipe_C:
+      name: "Steel Pipe"
+    ResourceSink_SteelBeam_C:
+      name: "Steel Beam"
+    ResourceSink_BlackPowder_C:
+      name: "Black Powder"
+    ResourceSink_Stator_C:
+      name: "Stator"
+    ResourceSink_EncasedIndustrialBeam_C:
+      name: "Encased Industrial Beam"
+    ResourceSink_CompactedCoal_C:
+      name: "Compacted Coal"
+    ResourceSink_SmokelessPowder_C:
+      name: "Smokeless Powder"
+    ResourceSink_Rubber_C:
+      name: "Rubber"
+    ResourceSink_Plastic_C:
+      name: "Plastic"
+    ResourceSink_PetroleumCoke_C:
+      name: "Petroleum Coke"
+    ResourceSink_Motor_C:
+      name: "Motor"
+    ResourceSink_HighSpeedConnector_C:
+      name: "High-Speed Connector"
+    ResourceSink_EmptyCanister_C:
+      name: "Empty Canister"
+    ResourceSink_CrystalOscillator_C:
+      name: "Crystal Oscillator"
+    ResourceSink_CircuitBoard_C:
+      name: "Circuit Board"
+    ResourceSink_PolymerResin_C:
+      name: "Polymer Resin"
+    ResourceSink_PackagedTurboFuel_C:
+      name: "Packaged Turbofuel"
+    ResourceSink_PackagedFuel_C:
+      name: "Packaged Fuel"
+    ResourceSink_PackagedBiofuel_C:
+      name: "Packaged Liquid Biofuel"
+    ResourceSink_HeavyModularFrame_C:
+      name: "Heavy Modular Frame"
+    ResourceSink_Computer_C:
+      name: "Computer"
+    ResourceSink_TurboMotor_C:
+      name: "Turbo Motor"
+    ResourceSink_SuperComputer_C:
+      name: "Supercomputer"
+    ResourceSink_Silica_C:
+      name: "Silica"
+    ResourceSink_RadioControlUnit_C:
+      name: "Radio Control Unit"
+    ResourceSink_HeatSink_C:
+      name: "Heat Sink"
+    ResourceSink_Battery_C:
+      name: "Battery"
+    ResourceSink_AluminumCasing_C:
+      name: "Aluminum Casing"
+    ResourceSink_AlcladSheet_C:
+      name: "Aluminum Alclad Sheet"
+    ResourceSink_PressureConversionCube_C:
+      name: "Pressure Conversion Cube"
+    ResourceSink_FusedModularFrame_C:
+      name: "Fused Modular Frame"
+    ResourceSink_EmptyFluidTank_C:
+      name: "Empty Fluid Tank"
+    ResourceSink_ElectromagneticControlRod_C:
+      name: "Electromagnetic Control Rod"
+    ResourceSink_CopperPowder_C:
+      name: "Copper Powder"
+    ResourceSink_CoolingSystem_C:
+      name: "Cooling System"
+    ResourceSink_Zones_FoundationPatterns_C:
+      name: "Factory Zone Patterns"
+    ResourceSink_Pathways_FoundationPatterns_C:
+      name: "Pathway Patterns"
+    ResourceSink_Number_FoundationPatterns_C:
+      name: "Number Patterns"
+    ResourceSink_IconsTransport_FoundationPatterns_C:
+      name: "Transportation Icon Patterns"
+    ResourceSink_IconsFactory_FoundationPatterns_C:
+      name: "Factory Icon Patterns"
+    ResourceSink_FullLines_FoundationPatterns_C:
+      name: "Solid Line Patterns"
+    ResourceSink_DotLines_FoundationPatterns_C:
+      name: "Dotted Line Patterns"
+    ResourceSink_Arrows_FoundationPatterns_C:
+      name: "Arrow Patterns"
+    CBG_PatternRemoval_C:
+      name: "Pattern Removal"
+    Schematic_SongsOfConquest_C:
+      name: "Songs of Conquest Boombox Tape"
+    Schematic_Sanctum2_C:
+      name: "Sanctum 2 Boombox Tape"
+    Schematic_Sanctum_C:
+      name: "Sanctum Boombox Tape"
+    Schematic_LeMichael_C:
+      name: "Classic Michael Boombox Tape"
+    Schematic_JoelSyntholm_C:
+      name: "Joel Syntholm Boombox Tape"
+    Schematic_Huntdown_C:
+      name: "Huntdown Boombox Tape"
+    Schematic_Goat_C:
+      name: "Goat Music Boombox Tape"
+    Schematic_DeepRockGalactic_C:
+      name: "Deep Rock Galactic Boombox Tape"
+    Schematic_AbsoluteFicsit_C:
+      name: "Absolute FICSIT Boombox Tape"
+    Schematic_Tutorial1_C:
+      name: "HUB Upgrade 1"
+    Schematic_Tutorial1_5_C:
+      name: "HUB Upgrade 2"
+    Schematic_Tutorial2_C:
+      name: "HUB Upgrade 3"
+    Schematic_Tutorial3_C:
+      name: "HUB Upgrade 4"
+    Schematic_Tutorial4_C:
+      name: "HUB Upgrade 5"
+    Schematic_Tutorial5_C:
+      name: "HUB Upgrade 6"
+    Ficsmas_Schematic_SkinBundle_2_C:
+      name: "Customizer: Premium FICSMAS Skin"
+    Ficsmas_Schematic_SkinBundle_1_C:
+      name: "Customizer: Basic FICSMAS Skin"
+    Ficsmas_Schematic_Fireworks_C:
+      name: "Equipment: Fireworks"
+    Ficsmas_Schematic_FingerGun_Emote_C:
+      name: "Emote: Finger Guns!"
+    Build_Wall_8x4_01_C:
+      name: "Basic Wall 4m"
+    Build_Wall_8x4_02_C:
+      name: "Basic Wall 4m"
+    Build_Wall_Gate_8x4_01_C:
+      name: "Gate Hole Wall"
+    Build_Wall_Window_8x4_01_C:
+      name: "Single Window"
+    Build_Wall_Window_8x4_02_C:
+      name: "Frame Window"
+    Build_Wall_Window_8x4_03_C:
+      name: "Panel Window"
+    Build_Wall_Window_8x4_04_C:
+      name: "Reinforced Window"
+    Build_Wall_Concrete_8x1_C:
+      name: "Basic Wall 1m"
+    Build_Wall_Concrete_8x4_C:
+      name: "Basic Wall 4m"
+    Build_Wall_Concrete_8x4_ConveyorHole_01_C:
+      name: "Conveyor Wall x1"
+    Build_Wall_Concrete_8x4_Window_01_C:
+      name: "Single Window"
+    Build_Wall_Concrete_8x4_Window_02_C:
+      name: "Frame Window"
+    Build_Wall_Concrete_8x4_Window_03_C:
+      name: "Panel Window"
+    Build_Wall_Concrete_8x4_Window_04_C:
+      name: "Reinforced Window"
+    Build_Wall_Concrete_Angular_8x4_C:
+      name: "Tilted Wall 4m"
+    Build_Wall_Concrete_Angular_8x8_C:
+      name: "Tilted Wall 8m"
+    Build_Wall_Concrete_FlipTris_8x1_C:
+      name: "Inv. Ramp Wall 1m"
+    Build_Wall_Concrete_FlipTris_8x2_C:
+      name: "Inv. Ramp Wall 2m"
+    Build_Wall_Concrete_FlipTris_8x4_C:
+      name: "Inv. Ramp Wall 4m"
+    Build_Wall_Concrete_FlipTris_8x8_C:
+      name: "Inv. Ramp Wall 8m"
+    Build_Wall_Concrete_Gate_8x4_C:
+      name: "Gate Hole Wall"
+    Build_Wall_Concrete_Tris_8x1_C:
+      name: "Ramp Wall 1m"
+    Build_Wall_Concrete_Tris_8x2_C:
+      name: "Ramp Wall 2m"
+    Build_Wall_Concrete_Tris_8x4_C:
+      name: "Ramp Wall 4m"
+    Build_Wall_Concrete_Tris_8x8_C:
+      name: "Ramp Wall 8m"
+    Build_Wall_Orange_8x1_C:
+      name: "Basic Wall 1m"
+    Build_Wall_Orange_Angular_8x4_C:
+      name: "Tilted Wall 4m"
+    Build_Wall_Orange_Angular_8x8_C:
+      name: "Tilted Wall 8m"
+    Build_Wall_Orange_FlipTris_8x1_C:
+      name: "Inv. Ramp Wall 1m"
+    Build_Wall_Orange_FlipTris_8x2_C:
+      name: "Inv. Ramp Wall 2m"
+    Build_Wall_Orange_FlipTris_8x4_C:
+      name: "Inv. Ramp Wall 4m"
+    Build_Wall_Orange_FlipTris_8x8_C:
+      name: "Inv. Ramp Wall 8m"
+    Build_Wall_Orange_Tris_8x1_C:
+      name: "Ramp Wall 1m"
+    Build_Wall_Orange_Tris_8x2_C:
+      name: "Ramp Wall 2m"
+    Build_Wall_Orange_Tris_8x4_C:
+      name: "Ramp Wall 4m"
+    Build_Wall_Orange_Tris_8x8_C:
+      name: "Ramp Wall 8m"
+    Build_SteelWall_8x1_C:
+      name: "Basic Wall 1m"
+    Build_SteelWall_8x4_Gate_01_C:
+      name: "Gate Hole Wall"
+    Build_SteelWall_8x4_Window_01_C:
+      name: "Single Window"
+    Build_SteelWall_8x4_Window_02_C:
+      name: "Reinforced Window"
+    Build_SteelWall_8x4_Window_03_C:
+      name: "Frame Window"
+    Build_SteelWall_8x4_Window_04_C:
+      name: "Panel Window"
+    Build_SteelWall_FlipTris_8x1_C:
+      name: "Inv. Ramp Wall 1m"
+    Build_SteelWall_FlipTris_8x2_C:
+      name: "Inv. Ramp Wall 2m"
+    Build_SteelWall_FlipTris_8x4_C:
+      name: "Inv. Ramp Wall 4m"
+    Build_SteelWall_Tris_8x1_C:
+      name: "Ramp Wall 1m"
+    Build_SteelWall_Tris_8x2_C:
+      name: "Ramp Wall 2m"
+    Build_SteelWall_Tris_8x4_C:
+      name: "Ramp Wall 4m"
+    Build_SteelWall_Tris_8x8_C:
+      name: "Ramp Wall 8m"
+    Build_WallSet_Steel_Angular_8x4_C:
+      name: "Tilted Wall 4m"
+    Build_WallSet_Steel_Angular_8x8_C:
+      name: "Tilted Wall 8m"
+    Build_SteelWall_8x4_C:
+      name: "Tilted Wall 4m"
+    Build_Fence_01_C:
+      name: "Industrial Railing"
+    Build_Wall_Frame_01_C:
+      name: "Frame Wall"
+    Build_Railing_01_C:
+      name: "Modern Railing"
+    Build_Wall_Window_Thin_8x4_01_C:
+      name: "Full Frame Window"
+    Build_Wall_Window_Thin_8x4_02_C:
+      name: "Hex Frame Window"
+    Build_Concrete_Barrier_01_C:
+      name: "Road Barrier"
+    Build_Wall_Conveyor_8x4_01_C:
+      name: "Conveyor Wall x3"
+    Build_Wall_Conveyor_8x4_01_Steel_C:
+      name: "Conveyor Wall x3"
+    Build_Wall_Conveyor_8x4_02_C:
+      name: "Conveyor Wall x2"
+    Build_Wall_Conveyor_8x4_02_Steel_C:
+      name: "Conveyor Wall x2"
+    Build_Wall_Conveyor_8x4_03_C:
+      name: "Conveyor Wall x1"
+    Build_Wall_Conveyor_8x4_03_Steel_C:
+      name: "Conveyor Wall x1"
+    Build_Wall_Concrete_8x4_ConveyorHole_02_C:
+      name: "Conveyor Wall x2"
+    Build_Wall_Concrete_8x4_ConveyorHole_03_C:
+      name: "Conveyor Wall x3"
+    Build_SteelWall_FlipTris_8x8_C:
+      name: "Inv. Ramp Wall 8m"
+    Build_Wall_Conveyor_8x4_04_C:
+      name: "Wall Conveyor Perpendicular"
+    Build_Wall_Conveyor_8x4_04_Steel_C:
+      name: "Wall Conveyor Perpendicular"
+    Build_Wall_Door_8x4_01_C:
+      name: "Center Door Wall"
+    Build_Wall_Door_8x4_01_Steel_C:
+      name: "Center Door Wall"
+    Build_Wall_Door_8x4_03_C:
+      name: "Side Door Wall"
+    Build_Wall_Door_8x4_03_Steel_C:
+      name: "Side Door Wall"
+    Build_Wall_Concrete_CDoor_8x4_C:
+      name: "Center Door Wall"
+    Build_Wall_Concrete_SDoor_8x4_C:
+      name: "Side Door Wall"
+    Build_Gate_Automated_8x4_C:
+      name: "Automated Gate"
+    Build_Wall_Concrete_8x4_Corner_01_C:
+      name: "Tilted Corner Wall 4m"
+    Build_Wall_Concrete_8x4_Corner_2_C:
+      name: "Tilted Concave Wall 4m"
+    Build_Wall_Concrete_8x8_Corner_01_C:
+      name: "Tilted Corner Wall 8m"
+    Build_Wall_Concrete_8x8_Corner_2_C:
+      name: "Tilted Concave Wall 8m"
+    Build_Wall_Orange_8x4_Corner_01_C:
+      name: "Tilted Corner Wall 4m"
+    Build_Wall_Orange_8x4_Corner_02_C:
+      name: "Tilted Concave Wall 4m"
+    Build_Wall_Orange_8x8_Corner_01_C:
+      name: "Tilted Corner Wall 8m"
+    Build_Wall_Orange_8x8_Corner_02_C:
+      name: "Tilted Concave Wall 8m"
+    Build_Wall_Steel_8x4_Corner_01_C:
+      name: "Tilted Corner Wall 4m"
+    Build_Wall_Steel_8x4_Corner_2_C:
+      name: "Tilted Concave Wall 4m"
+    Build_Wall_Steel_8x8_Corner_01_C:
+      name: "Tilted Corner Wall 8m"
+    Build_Wall_Steel_8x8_Corner_2_C:
+      name: "Tilted Concave Wall 8m"
+    Build_Roof_Metal_InCorner_01_C:
+      name: "Inner Corner Roof 1m"
+    Build_Roof_Metal_InCorner_02_C:
+      name: "Inner Corner Roof 2m"
+    Build_Roof_Metal_InCorner_03_C:
+      name: "Inner Corner Roof 4m"
+    Build_Roof_Metal_OutCorner_01_C:
+      name: "Outer Corner Roof 1m"
+    Build_Roof_Metal_OutCorner_02_C:
+      name: "Outer Corner Roof 2m"
+    Build_Roof_Metal_OutCorner_03_C:
+      name: "Outer Corner Roof 4m"
+    Build_Roof_Tar_InCorner_01_C:
+      name: "Inner Corner Roof 1m"
+    Build_Roof_Tar_InCorner_02_C:
+      name: "Inner Corner Roof 2m"
+    Build_Roof_Tar_InCorner_03_C:
+      name: "Inner Corner Roof 4m"
+    Build_Roof_Tar_OutCorner_01_C:
+      name: "Outer Corner Roof 1m"
+    Build_Roof_Tar_OutCorner_02_C:
+      name: "Outer Corner Roof 2m"
+    Build_Roof_Tar_OutCorner_03_C:
+      name: "Outer Corner Roof 4m"
+    Build_Roof_Window_InCorner_01_C:
+      name: "Inner Corner Roof 1m"
+    Build_Roof_Window_InCorner_02_C:
+      name: "Inner Corner Roof 2m"
+    Build_Roof_Window_InCorner_03_C:
+      name: "Inner Corner Roof 4m"
+    Build_Roof_Window_OutCorner_01_C:
+      name: "Outer Corner Roof 1m"
+    Build_Roof_Window_OutCorner_02_C:
+      name: "Outer Corner Roof 2m"
+    Build_Roof_Window_OutCorner_03_C:
+      name: "Outer Corner Roof 4m"
+    Build_Roof_Orange_InCorner_01_C:
+      name: "Inner Corner Roof 1m"
+    Build_Roof_Orange_InCorner_02_C:
+      name: "Inner Corner Roof 2m"
+    Build_Roof_Orange_InCorner_03_C:
+      name: "Inner Corner Roof 4m"
+    Build_Roof_Orange_OutCorner_01_C:
+      name: "Outer Corner Roof 1m"
+    Build_Roof_Orange_OutCorner_02_C:
+      name: "Outer Corner Roof 2m"
+    Build_Roof_Orange_OutCorner_03_C:
+      name: "Outer Corner Roof 4m"
+    Desc_Water_C:
+      name: "Water"
+    Desc_OreIron_C:
+      name: "Iron Ore"
+    Desc_Stone_C:
+      name: "Limestone"
+    Desc_Coal_C:
+      name: "Coal"
+    Desc_Sulfur_C:
+      name: "Sulfur"
+    Desc_LiquidOil_C:
+      name: "Crude Oil"
+    Desc_RawQuartz_C:
+      name: "Raw Quartz"
+    Desc_OreCopper_C:
+      name: "Copper Ore"
+    Desc_OreGold_C:
+      name: "Caterium Ore"
+    Desc_OreUranium_C:
+      name: "Uranium"
+    Desc_NitrogenGas_C:
+      name: "Nitrogen Gas"
+    Desc_OreBauxite_C:
+      name: "Bauxite"
+    Build_RailroadTrack_C:
+      name: "Railway"
+    Build_ConveyorCeilingAttachment_C:
+      name: "Conveyor Ceiling Mount"
+    Build_ConveyorPoleWall_C:
+      name: "Conveyor Wall Mount"
+    Build_WorkBench_C:
+      name: "Craft Bench"
+    Build_PipelineSupportWall_C:
+      name: "Pipeline Wall Support"
+    Build_HyperTubeWallSupport_C:
+      name: "Hypertube Wall Support"
+    Build_WreathDecor_C:
+      name: "FICSMAS Wreath"
+    Build_XmassTree_C:
+      name: "Giant FICSMAS Tree"
+    Build_HyperTubeWallHole_C:
+      name: "Hypertube Wall Hole"
+    Build_PipelineSupportWallHole_C:
+      name: "Pipeline Wall Hole"
+    Build_Workshop_C:
+      name: "Equipment Workshop"
+    Build_ConveyorPole_C:
+      name: "Conveyor Pole"
+    Build_ConveyorBeltMk1_C:
+      name: "Conveyor Belt Mk.1"
+    Build_ConveyorBeltMk5_C:
+      name: "Conveyor Belt Mk.5"
+    Build_ConveyorBeltMk4_C:
+      name: "Conveyor Belt Mk.4"
+    Build_ConveyorBeltMk3_C:
+      name: "Conveyor Belt Mk.3"
+    Build_ConveyorBeltMk2_C:
+      name: "Conveyor Belt Mk.2"
+    Build_PowerLine_C:
+      name: "Power Line"
+    Build_XmassLightsLine_C:
+      name: "FICSMAS Power Light"
+    Build_PowerPoleMk1_C:
+      name: "Power Pole Mk.1"
+    Build_PowerPoleWall_C:
+      name: "Wall Outlet Mk.1"
+    Build_PowerTower_C:
+      name: "Power Tower"
+    Build_PowerTowerPlatform_C:
+      name: "Power Tower Platform"
+    Build_PowerPoleMk3_C:
+      name: "Power Pole Mk.3"
+    Build_PowerPoleMk2_C:
+      name: "Power Pole Mk.2"
+    Build_PowerPoleWallDouble_C:
+      name: "Double Wall Outlet Mk.1"
+    Build_PowerPoleWallDouble_Mk2_C:
+      name: "Double Wall Outlet Mk.2"
+    Build_PowerPoleWall_Mk2_C:
+      name: "Wall Outlet Mk.2"
+    Build_PowerPoleWallDouble_Mk3_C:
+      name: "Double Wall Outlet Mk.3"
+    Build_PowerPoleWall_Mk3_C:
+      name: "Wall Outlet Mk.3"
+    Build_TradingPost_C:
+      name: "The HUB"
+    BP_EquipmentDescriptorShockShank_C:
+      name: "Xeno-Zapper"
+    BP_ItemDescriptorPortableMiner_C:
+      name: "Portable Miner"
+    BP_EquipmentDescriptorHoverPack_C:
+      name: "Hover Pack"
+    BP_EquipmentDescriptorHazmatSuit_C:
+      name: "Hazmat Suit"
+    BP_EquipmentDescriptorGasmask_C:
+      name: "Gas Mask"
+    BP_EquipmentDescriptorJetPack_C:
+      name: "Jetpack"
+    BP_EquipmentDescriptorStunSpear_C:
+      name: "Xeno-Basher"
+    Desc_Chainsaw_C:
+      name: "Chainsaw"
+    BP_EquipmentDescriptorObjectScanner_C:
+      name: "Object Scanner"
+    Desc_RebarGunProjectile_C:
+      name: "Rebar Gun"
+    BP_EquipmentDescriptorRifle_C:
+      name: "Rifle"
+    BP_EquipmentDescriptorJumpingStilts_C:
+      name: "Blade Runners"
+    BP_EqDescZipLine_C:
+      name: "Zipline"
+    BP_EquipmentDescriptorNobeliskDetonator_C:
+      name: "Nobelisk Detonator"
+    BP_EquipmentDescriptorCandyCane_C:
+      name: "Candy Cane Basher"
+    Desc_GolfCart_C:
+      name: "Factory Cart™"
+    Desc_GolfCartGold_C:
+      name: "Golden Factory Cart™"
+    Build_PillarTop_C:
+      name: "Pillar Top"
+    Build_Pillar_Small_Metal_C:
+      name: "Small Metal Pillar"
+    Build_PillarBase_Small_C:
+      name: "Small Pillar Support"
+    Build_PillarBase_C:
+      name: "Big Pillar Support"
+    Build_PillarMiddle_C:
+      name: "Big Metal Pillar"
+    Build_Pillar_Small_Frame_C:
+      name: "Small Frame Pillar"
+    Build_PillarMiddle_Frame_C:
+      name: "Big Frame Pillar"
+    Build_Pillar_Small_Concrete_C:
+      name: "Small Concrete Pillar"
+    Build_PillarMiddle_Concrete_C:
+      name: "Big Concrete Pillar"
+    Build_JumpPad_C:
+      name: "Old Jump Pad"
+    Build_JumpPadTilted_C:
+      name: "Old Tilted Jump Pad"
+    Build_LandingPad_C:
+      name: "U-Jelly Landing Pad"
+    Build_LookoutTower_C:
+      name: "Lookout Tower"
+    Build_Snowman_C:
+      name: "Snowman"
+    Build_CandyCaneDecor_C:
+      name: "Candy Cane"
+    Build_WalkwayCross_C:
+      name: "Walkway Crossing"
+    Build_WalkwayRamp_C:
+      name: "Walkway Ramp"
+    Build_WalkwayT_C:
+      name: "Walkway T-Crossing"
+    Build_WalkwayTrun_C:
+      name: "Walkway Turn"
+    Build_CatwalkCross_C:
+      name: "Catwalk Crossing"
+    Build_CatwalkRamp_C:
+      name: "Catwalk Ramp"
+    Build_CatwalkStairs_C:
+      name: "Catwalk Stairs"
+    Build_CatwalkStraight_C:
+      name: "Catwalk Straight"
+    Build_CatwalkT_C:
+      name: "Catwalk T-Crossing"
+    Build_CatwalkCorner_C:
+      name: "Catwalk Corner"
+    Build_WalkwayStraight_C:
+      name: "Walkway Straight"
+    Build_GeneratorCoal_C:
+      name: "Coal Generator"
+    Build_GeneratorFuel_C:
+      name: "Fuel Generator"
+    Build_GeneratorBiomass_C:
+      name: "Biomass Burner"
+    Build_PipelineSupport_C:
+      name: "Pipeline Support"
+    Build_PipeSupportStackable_C:
+      name: "Stackable Pipeline Support"
+    Build_HyperPoleStackable_C:
+      name: "Stackable Hypertube Support"
+    Build_PipeHyperSupport_C:
+      name: "Hypertube Support"
+    Build_Pipeline_C:
+      name: "Pipeline Mk.1"
+    Build_PipelineMK2_C:
+      name: "Pipeline Mk.2"
+    Build_PipelineMK2_NoIndicator_C:
+      name: "Pipeline Mk.2 (No Indicator)"
+    Build_Pipeline_NoIndicator_C:
+      name: "Pipeline Mk.1 (No Indicator)"
+    Build_PipelineJunction_Cross_C:
+      name: "Pipeline Junction Cross"
+    Build_PipelinePump_C:
+      name: "Pipeline Pump Mk.1"
+    Build_Valve_C:
+      name: "Valve"
+    Build_PipelinePumpMk2_C:
+      name: "Pipeline Pump Mk.2"
+    Build_PipeStorageTank_C:
+      name: "Fluid Buffer"
+    Build_IndustrialTank_C:
+      name: "Industrial Fluid Buffer"
+    Build_WaterPump_C:
+      name: "Water Extractor"
+    Build_ResourceSink_C:
+      name: "AWESOME Sink"
+    Build_ResourceSinkShop_C:
+      name: "AWESOME Shop"
+    Desc_FlowerPetals_C:
+      name: "Flower Petals"
+    Desc_Wood_C:
+      name: "Wood"
+    Desc_GenericBiomass_C:
+      name: "Biomass"
+    Desc_Biofuel_C:
+      name: "Solid Biofuel"
+    Desc_LiquidBiofuel_C:
+      name: "Liquid Biofuel"
+    Desc_PackagedBiofuel_C:
+      name: "Packaged Liquid Biofuel"
+    Desc_PackagedAlumina_C:
+      name: "Packaged Alumina Solution"
+    Desc_PackagedNitrogenGas_C:
+      name: "Packaged Nitrogen Gas"
+    Desc_PackagedNitricAcid_C:
+      name: "Packaged Nitric Acid"
+    Desc_PackagedSulfuricAcid_C:
+      name: "Packaged Sulfuric Acid"
+    Desc_Fabric_C:
+      name: "Fabric"
+    Desc_StingerParts_C:
+      name: "Stinger Remains"
+    Desc_SpitterParts_C:
+      name: "Plasma Spitter Remains"
+    Desc_HogParts_C:
+      name: "Hog Remains"
+    Desc_HatcherParts_C:
+      name: "Hatcher Remains"
+    Desc_Mycelia_C:
+      name: "Mycelia"
+    Desc_Leaves_C:
+      name: "Leaves"
+    Build_OilPump_C:
+      name: "Oil Extractor"
+    Build_MinerMk2_C:
+      name: "Miner Mk.2"
+    Build_MinerMk3_C:
+      name: "Miner Mk.3"
+    Build_MinerMk1_C:
+      name: "Miner Mk.1"
+    Build_OilRefinery_C:
+      name: "Refinery"
+    Build_FoundryMk1_C:
+      name: "Foundry"
+    Build_Packager_C:
+      name: "Packager"
+    Build_Blender_C:
+      name: "Blender"
+    Build_ManufacturerMk1_C:
+      name: "Manufacturer"
+    Build_AssemblerMk1_C:
+      name: "Assembler"
+    Build_SmelterMk1_C:
+      name: "Smelter"
+    Build_ConstructorMk1_C:
+      name: "Constructor"
+    Desc_NuclearFuelRod_C:
+      name: "Uranium Fuel Rod"
+    Desc_PlutoniumFuelRod_C:
+      name: "Plutonium Fuel Rod"
+    Desc_Truck_C:
+      name: "Truck"
+    Desc_DroneTransport_C:
+      name: "Drone"
+    Desc_FreightWagon_C:
+      name: "Freight Car"
+    Desc_Locomotive_C:
+      name: "Electric Locomotive"
+    Desc_Tractor_C:
+      name: "Tractor"
+    Desc_Explorer_C:
+      name: "Explorer"
+    Desc_CyberWagon_C:
+      name: "Cyber Wagon"
+    Build_HadronCollider_C:
+      name: "Particle Accelerator"
+    Build_GeneratorNuclear_C:
+      name: "Nuclear Power Plant"
+    Build_FrackingExtractor_C:
+      name: "Resource Well Extractor"
+    Build_FrackingSmasher_C:
+      name: "Resource Well Pressurizer"
+    Build_ConveyorLiftMk1_C:
+      name: "Conveyor Lift Mk.1"
+    Build_ConveyorLiftMk5_C:
+      name: "Conveyor Lift Mk.5"
+    Build_ConveyorLiftMk4_C:
+      name: "Conveyor Lift Mk.4"
+    Build_ConveyorLiftMk3_C:
+      name: "Conveyor Lift Mk.3"
+    Build_ConveyorLiftMk2_C:
+      name: "Conveyor Lift Mk.2"
+    BP_EquipmentDescriptorBeacon_C:
+      name: "Beacon"
+    Desc_Shroom_C:
+      name: "Bacon Agaric"
+    Desc_Berry_C:
+      name: "Paleberry"
+    Desc_Nut_C:
+      name: "Beryl Nut"
+    Desc_Medkit_C:
+      name: "Medicinal Inhaler"
+    Desc_Parachute_C:
+      name: "Parachute"
+    Build_RailroadBlockSignal_C:
+      name: "Block Signal"
+    Build_RailroadPathSignal_C:
+      name: "Path Signal"
+    Build_TrainDockingStation_C:
+      name: "Freight Platform"
+    Build_TrainDockingStationLiquid_C:
+      name: "Fluid Freight Platform"
+    Build_TrainPlatformEmpty_C:
+      name: "Empty Platform"
+    Build_TrainPlatformEmpty_02_C:
+      name: "Empty Platform With Catwalk"
+    Build_TrainStation_C:
+      name: "Train Station"
+    Build_StorageContainerMk2_C:
+      name: "Industrial Storage Container"
+    Build_StoragePlayer_C:
+      name: "Personal Storage Box"
+    Build_StorageMedkit_C:
+      name: "Medical Storage Box"
+    Build_StorageHazard_C:
+      name: "Hazard Storage Box"
+    Build_StorageContainerMk1_C:
+      name: "Storage Container"
+    Build_PipeHyperStart_C:
+      name: "Hypertube Entrance"
+    Build_PipeHyper_C:
+      name: "Hypertube"
+    Build_PowerStorageMk1_C:
+      name: "Power Storage"
+    Build_TruckStation_C:
+      name: "Truck Station"
+    Build_ConveyorPoleStackable_C:
+      name: "Stackable Conveyor Pole"
+    Build_JumpPadAdjustable_C:
+      name: "Jump Pad"
+    Build_Mam_C:
+      name: "MAM"
+    Build_ConveyorAttachmentMerger_C:
+      name: "Conveyor Merger"
+    Build_ConveyorAttachmentSplitter_C:
+      name: "Conveyor Splitter"
+    Build_DownQuarterPipe_Asphalt_8x4_C:
+      name: "Inverted Quarter Pipe"
+    Build_DownQuarterPipeInCorner_Asphalt_8x4_C:
+      name: "Inverted Inner Corner Quarter Pipe"
+    Build_DownQuarterPipeOutCorner_Asphalt_8x4_C:
+      name: "Inverted Outer Corner Quarter Pipe"
+    Build_InvertedRamp_DCorner_Asphalt_8x1_C:
+      name: "Inv. Down Corner 1m"
+    Build_InvertedRamp_DCorner_Asphalt_8x2_C:
+      name: "Inv. Down Corner 2m"
+    Build_InvertedRamp_DCorner_Asphalt_8x4_C:
+      name: "Inv. Down Corner 4m"
+    Build_InvertedRamp_UCorner_Asphalt_8x1_C:
+      name: "Inv. Up Corner 1m"
+    Build_InvertedRamp_UCorner_Asphalt_8x2_C:
+      name: "Inv. Up Corner 2m"
+    Build_InvertedRamp_UCorner_Asphalt_8x4_C:
+      name: "Inv. Up Corner 4m"
+    Build_QuarterPipe_Asphalt_8x4_C:
+      name: "Quarter Pipe"
+    Build_QuarterPipeInCorner_Asphalt_8x4_C:
+      name: "Inner Corner Quarter Pipe"
+    Build_QuarterPipeMiddle_Asphalt_8x1_C:
+      name: "Half 1m Foundation"
+    Build_QuarterPipeMiddle_Asphalt_8x2_C:
+      name: "Half 2m Foundation"
+    Build_QuarterPipeMiddle_Asphalt_8x4_C:
+      name: "Half 4m Foundation"
+    Build_QuarterPipeMiddleInCorner_Asphalt_8x1_C:
+      name: "Inner Corner Extension 1m"
+    Build_QuarterPipeMiddleInCorner_Asphalt_8x2_C:
+      name: "Inner Corner Extension 2m"
+    Build_QuarterPipeMiddleInCorner_Asphalt_8x4_C:
+      name: "Inner Corner Extension 4m"
+    Build_QuarterPipeMiddleOutCorner_Asphalt_4x1_C:
+      name: "Outer Corner Extension 1m"
+    Build_QuarterPipeMiddleOutCorner_Asphalt_4x2_C:
+      name: "Outer Corner Extension 2m"
+    Build_QuarterPipeMiddleOutCorner_Asphalt_4x4_C:
+      name: "Outer Corner Extension 4m"
+    Build_QuarterPipeOutCorner_Asphalt_8x4_C:
+      name: "Outer Corner Quarter Pipe"
+    Build_Ramp_DownCorner_Asphalt_8x1_C:
+      name: "Down Corner Ramp 1m"
+    Build_Ramp_DownCorner_Asphalt_8x2_C:
+      name: "Down Corner Ramp 2m"
+    Build_Ramp_DownCorner_Asphalt_8x4_C:
+      name: "Down Corner Ramp 4m"
+    Build_Ramp_UpCorner_Asphalt_8x1_C:
+      name: "Up Corner Ramp 1m"
+    Build_Ramp_UpCorner_Asphalt_8x2_C:
+      name: "Up Corner Ramp 2m"
+    Build_Ramp_UpCorner_Asphalt_8x4_C:
+      name: "Up Corner Ramp 4m"
+    Build_DownQuarterPipe_Concrete_8x4_C:
+      name: "Inverted Quarter Pipe"
+    Build_DownQuarterPipeInCorner_Concrete_8x4_C:
+      name: "Inverted Inner Corner Quarter Pipe"
+    Build_DownQuarterPipeOutCorner_Concrete_8x4_C:
+      name: "Inverted Outer Corner Quarter Pipe"
+    Build_InvertedRamp_DCorner_Concrete_8x1_C:
+      name: "Inv. Down Corner 1m"
+    Build_InvertedRamp_DCorner_Concrete_8x2_C:
+      name: "Inv. Down Corner 2m"
+    Build_InvertedRamp_DCorner_Concrete_8x4_C:
+      name: "Inv. Down Corner 4m"
+    Build_InvertedRamp_UCorner_Concrete_8x1_C:
+      name: "Inv. Up Corner 1m"
+    Build_InvertedRamp_UCorner_Concrete_8x2_C:
+      name: "Inv. Up Corner 2m"
+    Build_InvertedRamp_UCorner_Concrete_8x4_C:
+      name: "Inv. Up Corner 4m"
+    Build_QuarterPipe_Concrete_8x4_C:
+      name: "Quarter Pipe"
+    Build_QuarterPipeInCorner_Concrete_8x4_C:
+      name: "Inner Corner Quarter Pipe"
+    Build_QuarterPipeMiddle_Concrete_8x1_C:
+      name: "Half 1m Foundation"
+    Build_QuarterPipeMiddle_Concrete_8x2_C:
+      name: "Half 2m Foundation"
+    Build_QuarterPipeMiddle_Concrete_8x4_C:
+      name: "Half 4m Foundation"
+    Build_QuarterPipeMiddleInCorner_Concrete_8x1_C:
+      name: "Inner Corner Extension 1m"
+    Build_QuarterPipeMiddleInCorner_Concrete_8x2_C:
+      name: "Inner Corner Extension 2m"
+    Build_QuarterPipeMiddleInCorner_Concrete_8x4_C:
+      name: "Inner Corner Extension 4m"
+    Build_QuarterPipeMiddleOutCorner_Concrete_4x1_C:
+      name: "Outer Corner Extension 1m"
+    Build_QuarterPipeMiddleOutCorner_Concrete_4x2_C:
+      name: "Outer Corner Extension 2m"
+    Build_QuarterPipeMiddleOutCorner_Concrete_4x4_C:
+      name: "Outer Corner Extension 4m"
+    Build_QuarterPipeOutCorner_Concrete_8x4_C:
+      name: "Outer Corner Quarter Pipe"
+    Build_Ramp_DownCorner_Concrete_8x1_C:
+      name: "Down Corner Ramp 1m"
+    Build_Ramp_DownCorner_Concrete_8x2_C:
+      name: "Down Corner Ramp 2m"
+    Build_Ramp_DownCorner_Concrete_8x4_C:
+      name: "Down Corner Ramp 4m"
+    Build_Ramp_UpCorner_Concrete_8x1_C:
+      name: "Up Corner Ramp 1m"
+    Build_Ramp_UpCorner_Concrete_8x2_C:
+      name: "Up Corner Ramp 2m"
+    Build_Ramp_UpCorner_Concrete_8x4_C:
+      name: "Up Corner Ramp 4m"
+    Build_QuarterPipeMiddle_Ficsit_8x1_C:
+      name: "Half 1m Foundation"
+    Build_QuarterPipeMiddle_Ficsit_8x2_C:
+      name: "Half 2m Foundation"
+    Build_QuarterPipeMiddle_Ficsit_8x4_C:
+      name: "Half 4m Foundation"
+    Build_QuarterPipeMiddleInCorner_Ficsit_8x1_C:
+      name: "Inner Corner Extension 1m"
+    Build_QuarterPipeMiddleInCorner_Ficsit_8x2_C:
+      name: "Inner Corner Extension 2m"
+    Build_QuarterPipeMiddleInCorner_Ficsit_8x4_C:
+      name: "Inner Corner Extension 4m"
+    Build_QuarterPipeMiddleOutCorner_Ficsit_4x1_C:
+      name: "Outer Corner Extension 1m"
+    Build_QuarterPipeMiddleOutCorner_Ficsit_4x2_C:
+      name: "Outer Corner Extension 2m"
+    Build_QuarterPipeMiddleOutCorner_Ficsit_4x4_C:
+      name: "Outer Corner Extension 4m"
+    Build_DownQuarterPipe_Grip_8x4_C:
+      name: "Inverted Quarter Pipe"
+    Build_DownQuarterPipeInCorner_Grip_8x4_C:
+      name: "Inverted Inner Corner Quarter Pipe"
+    Build_DownQuarterPipeOutCorner_Grip_8x4_C:
+      name: "Inverted Outer Corner Quarter Pipe"
+    Build_InvertedRamp_DCorner_Metal_8x1_C:
+      name: "Inv. Down Corner 1m"
+    Build_InvertedRamp_DCorner_Metal_8x2_C:
+      name: "Inv. Down Corner 2m"
+    Build_InvertedRamp_DCorner_Metal_8x4_C:
+      name: "Inv. Down Corner 4m"
+    Build_InvertedRamp_UCorner_Metal_8x1_C:
+      name: "Inv. Up Corner 1m"
+    Build_InvertedRamp_UCorner_Metal_8x2_C:
+      name: "Inv. Up Corner 2m"
+    Build_InvertedRamp_UCorner_Metal_8x4_C:
+      name: "Inv. Up Corner 4m"
+    Build_QuarterPipe_Grip_8x4_C:
+      name: "Quarter Pipe"
+    Build_QuarterPipeInCorner_Grip_8x4_C:
+      name: "Inner Corner Quarter Pipe"
+    Build_QuarterPipeMiddle_Grip_8x1_C:
+      name: "Half 1m Foundation"
+    Build_QuarterPipeMiddle_Grip_8x2_C:
+      name: "Half 2m Foundation"
+    Build_QuarterPipeMiddle_Grip_8x4_C:
+      name: "Half 4m Foundation"
+    Build_QuarterPipeMiddleInCorner_Grip_8x1_C:
+      name: "Inner Corner Extension 1m"
+    Build_QuarterPipeMiddleInCorner_Grip_8x2_C:
+      name: "Inner Corner Extension 2m"
+    Build_QuarterPipeMiddleInCorner_Grip_8x4_C:
+      name: "Inner Corner Extension 4m"
+    Build_QuarterPipeMiddleOutCorner_Grip_4x1_C:
+      name: "Outer Corner Extension 1m"
+    Build_QuarterPipeMiddleOutCorner_Grip_4x2_C:
+      name: "Outer Corner Extension 2m"
+    Build_QuarterPipeMiddleOutCorner_Grip_4x4_C:
+      name: "Outer Corner Extension 4m"
+    Build_QuarterPipeOutCorner_Grip_8x4_C:
+      name: "Outer Corner Quarter Pipe"
+    Build_Ramp_DownCorner_Metal_8x1_C:
+      name: "Down Corner Ramp 1m"
+    Build_Ramp_DownCorner_Metal_8x2_C:
+      name: "Down Corner Ramp 2m"
+    Build_Ramp_DownCorner_Metal_8x4_C:
+      name: "Down Corner Ramp 4m"
+    Build_Ramp_UpCorner_Metal_8x1_C:
+      name: "Up Corner Ramp 1m"
+    Build_Ramp_UpCorner_Metal_8x2_C:
+      name: "Up Corner Ramp 2m"
+    Build_Ramp_UpCorner_Metal_8x4_C:
+      name: "Up Corner Ramp 4m"
+    Build_DownQuarterPipe_ConcretePolished_8x4_C:
+      name: "Inverted Quarter Pipe"
+    Build_DownQuarterPipeInCorner_ConcretePolished_8x4_C:
+      name: "Inverted Inner Corner Quarter Pipe"
+    Build_DownQuarterPipeOutCorner_ConcretePolished_8x4_C:
+      name: "Inverted Outer Corner Quarter Pipe"
+    Build_InvertedRamp_DCorner_Polished_8x1_C:
+      name: "Inv. Down Corner 1m"
+    Build_InvertedRamp_DCorner_Polished_8x2_C:
+      name: "Inv. Down Corner 2m"
+    Build_InvertedRamp_DCorner_Polished_8x4_C:
+      name: "Inv. Down Corner 4m"
+    Build_InvertedRamp_UCorner_Polished_8x1_C:
+      name: "Inv. Up Corner 1m"
+    Build_InvertedRamp_UCorner_Polished_8x2_C:
+      name: "Inv. Up Corner 2m"
+    Build_InvertedRamp_UCorner_Polished_8x4_C:
+      name: "Inv. Up Corner 4m"
+    Build_QuarterPipe_ConcretePolished_8x4_C:
+      name: "Quarter Pipe"
+    Build_QuarterPipeInCorner_ConcretePolished_8x4_C:
+      name: "Inner Corner Quarter Pipe"
+    Build_QuarterPipeMiddle_PolishedConcrete_8x1_C:
+      name: "Half 1m Foundation"
+    Build_QuarterPipeMiddle_PolishedConcrete_8x2_C:
+      name: "Half 2m Foundation"
+    Build_QuarterPipeMiddle_PolishedConcrete_8x4_C:
+      name: "Half 4m Foundation"
+    Build_QuarterPipeMiddleInCorner_PolishedConcrete_8x1_C:
+      name: "Inner Corner Extension 1m"
+    Build_QuarterPipeMiddleInCorner_PolishedConcrete_8x2_C:
+      name: "Inner Corner Extension 2m"
+    Build_QuarterPipeMiddleInCorner_PolishedConcrete_8x4_C:
+      name: "Inner Corner Extension 4m"
+    Build_QuarterPipeMiddleOutCorner_PolishedConcrete_4x1_C:
+      name: "Outer Corner Extension 1m"
+    Build_QuarterPipeMiddleOutCorner_PolishedConcrete_4x2_C:
+      name: "Outer Corner Extension 2m"
+    Build_QuarterPipeMiddleOutCorner_PolishedConcrete_4x4_C:
+      name: "Outer Corner Extension 4m"
+    Build_QuarterPipeOutCorner_ConcretePolished_8x4_C:
+      name: "Outer Corner Quarter Pipe"
+    Build_Ramp_DownCorner_Polished_8x1_C:
+      name: "Down Corner Ramp 1m"
+    Build_Ramp_DownCorner_Polished_8x2_C:
+      name: "Down Corner Ramp 2m"
+    Build_Ramp_DownCorner_Polished_8x4_C:
+      name: "Down Corner Ramp 4m"
+    Build_Ramp_UpCorner_Polished_8x1_C:
+      name: "Up Corner Ramp 1m"
+    Build_Ramp_UpCorner_Polished_8x2_C:
+      name: "Up Corner Ramp 2m"
+    Build_Ramp_UpCorner_Polished_8x4_C:
+      name: "Up Corner Ramp 4m"
+    Build_QuarterPipe_C:
+      name: "Quarter Pipe"
+    Build_QuarterPipe_02_C:
+      name: "Inverted Quarter Pipe"
+    Build_QuarterPipeCorner_01_C:
+      name: "Inner Corner Quarter Pipe"
+    Build_QuarterPipeCorner_02_C:
+      name: "Inverted Inner Corner Quarter Pipe"
+    Build_QuarterPipeCorner_03_C:
+      name: "Outer Corner Quarter Pipe"
+    Build_QuarterPipeCorner_04_C:
+      name: "Inverted Outer Corner Quarter Pipe"
+    Build_Ramp_Diagonal_8x1_01_C:
+      name: "Down Corner Ramp 1m"
+    Build_Ramp_Diagonal_8x1_02_C:
+      name: "Up Corner Ramp 1m"
+    Build_Ramp_Diagonal_8x2_01_C:
+      name: "Down Corner Ramp 2m"
+    Build_Ramp_Diagonal_8x2_02_C:
+      name: "Up Corner Ramp 2m"
+    Build_Ramp_Diagonal_8x4_01_C:
+      name: "Down Corner Ramp 4m"
+    Build_Ramp_Diagonal_8x4_02_C:
+      name: "Up Corner Ramp 4m"
+    Build_RampInverted_8x1_Corner_01_C:
+      name: "Inv. Up Corner 1m"
+    Build_RampInverted_8x1_Corner_02_C:
+      name: "Inv. Down Corner 1m"
+    Build_RampInverted_8x2_Corner_01_C:
+      name: "Inv. Up Corner 2m"
+    Build_RampInverted_8x2_Corner_02_C:
+      name: "Inv. Down Corner 2m"
+    Build_RampInverted_8x4_Corner_01_C:
+      name: "Inv. Up Corner 4m"
+    Build_RampInverted_8x4_Corner_02_C:
+      name: "Inv. Down Corner 4m"
+    Build_Flat_Frame_01_C:
+      name: "Frame Floor"
+    Build_Foundation_Asphalt_8x1_C:
+      name: "Foundation 1m"
+    Build_Foundation_Asphalt_8x2_C:
+      name: "Foundation 2m"
+    Build_Foundation_Asphalt_8x4_C:
+      name: "Foundation 4m"
+    Build_Foundation_Concrete_8x1_C:
+      name: "Foundation 1m"
+    Build_Foundation_Concrete_8x2_C:
+      name: "Foundation 2m"
+    Build_Foundation_Concrete_8x4_C:
+      name: "Foundation 4m"
+    Build_Foundation_Metal_8x1_C:
+      name: "Foundation 1m"
+    Build_Foundation_Metal_8x2_C:
+      name: "Foundation 2m"
+    Build_Foundation_Metal_8x4_C:
+      name: "Foundation 4m"
+    Build_Foundation_ConcretePolished_8x1_C:
+      name: "Foundation 1m"
+    Build_Foundation_ConcretePolished_8x2_2_C:
+      name: "Foundation 2m"
+    Build_Foundation_ConcretePolished_8x4_C:
+      name: "Foundation 4m"
+    Build_Foundation_8x1_01_C:
+      name: "Foundation 1m"
+    Build_Foundation_8x2_01_C:
+      name: "Foundation 2m"
+    Build_Foundation_8x4_01_C:
+      name: "Foundation 4m"
+    Build_Foundation_Frame_01_C:
+      name: "Frame Foundation"
+    Build_FoundationGlass_01_C:
+      name: "Glass Frame Foundation"
+    Build_InvertedRamp_Asphalt_8x1_C:
+      name: "Inv. Ramp 1m"
+    Build_InvertedRamp_Asphalt_8x2_C:
+      name: "Inv. Ramp 2m"
+    Build_InvertedRamp_Asphalt_8x4_C:
+      name: "Inv. Ramp 4m"
+    Build_Ramp_Asphalt_8x1_C:
+      name: "Ramp 1m"
+    Build_Ramp_Asphalt_8x2_C:
+      name: "Ramp 2m"
+    Build_Ramp_Asphalt_8x4_C:
+      name: "Ramp 4m"
+    Build_RampDouble_Asphalt_8x1_C:
+      name: "Double Ramp 2m"
+    Build_RampDouble_Asphalt_8x2_C:
+      name: "Double Ramp 4m"
+    Build_RampDouble_Asphalt_8x4_C:
+      name: "Double Ramp 8m"
+    Build_InvertedRamp_Concrete_8x1_C:
+      name: "Inv. Ramp 1m"
+    Build_InvertedRamp_Concrete_8x2_C:
+      name: "Inv. Ramp 2m"
+    Build_InvertedRamp_Concrete_8x4_C:
+      name: "Inv. Ramp 4m"
+    Build_Ramp_Concrete_8x1_C:
+      name: "Ramp 1m"
+    Build_Ramp_Concrete_8x2_C:
+      name: "Ramp 2m"
+    Build_Ramp_Concrete_8x4_C:
+      name: "Ramp 4m"
+    Build_RampDouble_Concrete_8x1_C:
+      name: "Double Ramp 2m"
+    Build_RampDouble_Concrete_8x2_C:
+      name: "Double Ramp 4m"
+    Build_RampDouble_Concrete_8x4_C:
+      name: "Double Ramp 8m"
+    Build_InvertedRamp_Metal_8x1_C:
+      name: "Inv. Ramp 1m"
+    Build_InvertedRamp_Metal_8x2_C:
+      name: "Inv. Ramp 2m"
+    Build_InvertedRamp_Metal_8x4_C:
+      name: "Inv. Ramp 4m"
+    Build_Ramp_Metal_8x1_C:
+      name: "Ramp 1m"
+    Build_Ramp_Metal_8x2_C:
+      name: "Ramp 2m"
+    Build_Ramp_Metal_8x4_C:
+      name: "Ramp 4m"
+    Build_RampDouble_Metal_8x1_C:
+      name: "Double Ramp 2m"
+    Build_RampDouble_Metal_8x2_C:
+      name: "Double Ramp 4m"
+    Build_RampDouble_Metal_8x4_C:
+      name: "Double Ramp 8m"
+    Build_InvertedRamp_Polished_8x1_C:
+      name: "Inv. Ramp 1m"
+    Build_InvertedRamp_Polished_8x2_C:
+      name: "Inv. Ramp 2m"
+    Build_InvertedRamp_Polished_8x4_C:
+      name: "Inv. Ramp 4m"
+    Build_Ramp_Polished_8x1_C:
+      name: "Ramp 1m"
+    Build_Ramp_Polished_8x2_C:
+      name: "Ramp 2m"
+    Build_Ramp_Polished_8x4_C:
+      name: "Ramp 4m"
+    Build_RampDouble_Polished_8x1_C:
+      name: "Double Ramp 2m"
+    Build_RampDouble_Polished_8x2_C:
+      name: "Double Ramp 4m"
+    Build_RampDouble_Polished_8x4_C:
+      name: "Double Ramp 8m"
+    Build_Ramp_8x1_01_C:
+      name: "Ramp 1m"
+    Build_Ramp_8x2_01_C:
+      name: "Ramp 2m"
+    Build_Ramp_8x4_01_C:
+      name: "Ramp 4m"
+    Build_Ramp_8x4_Inverted_01_C:
+      name: "Inv. Ramp 4m"
+    Build_Ramp_8x8x8_C:
+      name: "Double Ramp 8m"
+    Build_RampDouble_C:
+      name: "Double Ramp 4m"
+    Build_RampDouble_8x1_C:
+      name: "Double Ramp 2m"
+    Build_RampInverted_8x1_C:
+      name: "Inv. Ramp 1m"
+    Build_RampInverted_8x2_01_C:
+      name: "Inv. Ramp 2m"
+    Build_Ramp_Frame_01_C:
+      name: "Frame Ramp"
+    Build_Ramp_Frame_Inverted_01_C:
+      name: "Inverted Frame Ramp"
+    Build_Roof_A_01_C:
+      name: "Roof Flat"
+    Build_Roof_A_02_C:
+      name: "Roof 1m"
+    Build_Roof_A_03_C:
+      name: "Roof 2m"
+    Build_Roof_A_04_C:
+      name: "Roof 4m"
+    Build_Roof_Tar_01_C:
+      name: "Roof Flat"
+    Build_Roof_Tar_02_C:
+      name: "Roof 1m"
+    Build_Roof_Tar_03_C:
+      name: "Roof 2m"
+    Build_Roof_Tar_04_C:
+      name: "Roof 4m"
+    Build_Roof_Window_01_C:
+      name: "Roof Flat"
+    Build_Roof_Window_02_C:
+      name: "Roof 1m"
+    Build_Roof_Window_03_C:
+      name: "Roof 2m"
+    Build_Roof_Window_04_C:
+      name: "Roof 4m"
+    Build_Roof_Orange_01_C:
+      name: "Roof Flat"
+    Build_Roof_Orange_02_C:
+      name: "Roof 1m"
+    Build_Roof_Orange_03_C:
+      name: "Roof 2m"
+    Build_Roof_Orange_04_C:
+      name: "Roof 4m"
+    Desc_Rebar_Explosive_C:
+      name: "Explosive Rebar"
+    Desc_Rebar_Stunshot_C:
+      name: "Stun Rebar"
+    Desc_SpikedRebar_C:
+      name: "Iron Rebar"
+    Desc_CartridgeSmartProjectile_C:
+      name: "Homing Rifle Ammo"
+    Desc_NobeliskExplosive_C:
+      name: "Nobelisk"
+    Desc_NobeliskCluster_C:
+      name: "Cluster Nobelisk"
+    Desc_NobeliskGas_C:
+      name: "Gas Nobelisk"
+    Desc_NobeliskNuke_C:
+      name: "Nuke Nobelisk"
+    Desc_NobeliskShockwave_C:
+      name: "Pulse Nobelisk"
+    Desc_Fireworks_Projectile_01_C:
+      name: "Sweet Fireworks"
+    Desc_Fireworks_Projectile_02_C:
+      name: "Fancy Fireworks"
+    Desc_Fireworks_Projectile_03_C:
+      name: "Sparkly Fireworks"
+    Desc_SnowballProjectile_C:
+      name: "Snowball"
+    Desc_Rebar_Spreadshot_C:
+      name: "Shatter Rebar"
+    Build_GeneratorGeoThermal_C:
+      name: "Geothermal Generator"
+    Build_ConveyorAttachmentSplitterProgrammable_C:
+      name: "Programmable Splitter"
+    Build_ConveyorAttachmentSplitterSmart_C:
+      name: "Smart Splitter"
+    Desc_CartridgeChaos_C:
+      name: "Turbo Rifle Ammo"
+    Desc_CartridgeStandard_C:
+      name: "Rifle Ammo"
+    Build_PriorityPowerSwitch_C:
+      name: "Priority Power Switch"
+    Build_PowerSwitch_C:
+      name: "Power Switch"
+    Build_RadarTower_C:
+      name: "Radar Tower"
+    Build_SnowDispenser_C:
+      name: "FICSMAS Snow Dispenser"
+    Build_TreeGiftProducer_C:
+      name: "FICSMAS Gift Tree"
+    Build_Ladder_C:
+      name: "Ladder"
+    Build_Stairs_Left_01_C:
+      name: "Stairs Left"
+    Build_Stairs_Right_01_C:
+      name: "Stairs Right"
+    Build_FoundationPassthrough_Pipe_C:
+      name: "Pipeline Floor Hole"
+    Build_FoundationPassthrough_Hypertube_C:
+      name: "Hypertube Floor Hole"
+    Build_FoundationPassthrough_Lift_C:
+      name: "Conveyor Lift Floor Hole"
+    Build_LightsControlPanel_C:
+      name: "Lights Control Panel"
+    Build_StreetLight_C:
+      name: "Street Light"
+    Build_CeilingLight_C:
+      name: "Ceiling Light"
+    Build_FloodlightPole_C:
+      name: "Flood Light Tower"
+    Build_FloodlightWall_C:
+      name: "Wall Mounted Flood Light"
+    Build_StandaloneWidgetSign_Small_C:
+      name: "Label Sign 2m"
+    Build_StandaloneWidgetSign_SmallVeryWide_C:
+      name: "Label Sign 4m"
+    Build_StandaloneWidgetSign_SmallWide_C:
+      name: "Label Sign 3m"
+    Build_StandaloneWidgetSign_Square_Tiny_C:
+      name: "Square Sign 0.5m"
+    Build_StandaloneWidgetSign_Medium_C:
+      name: "Display Sign"
+    Build_StandaloneWidgetSign_Portrait_C:
+      name: "Portrait Sign"
+    Build_StandaloneWidgetSign_Square_C:
+      name: "Square Sign 2m"
+    Build_StandaloneWidgetSign_Square_Small_C:
+      name: "Square Sign 1m"
+    Build_StandaloneWidgetSign_Huge_C:
+      name: "Large Billboard"
+    Build_StandaloneWidgetSign_Large_C:
+      name: "Small Billboard"
+    Build_Beam_C:
+      name: "Metal Beam"
+    Build_Beam_Painted_C:
+      name: "Painted Beam"
+    Build_Beam_Connector_C:
+      name: "Beam Connector"
+    Build_Beam_Connector_Double_C:
+      name: "Beam Connector Double"
+    Build_Beam_Support_C:
+      name: "Beam Support"
+    Build_SpaceElevator_C:
+      name: "Space Elevator"
+    Desc_SAM_C:
+      name: "S.A.M. Ore"
+    energy:
+      name: "Power Production"
+    points:
+      name: "AWESOME Points"

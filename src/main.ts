@@ -27,5 +27,13 @@ export const createApp = ViteSSG(
     )) {
       module.install(ctx);
     }
+
+    ctx.app.config.warnHandler = (msg, instance, trace) => {
+      if (msg.startsWith("Invalid prop:")) {
+        return;
+      }
+
+      console.warn(msg);
+    };
   },
 );

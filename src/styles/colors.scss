@@ -1,0 +1,7 @@
+:root {
+  --background-highlight: rgba(0, 0, 0, 0.1);
+
+  &.dark {
+    --background-highlight: rgba(255, 255, 255, 0.1);
+  }
+}

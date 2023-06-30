@@ -1,18 +1,28 @@
 import {
+  type Machine,
+  type QuantityPerMinute,
+  type MegaWatts,
   type Seconds,
   type Quantity,
   type VariablePowerConsumptionConstant,
   type VariablePowerConsumptionFactor,
-  type Item,
+  type GeneralItem,
+  type Idable,
 } from "~/data/types";
-import { type Machine } from "~/data/types/machines";
 
-export type Recipe = {
+export type Recipe = Idable & {
   id: string;
-  ingredients: Map<Item, Quantity>;
-  products: Map<Item, Quantity>;
+  ingredients: Map<GeneralItem, Quantity>;
+  products: Map<GeneralItem, Quantity>;
   duration: Seconds;
-  producedIn: Set<Machine>;
+  producedIn: Set<Idable>;
   variablePowerConsumptionConstant: VariablePowerConsumptionConstant;
   variablePowerConsumptionFactor: VariablePowerConsumptionFactor;
+};
+
+export type AppliedRecipe = Idable & {
+  inputOutput: Map<GeneralItem, QuantityPerMinute>;
+  powerDifferential: MegaWatts;
+  producedIn: Machine;
+  recipe: Recipe;
 };

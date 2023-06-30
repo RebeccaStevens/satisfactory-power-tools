@@ -24,17 +24,19 @@ const dotImageExt = `.${imageExt}`;
 const data = loadData();
 
 const extraImages = [
-  [
-    "other",
-    "Game/FactoryGame/Resource/Parts/ResourceSinkCoupon/UI/IconDesc_Ficsit_Coupon_256",
-  ],
-];
+  "Game/FactoryGame/Resource/Parts/ResourceSinkCoupon/UI/IconDesc_Ficsit_Coupon_256",
+].map((uri) => ["other", uri]);
+
+const uiImages = [
+  "Game/FactoryGame/Interface/UI/Assets/Shared/Overclock_Icon",
+].map((uri) => ["ui", uri]);
 
 const imagePaths = [
   ...data.items.map((item) => ["items", item.mPersistentBigIcon] as const),
   ...data.buildings.map(
     (building) => ["buildings", building.mPersistentBigIcon] as const,
   ),
+  ...uiImages,
   ...extraImages,
 ]
   .filter(([dir, icon]) => isNotNull(icon))

@@ -213,7 +213,7 @@ export enum StairDirection {
   Right = "EBSD_Right",
 }
 
-export type SubCategory = {};
+export type SubCategory = string;
 
 export type Transform3D = {
   rotation: Rotation3D;

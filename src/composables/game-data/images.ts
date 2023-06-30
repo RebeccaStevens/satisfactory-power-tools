@@ -3,28 +3,19 @@ import { assert } from "chai";
 import * as gameImages from "~/images/game-data";
 
 type ImagesImport = {
-  [key: string]:
-    | {
-        src: string;
-        srcset: string;
-      }
-    | ImagesImport
-    | undefined;
+  [key: string]: ImageSrc | ImagesImport | undefined;
 };
 
-/**
- * Get the name of the given game entity.
- */
-export function useGameDataName(entity: Readonly<{ id: string }>) {
-  const { t } = useI18n();
-  return t(`game-data.${entity.id}.name`);
-}
+export type ImageSrc = {
+  src: string;
+  srcset: string;
+};
 
 /**
  * Get an image from the game.
  */
-export function useGameImage(path: string | null) {
-  if (path !== null) {
+export function useGameImage(path: string | null | undefined) {
+  if (path !== null && path !== undefined) {
     const segments = path.split("/");
     const imageData = segments.reduce(
       (carry, seg) => carry?.[seg] as ImagesImport | undefined,
@@ -32,10 +23,7 @@ export function useGameImage(path: string | null) {
     );
     if (imageData !== undefined) {
       assert("src" in imageData && "srcset" in imageData);
-      return imageData as unknown as {
-        src: string;
-        srcset: string;
-      };
+      return imageData as unknown as ImageSrc;
     }
   }
 

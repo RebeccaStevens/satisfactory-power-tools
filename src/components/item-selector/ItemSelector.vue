@@ -3,124 +3,72 @@ import { QSelect } from "quasar";
 import { type QSelectProps } from "quasar";
 import { ref } from "vue";
 
-import { useGameDataName, useGameImage } from "~/composables/game-data";
+import { type ItemGroup} from "~/composables/game-data";
+import { useGameDataName,
+  useGameImage,
+  useEntitySorterByName,
+  useDisplayableSorter,
+  useItemSorterByPoints,
+  useItemSorterByTransporter,
+  useItemTierGroups,
+  useItemTypeGroups
+} from "~/composables/game-data";
 import { useIntlNumberFormatter } from "~/composables/intl";
 import { gameData } from "~/data";
-import { type Item } from "~/data/types";
+import { type GeneralItem, type Item, isGeneralItem } from "~/data/types";
 import { assertNever } from "~/utils";
 
+const { t } = useI18n();
 const numberFormatter = useIntlNumberFormatter();
+const itemTypeGroups = useItemTypeGroups();
+const itemTierGroups = useItemTierGroups();
 
 const props = defineProps<{
   label?: string;
   sortBy?: SortOption;
-  filter?: (item: Item) => boolean;
-  modelValue?: ItemOption | null;
+  dense?: boolean;
+  items?: ReadonlyArray<Readonly<Item>>;
+  modelValue?: Readonly<Item> | null;
+  isDisabledItem?: (item: Readonly<Item>) => boolean;
 }>();
 
 const emit = defineEmits(['update:modelValue']);
 
-export type ItemOption = {
-  label: string;
-  value: string;
-  image: {
-    srcset: string;
-    src: string;
-  };
-  gameData: Item;
-};
-
-type ItemGroup = {
-  id: string;
-  label: string;
-  menuPriority: number;
-};
-
 type SortOption = typeof sortOptions[number]["value"];
 
-type GroupOfItems = [ItemGroup | null, ItemOption[]];
-
-const allOptions = (() => {
-  const items = gameData.items.values();
-  const filteredItems = props.filter === undefined ? items : items.filter(props.filter);
-
-  return [
-  ...filteredItems.map((item): ItemOption => ({
-      label: useGameDataName(item),
-      value: item.id,
-      image: useGameImage(item.icon),
-      gameData: item,
-    }),
-  ),
-];
-})();
-
-const itemTypeGroups = new Map<string, ItemGroup>(
-  (
-    [
-      { id: "alien", label: "Alien", menuPriority: 4 },
-      { id: "ammo", label: "Ammo", menuPriority: 12 },
-      { id: "communication", label: "Communications", menuPriority: 9 },
-      { id: "consume", label: "Consumables", menuPriority: 11 },
-      { id: "container", label: "Containers", menuPriority: 10 },
-      { id: "electronic", label: "Electronics", menuPriority: 8 },
-      { id: "elevator", label: "Space Elevator Parts", menuPriority: 14 },
-      { id: "fluid", label: "Fluids", menuPriority: 5 },
-      { id: "industrial", label: "Industrial Parts", menuPriority: 7 },
-      { id: "ingot", label: "Ingots", menuPriority: 2 },
-      { id: "mineral", label: "Minerals", menuPriority: 3 },
-      { id: "nuclear", label: "Nuclear", menuPriority: 13 },
-      { id: "ore", label: "Resources", menuPriority: 1 },
-      { id: "packaged", label: "Packaged Fluids", menuPriority: 5.1 },
-      { id: "special", label: "Special", menuPriority: 15 },
-      { id: "standard", label: "Standard Parts", menuPriority: 6 },
-      { id: "equip", label: "Equipment", menuPriority: 20 },
-      { id: "xmas", label: "Ficsmas", menuPriority: 99 },
-    ] as ItemGroup[]
-  ).map((data) => [data.id, data]),
-);
-
-const itemTierGroups = new Map<string, ItemGroup>(
-  (
-    [
-      { id: "tier0", label: "Tutorial", menuPriority: 0 },
-      { id: "tier1", label: "Tier 1", menuPriority: 1 },
-      { id: "tier2", label: "Tier 2", menuPriority: 2 },
-      { id: "tier3", label: "Tier 3", menuPriority: 3 },
-      { id: "tier4", label: "Tier 4", menuPriority: 4 },
-      { id: "tier5", label: "Tier 5", menuPriority: 5 },
-      { id: "tier6", label: "Tier 6", menuPriority: 6 },
-      { id: "tier7", label: "Tier 7", menuPriority: 7 },
-      { id: "tier8", label: "Tier 8", menuPriority: 8 },
-    ] as ItemGroup[]
-  ).map((data) => [data.id, data]),
-);
+type GroupOfItems = readonly [ItemGroup | null, ReadonlyArray<Readonly<Item>>];
 
 const sortOptions = [
-  { label: "Name", value: "name" as const },
-  { label: "Type", value: "type" as const },
-  { label: "Tier", value: "tier" as const },
-  { label: "Points", value: "points" as const },
+  { get label() { return getSortOptionName(this.value) }, value: "name" as const },
+  { get label() { return getSortOptionName(this.value) }, value: "type" as const },
+  { get label() { return getSortOptionName(this.value) }, value: "tier" as const },
+  { get label() { return getSortOptionName(this.value) }, value: "points" as const },
 ];
 
-function getItemsGroupedByType(items: ReadonlyArray<ItemOption>) {
+function getSortOptionName(value: string) {
+  return t(`game-data.items.groups.${value}.name`);
+}
+
+function getItemsGroupedByType(items: ReadonlyArray<Item>) {
   return items.groupToMap(
-    (item) => itemTypeGroups.get(item.gameData.typeId) ?? null,
+    (item) =>
+      itemTypeGroups.get(isGeneralItem(item) ? item.typeId : 'special') ?? null,
   );
 }
 
-function getItemsGroupedByTier(items: ReadonlyArray<ItemOption>) {
-  return items.groupToMap((item) =>
-    item.gameData.tier === null
+function getItemsGroupedByTier(items: ReadonlyArray<Item>) {
+  return(items).groupToMap((item) => {
+    const typedItem = item as { tier?: GeneralItem['tier'] };
+    return typedItem.tier === null || typedItem.tier === undefined
       ? null
-      : itemTierGroups.get(`tier${item.gameData.tier}`) ?? null,
-  );
+      : itemTierGroups.get(`tier${typedItem.tier}`) ?? null;
+  });
 }
 
 function getOptionsFilter(input: string) {
-  return (items: Readonly<ItemOption[]>) =>
-    items.filter((item: Readonly<ItemOption>) =>
-      item.label.toLowerCase().includes(input),
+  return (items: Readonly<Item[]>) =>
+    items.filter((item: Readonly<Item>) =>
+      useGameDataName(item).toLowerCase().includes(input),
     );
 }
 
@@ -135,14 +83,14 @@ function getGroupedOptionsFilter(input: string) {
   };
 }
 
-const baseItems = ref<ItemOption[]>(allOptions);
-const itemsByName = ref<ItemOption[]>();
-const itemsByType = ref<GroupOfItems[]>();
-const itemsByTier = ref<GroupOfItems[]>();
-const itemsByPoints = ref<ItemOption[]>();
+const baseItems:  ReadonlyArray<Readonly<Item>> = props.items ?? [...gameData.items.values()];
+let m_itemsByName: ReadonlyArray<Readonly<Item>> | undefined = undefined;
+let m_itemsByType: GroupOfItems[] | undefined = undefined;
+let m_itemsByTier: GroupOfItems[] | undefined = undefined;
+let m_itemsByPoints: ReadonlyArray<Readonly<Item>> | undefined = undefined;
 
 const textInput = ref("");
-const itemModel = ref<ItemOption | null>(props.modelValue ?? null);
+const itemModel = ref<Item | null>(props.modelValue ?? null);
 const sortModel = ref<SortOption>(props.sortBy ?? "type");
 
 if (props.modelValue !== undefined) {
@@ -157,23 +105,24 @@ if (props.modelValue !== undefined) {
 const itemOptions = computed(() => {
   switch (sortModel.value) {
     case "name": {
-      if (itemsByName.value === undefined) {
-        itemsByName.value = baseItems.value.sort((a, b) =>
-          a.label.localeCompare(b.label),
-        );
+      if (m_itemsByName === undefined) {
+        m_itemsByName = [...baseItems].sort(useEntitySorterByName);
       }
-      return getOptionsFilter(textInput.value)(itemsByName.value);
+      return getOptionsFilter(textInput.value)(m_itemsByName);
     }
 
     case "type": {
-      if (itemsByType.value === undefined) {
-        itemsByType.value = [
-          ...getItemsGroupedByType(baseItems.value)
+      if (m_itemsByType === undefined) {
+        m_itemsByType = [
+          ...getItemsGroupedByType(baseItems)
             .entries()
             .map(
               ([group, items]): GroupOfItems => [
                 group,
-                items.sort((a, b) => a.label.localeCompare(b.label)),
+                items.sort(group?.id === "ore"
+                  ? useItemSorterByTransporter
+                  : useDisplayableSorter
+                ),
               ],
             ),
         ].sort(([a], [b]) =>
@@ -183,18 +132,18 @@ const itemOptions = computed(() => {
             : -1,
         );
       }
-      return getGroupedOptionsFilter(textInput.value)(itemsByType.value);
+      return getGroupedOptionsFilter(textInput.value)(m_itemsByType);
     }
 
     case "tier": {
-      if (itemsByTier.value === undefined) {
-        itemsByTier.value = [
-          ...getItemsGroupedByTier(baseItems.value)
+      if (m_itemsByTier === undefined) {
+        m_itemsByTier = [
+          ...getItemsGroupedByTier(baseItems)
             .entries()
             .map(
               ([group, items]): GroupOfItems => [
                 group,
-                items.sort((a, b) => a.label.localeCompare(b.label)),
+                items.sort(useDisplayableSorter),
               ],
             ),
         ].sort(([a], [b]) =>
@@ -204,21 +153,14 @@ const itemOptions = computed(() => {
             : -1,
         );
       }
-      return getGroupedOptionsFilter(textInput.value)(itemsByTier.value);
+      return getGroupedOptionsFilter(textInput.value)(m_itemsByTier);
     }
 
     case "points": {
-      if (itemsByPoints.value === undefined) {
-        itemsByPoints.value = baseItems.value.sort((a, b) => {
-          const pointDiff = b.gameData.points - a.gameData.points;
-          if (pointDiff !== 0) {
-            return pointDiff;
-          }
-          return a.label.localeCompare(b.label);
-        }
-        );
+      if (m_itemsByPoints === undefined) {
+        m_itemsByPoints = [...baseItems].sort(useItemSorterByPoints);
       }
-      return getOptionsFilter(textInput.value)(itemsByPoints.value);
+      return getOptionsFilter(textInput.value)(m_itemsByPoints);
     }
 
     default: {
@@ -253,6 +195,7 @@ const onInput: QSelectProps["onInputValue"] = (value: string) => {
     v-model="itemModel"
     :use-input="itemModel === null"
     :label="props.label"
+    :dense="props.dense"
     :options="itemOptions"
     @filter="onFilter"
     @input-value="onInput"
@@ -273,51 +216,66 @@ const onInput: QSelectProps["onInputValue"] = (value: string) => {
     </template>
 
     <template v-slot:selected>
-      <q-item v-if="itemModel">
+      <q-item
+        v-if="itemModel !== null"
+        :dense="props.dense"
+        class="selected-item pl-0"
+      >
         <q-item-section avatar>
-          <picture class="aspect-square w-8" aria-hidden="true">
-            <source :srcset="itemModel.image.srcset" />
-            <img :src="itemModel.image.src" />
-          </picture>
+          <SrcSetImage
+            :src="useGameImage(itemModel.icon)"
+            class="img aspect-square"
+            aria-hidden="true"
+          />
         </q-item-section>
         <q-item-section>
-          {{ itemModel.label }}
+          <q-item-label>
+            {{ useGameDataName(itemModel) }}
+          </q-item-label>
         </q-item-section>
       </q-item>
     </template>
 
     <template v-slot:no-option>
       <q-item>
-        <q-item-section class="text-grey">No results</q-item-section>
+        <q-item-section class="text-grey">
+          <q-item-label>
+            {{ t("components.search.no-results") }}
+          </q-item-label>
+        </q-item-section>
       </q-item>
     </template>
 
     <template v-slot:option="data">
       <div
-        :key="Array.isArray(data.opt) ? `group:${data.opt[0]?.id ?? 'uncategorized'}` : `value:${data.opt.value}`"
+        :key="Array.isArray(data.opt) ? `group:${data.opt[0]?.id ?? 'uncategorized'}` : `value:${data.opt.id}`"
       >
         <!-- Grouped -->
         <template v-if="Array.isArray(data.opt)">
           <q-expansion-item
             default-opened
-            :label="data.opt[0]?.label ?? 'Uncategorized'"
+            :label="data.opt[0]?.label ?? t('data.categories.no-category')"
           >
-            <template v-for="option in data.opt[1]" :key="option.value">
+            <template v-for="option in data.opt[1]" :key="option.id">
               <q-item
                 clickable
                 v-ripple
                 v-close-popup
-                :active="itemModel?.value === option.value"
+                :active="itemModel?.id === option.id"
+                :disable="props.isDisabledItem?.(option) ?? false"
                 @click="itemModel = option"
               >
                 <q-item-section avatar>
-                  <picture class="aspect-square w-8" aria-hidden="true">
-                    <source :srcset="option.image.srcset" />
-                    <img :src="option.image.src" />
-                  </picture>
+                  <SrcSetImage
+                    :src="useGameImage(option.icon)"
+                    class="aspect-square w-8"
+                    aria-hidden="true"
+                  />
                 </q-item-section>
                 <q-item-section flex-basis-full>
-                  {{ option.label }}
+                  <q-item-label>
+                    {{ useGameDataName(option) }}
+                  </q-item-label>
                 </q-item-section>
               </q-item>
             </template>
@@ -330,20 +288,29 @@ const onInput: QSelectProps["onInputValue"] = (value: string) => {
             clickable
             v-ripple
             v-close-popup
-            :active="itemModel?.value === data.opt.value"
+            :active="itemModel?.id === data.opt.id"
+            :disable="props.isDisabledItem?.(data.opt) ?? false"
             @click="itemModel = data.opt"
           >
             <q-item-section avatar>
-              <picture class="aspect-square w-8" aria-hidden="true">
-                <source :srcset="data.opt.image.srcset" />
-                <img :src="data.opt.image.src" />
-              </picture>
+              <SrcSetImage
+                :src="useGameImage(data.opt.icon)"
+                class="aspect-square w-8"
+                aria-hidden="true"
+              />
             </q-item-section>
             <q-item-section flex-basis-full>
-              {{ data.opt.label }}
+              <q-item-label>
+                {{ useGameDataName(data.opt) }}
+              </q-item-label>
             </q-item-section>
-            <q-item-section v-if="sortModel === 'points'" flex-basis-auto>
-              {{ numberFormatter.format(data.opt.gameData.points) }}
+            <q-item-section
+              v-if="sortModel === 'points' && data.opt.points !== undefined"
+              flex-basis-auto
+            >
+              <q-item-label>
+                {{ numberFormatter.format(data.opt.points) }}
+              </q-item-label>
             </q-item-section>
           </q-item>
         </template>
@@ -353,13 +320,43 @@ const onInput: QSelectProps["onInputValue"] = (value: string) => {
 </template>
 
 <style lang="scss" scoped>
+$icon-width: 2rem;
+$dense-icon-width: 1.5rem;
+
 .q-select {
-  & :deep(.q-field__native) {
+  &.q-field--dense :deep(.q-field__inner) .q-icon {
+    width: $dense-icon-width;
+  }
+
+  &:not(.q-field--dense) :deep(.q-field__native) {
     height: 48px;
   }
 
-  & :deep(.q-field__marginal) {
+  :deep(.q-field__marginal) {
     align-self: end;
+  }
+
+  :deep(.q-field__label) {
+    text-transform: capitalize;
+  }
+}
+
+.selected-item {
+
+  :deep(.q-item__section--avatar) {
+    min-width: unset;
+  }
+
+  .img {
+    width: 2rem;
+  }
+
+  .q-field--dense & {
+    min-height: 28px;
+
+    .img {
+      width: $dense-icon-width;
+    }
   }
 }
 </style>

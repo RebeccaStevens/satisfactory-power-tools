@@ -1,8 +1,9 @@
 import { assert } from "chai";
 
+import type RawGameData from "~/data/game-data.json";
 import {
   type FrackingSatellite,
-  type Item,
+  type GeneralItem,
   type FrackingCore,
 } from "~/data/types";
 import {
@@ -12,15 +13,13 @@ import {
   asResourcePurity,
 } from "~/data/types";
 
-import type RawGameData from "./game-data.json";
-
 export function getWells(
   rawWellGroups: Readonly<(typeof RawGameData)["wells"]>,
-  items: ReadonlyMap<string, Item>,
+  items: ReadonlyMap<string, GeneralItem>,
 ) {
   return new Map(
     Object.entries(rawWellGroups).map(
-      ([resourceId, rawWells]): [Item, Set<FrackingCore>] => {
+      ([resourceId, rawWells]): [GeneralItem, Set<FrackingCore>] => {
         const resource = items.get(resourceId);
         assert(resource !== undefined);
 

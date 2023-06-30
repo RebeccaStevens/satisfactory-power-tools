@@ -2,7 +2,6 @@ import { assert } from "chai";
 
 import {
   isPMap,
-  type PCollection,
   type PList,
   type PMap,
 } from "~/scripts/parse-raw-game-data/docs/raw-collection-parser";
@@ -163,7 +162,7 @@ export function parseClass(value: string): string | null {
     return null;
   }
 
-  const path = value.replace(/^[\dA-Za-z]+'"(.+)"'$/u, "$1");
+  const path = value.replace(/^[\d./A-Za-z]+'"(.+)"'$/u, "$1");
   assert(path.startsWith("/"));
 
   return path.slice(path.lastIndexOf(".") + 1);
@@ -628,8 +627,12 @@ export function parseSubCategories(value: string): SubCategory[] {
 }
 
 function parseSubCategoriesImpl(value: PList): SubCategory[] {
-  // TODO: implement.
-  return [];
+  return value.data
+    .map((category) => {
+      assert(typeof category === "string");
+      return parseClass(category);
+    })
+    .filter(isNotNull);
 }
 
 export function parseTransform3D(value: string): Transform3D {

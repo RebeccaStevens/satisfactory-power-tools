@@ -12,7 +12,7 @@ const gameDataFile = path.join(
   "../../src/data/game-data.json",
 );
 
-const { items, machines, recipes, schematics } = getDocsData();
+const { items, machines, recipes, schematics, buildings } = getDocsData();
 const { nodes, geysers, wells } = getResourcesData();
 
 const gameData = {
@@ -23,6 +23,7 @@ const gameData = {
   wells,
   geysers,
   schematics,
+  buildings,
 };
 
 await fsp.writeFile(gameDataFile, JSON.stringify(gameData), {

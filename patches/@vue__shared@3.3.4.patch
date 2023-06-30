@@ -1,0 +1,86 @@
+diff --git a/dist/shared.cjs.js b/dist/shared.cjs.js
+index 55bf448b3b88c0e1c7de45492ef316d4afca8bfd..15216f4d4a27d58941ce4c7643df41eab661da21 100644
+--- a/dist/shared.cjs.js
++++ b/dist/shared.cjs.js
+@@ -252,9 +252,11 @@ function normalizeProps(props) {
+ 
+ const HTML_TAGS = "html,body,base,head,link,meta,style,title,address,article,aside,footer,header,hgroup,h1,h2,h3,h4,h5,h6,nav,section,div,dd,dl,dt,figcaption,figure,picture,hr,img,li,main,ol,p,pre,ul,a,b,abbr,bdi,bdo,br,cite,code,data,dfn,em,i,kbd,mark,q,rp,rt,ruby,s,samp,small,span,strong,sub,sup,time,u,var,wbr,area,audio,map,track,video,embed,object,param,source,canvas,script,noscript,del,ins,caption,col,colgroup,table,thead,tbody,td,th,tr,button,datalist,fieldset,form,input,label,legend,meter,optgroup,option,output,progress,select,textarea,details,dialog,menu,summary,template,blockquote,iframe,tfoot";
+ const SVG_TAGS = "svg,animate,animateMotion,animateTransform,circle,clipPath,color-profile,defs,desc,discard,ellipse,feBlend,feColorMatrix,feComponentTransfer,feComposite,feConvolveMatrix,feDiffuseLighting,feDisplacementMap,feDistantLight,feDropShadow,feFlood,feFuncA,feFuncB,feFuncG,feFuncR,feGaussianBlur,feImage,feMerge,feMergeNode,feMorphology,feOffset,fePointLight,feSpecularLighting,feSpotLight,feTile,feTurbulence,filter,foreignObject,g,hatch,hatchpath,image,line,linearGradient,marker,mask,mesh,meshgradient,meshpatch,meshrow,metadata,mpath,path,pattern,polygon,polyline,radialGradient,rect,set,solidcolor,stop,switch,symbol,text,textPath,title,tspan,unknown,use,view";
++const MATH_TAGS = "math,maction,annotation,annotation-xml,menclose,merror,mfenced,mfrac,mi,mmultiscripts,mn,mo,mover,mpadded,mphantom,mprescripts,mroot,mrow,ms,semantics,mspace,msqrt,mstyle,msub,msup,msubsup,mtable,mtd,mtext,mtr,munder,munderover";
+ const VOID_TAGS = "area,base,br,col,embed,hr,img,input,link,meta,param,source,track,wbr";
+ const isHTMLTag = /* @__PURE__ */ makeMap(HTML_TAGS);
+ const isSVGTag = /* @__PURE__ */ makeMap(SVG_TAGS);
++const isMathMLTag = /* @__PURE__ */ makeMap(MATH_TAGS);
+ const isVoidTag = /* @__PURE__ */ makeMap(VOID_TAGS);
+ 
+ const specialBooleanAttrs = `itemscope,allowfullscreen,formnovalidate,ismap,nomodule,novalidate,readonly`;
+@@ -439,6 +441,7 @@ exports.isIntegerKey = isIntegerKey;
+ exports.isKnownHtmlAttr = isKnownHtmlAttr;
+ exports.isKnownSvgAttr = isKnownSvgAttr;
+ exports.isMap = isMap;
++exports.isMathMLTag = isMathMLTag;
+ exports.isModelListener = isModelListener;
+ exports.isObject = isObject;
+ exports.isOn = isOn;
+diff --git a/dist/shared.cjs.prod.js b/dist/shared.cjs.prod.js
+index 31197203fc885cbf38abfd9b81f1f47ffa148794..4443fcdfe1c05ee91c8d769b6fe0f59edba5388e 100644
+--- a/dist/shared.cjs.prod.js
++++ b/dist/shared.cjs.prod.js
+@@ -252,9 +252,11 @@ function normalizeProps(props) {
+ 
+ const HTML_TAGS = "html,body,base,head,link,meta,style,title,address,article,aside,footer,header,hgroup,h1,h2,h3,h4,h5,h6,nav,section,div,dd,dl,dt,figcaption,figure,picture,hr,img,li,main,ol,p,pre,ul,a,b,abbr,bdi,bdo,br,cite,code,data,dfn,em,i,kbd,mark,q,rp,rt,ruby,s,samp,small,span,strong,sub,sup,time,u,var,wbr,area,audio,map,track,video,embed,object,param,source,canvas,script,noscript,del,ins,caption,col,colgroup,table,thead,tbody,td,th,tr,button,datalist,fieldset,form,input,label,legend,meter,optgroup,option,output,progress,select,textarea,details,dialog,menu,summary,template,blockquote,iframe,tfoot";
+ const SVG_TAGS = "svg,animate,animateMotion,animateTransform,circle,clipPath,color-profile,defs,desc,discard,ellipse,feBlend,feColorMatrix,feComponentTransfer,feComposite,feConvolveMatrix,feDiffuseLighting,feDisplacementMap,feDistantLight,feDropShadow,feFlood,feFuncA,feFuncB,feFuncG,feFuncR,feGaussianBlur,feImage,feMerge,feMergeNode,feMorphology,feOffset,fePointLight,feSpecularLighting,feSpotLight,feTile,feTurbulence,filter,foreignObject,g,hatch,hatchpath,image,line,linearGradient,marker,mask,mesh,meshgradient,meshpatch,meshrow,metadata,mpath,path,pattern,polygon,polyline,radialGradient,rect,set,solidcolor,stop,switch,symbol,text,textPath,title,tspan,unknown,use,view";
++const MATH_TAGS = "math,maction,annotation,annotation-xml,menclose,merror,mfenced,mfrac,mi,mmultiscripts,mn,mo,mover,mpadded,mphantom,mprescripts,mroot,mrow,ms,semantics,mspace,msqrt,mstyle,msub,msup,msubsup,mtable,mtd,mtext,mtr,munder,munderover";
+ const VOID_TAGS = "area,base,br,col,embed,hr,img,input,link,meta,param,source,track,wbr";
+ const isHTMLTag = /* @__PURE__ */ makeMap(HTML_TAGS);
+ const isSVGTag = /* @__PURE__ */ makeMap(SVG_TAGS);
++const isMathMLTag = /* @__PURE__ */ makeMap(MATH_TAGS);
+ const isVoidTag = /* @__PURE__ */ makeMap(VOID_TAGS);
+ 
+ const specialBooleanAttrs = `itemscope,allowfullscreen,formnovalidate,ismap,nomodule,novalidate,readonly`;
+@@ -439,6 +441,7 @@ exports.isIntegerKey = isIntegerKey;
+ exports.isKnownHtmlAttr = isKnownHtmlAttr;
+ exports.isKnownSvgAttr = isKnownSvgAttr;
+ exports.isMap = isMap;
++exports.isMathMLTag = isMathMLTag;
+ exports.isModelListener = isModelListener;
+ exports.isObject = isObject;
+ exports.isOn = isOn;
+diff --git a/dist/shared.d.ts b/dist/shared.d.ts
+index 1de2c610e7dcd0f6b3956199053bb8abfece8a64..7b1668c8fff33c99e904df54e787a5ba1549e6c7 100644
+--- a/dist/shared.d.ts
++++ b/dist/shared.d.ts
+@@ -255,6 +255,11 @@ export declare const isHTMLTag: (key: string) => boolean;
+  * Do NOT use in runtime code paths unless behind `__DEV__` flag.
+  */
+ export declare const isSVGTag: (key: string) => boolean;
++/**
++ * Compiler only.
++ * Do NOT use in runtime code paths unless behind `__DEV__` flag.
++ */
++export declare const isMathMLTag: (key: string) => boolean;
+ /**
+  * Compiler only.
+  * Do NOT use in runtime code paths unless behind `__DEV__` flag.
+diff --git a/dist/shared.esm-bundler.js b/dist/shared.esm-bundler.js
+index ecf3d06a289252fe424938b558177cbaeee6bde4..13ca4ad3adca352ca5799c63e40d4bdf67d9553a 100644
+--- a/dist/shared.esm-bundler.js
++++ b/dist/shared.esm-bundler.js
+@@ -248,9 +248,11 @@ function normalizeProps(props) {
+ 
+ const HTML_TAGS = "html,body,base,head,link,meta,style,title,address,article,aside,footer,header,hgroup,h1,h2,h3,h4,h5,h6,nav,section,div,dd,dl,dt,figcaption,figure,picture,hr,img,li,main,ol,p,pre,ul,a,b,abbr,bdi,bdo,br,cite,code,data,dfn,em,i,kbd,mark,q,rp,rt,ruby,s,samp,small,span,strong,sub,sup,time,u,var,wbr,area,audio,map,track,video,embed,object,param,source,canvas,script,noscript,del,ins,caption,col,colgroup,table,thead,tbody,td,th,tr,button,datalist,fieldset,form,input,label,legend,meter,optgroup,option,output,progress,select,textarea,details,dialog,menu,summary,template,blockquote,iframe,tfoot";
+ const SVG_TAGS = "svg,animate,animateMotion,animateTransform,circle,clipPath,color-profile,defs,desc,discard,ellipse,feBlend,feColorMatrix,feComponentTransfer,feComposite,feConvolveMatrix,feDiffuseLighting,feDisplacementMap,feDistantLight,feDropShadow,feFlood,feFuncA,feFuncB,feFuncG,feFuncR,feGaussianBlur,feImage,feMerge,feMergeNode,feMorphology,feOffset,fePointLight,feSpecularLighting,feSpotLight,feTile,feTurbulence,filter,foreignObject,g,hatch,hatchpath,image,line,linearGradient,marker,mask,mesh,meshgradient,meshpatch,meshrow,metadata,mpath,path,pattern,polygon,polyline,radialGradient,rect,set,solidcolor,stop,switch,symbol,text,textPath,title,tspan,unknown,use,view";
++const MATH_TAGS = "math,maction,annotation,annotation-xml,menclose,merror,mfenced,mfrac,mi,mmultiscripts,mn,mo,mover,mpadded,mphantom,mprescripts,mroot,mrow,ms,semantics,mspace,msqrt,mstyle,msub,msup,msubsup,mtable,mtd,mtext,mtr,munder,munderover";
+ const VOID_TAGS = "area,base,br,col,embed,hr,img,input,link,meta,param,source,track,wbr";
+ const isHTMLTag = /* @__PURE__ */ makeMap(HTML_TAGS);
+ const isSVGTag = /* @__PURE__ */ makeMap(SVG_TAGS);
++const isMathMLTag = /* @__PURE__ */ makeMap(MATH_TAGS);
+ const isVoidTag = /* @__PURE__ */ makeMap(VOID_TAGS);
+ 
+ const specialBooleanAttrs = `itemscope,allowfullscreen,formnovalidate,ismap,nomodule,novalidate,readonly`;
+@@ -405,4 +407,4 @@ const replacer = (_key, val) => {
+   return val;
+ };
+ 
+-export { EMPTY_ARR, EMPTY_OBJ, NO, NOOP, PatchFlagNames, camelize, capitalize, def, escapeHtml, escapeHtmlComment, extend, genPropsAccessExp, generateCodeFrame, getGlobalThis, hasChanged, hasOwn, hyphenate, includeBooleanAttr, invokeArrayFns, isArray, isBooleanAttr, isBuiltInDirective, isDate, isFunction, isGloballyWhitelisted, isHTMLTag, isIntegerKey, isKnownHtmlAttr, isKnownSvgAttr, isMap, isModelListener, isObject, isOn, isPlainObject, isPromise, isRegExp, isReservedProp, isSSRSafeAttrName, isSVGTag, isSet, isSpecialBooleanAttr, isString, isSymbol, isVoidTag, looseEqual, looseIndexOf, looseToNumber, makeMap, normalizeClass, normalizeProps, normalizeStyle, objectToString, parseStringStyle, propsToAttrMap, remove, slotFlagsText, stringifyStyle, toDisplayString, toHandlerKey, toNumber, toRawType, toTypeString };
++export { EMPTY_ARR, EMPTY_OBJ, NO, NOOP, PatchFlagNames, camelize, capitalize, def, escapeHtml, escapeHtmlComment, extend, genPropsAccessExp, generateCodeFrame, getGlobalThis, hasChanged, hasOwn, hyphenate, includeBooleanAttr, invokeArrayFns, isArray, isBooleanAttr, isBuiltInDirective, isDate, isFunction, isGloballyWhitelisted, isHTMLTag, isIntegerKey, isKnownHtmlAttr, isKnownSvgAttr, isMap, isMathMLTag, isModelListener, isObject, isOn, isPlainObject, isPromise, isRegExp, isReservedProp, isSSRSafeAttrName, isSVGTag, isSet, isSpecialBooleanAttr, isString, isSymbol, isVoidTag, looseEqual, looseIndexOf, looseToNumber, makeMap, normalizeClass, normalizeProps, normalizeStyle, objectToString, parseStringStyle, propsToAttrMap, remove, slotFlagsText, stringifyStyle, toDisplayString, toHandlerKey, toNumber, toRawType, toTypeString };

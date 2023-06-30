@@ -23,5 +23,6 @@
   "eslint.validate": ["typescript", "vue"],
   "vite.autoStart": true,
   "vite.buildCommand": "pnpm build",
-  "vite.devCommand": "pnpm dev"
+  "vite.devCommand": "pnpm dev",
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

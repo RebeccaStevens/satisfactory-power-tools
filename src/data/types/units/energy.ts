@@ -1,38 +1,26 @@
-import { type Newtype } from "newtype-ts";
-import { iso } from "newtype-ts";
+import {
+  type MultiplyUnits,
+  type DivideUnits,
+  mul,
+  div,
+  type Unit,
+} from "uom-ts";
 
-export type Joules = Newtype<{ readonly Joules: unique symbol }, number>;
-const isoJoules = iso<Joules>();
-export function asJoules(value: number) {
-  return isoJoules.from(value);
-}
+import { type MegaWatts } from "./rates";
+import { type Hours } from "./time";
 
-export type MegaJoules = Newtype<
-  { readonly MegaJoules: unique symbol },
-  number
->;
-const isoMegaJoules = iso<MegaJoules>();
-export function asMegaJoules(value: number) {
-  return isoMegaJoules.from(value);
-}
+export type MegaJoules = Unit<{ MegaJoules: 1 }>;
 
-export type MegaWattHours = Newtype<
-  { readonly MegaJoules: unique symbol },
-  number
->;
-const isoMegaWattHours = iso<MegaWattHours>();
-export function asMegaWattHours(value: number) {
-  return isoMegaWattHours.from(value);
-}
+// Unit<{ MegaJoules: 1; Seconds: -1; Hours: 1 }>;
+export type MegaWattHours = MultiplyUnits<MegaWatts, Hours>;
 
-export function megaJoulesToJoules(value: MegaJoules): Joules {
-  return isoJoules.from(isoMegaJoules.to(value) * 1000);
-}
-
-export function joulesToMegaJoules(value: Joules): MegaJoules {
-  return isoMegaJoules.from(isoJoules.to(value) / 1000);
-}
+// Unit<{Seconds: -1; Hours: 1 }>
+type MegaJoulesToMegaWattHoursRate = DivideUnits<MegaWattHours, MegaJoules>;
 
 export function megaJoulesToMegaWattHours(value: MegaJoules): MegaWattHours {
-  return isoMegaWattHours.from(isoMegaJoules.to(value) * 3600);
+  return mul(value, 3600 as MegaJoulesToMegaWattHoursRate);
+}
+
+export function megaWattHoursToMegaJoules(value: MegaWattHours): MegaJoules {
+  return div(value, 3600 as MegaJoulesToMegaWattHoursRate);
 }
