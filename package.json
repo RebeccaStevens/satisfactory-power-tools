@@ -84,7 +84,7 @@
     "@vue/test-utils": "2.4.0",
     "chai": "^4.3.7",
     "commitizen": "4.3.0",
-    "critters": "0.0.19",
+    "critters": "0.0.20",
     "cspell": "6.31.1",
     "cz-conventional-changelog": "3.3.0",
     "dedent": "0.7.0",
