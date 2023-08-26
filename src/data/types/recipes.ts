@@ -1,7 +1,7 @@
 import {
+  type Item,
   type Machine,
   type QuantityPerMinute,
-  type MegaWatts,
   type Seconds,
   type Quantity,
   type VariablePowerConsumptionConstant,
@@ -21,8 +21,7 @@ export type Recipe = Idable & {
 };
 
 export type AppliedRecipe = Idable & {
-  inputOutput: Map<GeneralItem, QuantityPerMinute>;
-  powerDifferential: MegaWatts;
+  inputOutput: Map<Item, QuantityPerMinute>;
   producedIn: Machine;
-  recipe: Recipe;
+  recipe: Recipe | null;
 };

@@ -12,19 +12,20 @@ import {
 import { useAutomatableRecipes } from "../recipies";
 
 /**
- * Cache the list of items.
+ * Cache the list of general items.
  */
-let m_items: ReadonlyArray<Readonly<GeneralItem>> | undefined = undefined;
+let m_generalItems: ReadonlyArray<Readonly<GeneralItem>> | undefined =
+  undefined;
 
 /**
- * Get the items.
+ * Get the general items.
  */
-export function useItems() {
-  if (m_items !== undefined) {
-    return m_items;
+export function useGeneralItems() {
+  if (m_generalItems !== undefined) {
+    return m_generalItems;
   }
-  m_items = [...gameData.items.values()];
-  return m_items;
+  m_generalItems = [...gameData.items.values()];
+  return m_generalItems;
 }
 
 /**
@@ -47,17 +48,17 @@ export function useSpecialItems() {
 /**
  * Cache the list of all items.
  */
-let m_allItems: ReadonlyArray<Readonly<Item>> | undefined = undefined;
+let m_items: ReadonlyArray<Readonly<Item>> | undefined = undefined;
 
 /**
- * Get the items, including the special ones.
+ * Get the items.
  */
-export function useAllItems() {
-  if (m_allItems !== undefined) {
-    return m_allItems;
+export function useItems() {
+  if (m_items !== undefined) {
+    return m_items;
   }
-  m_allItems = [...useItems(), ...useSpecialItems()];
-  return m_allItems;
+  m_items = [...useGeneralItems(), ...useSpecialItems()];
+  return m_items;
 }
 
 /**
@@ -134,7 +135,9 @@ export function useResourceItemsByName() {
     return m_resourceItemsByName;
   }
 
-  const resourceItems = useItems().filter((item) => item.typeId === "ore");
+  const resourceItems = useGeneralItems().filter(
+    (item) => item.typeId === "ore",
+  );
   const resourceItemsMap = new Map(
     resourceItems.map((item) => [item.id, item]),
   );
@@ -225,23 +228,19 @@ export function useOptimizableItems() {
   return m_optimizableItems;
 }
 
+export type ResourceItemRateValue = {
+  item: Readonly<GeneralItem>;
+  amount: QuantityPerMinute;
+  power: MegaWatts;
+};
+
 /**
  * Cache the list of optimizable items.
  */
 let m_resourceItemsMapMaxRates:
   | Readonly<{
-      effective: Readonly<
-        Map<
-          Readonly<GeneralItem>,
-          { amount: QuantityPerMinute; power: MegaWatts }
-        >
-      >;
-      full: Readonly<
-        Map<
-          Readonly<GeneralItem>,
-          { amount: QuantityPerMinute; power: MegaWatts }
-        >
-      >;
+      effective: Readonly<ReadonlyArray<ResourceItemRateValue>>;
+      full: Readonly<ReadonlyArray<ResourceItemRateValue>>;
     }>
   | undefined = undefined;
 
@@ -263,190 +262,135 @@ export function useResourceItemsMapMaxRates() {
     nitrogen,
     oil,
     rawQuartz,
-    sam,
     sulfur,
     uranium,
   } = useResourceItemsByName();
 
   m_resourceItemsMapMaxRates = {
-    effective: new Map<
-      Readonly<GeneralItem>,
-      { amount: QuantityPerMinute; power: MegaWatts }
-    >([
-      [
-        coal,
-        {
-          amount: 30_120 as QuantityPerMinute,
-          power: 4380.594 as MegaWatts,
-        },
-      ],
-      [
-        oil,
-        {
-          amount: 9900 as QuantityPerMinute,
-          power: 5036.621 as MegaWatts,
-        },
-      ],
-      [
-        nitrogen,
-        {
-          amount: 12_000 as QuantityPerMinute,
-          power: 2518.31 as MegaWatts,
-        },
-      ],
-      [
-        bauxite,
-        {
-          amount: 9780 as QuantityPerMinute,
-          power: 1450.04 as MegaWatts,
-        },
-      ],
-      [
-        copper,
-        {
-          amount: 28_860 as QuantityPerMinute,
-          power: 4411.067 as MegaWatts,
-        },
-      ],
-      [
-        caterium,
-        {
-          amount: 11_040 as QuantityPerMinute,
-          power: 1261.837 as MegaWatts,
-        },
-      ],
-      [
-        iron,
-        {
-          amount: 70_380 as QuantityPerMinute,
-          power: 10_076.075 as MegaWatts,
-        },
-      ],
-      [
-        uranium,
-        {
-          amount: 2100 as QuantityPerMinute,
-          power: 402.929 as MegaWatts,
-        },
-      ],
-      [
-        rawQuartz,
-        {
-          amount: 10_500 as QuantityPerMinute,
-          power: 1393.043 as MegaWatts,
-        },
-      ],
-      [
-        sam,
-        {
-          amount: 0 as QuantityPerMinute,
-          power: 0 as MegaWatts,
-        },
-      ],
-      [
-        limestone,
-        {
-          amount: 52_860 as QuantityPerMinute,
-          power: 7482.14 as MegaWatts,
-        },
-      ],
-      [
-        sulfur,
-        {
-          amount: 6840 as QuantityPerMinute,
-          power: 976.851 as MegaWatts,
-        },
-      ],
-    ]),
-    full: new Map<
-      Readonly<GeneralItem>,
-      { amount: QuantityPerMinute; power: MegaWatts }
-    >([
-      [
-        coal,
-        {
-          amount: 36_000 as QuantityPerMinute,
-          power: 5036.621 as MegaWatts,
-        },
-      ],
-      [
-        oil,
-        {
-          amount: 9900 as QuantityPerMinute,
-          power: 5036.621 as MegaWatts,
-        },
-      ],
-      [
-        nitrogen,
-        {
-          amount: 12_000 as QuantityPerMinute,
-          power: 2518.31 as MegaWatts,
-        },
-      ],
-      [
-        bauxite,
-        {
-          amount: 12_300 as QuantityPerMinute,
-          power: 1712.451 as MegaWatts,
-        },
-      ],
-      [
-        copper,
-        {
-          amount: 33_900 as QuantityPerMinute,
-          power: 4935.889 as MegaWatts,
-        },
-      ],
-      [
-        caterium,
-        {
-          amount: 14_400 as QuantityPerMinute,
-          power: 1611.718 as MegaWatts,
-        },
-      ],
-      [
-        iron,
-        {
-          amount: 89_700 as QuantityPerMinute,
-          power: 12_087.892 as MegaWatts,
-        },
-      ],
-      [
-        uranium,
-        {
-          amount: 2100 as QuantityPerMinute,
-          power: 402.929 as MegaWatts,
-        },
-      ],
-      [
-        rawQuartz,
-        {
-          amount: 12_600 as QuantityPerMinute,
-          power: 1611.718 as MegaWatts,
-        },
-      ],
-      [
-        sam,
-        {
-          amount: 5400 as QuantityPerMinute,
-          power: 1410.254 as MegaWatts,
-        },
-      ],
-      [
-        limestone,
-        {
-          amount: 64_200 as QuantityPerMinute,
-          power: 8662.989 as MegaWatts,
-        },
-      ],
-      [
-        sulfur,
-        {
-          amount: 8100 as QuantityPerMinute,
-          power: 1108.056 as MegaWatts,
-        },
-      ],
-    ]),
+    effective: [
+      {
+        item: iron,
+        amount: 70_380 as QuantityPerMinute,
+        power: 10_076.075 as MegaWatts,
+      },
+      {
+        item: copper,
+        amount: 28_860 as QuantityPerMinute,
+        power: 4411.067 as MegaWatts,
+      },
+      {
+        item: limestone,
+        amount: 52_860 as QuantityPerMinute,
+        power: 7482.14 as MegaWatts,
+      },
+      {
+        item: coal,
+        amount: 30_120 as QuantityPerMinute,
+        power: 4380.594 as MegaWatts,
+      },
+      {
+        item: caterium,
+        amount: 11_040 as QuantityPerMinute,
+        power: 1261.837 as MegaWatts,
+      },
+      {
+        item: rawQuartz,
+        amount: 10_500 as QuantityPerMinute,
+        power: 1393.043 as MegaWatts,
+      },
+      {
+        item: sulfur,
+        amount: 6840 as QuantityPerMinute,
+        power: 976.851 as MegaWatts,
+      },
+      {
+        item: bauxite,
+        amount: 9780 as QuantityPerMinute,
+        power: 1450.04 as MegaWatts,
+      },
+      {
+        item: uranium,
+        amount: 2100 as QuantityPerMinute,
+        power: 402.929 as MegaWatts,
+      },
+      {
+        item: oil,
+        amount: 9900 as QuantityPerMinute,
+        power: 5036.621 as MegaWatts,
+      },
+      {
+        item: nitrogen,
+        amount: 12_000 as QuantityPerMinute,
+        power: 2518.31 as MegaWatts,
+      },
+      // {
+      //   item: sam,
+      //   amount: 5400 as QuantityPerMinute,
+      //   power: 1410.254 as MegaWatts,
+      // },
+    ],
+    full: [
+      {
+        item: coal,
+        amount: 36_000 as QuantityPerMinute,
+        power: 5036.621 as MegaWatts,
+      },
+      {
+        item: oil,
+        amount: 9900 as QuantityPerMinute,
+        power: 5036.621 as MegaWatts,
+      },
+      {
+        item: nitrogen,
+        amount: 12_000 as QuantityPerMinute,
+        power: 2518.31 as MegaWatts,
+      },
+      {
+        item: bauxite,
+        amount: 12_300 as QuantityPerMinute,
+        power: 1712.451 as MegaWatts,
+      },
+      {
+        item: copper,
+        amount: 33_900 as QuantityPerMinute,
+        power: 4935.889 as MegaWatts,
+      },
+      {
+        item: caterium,
+        amount: 14_400 as QuantityPerMinute,
+        power: 1611.718 as MegaWatts,
+      },
+      {
+        item: iron,
+        amount: 89_700 as QuantityPerMinute,
+        power: 12_087.892 as MegaWatts,
+      },
+      {
+        item: uranium,
+        amount: 2100 as QuantityPerMinute,
+        power: 402.929 as MegaWatts,
+      },
+      {
+        item: rawQuartz,
+        amount: 12_600 as QuantityPerMinute,
+        power: 1611.718 as MegaWatts,
+      },
+      {
+        item: limestone,
+        amount: 64_200 as QuantityPerMinute,
+        power: 8662.989 as MegaWatts,
+      },
+      {
+        item: sulfur,
+        amount: 8100 as QuantityPerMinute,
+        power: 1108.056 as MegaWatts,
+      },
+      // {
+      //   item: sam,
+      //   amount: 5400 as QuantityPerMinute,
+      //   power: 1410.254 as MegaWatts,
+      // },
+    ],
   };
   return m_resourceItemsMapMaxRates;
 }

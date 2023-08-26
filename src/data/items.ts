@@ -26,7 +26,7 @@ export function getItems(
 
       return [
         id,
-        {
+        reactive({
           id,
           energy,
           sinkable,
@@ -38,7 +38,7 @@ export function getItems(
           menuPriority,
           tier,
           typeId,
-        },
+        }),
       ];
     }),
   );

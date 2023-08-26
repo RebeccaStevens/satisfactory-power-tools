@@ -7,6 +7,7 @@ import {
   getProductionMachines,
   getGeneratorFuelMachines,
   getGeneratorGeoThermalMachines,
+  getSinkMachines,
 } from "./machines";
 import { getNodes } from "./nodes";
 import { getRecipes } from "./recipes";
@@ -28,6 +29,7 @@ const machines = {
       buildings,
     ),
   },
+  sink: getSinkMachines(rawGameData.machines.sink, buildings),
 };
 const producers = new Map<string, Idable>([
   ...machines.production.entries(),

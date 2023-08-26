@@ -52,6 +52,9 @@ dependencies:
   fp-ts:
     specifier: 2.16.0
     version: 2.16.0
+  highs:
+    specifier: ^0.7.3
+    version: 0.7.3
   iterator-helpers-polyfill:
     specifier: 2.3.1
     version: 2.3.1
@@ -70,6 +73,9 @@ dependencies:
   quasar:
     specifier: 2.12.1
     version: 2.12.1
+  transpose-array:
+    specifier: ^1.1.0
+    version: 1.1.0
   uom-ts:
     specifier: ^2.1.1
     version: 2.1.1(patch_hash=veuyogabs6mrevcklbja3w6cgu)
@@ -6232,6 +6238,10 @@ packages:
       tslib: 2.5.3
     dev: false
 
+  /highs@0.7.3:
+    resolution: {integrity: sha512-oNiU1LuqU7vjEfgwCRKxPUgk11Ut07qCH1pIXMPgQ74D8yYmFYZXqV8lIx2sF5nQZ9IZh+7x2dloEnvX48YBLQ==}
+    dev: false
+
   /homedir-polyfill@1.0.3:
     resolution: {integrity: sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==}
     engines: {node: '>=0.10.0'}
@@ -8931,6 +8941,11 @@ packages:
     engines: {node: '>=14'}
     dependencies:
       punycode: 2.3.0
+
+  /transpose-array@1.1.0:
+    resolution: {integrity: sha512-jQSe2Pf4+H9HrVr+gGZdknDxsj0Tq6S/LjrP91wWJgifpB6o8okBDSE1SO7WojhRlfYR1bjauUd53iUWWxM08w==}
+    engines: {node: '>=16.0.0'}
+    dev: false
 
   /trim-newlines@3.0.1:
     resolution: {integrity: sha512-c1PTsA3tYrIsLGkJkzHF+w9F2EyxfXGo4UyJc4pFL++FMjnq0HJS69T3M7d//gKrFKwy429bouPescbjecU+Zw==}

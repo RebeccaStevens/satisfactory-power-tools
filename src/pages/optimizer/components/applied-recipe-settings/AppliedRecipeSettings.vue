@@ -3,29 +3,15 @@ import { assert } from "chai";
 import { QInput, QTree } from "quasar";
 import { ref } from "vue";
 
-import { useAutomatableAppliedRecipes, getAppliedRecipeName, getAppliedRecipeIcons, useGameDataName, useGameImage } from "~/composables/game-data";
-import  { type Machine , type Idable, isProductionMachine, type AppliedRecipe, isGeneratorFuelMachine, isMachine } from "~/data/types";
+import { useAutomatableAppliedRecipes, getAppliedRecipeName, getAppliedRecipeIcons, useGameDataName, useGameImage, useSinkAppliedRecipes } from "~/composables/game-data";
+import  { type Percentage , type Machine , type AppliedRecipe } from "~/data/types";
 import { overclock_icon } from "~/images/game-data/ui"
 
 const { t } = useI18n();
 
-const appliedRecipes = useAutomatableAppliedRecipes();
-
-const ticked = ref<string[]>([]);
-const expanded = ref<string[]>([]);
-const filter = ref<string>('');
-
-const filterRef = ref<InstanceType<typeof QInput> | null>(null);
-const treeRef = ref<InstanceType<typeof QTree> | null>(null);
-
-function getMachine(appliedRecipe: AppliedRecipe) {
-  const machine = appliedRecipe.recipe.producedIn
-    .values()
-    .find(producer => isProductionMachine(producer) || isGeneratorFuelMachine(producer));
-
-  assert(machine !== undefined);
-  return machine;
-}
+defineExpose({
+  getValues,
+});
 
 type TreeGroup = Readonly<{
   id: string;
@@ -37,15 +23,27 @@ type TreeGroup = Readonly<{
     label: string;
     header: string;
     appliedRecipe: AppliedRecipe;
-    clockSpeed: Ref<number>;
+    clockSpeed: Ref<Percentage>;
   }>
 }>
+
+const appliedRecipes = [
+  ...useAutomatableAppliedRecipes(),
+  ...useSinkAppliedRecipes(),
+];
+
+const ticked = ref<string[]>([]);
+const expanded = ref<string[]>([]);
+const filter = ref<string>('');
+
+const filterRef = ref<InstanceType<typeof QInput> | null>(null);
+const treeRef = ref<InstanceType<typeof QTree> | null>(null);
 
 const appliedRecipesData = (() => {
   const groups = new Map<string, TreeGroup>();
 
-  for (const appliedRecipe of appliedRecipes) {
-    const machine = getMachine(appliedRecipe);
+  for (const appliedRecipe of appliedRecipes.values()) {
+    const machine = appliedRecipe.producedIn;
     const group = getGroup(machine);
     group.children.push({
       id: appliedRecipe.id,
@@ -54,7 +52,7 @@ const appliedRecipesData = (() => {
         return getAppliedRecipeName(appliedRecipe);
       },
       appliedRecipe,
-      clockSpeed: ref(100),
+      clockSpeed: ref(100 as Percentage),
     });
 
     ticked.value.push(appliedRecipe.id);
@@ -62,8 +60,7 @@ const appliedRecipesData = (() => {
 
   return [...groups.values()];
 
-  function getGroup(machine: Idable): TreeGroup {
-    assert(isMachine(machine));
+  function getGroup(machine: Machine): TreeGroup {
     const group = groups.get(machine.id);
 
     if (group !== undefined) {
@@ -84,12 +81,6 @@ const appliedRecipesData = (() => {
   }
 })();
 
-function resetFilter() {
-  filter.value = '';
-  assert(filterRef.value !== null);
-  filterRef.value.focus();
-}
-
 watch(
   () => filter.value === "",
   (value, prevValue) => {
@@ -102,7 +93,24 @@ watch(
       treeRef.value.collapseAll();
     }
   }
-)
+);
+
+function resetFilter() {
+  filter.value = '';
+  assert(filterRef.value !== null);
+  filterRef.value.focus();
+}
+
+function getValues() {
+  const tickedMap = new Set(ticked.value);
+  return appliedRecipesData.flatMap((group) =>
+    group.children.filter((data) =>
+      tickedMap.has(data.id)).map((data) => ({
+        appliedRecipe: data.appliedRecipe,
+        clockSpeed: data.clockSpeed.value,
+      }))
+  );
+}
 </script>
 
 <template>
@@ -112,13 +120,13 @@ watch(
 
       <q-input
         ref="filterRef"
-        filled
         v-model="filter"
+        filled
         label="Filter"
         dense
         class="flex-basis-1/2 flex-grow"
       >
-        <template v-slot:append>
+        <template #append>
           <q-icon
             v-if="filter !== ''"
             name="i-carbon-close-filled"
@@ -145,7 +153,7 @@ watch(
           node-key="id"
           tick-strategy="leaf"
         >
-          <template v-slot:header-machine="prop">
+          <template #header-machine="prop">
             <div class="flex flex-row items-center h-10">
               <SrcSetImage
                 :src="useGameImage(prop.node.machine.building.icon)"
@@ -158,7 +166,7 @@ watch(
             </div>
           </template>
 
-          <template v-slot:header-applied-recipe="prop">
+          <template #header-applied-recipe="prop">
             <div class="flex flex-row items-center w-full h-10">
               <div
                 class="flex flex-row flex-basis-auto flex-grow"
@@ -204,7 +212,7 @@ watch(
                   filled
                   input-class="text-right w-10ch"
                 >
-                  <template v-slot:append>
+                  <template #append>
                     <span class="text-base">%</span>
                   </template>
                 </q-input>

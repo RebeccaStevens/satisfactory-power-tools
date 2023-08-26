@@ -1,20 +1,20 @@
 import { wire, type SpecialItem } from "./types";
 
-export const energy = {
+export const energy = reactive({
   id: "energy",
   icon: "buildings/powerline",
   categories: [],
   menuPriority: 0,
   transporter: wire,
-} satisfies SpecialItem;
+}) satisfies SpecialItem;
 
-export const points = {
+export const points = reactive({
   id: "points",
   icon: "other/desc_ficsit_coupon",
   categories: [],
   menuPriority: 0,
   transporter: null,
-} satisfies SpecialItem;
+}) satisfies SpecialItem;
 
 export const specialItems: Readonly<
   ReadonlyMap<string, Readonly<SpecialItem>>

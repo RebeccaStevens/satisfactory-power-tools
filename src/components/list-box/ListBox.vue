@@ -49,8 +49,8 @@ const groups = [...groupMap.entries()];
           :tag="itemTag"
         >
           <q-item-section
-            avatar
             v-if="!noIcon"
+            avatar
             :class="{middle: slots.item !== undefined}"
           >
             <SrcSetImage
@@ -66,9 +66,9 @@ const groups = [...groupMap.entries()];
         </q-item>
       </template>
     </template>
-    <template v-else v-for="[group, items] in groups" :key="group.id">
+    <template v-for="[group, items] in groups" v-else :key="group.id">
       <q-expansion-item default-closed :label="group.label">
-        <template v-if="slots.header !== undefined" v-slot:header>
+        <template v-if="slots.header !== undefined" #header>
           <slot name="header" :group="group" :items="items"></slot>
         </template>
 
@@ -86,8 +86,8 @@ const groups = [...groupMap.entries()];
             :tag="itemTag"
           >
             <q-item-section
-              avatar
               v-if="!noIcon"
+              avatar
               :class="{middle: slots.item !== undefined}"
             >
               <SrcSetImage

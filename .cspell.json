@@ -18,7 +18,6 @@
     "LICENSE",
     "patches/",
     "pnpm-lock.yaml",
-    "pnpm-lock.yaml",
     "scripts/parse-raw-game-data/data/",
     "scripts/parse-raw-game-data/docs/raw-collection-parser.ts",
     "src/auto-imports.d.ts",

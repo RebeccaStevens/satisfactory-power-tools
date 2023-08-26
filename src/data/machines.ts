@@ -2,6 +2,8 @@ import { assert } from "chai";
 
 import type RawGameData from "~/data/game-data.json";
 import {
+  type Decimal,
+  type SinkMachine,
   type Building,
   type FluidQuantity,
   type ItemQuantity,
@@ -12,7 +14,6 @@ import {
   type GeneratorFuelMachine,
   type GeneratorGeoThermalMachine,
   type ProductionMachine,
-  asPowerExponent,
   asPotential,
   asItemTransporter,
   belt,
@@ -27,6 +28,7 @@ function parseMachineBase(
     | MachinesData["production"][keyof MachinesData["production"]]
     | MachinesData["generator"]["fuel"][keyof MachinesData["generator"]["fuel"]]
     | MachinesData["generator"]["geoThermal"][keyof MachinesData["generator"]["geoThermal"]]
+    | MachinesData["sink"][keyof MachinesData["sink"]]
   >,
   buildings: ReadonlyMap<string, Building>,
 ) {
@@ -48,6 +50,28 @@ function parseMachineBase(
   };
 }
 
+function getProductionMachineBase(
+  id: string,
+  data: Readonly<
+    | MachinesData["production"][keyof MachinesData["production"]]
+    | MachinesData["sink"][keyof MachinesData["sink"]]
+  >,
+  buildings: ReadonlyMap<string, Building>,
+) {
+  const powerConsumption = data.powerConsumption as MegaWatts;
+  const minPowerConsumption = data.minPowerConsumption as MegaWatts;
+  const maxPowerConsumption = data.maxPowerConsumption as MegaWatts;
+  const powerConsumptionExponent = data.powerConsumptionExponent as Decimal;
+
+  return {
+    ...parseMachineBase(id, data, buildings),
+    powerConsumption,
+    minPowerConsumption,
+    maxPowerConsumption,
+    powerConsumptionExponent,
+  };
+}
+
 export function getProductionMachines(
   rawMachines: Readonly<MachinesData["production"]>,
   buildings: ReadonlyMap<string, Building>,
@@ -56,31 +80,21 @@ export function getProductionMachines(
     Object.entries(rawMachines).map(
       ([id, data]): [string, ProductionMachine] => {
         const manufacturingSpeed = data.manufacturingSpeed as Hertz;
-        const powerConsumption = data.powerConsumption as MegaWatts;
-        const minPowerConsumption = data.minPowerConsumption as MegaWatts;
-        const maxPowerConsumption = data.maxPowerConsumption as MegaWatts;
-        const powerConsumptionExponent = asPowerExponent(
-          data.powerConsumptionExponent,
-        );
 
         return [
           id,
-          {
+          reactive({
             id,
-            ...parseMachineBase(id, data, buildings),
+            ...getProductionMachineBase(id, data, buildings),
             manufacturingSpeed,
-            powerConsumption,
-            minPowerConsumption,
-            maxPowerConsumption,
-            powerConsumptionExponent,
-          },
+          }),
         ];
       },
     ),
   );
 }
 
-export function getGeneratorBaseMachines(
+function getGeneratorBaseMachines(
   id: string,
   data: Readonly<
     | MachinesData["generator"]["fuel"][keyof MachinesData["generator"]["fuel"]]
@@ -152,7 +166,7 @@ export function getGeneratorFuelMachines(
 
         return [
           id,
-          {
+          reactive({
             id,
             ...getGeneratorBaseMachines(id, data, buildings),
             fuel,
@@ -161,7 +175,7 @@ export function getGeneratorFuelMachines(
             requiresSupplementalResource,
             supplementalLoadAmount,
             supplementalToPowerRatio,
-          },
+          }),
         ];
       },
     ),
@@ -175,8 +189,28 @@ export function getGeneratorGeoThermalMachines(
   return new Map(
     Object.entries(rawMachines).map(
       ([id, data]): [string, GeneratorGeoThermalMachine] => {
-        return [id, { id, ...getGeneratorBaseMachines(id, data, buildings) }];
+        return [
+          id,
+          reactive({ id, ...getGeneratorBaseMachines(id, data, buildings) }),
+        ];
       },
     ),
+  );
+}
+
+export function getSinkMachines(
+  rawMachines: Readonly<MachinesData["sink"]>,
+  buildings: ReadonlyMap<string, Building>,
+) {
+  return new Map(
+    Object.entries(rawMachines).map(([id, data]): [string, SinkMachine] => {
+      return [
+        id,
+        reactive({
+          id,
+          ...getProductionMachineBase(id, data, buildings),
+        }),
+      ];
+    }),
   );
 }

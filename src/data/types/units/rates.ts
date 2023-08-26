@@ -1,12 +1,21 @@
 import { type Unit, type DivideUnits, div } from "uom-ts";
 
-import { type Quantity, type FluidQuantity, type ItemQuantity } from "./amount";
+import {
+  type Quantity,
+  type FluidQuantity,
+  type ItemQuantity,
+  type PointsQuantity,
+} from "./amount";
 import { type Seconds, type Minutes, secondsToMinutes } from "./time";
 
-export type QuantityPerMinute = ItemQuantityPerMinute | FluidQuantityPerMinute;
+export type QuantityPerMinute =
+  | ItemQuantityPerMinute
+  | FluidQuantityPerMinute
+  | PointsQuantityPerMinute;
 
 export type ItemQuantityPerMinute = DivideUnits<ItemQuantity, Minutes>;
 export type FluidQuantityPerMinute = DivideUnits<FluidQuantity, Minutes>;
+export type PointsQuantityPerMinute = DivideUnits<PointsQuantity, Minutes>;
 
 export function toQuantityPerMinute(
   quantity: ItemQuantity,
@@ -16,6 +25,10 @@ export function toQuantityPerMinute(
   quantity: FluidQuantity,
   duration: Seconds,
 ): FluidQuantityPerMinute;
+export function toQuantityPerMinute(
+  quantity: PointsQuantity,
+  duration: Seconds,
+): PointsQuantityPerMinute;
 export function toQuantityPerMinute(
   quantity: Quantity,
   duration: Seconds,

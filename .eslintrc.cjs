@@ -13,7 +13,7 @@ module.exports = {
     "@rebeccastevens/eslint-config/modern",
     "@rebeccastevens/eslint-config/typescript",
     "@rebeccastevens/eslint-config/common-overrides",
-    "plugin:vue/vue3-essential",
+    "plugin:vue/vue3-recommended",
     "@vue/eslint-config-typescript/recommended",
     "@vue/eslint-config-prettier",
     "./.eslintrc-auto-import.json",
@@ -99,6 +99,11 @@ module.exports = {
     {
       files: ["src/**/*.vue"],
       extends: ["plugin:functional/off"],
+      parser: "vue-eslint-parser",
+      parserOptions: {
+        parser: "@typescript-eslint/parser",
+        sourceType: "module",
+      },
     },
     {
       files: ["src/main.ts", "src/**/modules/**", "src/types/user-module.d.ts"],
@@ -235,6 +240,7 @@ module.exports = {
       "vue-eslint-parser": [".vue"],
       "@typescript-eslint/parser": [".ts"],
     },
+    "import/ignore": [".vue"],
     "import/resolver": {
       node: {
         extensions: [".ts"],

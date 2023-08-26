@@ -721,6 +721,26 @@ function getGeneratorGeoThermalMachines(staticData: Readonly<StaticData>) {
   return [...generators.values()];
 }
 
+function getResourceSinkMachines(staticData: Readonly<StaticData>) {
+  const sinkClasses = new Set([
+    "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableResourceSink'",
+  ]);
+
+  const machines = new Set(
+    staticData
+      .entries()
+      .filter((data): data is [string, Set<BuildableGeneratorGeoThermal>] => {
+        const [nativeClass] = data;
+        return sinkClasses.has(nativeClass);
+      })
+      .flatMap(([nativeClass, set]) => {
+        return set.values();
+      }),
+  );
+
+  return [...machines.values()];
+}
+
 function getRecipes(staticData: Readonly<StaticData>) {
   const recipeClasses = new Set([
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGRecipe'",
@@ -814,6 +834,7 @@ export function loadData() {
       fuel: getGeneratorFuelMachines(staticData),
       geoThermal: getGeneratorGeoThermalMachines(staticData),
     },
+    sink: getResourceSinkMachines(staticData),
   };
   const recipes = getRecipes(staticData);
   const schematics = getSchematics(staticData);

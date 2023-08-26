@@ -1,4 +1,5 @@
 import {
+  type Decimal,
   type Building,
   type ItemTransporter,
   type Idable,
@@ -6,7 +7,6 @@ import {
   type GeneralItem,
   type Hertz,
   type MegaWatts,
-  type PowerExponent,
   type Potential,
 } from "~/data/types";
 
@@ -21,12 +21,15 @@ export function isMachine(idable: Readonly<Idable>): idable is Machine {
   return "maxPotential" in idable;
 }
 
-export type ProductionMachine = Machine & {
-  manufacturingSpeed: Hertz;
+export type ProductionMachineBase = Machine & {
   powerConsumption: MegaWatts;
   minPowerConsumption: MegaWatts;
   maxPowerConsumption: MegaWatts;
-  powerConsumptionExponent: PowerExponent;
+  powerConsumptionExponent: Decimal;
+};
+
+export type ProductionMachine = ProductionMachineBase & {
+  manufacturingSpeed: Hertz;
 };
 
 export function isProductionMachine(
@@ -60,8 +63,16 @@ export type GeneratorFuelMachine = GeneratorMachineBase & {
 
 export function isGeneratorFuelMachine(
   idable: Readonly<Idable>,
-): idable is GeneratorMachineBase {
+): idable is GeneratorFuelMachine {
   return isGeneratorMachine(idable) && "fuel" in idable;
 }
 
 export type GeneratorGeoThermalMachine = GeneratorMachineBase & {};
+
+export type SinkMachine = ProductionMachineBase;
+
+export function isResourceSinkMachine(
+  idable: Readonly<Idable>,
+): idable is SinkMachine {
+  return isMachine(idable) && "powerConsumption" in idable;
+}

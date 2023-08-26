@@ -24,15 +24,6 @@ export const belt = asItemTransporter("belt");
 export const pipe = asItemTransporter("pipe");
 export const wire = asItemTransporter("wire");
 
-export type PowerExponent = Newtype<
-  { readonly PowerExponent: unique symbol },
-  number
->;
-export const isoPowerExponent = iso<PowerExponent>();
-export function asPowerExponent(value: number) {
-  return isoPowerExponent.from(value);
-}
-
 export type Potential = Newtype<{ readonly Potential: unique symbol }, number>;
 export const isoPotential = iso<Potential>();
 export function asPotential(value: number) {

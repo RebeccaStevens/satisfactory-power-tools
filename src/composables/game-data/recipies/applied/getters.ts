@@ -15,9 +15,15 @@ export function getAppliedRecipeName(
 ): string {
   const { t } = useI18n();
   const generatorFuelRecipes = useGeneratorFuelRecipesMap();
+  const { recipe } = appliedRecipe;
 
-  if (generatorFuelRecipes.has(appliedRecipe.recipe.id)) {
-    const fuelAmount = [...appliedRecipe.recipe.ingredients][0];
+  if (recipe === null) {
+    // TODO: translate/use better name.
+    return "N/A";
+  }
+
+  if (generatorFuelRecipes.has(recipe.id)) {
+    const fuelAmount = [...recipe.ingredients][0];
     assert(fuelAmount !== undefined);
     const fuel = fuelAmount[0];
     return t("game-data.recipes.generator.fuel.name", {
@@ -25,7 +31,7 @@ export function getAppliedRecipeName(
     });
   }
 
-  return t(`game-data.classes.${appliedRecipe.recipe.id}.name`);
+  return t(`game-data.classes.${recipe.id}.name`);
 }
 
 /**
@@ -33,17 +39,19 @@ export function getAppliedRecipeName(
  */
 export function getAppliedRecipeIcons(appliedRecipe: Readonly<AppliedRecipe>) {
   const generatorFuelRecipes = useGeneratorFuelRecipesMap();
-  const images = [
-    ...(generatorFuelRecipes.has(appliedRecipe.recipe.id)
-      ? [useGameImage(energy.icon)]
-      : []),
-    ...appliedRecipe.recipe.products
-      .keys()
-      .map((item) => useGameImage(item.icon)),
-  ];
+  const { recipe } = appliedRecipe;
 
-  if (images.length > 0) {
-    return images;
+  if (recipe !== null) {
+    const images = [
+      ...(generatorFuelRecipes.has(recipe.id)
+        ? [useGameImage(energy.icon)]
+        : []),
+      ...[...recipe.products.keys()].map((item) => useGameImage(item.icon)),
+    ];
+
+    if (images.length > 0) {
+      return images;
+    }
   }
 
   return [useGameImage(null)];

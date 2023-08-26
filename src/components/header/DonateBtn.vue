@@ -6,7 +6,7 @@ const { t } = useI18n();
 
 <template>
   <q-btn-dropdown content-class="donate-content">
-    <template v-slot:label>
+    <template #label>
       <SrcSetImage :src="kofi" class="aspect-square h-full" />
       <span class="capitalize text-base @xl:text-lg ml-2">
         {{ t("donate.ko-fi.message") }}

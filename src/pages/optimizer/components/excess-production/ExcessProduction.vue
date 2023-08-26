@@ -1,27 +1,35 @@
 <script setup lang="ts">
 import { assert } from "chai";
-import { ref, nextTick, reactive } from "vue";
+import transpose from "transpose-array";
 
 import { useOptimizableItems, useGameDataName, useGameImage } from "~/composables/game-data";
-import { energy } from "~/data/special-items";
+import  { type QuantityPerMinute, type MegaWatts , type Item } from "~/data/types";
 
 const props = defineProps<{
-  exclude: OptimizableItem | null;
+  initial: ReadonlyArray<{ item: Item; greaterThan: boolean; amount: QuantityPerMinute | MegaWatts; }>;
+  exclude: Item | null;
 }>();
+
+defineExpose({
+  getValues,
+});
 
 const { t } = useI18n();
 
 const optimizableItems = useOptimizableItems();
-type OptimizableItem = (typeof optimizableItems)[number];
 
-const itemModel = ref<Readonly<OptimizableItem> | null>(null);
-const items = ref(new Map<string, Readonly<OptimizableItem>>());
+const itemModel = ref<Readonly<Item> | null>(null);
+
+const [initialItems, initialAmounts] = transpose(props.initial.map(value => [[value.item.id, value.item], [value.item.id, {
+  greaterThan: value.greaterThan ,
+  amount: value.amount ,
+}]] as const));
+
+const items = ref(new Map<string, Readonly<Item>>(new Map(initialItems)));
 const amounts = new Map<string, {
   greaterThan: boolean;
-  amount: number;
-}>();
-
-addItem(energy, 10_000);
+  amount: QuantityPerMinute | MegaWatts;
+}>(new Map(initialAmounts));
 
 watch(itemModel, (value) => {
   if (value !== null) {
@@ -32,18 +40,18 @@ watch(itemModel, (value) => {
 
 watchEffect(() => {
   if (props.exclude !== null) {
-    removeItem(reactive(props.exclude));
+    removeItem(props.exclude);
   }
 });
 
-function addItem(item: Readonly<OptimizableItem>, amount?: number) {
+function addItem(item: Readonly<Item>, amount?: QuantityPerMinute | MegaWatts) {
   items.value.set(item.id, item);
 
   const current = amounts.get(item.id);
   if (current === undefined) {
     amounts.set(item.id, reactive({
       greaterThan: true,
-      amount: amount ?? 0
+      amount: amount ?? (0 as QuantityPerMinute | MegaWatts)
     }));
   } else if (amount !== undefined) {
     current.amount = amount;
@@ -65,19 +73,31 @@ function clearInput() {
   });
 }
 
-function removeItem(item: Readonly<OptimizableItem>) {
+function removeItem(item: Readonly<Item>) {
   items.value.delete(item.id);
 }
 
-function getAmountsRef(item: Readonly<OptimizableItem>) {
+function getAmountsRef(item: Readonly<Item>) {
   const amount = amounts.get(item.id);
   assert(amount !== undefined);
   return amount;
 }
 
-function isNotSelectableItem(item: Readonly<OptimizableItem>): boolean {
-  const asReactive = reactive(item);
-  return props.exclude === asReactive || items.value.has(item.id);
+function isNotSelectableItem(item: Readonly<Item>): boolean {
+  return props.exclude === item || items.value.has(item.id);
+}
+
+function getValues() {
+  return [...items.value.values()].map((item) => {
+    const value = amounts.get(item.id);
+    assert(value !== undefined);
+    const { greaterThan, amount } = value;
+    return {
+      item,
+      greaterThan,
+      amount,
+    };
+  });
 }
 </script>
 
@@ -85,7 +105,7 @@ function isNotSelectableItem(item: Readonly<OptimizableItem>): boolean {
   <div class="flex flex-col no-wrap">
     <q-scroll-area class="h-full flex-grow">
       <ListBox :items="items.values()">
-        <template v-slot:item="slotProps">
+        <template #item="slotProps">
           <q-item class="py-0 pr-2">
             <q-item-section avatar>
               <SrcSetImage
@@ -128,7 +148,7 @@ function isNotSelectableItem(item: Readonly<OptimizableItem>): boolean {
                 min="0"
                 input-class="text-right text-base"
               >
-                <template v-slot:append>
+                <template #append>
                   <TransporterUnits
                     :transporter="slotProps.item.transporter"
                     class="normal-case text-base w-3ch"
@@ -153,11 +173,11 @@ function isNotSelectableItem(item: Readonly<OptimizableItem>): boolean {
 
     <q-form class="flex pt-1 px-4" @submit="onAddItemEvent">
       <ItemSelector
+        v-model="itemModel"
         sort-by="type"
         class="flex-grow"
-        v-model="itemModel"
         :items="optimizableItems"
-        :isDisabledItem="isNotSelectableItem"
+        :is-disabled-item="isNotSelectableItem"
         dense
       />
       <span w-4></span>

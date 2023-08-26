@@ -1,42 +1,125 @@
 <script setup lang="ts">
 import { assert } from "chai";
+import loadHighs from 'highs';
+import highsWasmUrl from 'highs/build/highs.wasm?url';
 
-import { useOptimizableItems, useResourceItems, useResourceItemsMapMaxRates } from "~/composables/game-data";
+import { useSinkAppliedRecipes, type ResourceItemRateValue} from "~/composables/game-data";
+import { useOptimizableItems, useResourceItemsByName, useResourceItemsMapMaxRates } from "~/composables/game-data";
 import { usePageTitle } from "~/composables/page";
-import { points } from "~/data/special-items";
+import { energy, points } from "~/data/special-items";
+import  { type QuantityPerMinute, type MegaWatts , type Item } from "~/data/types";
 
+import AppliedRecipeSettings from "./components/applied-recipe-settings/AppliedRecipeSettings.vue";
 import AvaliableResources from "./components/avaliable-resources/AvaliableResources.vue";
-import { type ResourceItemRates } from "./components/avaliable-resources/AvaliableResources.vue";
+import ExcessProduction from "./components/excess-production/ExcessProduction.vue";
+import { generateLp } from "./generate";
 
 useHead({
   title: usePageTitle("optimizer"),
 });
 const { t } = useI18n();
 
-const AvaliableResourcesRef = ref<InstanceType<typeof AvaliableResources> | null>(null);
-
 const optimizableItems = useOptimizableItems();
-const resourceItems = useResourceItems();
-const resourceCount = resourceItems.length;
 const resourceItemsMapMaxRates = useResourceItemsMapMaxRates();
+
+const {
+  bauxite,
+  caterium,
+  coal,
+  copper,
+  iron,
+  limestone,
+  nitrogen,
+  oil,
+  rawQuartz,
+  sulfur,
+  uranium,
+} = useResourceItemsByName();
+
+const resourceItems = [
+  iron,
+  copper,
+  limestone,
+  coal,
+  caterium,
+  rawQuartz,
+  sulfur,
+  bauxite,
+  uranium,
+  oil,
+  nitrogen,p
+];
+
+const resourceCount = resourceItems.length;
+
+const avaliableResourcesRef = ref<InstanceType<typeof AvaliableResources>>();
+const appliedRecipesSettingsRef = ref<InstanceType<typeof AppliedRecipeSettings>>();
+const excessProductionRef = ref<InstanceType<typeof ExcessProduction>>();
 
 const optimizeFor = ref<(typeof optimizableItems)[number] | null>(points);
 
-function setResourceRatesRates(rates: ResourceItemRates) {
-  assert(AvaliableResourcesRef.value !== null);
-  AvaliableResourcesRef.value.setRates(rates);
-}
+const avaliableResources: ReadonlyArray<ResourceItemRateValue> = resourceItemsMapMaxRates.effective.map(itemRate => reactive<typeof itemRate>({ ...itemRate }));
+
+const initialExcessProduction: ReadonlyArray<{ item: Item; greaterThan: boolean; amount: QuantityPerMinute | MegaWatts; }> = ([
+  {
+    item: energy,
+    greaterThan: true,
+    amount: 10_000 as MegaWatts,
+  }
+]);
 
 const helpOpen = ref(false);
-const helpContent = ref({header: "loading...", content: "loading..."});
+const helpContent = ref({ header: "loading...", content: "loading..." });
 function showHelp(helpI18nPath: string) {
   helpContent.value.header = t(`${helpI18nPath}.header`);
   helpContent.value.content = t(`${helpI18nPath}.content`);
   helpOpen.value = true;
 }
 
-function optimize() {
-  // TODO: implement
+function setResourceRates(newRates: ReadonlyArray<ResourceItemRateValue>) {
+  for (const newRate of newRates) {
+    for (const value of avaliableResources) {
+      if (newRate.item === value.item) {
+        value.amount = newRate.amount;
+        value.power = newRate.power;
+        break;
+      }
+    }
+  }
+}
+
+// Start loading highs.
+const highsLoader = loadHighs({
+  locateFile() {
+    return highsWasmUrl;
+  }
+});
+
+async function optimize() {
+  if (optimizeFor.value === null) {
+    return;
+  }
+
+  assert(excessProductionRef.value !== undefined);
+  assert(appliedRecipesSettingsRef.value !== undefined);
+
+  const lp = generateLp(
+    optimizeFor.value,
+    avaliableResources,
+    excessProductionRef.value.getValues(),
+    appliedRecipesSettingsRef.value.getValues()
+  );
+  console.log(lp)
+  const highs = await highsLoader;
+  const solution = highs.solve(lp);
+
+  // if (solution.Status !== "Optimal") {
+  //   // TODO: Report error.
+  //   console.error("Something went wrong");
+  //   return;
+  // }
+
+  console.log(solution);
 }
 </script>
 
@@ -77,7 +160,12 @@ function optimize() {
         />
       </q-card-section>
       <q-card-section class="px-0 pt-0 flex-grow">
-        <ExcessProduction :exclude="optimizeFor" class="h-full" />
+        <ExcessProduction
+          ref="excessProductionRef"
+          :initial="initialExcessProduction"
+          :exclude="optimizeFor"
+          class="h-full"
+        />
       </q-card-section>
     </q-card>
 
@@ -93,9 +181,9 @@ function optimize() {
         >
           <q-list>
             <q-item
-              clickable
               v-close-popup
-              @click="setResourceRatesRates(resourceItemsMapMaxRates.effective)"
+              clickable
+              @click="setResourceRates(resourceItemsMapMaxRates.effective)"
             >
               <q-item-section>
                 <q-item-label>
@@ -105,9 +193,9 @@ function optimize() {
             </q-item>
 
             <q-item
-              clickable
               v-close-popup
-              @click="setResourceRatesRates(resourceItemsMapMaxRates.full)"
+              clickable
+              @click="setResourceRates(resourceItemsMapMaxRates.full)"
             >
               <q-item-section>
                 <q-item-label>
@@ -127,19 +215,23 @@ function optimize() {
         />
       </q-card-section>
       <q-card-section class="px-0 pt-0 card-content">
-        <AvaliableResources ref="AvaliableResourcesRef" />
+        <AvaliableResources
+          ref="avaliableResourcesRef"
+          :rates="avaliableResources"
+        />
       </q-card-section>
     </q-card>
 
     <AppliedRecipeSettings
+      ref="appliedRecipesSettingsRef"
       class="recipe-card resize-y overflow-hidden col-span-2"
     >
-      <template v-slot:header-start>
+      <template #header-start>
         <h2 class="flex-basis-1/4">
           {{ t("pages.optimizer.content.recipes.header") }}
         </h2>
       </template>
-      <template v-slot:header-end>
+      <template #header-end>
         <div class="flex-basis-1/4 flex flex-row justify-end">
           <q-btn
             color="info"

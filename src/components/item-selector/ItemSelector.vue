@@ -3,7 +3,7 @@ import { QSelect } from "quasar";
 import { type QSelectProps } from "quasar";
 import { ref } from "vue";
 
-import { type ItemGroup} from "~/composables/game-data";
+import { useItems, type ItemGroup} from "~/composables/game-data";
 import { useGameDataName,
   useGameImage,
   useEntitySorterByName,
@@ -14,7 +14,6 @@ import { useGameDataName,
   useItemTypeGroups
 } from "~/composables/game-data";
 import { useIntlNumberFormatter } from "~/composables/intl";
-import { gameData } from "~/data";
 import { type GeneralItem, type Item, isGeneralItem } from "~/data/types";
 import { assertNever } from "~/utils";
 
@@ -22,6 +21,7 @@ const { t } = useI18n();
 const numberFormatter = useIntlNumberFormatter();
 const itemTypeGroups = useItemTypeGroups();
 const itemTierGroups = useItemTierGroups();
+const gameItems = useItems();
 
 const props = defineProps<{
   label?: string;
@@ -83,7 +83,7 @@ function getGroupedOptionsFilter(input: string) {
   };
 }
 
-const baseItems:  ReadonlyArray<Readonly<Item>> = props.items ?? [...gameData.items.values()];
+const baseItems:  ReadonlyArray<Readonly<Item>> = props.items ?? gameItems;
 let m_itemsByName: ReadonlyArray<Readonly<Item>> | undefined = undefined;
 let m_itemsByType: GroupOfItems[] | undefined = undefined;
 let m_itemsByTier: GroupOfItems[] | undefined = undefined;
@@ -190,18 +190,18 @@ const onInput: QSelectProps["onInputValue"] = (value: string) => {
 
 <template>
   <q-select
+    v-model="itemModel"
     filled
     clearable
-    v-model="itemModel"
     :use-input="itemModel === null"
     :label="props.label"
     :dense="props.dense"
     :options="itemOptions"
+    class="w-[45ch]"
     @filter="onFilter"
     @input-value="onInput"
-    class="w-[45ch]"
   >
-    <template v-slot:before-options>
+    <template #before-options>
       <div class="flex items-center">
         <label ml-xs>Sort by:</label>
         <span class="grow"></span>
@@ -215,7 +215,7 @@ const onInput: QSelectProps["onInputValue"] = (value: string) => {
       <q-separator />
     </template>
 
-    <template v-slot:selected>
+    <template #selected>
       <q-item
         v-if="itemModel !== null"
         :dense="props.dense"
@@ -236,7 +236,7 @@ const onInput: QSelectProps["onInputValue"] = (value: string) => {
       </q-item>
     </template>
 
-    <template v-slot:no-option>
+    <template #no-option>
       <q-item>
         <q-item-section class="text-grey">
           <q-item-label>
@@ -246,7 +246,7 @@ const onInput: QSelectProps["onInputValue"] = (value: string) => {
       </q-item>
     </template>
 
-    <template v-slot:option="data">
+    <template #option="data">
       <div
         :key="Array.isArray(data.opt) ? `group:${data.opt[0]?.id ?? 'uncategorized'}` : `value:${data.opt.id}`"
       >
@@ -258,9 +258,9 @@ const onInput: QSelectProps["onInputValue"] = (value: string) => {
           >
             <template v-for="option in data.opt[1]" :key="option.id">
               <q-item
-                clickable
                 v-ripple
                 v-close-popup
+                clickable
                 :active="itemModel?.id === option.id"
                 :disable="props.isDisabledItem?.(option) ?? false"
                 @click="itemModel = option"
@@ -285,9 +285,9 @@ const onInput: QSelectProps["onInputValue"] = (value: string) => {
         <!-- Ungrouped -->
         <template v-else>
           <q-item
-            clickable
             v-ripple
             v-close-popup
+            clickable
             :active="itemModel?.id === data.opt.id"
             :disable="props.isDisabledItem?.(data.opt) ?? false"
             @click="itemModel = data.opt"

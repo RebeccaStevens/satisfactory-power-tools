@@ -46,7 +46,7 @@ export function useGeneratorFuelRecipesMap() {
   m_generatorFuelRecipesMap = new Map(
     fuelGenerators.flatMap((fuelGenerator) =>
       fuelGenerator.fuel.map((fuelType): [string, Recipe] => {
-        const id = `recipe-power-${fuelGenerator.id}-${fuelType.fuel.id}`;
+        const id = `recipe_power_${fuelGenerator.id}_${fuelType.fuel.id}`;
         return [
           id,
           {
@@ -116,10 +116,12 @@ export function useAutomatableRecipes() {
   }
   m_automatableRecipes = [
     ...useRecipes().filter((recipe) =>
-      recipe.producedIn.values().some(isProductionMachine),
+      // TODO: use iterator operation
+      [...recipe.producedIn.values()].some(isProductionMachine),
     ),
     ...useGeneratorFuelRecipes().filter((recipe) =>
-      recipe.producedIn.values().some(
+      // TODO: use iterator operation
+      [...recipe.producedIn.values()].some(
         (producer) =>
           // TODO: refactor out
           producer.id !== "Build_GeneratorBiomass_C",

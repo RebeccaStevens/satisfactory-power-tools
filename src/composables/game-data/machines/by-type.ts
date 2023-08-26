@@ -1,7 +1,15 @@
 import { assert } from "chai";
 
 import { gameData } from "~/data";
-import { type Machine } from "~/data/types";
+import {
+  type SinkMachine,
+  type ProductionMachine,
+  type GeneratorFuelMachine,
+  type Machine,
+  isProductionMachine,
+  isGeneratorFuelMachine,
+  isResourceSinkMachine,
+} from "~/data/types";
 
 /**
  * Cache the list of machines.
@@ -51,18 +59,19 @@ export function useMachines() {
  */
 let m_machinesByName:
   | Readonly<{
-      constructorM: Readonly<Machine>;
-      assembler: Readonly<Machine>;
-      manufacturer: Readonly<Machine>;
-      refinery: Readonly<Machine>;
-      blender: Readonly<Machine>;
-      particleAccelerator: Readonly<Machine>;
-      smelter: Readonly<Machine>;
-      foundry: Readonly<Machine>;
-      packager: Readonly<Machine>;
-      coalGenerator: Readonly<Machine>;
-      fuelGenerator: Readonly<Machine>;
-      nuclearPowerPlant: Readonly<Machine>;
+      constructorM: Readonly<ProductionMachine>;
+      assembler: Readonly<ProductionMachine>;
+      manufacturer: Readonly<ProductionMachine>;
+      refinery: Readonly<ProductionMachine>;
+      blender: Readonly<ProductionMachine>;
+      particleAccelerator: Readonly<ProductionMachine>;
+      smelter: Readonly<ProductionMachine>;
+      foundry: Readonly<ProductionMachine>;
+      packager: Readonly<ProductionMachine>;
+      coalGenerator: Readonly<GeneratorFuelMachine>;
+      fuelGenerator: Readonly<GeneratorFuelMachine>;
+      nuclearPowerPlant: Readonly<GeneratorFuelMachine>;
+      resourceSink: Readonly<SinkMachine>;
     }>
   | undefined = undefined;
 
@@ -78,7 +87,9 @@ export function useMachinesByName() {
     ...gameData.machines.generator.fuel.values(),
     ...gameData.machines.generator.geoThermal.values(),
     ...gameData.machines.production.values(),
+    ...gameData.machines.sink.values(),
   ];
+
   const machinesMap = new Map(machines.map((machine) => [machine.id, machine]));
 
   // const minerMk1 = machinesMap.get("Build_MinerMk1_C");
@@ -104,23 +115,61 @@ export function useMachinesByName() {
   const fuelGenerator = machinesMap.get("Build_GeneratorFuel_C");
   const nuclearPowerPlant = machinesMap.get("Build_GeneratorNuclear_C");
 
-  assert(constructorM !== undefined, 'Cannot find machine: "constructor"');
-  assert(assembler !== undefined, 'Cannot find machine: "assembler"');
-  assert(manufacturer !== undefined, 'Cannot find machine: "manufacturer"');
-  assert(refinery !== undefined, 'Cannot find machine: "refinery"');
-  assert(blender !== undefined, 'Cannot find machine: "blender"');
+  const resourceSink = machinesMap.get("Build_ResourceSink_C");
+
   assert(
-    particleAccelerator !== undefined,
+    constructorM !== undefined && isProductionMachine(constructorM),
+    'Cannot find machine: "constructor"',
+  );
+  assert(
+    assembler !== undefined && isProductionMachine(assembler),
+    'Cannot find machine: "assembler"',
+  );
+  assert(
+    manufacturer !== undefined && isProductionMachine(manufacturer),
+    'Cannot find machine: "manufacturer"',
+  );
+  assert(
+    refinery !== undefined && isProductionMachine(refinery),
+    'Cannot find machine: "refinery"',
+  );
+  assert(
+    blender !== undefined && isProductionMachine(blender),
+    'Cannot find machine: "blender"',
+  );
+  assert(
+    particleAccelerator !== undefined &&
+      isProductionMachine(particleAccelerator),
     'Cannot find machine: "particleAccelerator"',
   );
-  assert(smelter !== undefined, 'Cannot find machine: "smelter"');
-  assert(foundry !== undefined, 'Cannot find machine: "foundry"');
-  assert(packager !== undefined, 'Cannot find machine: "packager"');
-  assert(coalGenerator !== undefined, 'Cannot find machine: "coalGenerator"');
-  assert(fuelGenerator !== undefined, 'Cannot find machine: "fuelGenerator"');
   assert(
-    nuclearPowerPlant !== undefined,
+    smelter !== undefined && isProductionMachine(smelter),
+    'Cannot find machine: "smelter"',
+  );
+  assert(
+    foundry !== undefined && isProductionMachine(foundry),
+    'Cannot find machine: "foundry"',
+  );
+  assert(
+    packager !== undefined && isProductionMachine(packager),
+    'Cannot find machine: "packager"',
+  );
+  assert(
+    coalGenerator !== undefined && isGeneratorFuelMachine(coalGenerator),
+    'Cannot find machine: "coalGenerator"',
+  );
+  assert(
+    fuelGenerator !== undefined && isGeneratorFuelMachine(fuelGenerator),
+    'Cannot find machine: "fuelGenerator"',
+  );
+  assert(
+    nuclearPowerPlant !== undefined &&
+      isGeneratorFuelMachine(nuclearPowerPlant),
     'Cannot find machine: "nuclearPowerPlant"',
+  );
+  assert(
+    resourceSink !== undefined && isResourceSinkMachine(resourceSink),
+    'Cannot find machine: "resourceSink"',
   );
 
   m_machinesByName = {
@@ -136,6 +185,7 @@ export function useMachinesByName() {
     coalGenerator,
     fuelGenerator,
     nuclearPowerPlant,
+    resourceSink,
   };
 
   return m_machinesByName;

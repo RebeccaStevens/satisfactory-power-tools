@@ -135,6 +135,25 @@ export function getDocsData() {
     }),
   );
 
+  const sinkMachines = Object.fromEntries(
+    data.machines.sink.map((machine) => {
+      return [
+        machine.ClassName,
+        {
+          powerConsumption: machine.mPowerConsumption,
+          minPowerConsumption: machine.mPowerConsumption,
+          maxPowerConsumption: machine.mPowerConsumption,
+          powerConsumptionExponent: machine.mPowerConsumptionExponent,
+          minPotential: machine.mCanChangePotential ? machine.mMinPotential : 1,
+          maxPotential: machine.mCanChangePotential ? machine.mMaxPotential : 1,
+          maxPotentialIncreasePerCrystal: machine.mCanChangePotential
+            ? machine.mMaxPotentialIncreasePerCrystal
+            : 0,
+        },
+      ];
+    }),
+  );
+
   const recipes = Object.fromEntries(
     data.recipes.map((recipe) => {
       return [
@@ -216,6 +235,7 @@ export function getDocsData() {
         fuel: generatorFuelMachines,
         geoThermal: generatorGeoThermalMachines,
       },
+      sink: sinkMachines,
     },
     recipes,
     schematics,

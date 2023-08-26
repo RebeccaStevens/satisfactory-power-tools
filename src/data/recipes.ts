@@ -56,7 +56,7 @@ export function getRecipes(
       );
       return [
         id,
-        {
+        reactive({
           id,
           ingredients,
           products,
@@ -64,7 +64,7 @@ export function getRecipes(
           producedIn,
           variablePowerConsumptionConstant,
           variablePowerConsumptionFactor,
-        },
+        }),
       ];
     }),
   );
