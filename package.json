@@ -56,7 +56,7 @@
     "@iconify-json/bx": "1.1.6",
     "@iconify/json": "2.2.84",
     "@iconify/utils": "2.1.7",
-    "@intlify/unplugin-vue-i18n": "0.11.0",
+    "@intlify/unplugin-vue-i18n": "0.13.0",
     "@kidonng/daisyui": "2.51.3",
     "@quasar/vite-plugin": "1.4.0",
     "@rebeccastevens/eslint-config": "1.7.8",
