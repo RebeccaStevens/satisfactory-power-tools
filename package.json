@@ -109,7 +109,7 @@
     "husky": "8.0.3",
     "imagetools-core": "4.0.3",
     "jsdom": "22.1.0",
-    "lint-staged": "13.2.3",
+    "lint-staged": "14.0.1",
     "markdownlint-cli": "0.35.0",
     "prettier": "2.8.8",
     "prettier-plugin-packagejson": "2.4.3",
