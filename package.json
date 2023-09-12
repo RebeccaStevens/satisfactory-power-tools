@@ -41,7 +41,7 @@
     "monocle-ts": "2.3.13",
     "newtype-ts": "0.3.5",
     "pinia": "2.1.4",
-    "pretty-format": "29.5.0",
+    "pretty-format": "29.7.0",
     "quasar": "2.12.1",
     "uom-ts": "^2.1.1",
     "vite-ssg": "0.23.0",
