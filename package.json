@@ -107,7 +107,7 @@
     "eslint-plugin-vue": "9.15.1",
     "execa": "7.1.1",
     "husky": "8.0.3",
-    "imagetools-core": "4.0.3",
+    "imagetools-core": "4.1.0",
     "jsdom": "22.1.0",
     "lint-staged": "13.2.3",
     "markdownlint-cli": "0.35.0",
