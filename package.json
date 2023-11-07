@@ -85,7 +85,7 @@
     "chai": "^4.3.7",
     "commitizen": "4.3.0",
     "critters": "0.0.19",
-    "cspell": "6.31.1",
+    "cspell": "7.3.9",
     "cz-conventional-changelog": "3.3.0",
     "dedent": "0.7.0",
     "esbuild": "0.18.10",
