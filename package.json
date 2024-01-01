@@ -116,7 +116,7 @@
     "rollup-plugin-unassert": "0.6.0",
     "sass": "1.32.13",
     "sharp": "0.32.1",
-    "ts-node": "10.9.1",
+    "ts-node": "10.9.2",
     "ts-paths-esm-loader": "1.4.3",
     "tsconfig-paths": "4.2.0",
     "tsutils": "3.21.0",
