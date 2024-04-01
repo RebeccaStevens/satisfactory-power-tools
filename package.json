@@ -80,7 +80,7 @@
     "@vitejs/plugin-vue": "4.2.3",
     "@vitest/coverage-c8": "0.32.2",
     "@vue/eslint-config-prettier": "7.1.0",
-    "@vue/eslint-config-typescript": "11.0.3",
+    "@vue/eslint-config-typescript": "13.0.0",
     "@vue/test-utils": "2.4.0",
     "chai": "^4.3.7",
     "commitizen": "4.3.0",
