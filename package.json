@@ -125,7 +125,7 @@
     "unplugin-auto-import": "0.16.4",
     "unplugin-vue-components": "0.25.1",
     "vite": "4.3.9",
-    "vite-imagetools": "5.0.4",
+    "vite-imagetools": "7.0.4",
     "vite-plugin-inspect": "0.7.31",
     "vite-plugin-pages": "0.31.0",
     "vite-plugin-pwa": "0.16.4",
