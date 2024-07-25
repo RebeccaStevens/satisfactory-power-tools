@@ -36,7 +36,7 @@
     "array.prototype.group": "1.1.2",
     "array.prototype.grouptomap": "1.1.2",
     "change-case": "4.1.2",
-    "fp-ts": "2.16.0",
+    "fp-ts": "2.16.9",
     "iterator-helpers-polyfill": "2.3.1",
     "monocle-ts": "2.3.13",
     "newtype-ts": "0.3.5",
