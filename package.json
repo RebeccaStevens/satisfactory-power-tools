@@ -82,7 +82,7 @@
     "@vue/eslint-config-prettier": "7.1.0",
     "@vue/eslint-config-typescript": "11.0.3",
     "@vue/test-utils": "2.4.0",
-    "chai": "^4.3.7",
+    "chai": "^4.5.0",
     "commitizen": "4.3.0",
     "critters": "0.0.19",
     "cspell": "6.31.1",
