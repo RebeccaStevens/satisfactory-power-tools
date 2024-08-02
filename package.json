@@ -130,7 +130,7 @@
     "vite-plugin-pages": "0.31.0",
     "vite-plugin-pwa": "0.16.4",
     "vite-plugin-vue-layouts": "0.8.0",
-    "vite-ssg-sitemap": "0.5.1",
+    "vite-ssg-sitemap": "0.8.1",
     "vite-tsconfig-paths": "4.2.0",
     "vitest": "0.32.2",
     "vue-eslint-parser": "9.3.1",
