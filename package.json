@@ -50,8 +50,8 @@
     "vue-router": "4.2.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.6.6",
-    "@commitlint/config-conventional": "17.6.6",
+    "@commitlint/cli": "19.5.0",
+    "@commitlint/config-conventional": "19.5.0",
     "@cspell/dict-cryptocurrencies": "3.0.1",
     "@iconify-json/bx": "1.1.6",
     "@iconify/json": "2.2.84",
