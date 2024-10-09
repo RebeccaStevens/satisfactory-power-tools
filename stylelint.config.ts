@@ -4,16 +4,25 @@ import browserslist from "browserslist";
 import { assert } from "chai";
 import type { Config } from "stylelint";
 
-const browserslistConfig = browserslist.readConfig(path.join(import.meta.dirname, ".browserslistrc"));
+const browserslistConfig = browserslist.readConfig(
+  path.join(import.meta.dirname, ".browserslistrc"),
+);
 
 const browserslistConfigProduction =
-  browserslistConfig["production"] ?? assert.fail("Failed to load browserslist production config");
+  browserslistConfig["production"] ??
+  assert.fail("Failed to load browserslist production config");
 
-const noUnsupportedBrowserFeaturesIgnore = ["css-display-contents", "css-nesting"];
+const noUnsupportedBrowserFeaturesIgnore = [
+  "css-display-contents",
+  "css-nesting",
+];
 
 export default {
   extends: ["stylelint-config-recommended", "stylelint-config-idiomatic-order"],
-  plugins: ["stylelint-high-performance-animation", "stylelint-no-unsupported-browser-features"],
+  plugins: [
+    "stylelint-high-performance-animation",
+    "stylelint-no-unsupported-browser-features",
+  ],
   ignoreFiles: [".husky/**", "build/**", "coverage/**", "node_modules/**"],
   rules: {
     "block-no-empty": null,

@@ -3,3 +3,7 @@ node_modules
 /.cache
 /build
 .env
+
+# Generated Files
+app/game-data/parsers/peggy/collection.js
+app/game-data/parsers/peggy/collection.d.ts
