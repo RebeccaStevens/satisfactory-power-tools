@@ -1,0 +1,14 @@
+name: Test
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  test_js:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/prepare
+      - run: pnpm run test-run
+      - uses: codecov/codecov-action@v3

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "automergeStrategy": "rebase",
+  "extends": [
+    "config:js-app",
+    ":automergeAll",
+    ":automergePr",
+    ":ignoreModulesAndTests",
+    ":prConcurrentLimitNone",
+    ":prHourlyLimitNone",
+    ":semanticCommits",
+    "group:allNonMajor",
+    "group:monorepos",
+    "group:recommended",
+    "helpers:disableTypesNodeMajor",
+    "replacements:all",
+    "schedule:monthly",
+    "workarounds:all"
+  ],
+  "labels": ["Type: Maintenance", ":blue_heart:"],
+  "packageRules": [
+    {
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["dependencies"],
+      "rangeStrategy": "pin",
+      "semanticCommitType": "chore",
+      "semanticCommitScope": "deps",
+      "major": {
+        "semanticCommitType": "build"
+      }
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["devDependencies"],
+      "rangeStrategy": "pin",
+      "semanticCommitType": "chore",
+      "semanticCommitScope": "dev-deps"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "rangeStrategy": "replace",
+      "semanticCommitType": "ci",
+      "semanticCommitScope": "dev-deps"
+    }
+  ],
+  "postUpdateOptions": ["pnpmDedupe"]
+}

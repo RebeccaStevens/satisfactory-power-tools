@@ -1,0 +1,13 @@
+name: Lint Yaml
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  lint_yaml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/prepare
+      - run: pnpm run lint:yaml

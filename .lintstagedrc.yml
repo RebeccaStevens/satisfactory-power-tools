@@ -1,0 +1,21 @@
+"*.{json?(c),y?(a)ml}":
+  - eslint --fix
+  - cspell lint --no-progress --show-suggestions --show-context --no-must-find-files --dot
+
+"*.?([cm])[jt]s?(x)":
+  - eslint --fix
+  - cspell lint --no-progress --show-suggestions --show-context --no-must-find-files --dot
+  - tsc-files -p tsconfig.json --noEmit
+
+"*.{?(s)css}":
+  - stylelint --fix
+  - eslint --fix
+  - cspell lint --no-progress --show-suggestions --show-context --no-must-find-files --dot
+
+"*.md":
+  - markdownlint-cli2 --fix
+  - eslint --fix
+  - cspell lint --no-progress --show-suggestions --show-context --no-must-find-files --dot
+
+pnpm-lock.yaml:
+  - "pnpm dedupe && :"

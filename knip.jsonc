@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/knip/schema-jsonc.json",
+  "entry": ["app/entry.client.tsx!", "app/entry.server.tsx!"],
+  "project": ["app/**/*.ts!"],
+  "ignoreDependencies": [
+    "@eslint-react/eslint-plugin",
+    "@eslint/compat",
+    "cssnano",
+    "eslint-plugin-react-hooks",
+    "eslint-plugin-react-refresh",
+    "tsc-files",
+  ],
+  "exclude": ["exports", "nsExports", "types", "nsTypes"],
+}

@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+  lint_css:
+    uses: ./.github/workflows/lint-css.yml
+  lint_js:
+    uses: ./.github/workflows/lint-js.yml
+  lint_knip:
+    uses: ./.github/workflows/lint-knip.yml
+  lint_markdown:
+    uses: ./.github/workflows/lint-markdown.yml
+  lint_packages:
+    uses: ./.github/workflows/lint-packages.yml
+  lint_spelling:
+    uses: ./.github/workflows/lint-spelling.yml
+  lint_yaml:
+    uses: ./.github/workflows/lint-yaml.yml
+  test_js:
+    uses: ./.github/workflows/test-js.yml
+  typecheck:
+    uses: ./.github/workflows/typecheck.yml
