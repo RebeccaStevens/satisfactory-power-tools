@@ -123,7 +123,8 @@ export default function Index() {
         </header>
         <nav
           className={`
-            flex flex-col items-center justify-center gap-4 rounded-3xl border border-gray-200 p-6
+            flex flex-col items-center justify-center gap-4 rounded-3xl border
+            border-gray-200 p-6
             dark:border-gray-700
           `}
         >
@@ -140,7 +141,8 @@ export default function Index() {
               <li key={href}>
                 <a
                   className={`
-                    group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700
+                    group flex items-center gap-3 self-stretch p-3
+                    leading-normal text-blue-700
                     hover:underline
                     dark:text-blue-500
                   `}

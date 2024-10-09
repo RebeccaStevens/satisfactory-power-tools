@@ -1,7 +1,12 @@
 {
   "gitignore": true,
   "globs": ["**/*.md"],
-  "ignores": ["**/node_modules", "**/build", "**/coverage"],
+  "ignores": [
+    "app/game-data/vendor/community-resources",
+    "**/node_modules",
+    "**/build",
+    "**/coverage",
+  ],
   "config": {
     "default": false,
     "extends": "markdownlint/style/prettier",

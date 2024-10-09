@@ -4,7 +4,8 @@ const cssnanoPreset = cssnanoPresetAdvanced({
   reduceIdents: false,
   mergeRules: false,
   normalizeWhitespace: false,
-  discardComments: process.env.NODE_ENV === "production" ? { removeAll: true } : false,
+  discardComments:
+    process.env.NODE_ENV === "production" ? { removeAll: true } : false,
 });
 
 export default {

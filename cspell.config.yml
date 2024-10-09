@@ -32,6 +32,7 @@ ignorePaths:
   - .gitignore
   - .husky
   - .vscode
+  - app/game-data/vendor/community-resources
   - build
   - coverage
   - cspell.config.yml

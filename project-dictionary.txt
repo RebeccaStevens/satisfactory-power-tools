@@ -1,12 +1,14 @@
 browserslistrc
+centi
 clsx
 deassert
+ficsit
 iconify
 idents
 isbot
 knip
-lerp
 lcov
+lerp
 rebecca
 shadcn
 signup
