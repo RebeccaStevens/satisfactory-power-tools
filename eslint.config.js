@@ -5,10 +5,13 @@ import rsEslint from "@rebeccastevens/eslint-config";
 import browserslist from "browserslist";
 import { assert } from "chai";
 
-const browserslistConfig = browserslist.readConfig(path.join(import.meta.dirname, ".browserslistrc"));
+const browserslistConfig = browserslist.readConfig(
+  path.join(import.meta.dirname, ".browserslistrc"),
+);
 
 const browserslistConfigProduction =
-  browserslistConfig["production"] ?? assert.fail("Failed to load browserslist production config");
+  browserslistConfig["production"] ??
+  assert.fail("Failed to load browserslist production config");
 
 export default rsEslint(
   {
@@ -19,7 +22,9 @@ export default rsEslint(
     jsonc: true,
     markdown: true,
     react: true,
-    stylistic: true,
+    stylistic: {
+      printWidth: 80,
+    },
     tailwind: true,
     typescript: {
       parserOptions: {
@@ -30,6 +35,11 @@ export default rsEslint(
       unsafe: "off",
     },
     yaml: true,
+    ignores: [
+      "app/game-data/vendor/community-resources/**",
+      "app/game-data/parsers/peggy/collection.js",
+      "app/game-data/parsers/peggy/collection.d.ts",
+    ],
   },
   {
     files: ["app/**"],
@@ -52,6 +62,7 @@ export default rsEslint(
 
       "jsdoc/require-jsdoc": "off",
 
+      "unicorn/no-array-for-each": "off",
       "unicorn/no-unnecessary-polyfills": [
         "error",
         {
