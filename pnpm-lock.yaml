@@ -38,7 +38,7 @@ importers:
         version: 1.2.2(eslint@9.14.0(jiti@2.4.0))
       '@rebeccastevens/eslint-config':
         specifier: 3.3.3
-        version: 3.3.3(2rykwbhlnsdwfsl3dpjc3rdynm)
+        version: 3.3.3(zetnsqaxg2hiwodaztimjjuxcq)
       '@remix-run/dev':
         specifier: 2.13.1
         version: 2.13.1(@remix-run/react@2.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3))(@remix-run/serve@2.13.1(typescript@5.6.3))(@types/node@22.7.5)(typescript@5.6.3)(vite@5.4.10(@types/node@22.7.5))
@@ -136,8 +136,8 @@ importers:
         specifier: 7.1.0
         version: 7.1.0(eslint@9.14.0(jiti@2.4.0))
       eslint-plugin-react-hooks:
-        specifier: 4.6.2
-        version: 4.6.2(eslint@9.14.0(jiti@2.4.0))
+        specifier: 5.0.0
+        version: 5.0.0(eslint@9.14.0(jiti@2.4.0))
       eslint-plugin-react-refresh:
         specifier: 0.4.14
         version: 0.4.14(eslint@9.14.0(jiti@2.4.0))
@@ -3508,6 +3508,12 @@ packages:
     engines: {node: '>=10'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
+
+  eslint-plugin-react-hooks@5.0.0:
+    resolution: {integrity: sha512-hIOwI+5hYGpJEc4uPRmz2ulCjAGD/N13Lukkh8cLV0i2IRk/bdZDYjgLVHj+U9Z704kLIdIO6iueGvxNur0sgw==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
 
   eslint-plugin-react-naming-convention@1.15.2:
     resolution: {integrity: sha512-Vj4SOKlFAs0c+ICal0rVZHjVmEFAKEROhJV8xBu6ZO7JcVDb3Yc7N6t8/vTwhGJDk0jQ8quNSV0dPCX4gvLlDw==}
@@ -8594,7 +8600,7 @@ snapshots:
 
   '@pkgr/core@0.1.1': {}
 
-  '@rebeccastevens/eslint-config@3.3.3(2rykwbhlnsdwfsl3dpjc3rdynm)':
+  '@rebeccastevens/eslint-config@3.3.3(zetnsqaxg2hiwodaztimjjuxcq)':
     dependencies:
       '@antfu/install-pkg': 0.4.1
       '@clack/prompts': 0.7.0
@@ -8625,7 +8631,7 @@ snapshots:
       eslint-plugin-no-only-tests: 3.3.0
       eslint-plugin-optimize-regex: 1.2.1
       eslint-plugin-promise: 7.1.0(eslint@9.14.0(jiti@2.4.0))
-      eslint-plugin-react-hooks: 4.6.2(eslint@9.14.0(jiti@2.4.0))
+      eslint-plugin-react-hooks: 5.0.0(eslint@9.14.0(jiti@2.4.0))
       eslint-plugin-react-refresh: 0.4.14(eslint@9.14.0(jiti@2.4.0))
       eslint-plugin-readable-tailwind: 1.8.1(eslint@9.14.0(jiti@2.4.0))(tailwindcss@3.4.14)
       eslint-plugin-regexp: 2.6.0(eslint@9.14.0(jiti@2.4.0))
@@ -10641,6 +10647,10 @@ snapshots:
       - supports-color
 
   eslint-plugin-react-hooks@4.6.2(eslint@9.14.0(jiti@2.4.0)):
+    dependencies:
+      eslint: 9.14.0(jiti@2.4.0)
+
+  eslint-plugin-react-hooks@5.0.0(eslint@9.14.0(jiti@2.4.0)):
     dependencies:
       eslint: 9.14.0(jiti@2.4.0)
 
