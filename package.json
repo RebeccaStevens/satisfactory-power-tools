@@ -51,7 +51,7 @@
     "@types/react-dom": "18.3.1",
     "@typescript-eslint/eslint-plugin": "8.12.2",
     "@typescript-eslint/parser": "8.12.2",
-    "@vitest/coverage-v8": "2.1.4",
+    "@vitest/coverage-v8": "2.1.6",
     "@vitest/eslint-plugin": "1.1.7",
     "browserslist": "4.24.2",
     "cspell": "8.15.5",
@@ -105,7 +105,7 @@
     "typescript": "5.6.3",
     "vite": "5.4.10",
     "vite-tsconfig-paths": "5.0.1",
-    "vitest": "2.1.4",
+    "vitest": "2.1.6",
     "yaml-eslint-parser": "1.2.3"
   },
   "packageManager": "pnpm@9.12.3",
