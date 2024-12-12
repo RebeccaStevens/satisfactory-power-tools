@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import { vitePlugin as remix } from "@remix-run/dev";
 import strip from "@rollup/plugin-strip";
 import { assert } from "chai";
