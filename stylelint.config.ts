@@ -27,7 +27,7 @@ export default {
     "at-rule-no-unknown": [
       true,
       {
-        ignoreAtRules: ["apply", "screen", "tailwind"],
+        ignoreAtRules: ["apply", "config", "screen", "source", "theme", "variant", "utility"],
       },
     ],
     "plugin/no-low-performance-animation-properties": [

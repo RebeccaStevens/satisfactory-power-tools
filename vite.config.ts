@@ -1,6 +1,7 @@
 /// <reference types="vitest/config" />
 import { vitePlugin as remix } from "@remix-run/dev";
 import strip from "@rollup/plugin-strip";
+import tailwindcss from "@tailwindcss/vite";
 import { assert } from "chai";
 import dedent from "dedent";
 import deassert from "rollup-plugin-deassert";
@@ -37,6 +38,8 @@ export default defineConfig(({ command, mode }) => {
       }),
 
       tsconfigPaths(),
+
+      tailwindcss(),
 
       ...(process.env.NODE_ENV === "production"
         ? [

@@ -20,7 +20,7 @@ export default rsEslint(
     markdown: true,
     react: true,
     stylistic: true,
-    tailwind: true,
+    tailwind: false, // waiting for v4 support
     typescript: {
       parserOptions: {
         projectService: {
