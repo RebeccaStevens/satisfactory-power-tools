@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/knip/schema-jsonc.json",
+  "entry": ["app/root.tsx!", "app/routes.ts", "app/routes/**/*.tsx"],
+  "project": ["app/**/*.ts?(x)", ".react-router/types/**/*.ts?(x)"],
+  "ignoreDependencies": [
+    "@eslint-react/eslint-plugin",
+    "@eslint/compat",
+    "@react-router/node",
+    "eslint-plugin-react-hooks",
+    "eslint-plugin-react-refresh",
+    "isbot",
+    "tailwindcss",
+    "tsc-files",
+  ],
+}

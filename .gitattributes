@@ -1,0 +1,10 @@
+* text=auto eol=lf
+
+/.husky/** linguist-detectable=false
+
+**/tsconfig.json linguist-language=jsonc
+/.vscode/*.json linguist-language=jsonc
+
+/CHANGELOG.md linguist-generated
+
+/docs/** linguist-documentation

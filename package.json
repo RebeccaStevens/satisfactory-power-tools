@@ -1,12 +1,53 @@
 {
   "name": "satisfactory-power-tools",
   "private": true,
+  "homepage": "https://github.com/RebeccaStevens/satisfactory-power-tools#readme",
+  "bugs": {
+    "url": "https://github.com/RebeccaStevens/satisfactory-power-tools/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RebeccaStevens/satisfactory-power-tools"
+  },
+  "funding": [
+    {
+      "type": "ko-fi",
+      "url": "https://ko-fi.com/rebeccastevens"
+    }
+  ],
+  "license": "BSD-3-Clause",
+  "author": {
+    "name": "Rebecca Stevens",
+    "email": "rebecca.stevens@outlook.co.nz"
+  },
   "type": "module",
   "scripts": {
-    "build": "cross-env NODE_ENV=production react-router build",
+    "build": "rimraf build && NODE_ENV=production react-router build",
+    "cz": "git-cz",
     "dev": "react-router dev",
-    "start": "cross-env NODE_ENV=production react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc"
+    "lint": "eslint && pnpm run lint:md && pnpm run lint:spelling && pnpm run lint:knip && pnpm run lint:packages",
+    "lint-fix": "eslint --fix && pnpm run lint:md-fix && pnpm run lint:packages-fix",
+    "lint:js": "eslint \"**/*.?([cm])[jt]s?(x)\"",
+    "lint:js-fix": "eslint \"**/*.?([cm])[jt]s?(x)\" --fix",
+    "lint:knip": "pnpm run lint:knip:development && pnpm run lint:knip:production",
+    "lint:knip:development": "knip",
+    "lint:knip:production": "knip --production",
+    "lint:md": "markdownlint-cli2",
+    "lint:md-fix": "markdownlint-cli2 --fix",
+    "lint:md-full": "pnpm run lint:md && eslint \"**/*.md\"",
+    "lint:md-full-fix": "pnpm run lint:md-fix && eslint \"**/*.md\" --fix",
+    "lint:packages": "pnpm dedupe --check",
+    "lint:packages-fix": "pnpm dedupe",
+    "lint:spelling": "cspell lint --no-progress --show-suggestions --show-context --dot \"**\" \".github/**/*\"",
+    "lint:yaml": "eslint \"**/*.y?(a)ml\"",
+    "lint:yaml-fix": "eslint \"**/*.y?(a)ml\" --fix",
+    "prepare": "husky",
+    "start": "NODE_ENV=production react-router-serve ./build/server/index.js",
+    "test": "pnpm run test:js",
+    "test:js": "vitest --coverage",
+    "test:js-run": "vitest run --coverage",
+    "typecheck": "pnpm run typegen && tsc",
+    "typegen": "react-router typegen"
   },
   "dependencies": {
     "@react-router/node": "7.0.2",
@@ -17,17 +58,47 @@
     "react-router": "7.0.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "19.6.1",
+    "@commitlint/config-conventional": "19.6.0",
+    "@cspell/dict-cryptocurrencies": "5.0.3",
+    "@eslint-react/eslint-plugin": "1.20.1",
+    "@eslint/compat": "1.2.4",
     "@react-router/dev": "7.0.2",
-    "@types/node": "20.17.10",
+    "@rebeccastevens/eslint-config": "3.4.0",
+    "@stylistic/eslint-plugin": "2.12.1",
+    "@tailwindcss/vite": "4.0.0-beta.8",
+    "@types/node": "22.10.2",
     "@types/react": "19.0.1",
     "@types/react-dom": "19.0.2",
-    "autoprefixer": "10.4.20",
-    "cross-env": "7.0.3",
-    "postcss": "8.4.49",
+    "@typescript-eslint/eslint-plugin": "8.18.1",
+    "@typescript-eslint/parser": "8.18.1",
+    "@vitest/coverage-v8": "3.0.0-beta.2",
+    "@vitest/eslint-plugin": "1.1.18",
+    "commitizen": "4.3.1",
+    "cspell": "8.17.1",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "9.17.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-flat-config-utils": "0.4.0",
+    "eslint-import-resolver-typescript": "3.7.0",
+    "eslint-merge-processors": "0.1.0",
+    "eslint-plugin-react-hooks": "5.1.0",
+    "eslint-plugin-react-refresh": "0.4.16",
+    "husky": "9.1.7",
+    "jsonc-eslint-parser": "2.4.0",
+    "knip": "5.41.0",
+    "lint-staged": "15.2.11",
+    "markdownlint-cli2": "0.16.0",
+    "prettier": "3.4.2",
+    "prettier-plugin-packagejson": "2.5.6",
+    "rimraf": "6.0.1",
     "tailwindcss": "4.0.0-beta.8",
+    "tsc-files": "1.1.4",
     "typescript": "5.7.2",
     "vite": "6.0.3",
-    "vite-tsconfig-paths": "5.1.4"
+    "vite-tsconfig-paths": "5.1.4",
+    "vitest": "3.0.0-beta.2",
+    "yaml-eslint-parser": "1.2.3"
   },
   "packageManager": "pnpm@9.15.0"
 }

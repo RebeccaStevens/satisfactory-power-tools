@@ -1,11 +1,4 @@
-import {
-  isRouteErrorResponse,
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "react-router";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration, isRouteErrorResponse } from "react-router";
 
 import type { Route } from "./+types/root";
 import stylesheet from "./app.css?url";
@@ -47,6 +40,7 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  /* eslint-disable functional/no-let, ts/naming-convention */
   let message = "Oops!";
   let details = "An unexpected error occurred.";
   let stack: string | undefined;
@@ -56,9 +50,12 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
     details =
       error.status === 404
         ? "The requested page could not be found."
-        : error.statusText || details;
-  } else if (import.meta.env.DEV && error && error instanceof Error) {
+        : error.statusText.length > 0
+          ? error.statusText
+          : details;
+  } else if (import.meta.env.DEV && error instanceof Error) {
     details = error.message;
+    // eslint-disable-next-line ts/prefer-destructuring
     stack = error.stack;
   }
 
@@ -66,11 +63,20 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
     <main className="pt-16 p-4 container mx-auto">
       <h1>{message}</h1>
       <p>{details}</p>
-      {stack && (
+      {stack !== undefined && (
         <pre className="w-full p-4 overflow-x-auto">
           <code>{stack}</code>
         </pre>
       )}
     </main>
   );
+  /* eslint-enable */
+}
+
+if (import.meta.vitest !== undefined) {
+  const { it, expect } = import.meta.vitest;
+
+  it("boop", () => {
+    expect(1 + 1).toBe(2);
+  });
 }
