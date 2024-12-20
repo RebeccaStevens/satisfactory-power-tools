@@ -22,7 +22,7 @@
   },
   "type": "module",
   "scripts": {
-    "build": "rimraf build && NODE_ENV=production react-router build",
+    "build": "rimraf build && pnpm run generate && NODE_ENV=production react-router build",
     "cz": "git-cz",
     "dev": "react-router dev",
     "generate": "pnpm run generate:peggy && pnpm run generate:game-data",
