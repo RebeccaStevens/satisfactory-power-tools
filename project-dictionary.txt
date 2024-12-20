@@ -1,6 +1,8 @@
 bar
 baz
 boop
+browserslistrc
+centi
 corge
 deassert
 foo

@@ -1,7 +1,8 @@
 {
   "$schema": "node_modules/knip/schema-jsonc.json",
-  "entry": ["app/root.tsx!", "app/routes.ts", "app/routes/**/*.tsx"],
+  "entry": ["app/root.tsx", "app/routes.ts", "app/routes/**/*.tsx", "app/game-data/generate/index.ts"],
   "project": ["app/**/*.ts?(x)", ".react-router/types/**/*.ts?(x)"],
+  "exclude": ["exports", "types"],
   "ignoreDependencies": [
     "@eslint-react/eslint-plugin",
     "@eslint/compat",

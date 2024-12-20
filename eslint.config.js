@@ -1,5 +1,14 @@
 // @ts-check
+import path from "node:path";
+
 import rsEslint from "@rebeccastevens/eslint-config";
+import browserslist from "browserslist";
+import { assert } from "chai";
+
+const browserslistConfig = browserslist.readConfig(path.join(import.meta.dirname, ".browserslistrc"));
+
+const browserslistConfigProduction =
+  browserslistConfig["production"] ?? assert.fail("Failed to load browserslist production config");
 
 export default rsEslint(
   {
@@ -9,42 +18,65 @@ export default rsEslint(
       unsafe: "off",
     },
     formatters: true,
-    functional: "lite",
+    functional: "recommended",
     jsonc: true,
     markdown: true,
-    react: {
-      overrides: {
-        // TODO: Move to @rebeccastevens/eslint-config
-        "react-refresh/only-export-components": [
-          "error",
-          {
-            allowConstantExport: true,
-            allowExportNames: [
-              "action",
-              "clientAction",
-              "clientloader",
-              "ErrorBoundary",
-              "handle",
-              "headers",
-              "HydrateFallback",
-              "links",
-              "loader",
-              "meta",
-              "shouldRevalidate",
-            ],
-          },
-        ],
-      },
-    },
     stylistic: true,
     tailwind: false, // https://github.com/francoismassart/eslint-plugin-tailwindcss/issues/325
     yaml: true,
+    ignores: [
+      "app/game-data/index.ts",
+      "app/game-data/generate/vendor/**",
+      "app/game-data/generate/peggy/collection.js",
+      "app/game-data/generate/peggy/collection.d.ts",
+    ],
   },
   {
-    files: ["**/*.ts", "**/*.tsx"],
+    files: ["app/**"],
     rules: {
-      "import/no-extraneous-dependencies": "off",
+      "no-console": [
+        "error",
+        {
+          allow: ["debug", "info", "warn", "error"],
+        },
+      ],
       "no-empty-pattern": "warn",
+
+      "jsdoc/require-jsdoc": "off",
+
+      "node/no-sync": [
+        "error",
+        {
+          ignores: ["runSync"],
+        },
+      ],
+
+      "unicorn/no-array-for-each": "off",
+      "unicorn/no-unnecessary-polyfills": [
+        "error",
+        {
+          targets: browserslistConfigProduction,
+        },
+      ],
+    },
+  },
+  {
+    files: ["app/game-data/generate/parsers/**/assert.ts"],
+    rules: {
+      "ts/naming-convention": "off",
+    },
+  },
+  {
+    // scripts
+    files: ["app/game-data/generate/index.ts"],
+    rules: {
+      "functional/no-expression-statements": "off",
+    },
+  },
+  {
+    files: ["!app/**"],
+    rules: {
+      "no-console": "off",
     },
   },
 );

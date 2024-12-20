@@ -4,3 +4,8 @@
 /.react-router/
 /build/
 /coverage/
+
+# Generated Files
+app/game-data/index.ts
+app/game-data/generate/peggy/collection.js
+app/game-data/generate/peggy/collection.d.ts

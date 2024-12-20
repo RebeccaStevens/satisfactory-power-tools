@@ -1,3 +1,4 @@
+/* eslint-disable comments/no-unlimited-disable */
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, isRouteErrorResponse } from "react-router";
 
 import type { Route } from "./+types/root";
@@ -40,7 +41,7 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
-  /* eslint-disable functional/no-let, ts/naming-convention */
+  /* eslint-disable */
   let message = "Oops!";
   let details = "An unexpected error occurred.";
   let stack: string | undefined;
@@ -55,7 +56,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
           : details;
   } else if (import.meta.env.DEV && error instanceof Error) {
     details = error.message;
-    // eslint-disable-next-line ts/prefer-destructuring
+
     stack = error.stack;
   }
 
