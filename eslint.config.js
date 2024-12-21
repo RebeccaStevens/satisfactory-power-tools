@@ -4,6 +4,8 @@ import path from "node:path";
 import rsEslint from "@rebeccastevens/eslint-config";
 import browserslist from "browserslist";
 import { assert } from "chai";
+// @ts-ignore
+import reactCompiler from "eslint-plugin-react-compiler";
 
 const browserslistConfig = browserslist.readConfig(path.join(import.meta.dirname, ".browserslistrc"));
 
@@ -33,6 +35,9 @@ export default rsEslint(
   },
   {
     files: ["app/**"],
+    plugins: {
+      "react-compiler": reactCompiler,
+    },
     rules: {
       "no-console": [
         "error",
@@ -50,6 +55,8 @@ export default rsEslint(
           ignores: ["runSync"],
         },
       ],
+
+      "react-compiler/react-compiler": "error",
 
       "unicorn/no-array-for-each": "off",
       "unicorn/no-unnecessary-polyfills": [
