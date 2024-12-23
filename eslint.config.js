@@ -47,6 +47,8 @@ export default rsEslint(
       ],
       "no-empty-pattern": "warn",
 
+      "functional/no-expression-statements": "off",
+
       "jsdoc/require-jsdoc": "off",
 
       "node/no-sync": [

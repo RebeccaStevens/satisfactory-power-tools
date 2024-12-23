@@ -63,7 +63,7 @@ export function upgradeBuildings(
                 })(),
               }),
               Effect.map((values) => {
-                const building = {
+                const mut_building = {
                   ...values,
                   nativeClass: group.nativeClass,
                   className: ClassName(vendorBuilding.className),
@@ -73,10 +73,9 @@ export function upgradeBuildings(
                   icon: upgradeAssetPath(vendorBuilding.icon),
                 } satisfies Building & WithNativeClass;
 
-                // eslint-disable-next-line functional/no-expression-statements, functional/immutable-data
-                building.buildable.building = building;
+                mut_building.buildable.building = mut_building;
 
-                return building;
+                return mut_building;
               }),
               Effect.map((building) => [building.className, building]),
             ),

@@ -105,10 +105,9 @@ export function upgradeVendorData(vendorData: VendorData[]): Effect.Effect<GameD
     // Remove native class from data.
     Effect.tap(() => {
       // eslint-disable-next-line functional/no-loop-statements
-      for (const value of allData.values()) {
+      for (const mut_value of allData.values()) {
         // @ts-expect-error -- Changing type.
-        // eslint-disable-next-line functional/immutable-data, functional/no-expression-statements
-        delete value.nativeClass;
+        delete mut_value.nativeClass;
       }
     }),
   );
