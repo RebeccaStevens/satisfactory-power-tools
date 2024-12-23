@@ -12,7 +12,7 @@ export default function Home() {
       <div className="m-2">
         <h2 className="text-4xl mb-2">Items</h2>
         <div className="flex flex-wrap justify-center gap-4">
-          {gameData.classesCategorized.items
+          {gameData.items
             .values()
             .toArray()
             .map((item) => (
@@ -27,7 +27,7 @@ export default function Home() {
       <div className="m-2">
         <h2 className="text-4xl mb-2 mt-4">Buildings</h2>
         <div className="flex flex-wrap justify-center gap-4">
-          {gameData.classesCategorized.buildings
+          {gameData.buildings
             .values()
             .toArray()
             .map((building) => (

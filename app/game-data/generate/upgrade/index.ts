@@ -100,7 +100,7 @@ export function upgradeVendorData(vendorData: VendorData[]): Effect.Effect<GameD
   return pipe(
     Effect.succeed({
       classes: allData,
-      classesCategorized: categorizedData,
+      ...categorizedData,
     }),
     // Remove native class from data.
     Effect.tap(() => {

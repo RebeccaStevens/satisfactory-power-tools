@@ -16,16 +16,14 @@ import type { Int } from "~/types";
 
 export type GameData = {
   classes: Map<ClassName, Buildable | Building | Item | Machine | Recipe | Equipment>;
-  classesCategorized: {
-    buildables: Set<Buildable>;
-    buildings: Set<Building>;
-    items: Set<Item>;
-    machines: Set<Machine>;
-    recipes: Set<Recipe>;
-    equipments: Set<Equipment>;
-    vehicles: Set<Vehicle>;
-    schematics: Set<Schematic>;
-  };
+  buildables: Set<Buildable>;
+  buildings: Set<Building>;
+  items: Set<Item>;
+  machines: Set<Machine>;
+  recipes: Set<Recipe>;
+  equipments: Set<Equipment>;
+  vehicles: Set<Vehicle>;
+  schematics: Set<Schematic>;
 };
 
 const brandNonEmptyString = Brand.refined<Branded<string, string | symbol>>(
