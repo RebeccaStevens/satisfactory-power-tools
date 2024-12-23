@@ -40,7 +40,7 @@ ignorePaths:
   - .prettierignore
   - .prettierrc.yml
   - .vscode
-  - app/game-data/generate/vendor
+  - app/game-data/vendor
   - build
   - CHANGELOG.md
   - coverage

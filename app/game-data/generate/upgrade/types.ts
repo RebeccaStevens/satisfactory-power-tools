@@ -1,8 +1,9 @@
+import type { Option } from "effect";
 import type * as uom from "effect-uom";
 
 import type { VendorData } from "~/game-data/generate/parsers/types";
 import type { ClassName, ItemForm, ResourceSinkPoint } from "~/game-data/types";
-import type { AssertPath, Int } from "~/types";
+import type { FGImage, Int } from "~/types";
 
 export type PowerInfo = {
   min: uom.Mega<uom.Watt>;
@@ -43,7 +44,7 @@ export type Item = Named & {
   form: ItemForm;
   energyValue: uom.Mega<uom.Joule>;
   radioactiveDecay: uom.Gray;
-  icon: AssertPath | undefined;
+  icon: Option.Option<FGImage>;
   resourceSinkPoints: ResourceSinkPoint;
 };
 
@@ -70,7 +71,7 @@ export type Building = Base & {
   buildable: Buildable;
   energyValue: uom.Mega<uom.Joule>;
   radioactiveDecay: uom.Gray;
-  icon: AssertPath | undefined;
+  icon: Option.Option<FGImage>;
 };
 
 export type Recipe = Named & {

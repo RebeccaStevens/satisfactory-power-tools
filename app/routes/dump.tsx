@@ -1,3 +1,4 @@
+import { FGImg } from "~/components/FGImg";
 import gameData from "~/game-data";
 
 import type { Route } from "./+types/dump";
@@ -17,7 +18,7 @@ export default function Home() {
             .toArray()
             .map((item) => (
               <div key={item.className} className="flex flex-col w-24 gap-1">
-                <img src={item.icon} alt={item.icon} className="w-24 h-24" />
+                <FGImg image={item.icon} alt={item.displayName} size={96} className="w-24 h-24" />
                 <span className="text-sm text-center text-ellipsis line-clamp-2">{item.displayName}</span>
               </div>
             ))}
@@ -32,7 +33,7 @@ export default function Home() {
             .toArray()
             .map((building) => (
               <div key={building.className} className="flex flex-col w-24 gap-1">
-                <img src={building.icon} alt={building.icon} className="w-24 h-24" />
+                <FGImg image={building.icon} alt={building.buildable.displayName} size={96} className="w-24 h-24" />
                 <span className="text-sm text-center text-ellipsis line-clamp-2">{building.buildable.displayName}</span>
               </div>
             ))}

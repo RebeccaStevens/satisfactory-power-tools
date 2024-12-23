@@ -6,8 +6,8 @@ export const Locale = Brand.refined<Locale>(
   (n) => Brand.error(`Expected ${n} to be a nonempty string`),
 );
 
-export type AssertPath = Brand.Branded<string | null, "AssertPath">;
-export const AssertPath = Brand.refined<AssertPath>(
+export type FGImage = Brand.Branded<string, "FGImage">;
+export const FGImage = Brand.refined<FGImage>(
   (n) => typeof n === "string",
   (n) => Brand.error(`Expected ${n} to be a string`),
 );

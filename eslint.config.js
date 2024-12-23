@@ -28,7 +28,7 @@ export default rsEslint(
     yaml: true,
     ignores: [
       "app/game-data/index.ts",
-      "app/game-data/generate/vendor/**",
+      "app/game-data/vendor/**",
       "app/game-data/generate/peggy/collection.js",
       "app/game-data/generate/peggy/collection.d.ts",
     ],
@@ -54,9 +54,11 @@ export default rsEslint(
       "node/no-sync": [
         "error",
         {
-          ignores: ["runSync"],
+          ignores: ["existsSync", "runSync"],
         },
       ],
+
+      "promise/avoid-new": "off",
 
       "react-compiler/react-compiler": "error",
 
@@ -67,6 +69,12 @@ export default rsEslint(
           targets: browserslistConfigProduction,
         },
       ],
+    },
+  },
+  {
+    files: ["app/components/**/*.tsx"],
+    rules: {
+      "unicorn/filename-case": ["off"],
     },
   },
   {
