@@ -7,7 +7,9 @@ import { exclude } from "~/game-data/generate/upgrade/common";
 import type { Vehicle, WithNativeClass } from "~/game-data/generate/upgrade/types";
 import { ClassName } from "~/game-data/types";
 
-export function upgradeVehicles(vendorData: VendorData[]) {
+export function upgradeVehicles(
+  vendorData: VendorData[],
+): Effect.Effect<Array<[ClassName, Vehicle & WithNativeClass]>, LookupError> {
   const vehicleNativeClasses = new Set([
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGVehicleDescriptor'",
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGGolfCartDispenser'",

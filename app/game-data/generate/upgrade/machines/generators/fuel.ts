@@ -7,7 +7,10 @@ import type { GeneratorFuelMachine, Item, WithNativeClass } from "~/game-data/ge
 import { ClassName } from "~/game-data/types";
 import { Int } from "~/types";
 
-export function upgradeGeneratorFuelMachines(vendorData: VendorData[], items: Map<ClassName, Item>) {
+export function upgradeGeneratorFuelMachines(
+  vendorData: VendorData[],
+  items: Map<ClassName, Item>,
+): Effect.Effect<Array<[ClassName, GeneratorFuelMachine & WithNativeClass]>> {
   const generatorFuelMachineNativeClasses = new Set([
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableGeneratorFuel'",
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableGeneratorNuclear'",

@@ -7,7 +7,9 @@ import { exclude } from "~/game-data/generate/upgrade/common";
 import type { Buildable, WithNativeClass } from "~/game-data/generate/upgrade/types";
 import { ClassName } from "~/game-data/types";
 
-export function upgradeBuildables(vendorData: VendorData[]) {
+export function upgradeBuildables(
+  vendorData: VendorData[],
+): Effect.Effect<Array<[ClassName, Buildable & WithNativeClass]>, LookupError> {
   const buildingNativeClasses = new Set([
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildable'",
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableAttachmentMerger'",

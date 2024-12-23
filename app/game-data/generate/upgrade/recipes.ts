@@ -12,7 +12,7 @@ export function upgradeRecipes(
   vendorData: VendorData[],
   items: Map<ClassName, Item>,
   machines: Map<ClassName, Machine>,
-) {
+): Effect.Effect<Array<[ClassName, Recipe & WithNativeClass]>, LookupError> {
   const recipeNativeClasses = new Set([
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGRecipe'",
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGCustomizationRecipe'",

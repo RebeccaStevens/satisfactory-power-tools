@@ -9,7 +9,10 @@ import { exclude, upgradeAssetPath } from "~/game-data/generate/upgrade/common";
 import type { Buildable, Building, WithNativeClass } from "~/game-data/generate/upgrade/types";
 import { ClassName } from "~/game-data/types";
 
-export function upgradeBuildings(vendorData: VendorData[], buildables: Map<ClassName, Buildable>) {
+export function upgradeBuildings(
+  vendorData: VendorData[],
+  buildables: Map<ClassName, Buildable>,
+): Effect.Effect<Array<[ClassName, Building & WithNativeClass]>, LookupError> {
   const buildingNativeClasses = new Set([
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildingDescriptor'",
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGPoleDescriptor'",

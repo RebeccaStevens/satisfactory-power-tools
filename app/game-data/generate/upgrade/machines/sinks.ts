@@ -7,7 +7,9 @@ import type { SinkMachine, WithNativeClass } from "~/game-data/generate/upgrade/
 import { ClassName } from "~/game-data/types";
 import { Int } from "~/types";
 
-export function upgradeSinkMachines(vendorData: VendorData[]) {
+export function upgradeSinkMachines(
+  vendorData: VendorData[],
+): Effect.Effect<Array<[ClassName, SinkMachine & WithNativeClass]>> {
   const sinkMachineNativeClasses = new Set([
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableResourceSink'",
   ] as const);

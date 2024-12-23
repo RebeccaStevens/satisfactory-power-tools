@@ -7,7 +7,9 @@ import { exclude } from "~/game-data/generate/upgrade/common";
 import type { Schematic, WithNativeClass } from "~/game-data/generate/upgrade/types";
 import { ClassName } from "~/game-data/types";
 
-export function upgradeSchematics(vendorData: VendorData[]) {
+export function upgradeSchematics(
+  vendorData: VendorData[],
+): Effect.Effect<Array<[ClassName, Schematic & WithNativeClass]>, LookupError> {
   const schematicNativeClasses = new Set(["/Script/CoreUObject.Class'/Script/FactoryGame.FGSchematic'"] as const);
 
   return pipe(

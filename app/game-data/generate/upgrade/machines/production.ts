@@ -7,7 +7,9 @@ import type { ProductionMachine, WithNativeClass } from "~/game-data/generate/up
 import { ClassName } from "~/game-data/types";
 import { Int } from "~/types";
 
-export function upgradeProductionMachines(vendorData: VendorData[]) {
+export function upgradeProductionMachines(
+  vendorData: VendorData[],
+): Effect.Effect<Array<[ClassName, ProductionMachine & WithNativeClass]>> {
   const productionMachineNativeClasses = new Set([
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableManufacturer'",
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableManufacturerVariablePower'",

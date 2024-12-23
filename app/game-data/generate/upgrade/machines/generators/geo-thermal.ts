@@ -7,7 +7,9 @@ import type { GeneratorGeoThermalMachine, WithNativeClass } from "~/game-data/ge
 import { ClassName } from "~/game-data/types";
 import { Int } from "~/types";
 
-export function upgradeGeneratorGeoThermalMachines(vendorData: VendorData[]) {
+export function upgradeGeneratorGeoThermalMachines(
+  vendorData: VendorData[],
+): Effect.Effect<Array<[ClassName, GeneratorGeoThermalMachine & WithNativeClass]>> {
   const generatorGeoThermalMachineNativeClasses = new Set([
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGBuildableGeneratorGeoThermal'",
   ] as const);

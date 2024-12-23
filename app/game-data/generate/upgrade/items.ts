@@ -7,7 +7,7 @@ import { exclude, upgradeAssetPath, upgradeItemForm } from "~/game-data/generate
 import type { Item, WithNativeClass } from "~/game-data/generate/upgrade/types";
 import { ClassName, ResourceSinkPoint } from "~/game-data/types";
 
-export function upgradeItems(vendorData: VendorData[]) {
+export function upgradeItems(vendorData: VendorData[]): Effect.Effect<Array<[ClassName, Item & WithNativeClass]>> {
   const itemNativeClasses = new Set([
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGItemDescriptor'",
     "/Script/CoreUObject.Class'/Script/FactoryGame.FGConsumableDescriptor'",
