@@ -131,10 +131,10 @@ function parseIconCore(input: string): Effect.Effect<string, ParseError | null> 
       const iconFileNameFull = texturePath.slice(lastSlashIndex + 1);
       const iconFileName = iconFileNameFull.slice(0, iconFileNameFull.lastIndexOf("."));
 
-      const iconPathWIthSize = `${iconDirPath}${iconFileName}`;
-      const iconPath = iconPathWIthSize.replace(/(?:_new)?_\d+(?:_New)?_?$/u, "");
+      const iconPathWithSize = `${iconDirPath}${iconFileName}`;
+      const iconPath = iconPathWithSize.replace(/(?:_new)?_\d+(?:_New)?_?$/u, "");
 
-      return Effect.succeed(`images/vendor/${iconPath}.png`);
+      return Effect.succeed(iconPath);
     }),
   );
 }

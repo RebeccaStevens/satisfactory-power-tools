@@ -1,10 +1,10 @@
-import { Array, Effect, pipe } from "effect";
+import { Array, Effect, Option, pipe } from "effect";
 
 import { LookupError } from "~/errors";
 import { type VendorItemAmount, VendorItemForm } from "~/game-data/generate/parsers/types";
 import type { Item, ItemAmounts, Machine } from "~/game-data/generate/upgrade/types";
 import { type ClassName, ItemForm } from "~/game-data/types";
-import { AssertPath, Int } from "~/types";
+import { FGImage, Int } from "~/types";
 
 export function upgradeItemAmounts(
   list: VendorItemAmount[] | null,
@@ -86,8 +86,8 @@ export function upgradeMachineReference(
   return Effect.succeed(machine);
 }
 
-export function upgradeAssetPath(path: string | null): AssertPath | undefined {
-  return path === null ? undefined : AssertPath(path);
+export function upgradeImage(path: string | null): Option.Option<FGImage> {
+  return path === null ? Option.none() : Option.some(FGImage(path));
 }
 
 export const exclude = new Set([

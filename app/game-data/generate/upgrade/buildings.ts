@@ -5,7 +5,7 @@ import type { IterableElement } from "type-fest";
 import { LookupError } from "~/errors";
 import type { VendorData } from "~/game-data/generate/parsers/types";
 import { buildingClassToBuildableClass } from "~/game-data/generate/upgrade/building-to-buildable";
-import { exclude, upgradeAssetPath } from "~/game-data/generate/upgrade/common";
+import { exclude, upgradeImage } from "~/game-data/generate/upgrade/common";
 import type { Buildable, Building, WithNativeClass } from "~/game-data/generate/upgrade/types";
 import { ClassName } from "~/game-data/types";
 
@@ -70,7 +70,7 @@ export function upgradeBuildings(
 
                   energyValue: uom.Energy<uom.Mega<uom.Joule>>(vendorBuilding.energyValue),
                   radioactiveDecay: uom.Gray(vendorBuilding.radioactiveDecay),
-                  icon: upgradeAssetPath(vendorBuilding.icon),
+                  icon: upgradeImage(vendorBuilding.icon),
                 } satisfies Building & WithNativeClass;
 
                 mut_building.buildable.building = mut_building;

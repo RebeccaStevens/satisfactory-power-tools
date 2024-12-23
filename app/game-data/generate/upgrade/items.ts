@@ -3,7 +3,7 @@ import * as uom from "effect-uom";
 import type { IterableElement } from "type-fest";
 
 import type { VendorData } from "~/game-data/generate/parsers/types";
-import { exclude, upgradeAssetPath, upgradeItemForm } from "~/game-data/generate/upgrade/common";
+import { exclude, upgradeImage, upgradeItemForm } from "~/game-data/generate/upgrade/common";
 import type { Item, WithNativeClass } from "~/game-data/generate/upgrade/types";
 import { ClassName, ResourceSinkPoint } from "~/game-data/types";
 
@@ -45,7 +45,7 @@ export function upgradeItems(vendorData: VendorData[]): Effect.Effect<Array<[Cla
                 form: upgradeItemForm(vendorItem.form),
                 energyValue: uom.Energy<uom.Mega<uom.Joule>>(vendorItem.energyValue),
                 radioactiveDecay: uom.Gray(vendorItem.radioactiveDecay),
-                icon: upgradeAssetPath(vendorItem.icon),
+                icon: upgradeImage(vendorItem.icon),
                 resourceSinkPoints: ResourceSinkPoint(vendorItem.resourceSinkPoints),
               } satisfies Item & WithNativeClass),
               Effect.map((item) => [item.className, item]),
