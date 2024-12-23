@@ -47,7 +47,13 @@ await fsp.writeFile(
   `,
 );
 
-function generateFGImages(): Effect.Effect<Promise<unknown[]>, IOError> {
+function generateFGImages(): Effect.Effect<Promise<unknown>, IOError> {
+  // TODO: Change this logic for release builds.
+  const inCi = process.env["CI"] !== undefined;
+  if (inCi) {
+    return Effect.succeed(Promise.resolve());
+  }
+
   return pipe(
     findAllImageFiles(),
     Effect.map((imageFilePaths) => {
