@@ -1,9 +1,5 @@
 @import "tailwindcss";
-
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
-}
+@import "./theme.css";
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
@@ -25,9 +21,5 @@
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+  @apply bg-gray-950 light:bg-white;
 }

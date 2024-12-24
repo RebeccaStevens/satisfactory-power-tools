@@ -4,7 +4,7 @@ import { Links, Meta, Outlet, Scripts, ScrollRestoration, isRouteErrorResponse }
 import { cn } from "~/utils";
 
 import type { Route } from "./+types/root";
-import stylesheet from "./app.css?url";
+import stylesheet from "./styles/index.css?url";
 import { getUserThemeClass, initThemeWatcher } from "./theme";
 
 export const links: Route.LinksFunction = () => [
@@ -26,7 +26,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   initThemeWatcher();
 
   return (
-    <html lang="en" className={cn("dark:scheme-dark light:scheme-light", { [themeClass]: themeClass === "light" })}>
+    <html lang="en" className={cn("scheme-dark light:scheme-light", { [themeClass]: themeClass === "light" })}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
