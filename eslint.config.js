@@ -31,6 +31,7 @@ export default rsEslint(
       "app/game-data/vendor/**",
       "app/game-data/generate/peggy/collection.js",
       "app/game-data/generate/peggy/collection.d.ts",
+      "app/theme.js",
     ],
   },
   {

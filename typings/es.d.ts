@@ -14,6 +14,10 @@ declare global {
     isArray(arg: unknown): arg is unknown[];
   }
 
+  interface ReadonlyArray<T> {
+    includes(searchElement: unknown, fromIndex?: number): boolean;
+  }
+
   interface Map<K, V> {
     get(key: unknown): V | undefined;
     has(key: unknown): boolean;

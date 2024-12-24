@@ -1,8 +1,11 @@
 /* eslint-disable comments/no-unlimited-disable */
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, isRouteErrorResponse } from "react-router";
 
+import { cn } from "~/utils";
+
 import type { Route } from "./+types/root";
 import stylesheet from "./app.css?url";
+import { getUserThemeClass, initThemeWatcher } from "./theme";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -19,8 +22,11 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const themeClass = getUserThemeClass();
+  initThemeWatcher();
+
   return (
-    <html lang="en">
+    <html lang="en" className={cn("dark:scheme-dark light:scheme-light", { [themeClass]: themeClass === "light" })}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
