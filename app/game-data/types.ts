@@ -154,3 +154,14 @@ export const enum ItemTransporter {
   Belt,
   Pipe,
 }
+
+export {
+  type Buildable,
+  type Item,
+  type Building,
+  type Recipe,
+  type Machine,
+  type Vehicle,
+  type Equipment,
+  type Schematic,
+} from "~/game-data/generate/upgrade/types";
