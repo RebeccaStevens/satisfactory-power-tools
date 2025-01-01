@@ -156,6 +156,8 @@ export const enum ItemTransporter {
 }
 
 export {
+  type Base,
+  type Named,
   type Buildable,
   type Item,
   type Building,

@@ -26,7 +26,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   initThemeWatcher();
 
   return (
-    <html lang="en" className={cn("scheme-dark light:scheme-light", { [themeClass]: themeClass === "light" })}>
+    <html lang="en" className={cn({ [themeClass]: themeClass === "light" })}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

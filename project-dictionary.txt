@@ -5,6 +5,7 @@ browserslistrc
 centi
 corge
 deassert
+ficsit
 foo
 fred
 garply

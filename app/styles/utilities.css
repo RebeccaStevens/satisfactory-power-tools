@@ -1,0 +1,52 @@
+@utility transition-display {
+  transition-property: display, opacity;
+}
+
+@utility bottom-anchor-bottom {
+  bottom: anchor(bottom);
+}
+@utility bottom-anchor-left {
+  bottom: anchor(left);
+}
+@utility bottom-anchor-right {
+  bottom: anchor(right);
+}
+@utility bottom-anchor-top {
+  bottom: anchor(top);
+}
+@utility left-anchor-bottom {
+  left: anchor(bottom);
+}
+@utility left-anchor-left {
+  left: anchor(left);
+}
+@utility left-anchor-right {
+  left: anchor(right);
+}
+@utility left-anchor-top {
+  left: anchor(top);
+}
+@utility right-anchor-bottom {
+  right: anchor(bottom);
+}
+@utility right-anchor-left {
+  right: anchor(left);
+}
+@utility right-anchor-right {
+  right: anchor(right);
+}
+@utility right-anchor-top {
+  right: anchor(top);
+}
+@utility top-anchor-bottom {
+  top: anchor(bottom);
+}
+@utility top-anchor-left {
+  top: anchor(left);
+}
+@utility top-anchor-right {
+  top: anchor(right);
+}
+@utility top-anchor-top {
+  top: anchor(top);
+}

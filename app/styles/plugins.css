@@ -1,0 +1,4 @@
+@plugin "phosphor-icons-tailwindcss" {
+  prefix: ph;
+  layer: icons;
+}

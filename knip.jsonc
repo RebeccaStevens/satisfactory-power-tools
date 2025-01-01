@@ -12,6 +12,7 @@
     "eslint-plugin-react-hooks",
     "eslint-plugin-react-refresh",
     "isbot",
+    "phosphor-icons-tailwindcss",
     "tailwindcss",
     "tsc-files",
   ],
